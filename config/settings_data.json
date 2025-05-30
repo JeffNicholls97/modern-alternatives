@@ -100,6 +100,34 @@
       },
       "category-boxes": {
         "type": "category-boxes",
+        "blocks": {
+          "box_WjLTQ9": {
+            "type": "box",
+            "settings": {
+              "box_title": "New Arrivals",
+              "box_url": ""
+            }
+          },
+          "box_MX3wH8": {
+            "type": "box",
+            "settings": {
+              "box_title": "New Arrivals",
+              "box_url": ""
+            }
+          },
+          "box_rBUQDx": {
+            "type": "box",
+            "settings": {
+              "box_title": "New Arrivals",
+              "box_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "box_WjLTQ9",
+          "box_MX3wH8",
+          "box_rBUQDx"
+        ],
         "settings": {
           "video": "",
           "left_title": "Solar Can Make Changes",
@@ -109,10 +137,10 @@
       "dynamic-featured-collection": {
         "type": "dynamic-featured-collection",
         "settings": {
-          "title": "Featured collection",
-          "layout": "slideshow",
-          "collection": "all-products",
-          "product_count": 12,
+          "title": "Off-Grid power",
+          "layout": "grid",
+          "collection": "solar-generators",
+          "product_count": 5,
           "cta_label": "Shop collection",
           "cta_button_style": "primary"
         }
@@ -124,13 +152,13 @@
       "four_upsell_grid": {
         "type": "four_upsell_grid",
         "settings": {
-          "upsell-title": "We Make Going Solar Simple, Transparent & Affordable",
-          "box-title-upsell-1": "Start Your Quote",
-          "box-body-upsell-1": "Answer a few simple questions to start your solar journey",
-          "box-title-upsell-2": "Receive a Custom Proposal",
-          "box-body-upsell-2": "Our team will provide you with a custom solar solution",
-          "box-title-upsell-3": "Order Online",
-          "box-body-upsell-3": "Place your order online. Pay upfront or secure financing fast with low interest rates",
+          "upsell-title": "Live Free. Live Simple. Live your own way",
+          "box-title-upsell-1": "Lifetime support",
+          "box-body-upsell-1": "Real people, real support—before, during, and after your purchase",
+          "box-title-upsell-2": "Price Match",
+          "box-body-upsell-2": "Found a better price? We’ll match it—guaranteed.",
+          "box-title-upsell-3": "Fast Shipping",
+          "box-body-upsell-3": "Get what you need, when you need it—without delays.",
           "box-title-upsell-4": "Go Solar",
           "box-body-upsell-4": "Install your solar kit with our assistance and enjoy the benefits of going solar!"
         }
@@ -180,9 +208,9 @@
       "dynamic-featured-collection-2": {
         "type": "dynamic-featured-collection-2",
         "settings": {
-          "title": "Featured collection",
+          "title": "Heating & Cooling",
           "layout": "grid",
-          "collection": "",
+          "collection": "heating-cooling",
           "product_count": 5,
           "cta_label": "Shop collection",
           "cta_button_style": "primary"
