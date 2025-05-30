@@ -57,6 +57,45 @@
       },
       "brand_logos": {
         "type": "brand_logos",
+        "blocks": {
+          "brand_cpzfVd": {
+            "type": "brand",
+            "settings": {
+              "link": ""
+            }
+          },
+          "brand_z9LUpC": {
+            "type": "brand",
+            "settings": {
+              "link": ""
+            }
+          },
+          "brand_e3GhQ7": {
+            "type": "brand",
+            "settings": {
+              "link": ""
+            }
+          },
+          "brand_DQhJ4q": {
+            "type": "brand",
+            "settings": {
+              "link": ""
+            }
+          },
+          "brand_AJDYHb": {
+            "type": "brand",
+            "settings": {
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "brand_cpzfVd",
+          "brand_z9LUpC",
+          "brand_e3GhQ7",
+          "brand_DQhJ4q",
+          "brand_AJDYHb"
+        ],
         "settings": {}
       },
       "category-boxes": {
