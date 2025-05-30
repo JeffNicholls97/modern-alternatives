@@ -1,0 +1,655 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "4c9a5cf3-7509-4912-8520-fdabf930bbad": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-0": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Free Shipping",
+            "text": "<p>When you spend $100+<\/p>",
+            "link": ""
+          }
+        },
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-cell-phone",
+            "title": "Give Us A Call",
+            "text": "<p>+1 (201) 555-5555<\/p>",
+            "link": ""
+          }
+        },
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-chat-alternate",
+            "title": "Chat With Us",
+            "text": "<p>We offer 24-hour chat support<\/p>",
+            "link": ""
+          }
+        },
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-pin",
+            "title": "Locations",
+            "text": "<p>Find a store near you<\/p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-0",
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-1",
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-2",
+        "template--15914524737676__4c9a5cf3-7509-4912-8520-fdabf930bbad-1679566965dad26d13-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_spacing": false,
+        "section_width": "full-width",
+        "icon_layout": "center",
+        "color": "#4d4d4d",
+        "icon_color": "#4d4d4d",
+        "background_color": "#f8f8f8",
+        "mobile_layout": "slider"
+      }
+    },
+    "main": {
+      "type": "static-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "font_size": 1.4
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "06797ae0-1687-4455-9c1c-7d6a28b29392": {
+          "type": "sku",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
+        "38c55708-7e9c-4ae5-8c58-2d6a02886bc9": {
+          "type": "views",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_savings": true
+          }
+        },
+        "a6f1d315-89e8-44d8-a241-40206e6837d4": {
+          "type": "affirm",
+          "settings": {}
+        },
+        "c2ff0539-be2c-498f-93d2-c1d7fd8b69d9": {
+          "type": "usps",
+          "settings": {
+            "usp_1": "7.2-21.6kW Output | 6kWh-90kWh Capacity",
+            "usp_2": "Nobody Beats Our Prices. Guaranteed.",
+            "usp_3": "Includes Lifetime Customer Support!",
+            "usp_4": "Whole Home Back Up Power"
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "atc_button_type": "cart_drawer",
+            "enable_local_pickup": true,
+            "live_chat": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "description",
+        "vendor",
+        "06797ae0-1687-4455-9c1c-7d6a28b29392",
+        "rating",
+        "38c55708-7e9c-4ae5-8c58-2d6a02886bc9",
+        "price",
+        "a6f1d315-89e8-44d8-a241-40206e6837d4",
+        "c2ff0539-be2c-498f-93d2-c1d7fd8b69d9",
+        "form",
+        "share"
+      ],
+      "settings": {
+        "gallery_aspect_ratio": "natural",
+        "gallery_image_crop": false,
+        "gallery_thumbnail_position": "left",
+        "gallery_video_autoplay": true,
+        "gallery_video_looping": true,
+        "gallery_hover_zoom": "disabled",
+        "gallery_click_to_zoom": "always"
+      }
+    },
+    "093b601a-87b5-4c17-b1a3-77a3a581d172": {
+      "type": "dynamic-rich-text",
+      "settings": {
+        "width": "wide",
+        "title": "One Powers All - The EcoFlow Delta Pro Ultra",
+        "text": "<p>EcoFlow DELTA Pro Ultra is a residential power backup system designed for both extended outages and daily use. With an unrivaled capacity of 6kWh, 7200W output, and 5.6kW solar input, a single unit can run your entire home. With EcoFlow Smart Home Panel 2, get an uninterrupted power backup experience with automatic switch-over, energy consumption monitoring, and lower electricity bills.<br\/><br\/>With its stackable design, expand EcoFlow DELTA Pro Ultra storage and output in only minutes. Compatible with various energy sources, from solar to gas, to meet your ever-changing power needs.<\/p>",
+        "heading_size": "medium",
+        "text_alignment": "center",
+        "button_text": "Button",
+        "button_link": "",
+        "background_color": "",
+        "text_color": "",
+        "padding_top_and_bottom": 0,
+        "margin_top_and_bottom": 0
+      }
+    },
+    "dynamic_video_33Rg4d": {
+      "type": "dynamic-video",
+      "settings": {
+        "title": "",
+        "url": "https:\/\/youtu.be\/zsonj2HPQdM",
+        "show_caption": false,
+        "caption": "<p>A short description of the video.<\/p>",
+        "autoplay": false,
+        "aspect_ratio": "16-9",
+        "show_overlay": false,
+        "background": "#000000",
+        "opacity": 50
+      }
+    },
+    "dynamic_video_NaaYQE": {
+      "type": "dynamic-video",
+      "settings": {
+        "title": "",
+        "url": "https:\/\/www.youtube.com\/watch?v=AZPTonC1cH8",
+        "show_caption": false,
+        "caption": "<p>A short description of the video.<\/p>",
+        "autoplay": false,
+        "aspect_ratio": "16-9",
+        "show_overlay": false,
+        "background": "#000000",
+        "opacity": 50
+      }
+    },
+    "1bed5875-e83f-4fbe-9cc8-9e2bad82712e": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/delta-pro-ultra-1.jpg",
+        "desktop_height": "400px",
+        "mobile_height": "300px",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Month-long power security.",
+        "heading_url": "",
+        "subheading": "<p>Take home power dependability to another level with up to 90kWh battery capacity. For a standard household, that's over 30 days of essential backup power to keep appliances like lights and refrigerators running strong (time may vary). Stackable and space-saving, store even with limited room. Perfect for garages or utility closets⁵.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Button",
+        "button_link": ""
+      }
+    },
+    "b329455f-595b-4080-ba2a-4fa3b3b49846": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/every-appliance.jpg",
+        "desktop_height": "400px",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "right",
+        "mobile_image_alignment": "top",
+        "heading": "One unit covers every appliance.",
+        "heading_url": "",
+        "subheading": "<p>With a 7.2kW output, EcoFlow DELTA Pro Ultra effortlessly runs even energy-hungry household items, like a 3-ton central air conditioner². For more power, pair 3 inverters with the EcoFlow Smart Home Panel 2 to unlock a 21.6kW AC output. Its X-Fusion feature ensures a constant 7200W output no matter what².<\/p>",
+        "text_alignment": "left",
+        "button_label": "Button",
+        "button_link": ""
+      }
+    },
+    "05613595-4a72-4504-b1ff-72d24c74e362": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/delta-pro-ultra.jpg",
+        "desktop_height": "400px",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Meet heavy-draw demands anywhere.",
+        "heading_url": "",
+        "subheading": "<p>With a 30-amp socket, EcoFlow DELTA Pro Ultra handles your most energy-hogging appliances, like a dryer or water heater. A portable design means this astounding level of power goes anywhere you need it.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Button",
+        "button_link": ""
+      }
+    },
+    "d4762bd9-a612-44bc-bf37-e0d815130e22": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/solar-input.jpg",
+        "desktop_height": "400px",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "right",
+        "mobile_image_alignment": "top",
+        "heading": "One hour of solar for one day of power.",
+        "heading_url": "",
+        "subheading": "<p>By leveraging high and low-PV technologies, a single inverter sets new portable ,solar input standards with a 5.6kW input⁴. Connect three inverters for a monumental 16.8kW, gaining a full day's home energy in 60 minutes. Whether you prefer a portable setup or a rooftop solar system, you can achieve true energy independence.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Button",
+        "button_link": ""
+      }
+    },
+    "dynamic_image_with_text_dpAbRV": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/always-in-charge.jpg",
+        "desktop_height": "400px",
+        "mobile_height": "400px",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Always in charge.",
+        "heading_url": "",
+        "subheading": "<p>You'll be spoilt for choice with EcoFlow DELTA Pro Ultra's charging options. As well as all the traditional methods, like solar and the grid, you can now power up using your gas generator or even your EV charging pile. Use our industry-defining 8800W Multicharge to top up two batteries in only 2 hours.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Button",
+        "button_link": ""
+      }
+    },
+    "3f864b87-632a-42fa-a134-4fdbfba392ff": {
+      "type": "static-product-collapsable",
+      "settings": {
+        "title": "Product Details",
+        "pre_opened": true,
+        "type": "specifications",
+        "additional_headline": "",
+        "additional_text": "",
+        "check_section": false,
+        "product_types": ""
+      }
+    },
+    "e3ae58da-7659-4996-a0d8-e9c34d0c3215": {
+      "type": "static-product-collapsable",
+      "blocks": {
+        "05799012-ffb1-467d-928f-a51d9a47c7b3": {
+          "type": "faqs",
+          "settings": {
+            "question": "1. How does the deposit & early bird pricing work?",
+            "answer": "<p>By putting down a $150 deposit today, you will reserve the right to secure a FORCE 15K at an exclusive early bird price of $5,899, a whopping $1,000 off the standard retail price of $6,899—<strong>reserved for the first 100 customers only by putting down a $150 deposit today!<\/strong><\/p><p>You’ll need to act fast since once the first 100 units are claimed, the price will jump to the standard MSRP of $6,899 so reserve your early bird price of $5,899 today by putting down a $150 deposit now!<\/p><p>*The remaining amount will be due in full 2-weeks prior to the units being ready to ship or once all 100 initial units have been claimed!<\/p><p><strong>*Early Bird Pricing - Save $1,000 Today*<\/strong><\/p><ul><li>Quad Kit - $7,489<\/li><li>Hex Kit - $7,989<\/li><li>Platinum Kit - $8,989<\/li><li>Main Unit Only - $5,899<\/li><\/ul>"
+          }
+        },
+        "0cff2892-16b4-48a4-93ee-459b738c2bf0": {
+          "type": "faqs",
+          "settings": {
+            "question": "2. Can I cancel my deposit?",
+            "answer": "<p>Technically yes, just give us a call, however these units will be in very high demand and are set to become the best selling power station of 2024 and with the intricate manufacturing process involved, demand is bound to soar while availability will absolutely be limited. Designed and assembled in California, the FORCE 15K guarantees top-tier workmanship and durability.<\/p>"
+          }
+        },
+        "51e95f92-1fa0-4f86-89f9-f07b9e9f03c4": {
+          "type": "faqs",
+          "settings": {
+            "question": "3. When will I receive my unit?",
+            "answer": "<p>Units will begin shipping in Early March 2024. Order of shipments will go by first full payments submitted. The remaining amount will be due in full 2-weeks prior to the units being ready to ship or once all 100 initial units have been claimed!<\/p>"
+          }
+        },
+        "a2bf4041-088b-4784-83b0-09187442e5ed": {
+          "type": "faqs",
+          "settings": {
+            "question": "4. Is the Force 15k UL Listed?",
+            "answer": "<p>The Force 15K ESS is not UL Listed as this is not required for off-grid applications, portable power stations and solar generators. You will not be selling excess power back to the grid with a unit like this, you will be securing your energy independence and investing in a clean, quiet, reliable source of power for years to come.<\/p>"
+          }
+        },
+        "39d9a2b2-9582-4e62-bde4-437d9680a7b7": {
+          "type": "faqs",
+          "settings": {
+            "question": "5. How does the warranty work?",
+            "answer": "<p>Each unit is backed by a standard 10-year manufacturer warranty from the date of shipment. The average lifespan of a lithium battery at 90% Depth of Discharge is between 3,000 – 6,000 lifecycles or roughly 5 to 10 years of standard daily use (many more years if used only in backup and recreational situations).<\/p><p>This warranty does not cover negligence or misuse of the battery or the normal wear and tear. If it is deemed that the battery was used improperly, you will be subject to a $150 an hour repair charge plus parts and shipping.<\/p><p>To submit a warranty claim, please contact us directly at support@shopsolar.com. The battery may be required to be shipped back to one of our US warehouse locations for further inspection.<\/p>"
+          }
+        },
+        "1059f3bf-6d32-4ddf-8679-c4e1e9d278a1": {
+          "type": "faqs",
+          "settings": {
+            "question": "6. How heavy is the unit?",
+            "answer": "<p>The unit weighs a total of 395 lbs, however to make moving it easier, we have designed a 2-piece system where you can remove the top inverter portion from the bottom battery portion.<\/p><p>The top weighs approximately 165 lbs, the bottom piece weighs 230 lbs and has wheels for easy maneuverability. <\/p>"
+          }
+        },
+        "1e386040-6c70-47ef-a43c-59ebe9e24014": {
+          "type": "faqs",
+          "settings": {
+            "question": "7. How does the top connect to the bottom?",
+            "answer": "<p>The top and bottom are held together with screw-on plates on either side of the unit and connect via a standard SB175 cable which you can see in the product images.<\/p>"
+          }
+        },
+        "93b2e1c5-16d7-4e9c-b619-02ac1fd69498": {
+          "type": "faqs",
+          "settings": {
+            "question": "8. How quickly can it recharge?",
+            "answer": "<p>You can recharge the unit from 0-100% with up to 4,000W of solar panels in approximately 4 hours. You can also use both 240V and 120V AC power to recharge the unit. <\/p><p>240V power will recharge the unit much faster than the 120V wall charger included with your order, but we highly recommend “slow” charging the unit from AC power whenever possible to preserve the longevity of the battery.<\/p><p>You can recharge the unit from solar and AC power at the same time.<\/p>"
+          }
+        },
+        "195efdb2-e1e7-4174-b9bd-298f9eb91679": {
+          "type": "faqs",
+          "settings": {
+            "question": "9. What is the continuous AC output?",
+            "answer": "<p>The continuous AC output of the unit is 8,000W at either 120V or 240V. Most appliances you will be running are 120V however things like well pumps, dryers, and some larger AC units require 240V output which the Force 15K can easily handle.<\/p>"
+          }
+        },
+        "23801a5f-ea00-45e8-8938-984b85d5bd44": {
+          "type": "faqs",
+          "settings": {
+            "question": "10. How quiet is the Force 15K?",
+            "answer": "<p>The FORCE 15K Solar Power Station operates at an impressive 50 decibels during both standard operation and charging, ensuring a remarkably quiet environment. Multiple decibel rating reports reveals that, even at peak output, it maintains a range of 75-85 decibels—very comparable to the quiet performance of many solar generators and power stations on the market today.<\/p>"
+          }
+        },
+        "a4196ae2-a055-40e8-b4cc-9721a523c233": {
+          "type": "faqs",
+          "settings": {
+            "question": "11. Why should I put down a $150 deposit today?",
+            "answer": "<p>By putting down a $150 deposit, you will reserve the right to secure your FORCE 15K ESS at an exclusive early bird price of $5,899, a whopping $1,000 off the standard retail price of $6,899—<strong>reserved for the first 100 customers by putting down a $150 deposit today!<\/strong><\/p><p>You’ll need to act fast since once the first 100 units are claimed, the price will jump to the standard MSRP of $6,899 - reserve your early bird pricing today by putting down a <a href=\"https:\/\/shopsolarkits.com\/products\/force-15k-ess\"><span style=\"text-decoration:underline\">$150 deposit now!<\/span><\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "05799012-ffb1-467d-928f-a51d9a47c7b3",
+        "0cff2892-16b4-48a4-93ee-459b738c2bf0",
+        "51e95f92-1fa0-4f86-89f9-f07b9e9f03c4",
+        "a2bf4041-088b-4784-83b0-09187442e5ed",
+        "39d9a2b2-9582-4e62-bde4-437d9680a7b7",
+        "1059f3bf-6d32-4ddf-8679-c4e1e9d278a1",
+        "1e386040-6c70-47ef-a43c-59ebe9e24014",
+        "93b2e1c5-16d7-4e9c-b619-02ac1fd69498",
+        "195efdb2-e1e7-4174-b9bd-298f9eb91679",
+        "23801a5f-ea00-45e8-8938-984b85d5bd44",
+        "a4196ae2-a055-40e8-b4cc-9721a523c233"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "pre_opened": true,
+        "type": "faqs",
+        "additional_headline": "",
+        "additional_text": "",
+        "check_section": false,
+        "product_types": ""
+      }
+    },
+    "ae2cc9f3-0e1e-4e16-8b52-33c30e13f4dc": {
+      "type": "static-product-collapsable",
+      "blocks": {
+        "a0ce73b5-8608-4e56-8120-6589eb6d3e7e": {
+          "type": "video_with_text",
+          "settings": {
+            "section_heading": "",
+            "video": "https:\/\/www.youtube.com\/embed\/sFZzpIV0FPs?si=yizvIlNi0B-gKFAM",
+            "video_height": "320",
+            "video_width": "100%",
+            "desktop_height": "natural",
+            "mobile_height": "natural",
+            "desktop_image_alignment": "left",
+            "mobile_image_alignment": "top",
+            "heading": "",
+            "subheading": "<p>The solar investment tax credit (ITC), commonly known as the solar tax credit, offers home and commercial property owners incentives to install solar and move to renewable energy.<\/p><p>The solar tax credit will allow you to claim 30% of the total cost of this solar system as a credit on your federal tax return. <\/p><p>*To be eligible for the tax credit, you must own the system and install it at a residence or business that you own in the USA. You must also fill out Form 5695 (Residential) or Form 2468 (Commercial) <\/p>",
+            "text_alignment": "left",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a0ce73b5-8608-4e56-8120-6589eb6d3e7e"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Take Advantage of The 30% Solar Tax Credit",
+        "pre_opened": true,
+        "type": "video_with_text",
+        "additional_headline": "",
+        "additional_text": "",
+        "check_section": false,
+        "product_types": "Solar Kit"
+      }
+    },
+    "static_product_collapsable_CU4dAn": {
+      "type": "static-product-collapsable",
+      "blocks": {
+        "faqs_JQawFL": {
+          "type": "faqs",
+          "settings": {
+            "question": "Is EcoFlow DELTA Pro Ultra compatible with third-party inverters?",
+            "answer": "<p>EcoFlow DELTA Pro Ultra is not compatible with third-party inverters.<\/p>"
+          }
+        },
+        "faqs_bykKUU": {
+          "type": "faqs",
+          "settings": {
+            "question": "Can I program EcoFlow DELTA Pro Ultra to run at certain times, like during peak rate hours?",
+            "answer": "<p>Yes, charging times can be set.<\/p>"
+          }
+        },
+        "faqs_TUHnXx": {
+          "type": "faqs",
+          "settings": {
+            "question": "What is the Bluetooth version?",
+            "answer": "<p>EcoFlow DELTA Pro Ultra's Bluetooth version supports 4.2 and 5.0.<\/p>"
+          }
+        },
+        "faqs_CF3VjV": {
+          "type": "faqs",
+          "settings": {
+            "question": "Can EcoFlow DELTA Pro Ultra\/EcoFlow Smart Home Panel 2 run without the EcoFlow app?",
+            "answer": "<p>EcoFlow Smart Home Panel 2 requires the EcoFlow app to run. EcoFlow DELTA Pro Ultra works without the EcoFlow app, but it is recommended for convenience.<\/p>"
+          }
+        },
+        "faqs_rcawTr": {
+          "type": "faqs",
+          "settings": {
+            "question": "What is the maximum input wattage for AC charging using a 240V load?",
+            "answer": "<p>When using the C20 outlet and charging at 240V, the maximum charging input is 3000W. AC output is turned off at this time.<\/p>"
+          }
+        },
+        "faqs_TKnr4q": {
+          "type": "faqs",
+          "settings": {
+            "question": "Is AC passthrough possible with a 120V input?",
+            "answer": "<p>Use the C20 outlet for a bypass mode with a 120V input. There is no bypass mode for 240V input.<\/p>"
+          }
+        },
+        "faqs_acdGzt": {
+          "type": "faqs",
+          "settings": {
+            "question": "What is the EcoFlow DELTA Pro Ultra Inverter's surge rating, and how long does it last?",
+            "answer": "<p>LRA 120A; 10.8kW peak watts for 10 seconds.<\/p>"
+          }
+        },
+        "faqs_8m3mCA": {
+          "type": "faqs",
+          "settings": {
+            "question": "Can an electrical appliance plug directly into EcoFlow DELTA Pro Ultra?",
+            "answer": "<p>Yes. EcoFlow DELTA Pro Ultra (Inverter + Battery) works as a standalone unit powering electrical appliances of up to 7200W. There are 11 outlets on the inverter, including NEMA 5-20, TT30, L14-30 supporting 30A, USB-C, and USB-A.<\/p>"
+          }
+        },
+        "faqs_BtB3jc": {
+          "type": "faqs",
+          "settings": {
+            "question": "What is the charging power and time of a single battery?",
+            "answer": "<p>With only one battery pack, the fastest charging input is 6200W, taking about 92 minutes to charge from 0% to 100%. When there are two battery packs, the fastest charging input is 8800W, and it takes about 1 hour and 56 minutes to charge from 0% to 100%.<\/p>"
+          }
+        },
+        "faqs_jVX4Kh": {
+          "type": "faqs",
+          "settings": {
+            "question": "Can EcoFlow DELTA Pro Ultra power a several-ton air conditioner?",
+            "answer": "<p>One EcoFlow DELTA Pro Ultra can power a 3 ton central air conditioning unit. 2 x DELTA Pro Ultra can power two 4-ton central air conditioning units, 3 x DELTA Pro Ultra can power three 4-ton central air conditioning units, but the LRA rating must be within 120A.<\/p>"
+          }
+        },
+        "faqs_Ajm6zq": {
+          "type": "faqs",
+          "settings": {
+            "question": "Can X-Fusion charge EcoFlow DELTA Pro Ultrafrom an AC outlet while it's also plugged into the Smart Home Panel 2?",
+            "answer": "<p>X-Fusion technology ensures that all AC output sockets provide optimal output in terms of wattage and amp. In fast charging mode, the output will always be 7.2kW, no matter how much the input is.<br\/><br\/>When EcoFlow DELTA Pro Ultra is connected to Smart Home Panel 2, AC charging is disabled. 5 + 8 ports and C20 charging port mutual exclusion.<\/p>"
+          }
+        },
+        "faqs_qqKHgJ": {
+          "type": "faqs",
+          "settings": {
+            "question": "Can EcoFlow DELTA Pro Ultra charge from a 15A AC outlet while delivering 240V?",
+            "answer": "<p>When charging EcoFlow DELTA Pro Ultra with 120V, it can output 240V normally. When charging EcoFlow DELTA Pro Ultra with 240V, it cannot output 240V.When charging at 240V using X-Stream charging via an AC inlet, AC output is not available. That is to say, when charging with high voltage 240V input voltage, all AC output is disabled.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faqs_JQawFL",
+        "faqs_bykKUU",
+        "faqs_TUHnXx",
+        "faqs_CF3VjV",
+        "faqs_rcawTr",
+        "faqs_TKnr4q",
+        "faqs_acdGzt",
+        "faqs_8m3mCA",
+        "faqs_BtB3jc",
+        "faqs_jVX4Kh",
+        "faqs_Ajm6zq",
+        "faqs_qqKHgJ"
+      ],
+      "settings": {
+        "title": "Delta Pro Ultra FAQ",
+        "pre_opened": false,
+        "type": "faqs",
+        "additional_headline": "",
+        "additional_text": "",
+        "check_section": false,
+        "product_types": ""
+      }
+    },
+    "static_product_collapsable_LTqBq4": {
+      "type": "static-product-collapsable",
+      "blocks": {
+        "faqs_G6c4EM": {
+          "type": "faqs",
+          "settings": {
+            "question": "What is the Shop Solar returns policy?",
+            "answer": "<p>Returns are free in the first 30 days with no restocking or processing fees, although the customer must pay for the return shipping costs. See our complete return policy on our Shipping, Deliver, and Returns page.<\/p>"
+          }
+        },
+        "faqs_RRdKwU": {
+          "type": "faqs",
+          "settings": {
+            "question": "What’s covered by the Shop Solar returns policy?",
+            "answer": "<p>Our returns policy covers all purchases made through Shop Solar Kits. For warranty issues, as authorized distributors, we honor the full manufacturer warranty of ALL the brands on our website. See our complete returns and warranty policies on our Shipping, Deliver, and Returns page.<\/p>"
+          }
+        },
+        "faqs_WGNVWk": {
+          "type": "faqs",
+          "settings": {
+            "question": "How long will it take to receive my Shop Solar order?",
+            "answer": "<p>All orders are processed within 72 hours and you can expect delivery within 5 to 10 business days. You will receive access to our customer portal after ordering, where it is easy to track all your shipments. See our Shipping, Delivery and Returns page for more details.<\/p>"
+          }
+        },
+        "faqs_mdqejV": {
+          "type": "faqs",
+          "settings": {
+            "question": "What are the financing and payment options at Shop Solar?",
+            "answer": "<p>We offer several ways to pay to make getting your solar kit simple:<\/p><ul><li>Credit Card: if the purchase is greater than your card’s limit, you can split the cost onto multiple cards as well as Paypal, financing through Affirm, and ACH\/bank transfer<\/li><li>You can arrange financing during the checkout process, see our <a href=\"https:\/\/shopsolarkits.com\/pages\/solar-financing\"><span style=\"text-decoration:underline\">Financing page<\/span><\/a> for more details<\/li><\/ul>"
+          }
+        },
+        "faqs_YqpaJa": {
+          "type": "faqs",
+          "settings": {
+            "question": "How does the Shop Solar Kits Lifetime Support work?",
+            "answer": "<p>Our legendary lifetime customer support has helped make us the #1 solar kit retailer. We have a dedicated team of solar professionals standing by to help you navigate the world of solar with ease. From selecting the perfect solar kit to installation and beyond, we provide support and expertise at every step of the journey.If you need help with ordering, shipping, troubleshooting, expanding your system, warranty issues, or anything else you have questions about for as long as you own your Shop Solar Kits equipment, we’ve got you covered: we’re always only a phone call or email away.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faqs_G6c4EM",
+        "faqs_RRdKwU",
+        "faqs_WGNVWk",
+        "faqs_mdqejV",
+        "faqs_YqpaJa"
+      ],
+      "settings": {
+        "title": "Shop Solar FAQ",
+        "pre_opened": false,
+        "type": "faqs",
+        "additional_headline": "",
+        "additional_text": "",
+        "check_section": false,
+        "product_types": ""
+      }
+    },
+    "384d5219-e678-4401-8425-d67abf16c9c6": {
+      "type": "static-product-collapsable",
+      "settings": {
+        "title": "Reviews & Questions",
+        "pre_opened": false,
+        "type": "reviews",
+        "additional_headline": "",
+        "additional_text": "",
+        "check_section": false,
+        "product_types": ""
+      }
+    },
+    "recommendations": {
+      "type": "static-product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like"
+      }
+    },
+    "recently-viewed": {
+      "type": "static-recently-viewed",
+      "disabled": true,
+      "settings": {
+        "enable_recently_viewed_products": true
+      }
+    }
+  },
+  "order": [
+    "4c9a5cf3-7509-4912-8520-fdabf930bbad",
+    "main",
+    "093b601a-87b5-4c17-b1a3-77a3a581d172",
+    "dynamic_video_33Rg4d",
+    "dynamic_video_NaaYQE",
+    "1bed5875-e83f-4fbe-9cc8-9e2bad82712e",
+    "b329455f-595b-4080-ba2a-4fa3b3b49846",
+    "05613595-4a72-4504-b1ff-72d24c74e362",
+    "d4762bd9-a612-44bc-bf37-e0d815130e22",
+    "dynamic_image_with_text_dpAbRV",
+    "3f864b87-632a-42fa-a134-4fdbfba392ff",
+    "e3ae58da-7659-4996-a0d8-e9c34d0c3215",
+    "ae2cc9f3-0e1e-4e16-8b52-33c30e13f4dc",
+    "static_product_collapsable_CU4dAn",
+    "static_product_collapsable_LTqBq4",
+    "384d5219-e678-4401-8425-d67abf16c9c6",
+    "recommendations",
+    "recently-viewed"
+  ]
+}

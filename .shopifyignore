@@ -1,0 +1,97 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+package.json
+
+# Build tools and task runners
+gulpfile.js
+webpack.config.js
+.eslintrc
+.stylelintrc
+.prettierrc
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Log files
+*.log
+
+# Source maps
+*.map
+
+# Sass
+.sass-cache/
+*.sass-cache
+
+# Development and build directories
+src/
+build/
+dist/
+dev/
+
+# Configuration files
+config.yml
+config.json
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs/
+
+# Testing
+test/
+tests/
+__tests__/
+jest.config.js
+*.spec.js
+*.test.js
+
+# Tailwind CSS
+tailwind.config.js
+postcss.config.js
+
+# Other build tools
+.babelrc
+.browserslistrc
+.editorconfig
+
+# Shopify theme kit
+config.yml
+
+# Custom source files (adjust as needed)
+src_scripts/
+src_styles/
+
+# Miscellaneous
+.env
+.env.*
+*.csv
+*.xls
+*.xlsx
+
+# Specific to your project (add any other files or directories you don't want to upload)
+# example:
+# custom-dev-script.js
+# legacy-styles/

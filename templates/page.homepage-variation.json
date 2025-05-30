@@ -1,0 +1,267 @@
+{
+  "sections": {
+    "24382fb3-48e5-4e32-bc50-f6c3873464af": {
+      "type": "new-hero-icons",
+      "settings": {
+        "header_logo_url": "",
+        "bckg_image": "shopify:\/\/shop_images\/5.02-1080x1080-Shop_Solar-LCZ-174072_70222da6-9e5c-4b8a-b6ac-f3406c6d685e.png",
+        "background_color": "#222f3f",
+        "menu": "",
+        "hero_main_header": "Skip the Aggressive Sales Reps,Buy Solar Online & Save Thousands.",
+        "text_alignment": "middle",
+        "hero_quote_btn": "Learn More",
+        "first_button_link": "",
+        "hero_shop_btn": "Shop Promotions",
+        "second_button_link": "shopify:\/\/collections\/promotions",
+        "icons_color": "#000000",
+        "bellow_layer_color": "#ffffff",
+        "bellow_layer": 60,
+        "layer_opacity": true,
+        "show_icons": false
+      }
+    },
+    "7bb0d943-c4e3-46db-8fb7-2770e6cdfea8": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "off-grid-solar-kits",
+            "image": "shopify:\/\/shop_images\/1_c6a390da-3230-4ac5-9c7d-bfa2cf4d37fc.jpg",
+            "title": "Off-Grid Solar Kits"
+          }
+        },
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "hybrid-solar-system-kits",
+            "image": "shopify:\/\/shop_images\/2_88c523b1-1109-4acc-99bf-bcafebbf4df9.jpg",
+            "title": "Hybrid Solar Kits"
+          }
+        },
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "emergency-solar-power-kits",
+            "image": "shopify:\/\/shop_images\/3_29237917-b165-4a18-a0d6-99d0c7e8396e.jpg",
+            "title": "Emergency Backup Solar Kits"
+          }
+        },
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "portable-solar-kits",
+            "image": "shopify:\/\/shop_images\/4_7683af8d-fda4-495a-868c-09faeba152ab.jpg",
+            "title": "Mobile\/Portable Solar Kits"
+          }
+        }
+      },
+      "block_order": [
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-1",
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-0",
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-2",
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "thumbnail_columns_desktop": 4,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "",
+        "cta_link": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "950f38f1-93df-41ed-9b46-f64bd4d7e0da": {
+      "type": "dynamic-rich-text",
+      "settings": {
+        "width": "full-width",
+        "title": "Why Solar Power?",
+        "text": "<p>Think about the most valuable things in life. Comfort, independence, financial freedom, and a stable future might top that list. Now, imagine a single decision that could bring you all of these benefits. Welcome to the world of solar power.<\/p><p>Solar power allows you to take control of your energy consumption and say goodbye to unpredictable utility bills. With solar power, you're producing your own energy, shielding yourself from constantly rising energy prices and the utility companies.<\/p><p>Ever dreamt of being energy independent? Picture a world where blackouts are a thing of the past.  Imagine exploring the open road, reaching those secluded places far from the beaten path, or building a home away from the bustling city.  Solar power turns that dream into reality.  You create your own power, right where you need it.<\/p><p>Solar power is also an investment in your financial future. Not only can solar power drastically reduce or even eliminate your energy bills, but any excess power you produce can often be sold back to the grid, turning your home into a mini power station that actually earns you money.<\/p><p>And let's not forget the comfort. Solar power systems are quiet, require little maintenance, and can power everything in your home from the air conditioning and heating systems to your favorite kitchen gadgets.<\/p><p>In essence, solar power gives you the benefits of comfort, independence and financial freedom, all bundled into a package that's good for you and good for the planet. <\/p>",
+        "heading_size": "medium",
+        "text_alignment": "left"
+      }
+    },
+    "ded6f03f-70bd-4ce5-996c-c843023d8d82": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/Untitled_design_6.png",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Understanding Solar Power",
+        "subheading": "<p>The sun produces enough energy everyday to power the entire planet, we just need to harness it.  Solar technology captures this energy and converts it into electricity we can use in our homes, businesses, or on the move.  It’s clean, sustainable, and incredibly efficient. And the best part? There are several ways you can integrate solar power into your life.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Start Your Quote",
+        "button_link": "shopify:\/\/pages\/solar-quote"
+      }
+    },
+    "460e5d6f-ed04-4cd5-a5d5-ce4140815fce": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/2_a5e88087-1aba-4042-bc89-c45c9bcb2c20.png",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "right",
+        "mobile_image_alignment": "top",
+        "heading": "Grid-Tie Solar Systems",
+        "subheading": "<p>Grid-tie solar systems are an excellent way to reduce energy costs while still having the peace of mind of a connection to the utility grid.  These are the typical systems you see in your area on your neighbors homes.  During the day, your solar panels generate electricity that can be used immediately or sold back to the grid. At night, or during times of low solar generation, you can draw power from the grid. <\/p>",
+        "text_alignment": "left",
+        "button_label": "Start Your Quote",
+        "button_link": "shopify:\/\/pages\/solar-quote"
+      }
+    },
+    "73b25a57-55c5-4b25-8b71-9d98c4c0d069": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/5_00519aca-4cb2-4659-b035-5a84f5030f94.png",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Hybrid Solar Systems",
+        "subheading": "<p>Hybrid systems combine the best of grid-tied and off-grid solar systems. They can be connected to the grid but also have a battery backup. This means you can store excess solar power for use when the sun isn't shining, making you even less dependent on the grid and ensuring a constant supply of power even during blackouts.  This is also great in areas where you do not earn as much from selling energy back into the grid.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Start Your Quote",
+        "button_link": "shopify:\/\/pages\/solar-quote"
+      }
+    },
+    "385de3ea-cb3d-481f-a3da-007bac36cf44": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/3_2b81635e-8191-4e76-bc28-81f3bc1311bf.png",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "right",
+        "mobile_image_alignment": "top",
+        "heading": "Off-Grid Solar",
+        "subheading": "<p>Living off-grid doesn't mean living without power. In fact, off-grid solar systems can provide more than enough energy for your entire home or cabin, completely free from the restrictions, costs, and vulnerabilities of the grid.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Start Your Quote",
+        "button_link": "shopify:\/\/pages\/solar-quote"
+      }
+    },
+    "12f22a68-a817-402a-b495-d32e18047b6a": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/6_8b340b27-faed-41c6-a785-be838848e215.png",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Battery-Based Systems",
+        "subheading": "<p>A battery-based solar system gives you the ultimate in energy independence. Your solar panels charge a large battery bank, from which you draw power as needed. This setup is ideal for remote locations without reliable grid access, or for those who prefer complete control over their energy use.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Start Your Quote",
+        "button_link": "shopify:\/\/pages\/solar-quote"
+      }
+    },
+    "e8355983-7983-45bc-bab7-abb2e4179749": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/4_f5620c18-2ea8-4f56-9131-44e366b481ad.png",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "right",
+        "mobile_image_alignment": "top",
+        "heading": "Mobile Solar for RVs and Vans",
+        "subheading": "<p>The sun doesn't stop shining when you're on the move, so why should your power supply? With mobile solar solutions, you can harness the power of the sun to keep your RV, van, or mobile home powered up wherever you roam. Freedom and sustainability at the same time.<\/p>",
+        "text_alignment": "left",
+        "button_label": "Start Your Quote",
+        "button_link": "shopify:\/\/pages\/solar-quote"
+      }
+    },
+    "b22c7d2f-eda4-47fd-ba36-6c73da1dbc09": {
+      "type": "dynamic-rich-text",
+      "settings": {
+        "width": "wide",
+        "title": "No matter your energy needs, ShopSolar.com has a solar solution for you.",
+        "text": "<p>But where do you start? Here are three easy ways to kickstart your solar journey:<\/p>",
+        "heading_size": "medium",
+        "text_alignment": "center"
+      }
+    },
+    "bf578c26-f150-4548-8fca-57b42c4389ab": {
+      "type": "dynamic-promo-grid",
+      "blocks": {
+        "template--16000729612428__bf578c26-f150-4548-8fca-57b42c4389ab-promotion-1": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_af693180-aff2-416c-9156-27a13a801b1f.png",
+            "title": "🎓 Learn The Basics",
+            "text": "We'll walk you through everything you need to know about solar power, from its countless benefits to how it all works, in a fun and easy-to-understand way. Empower yourself with knowledge and become a part of the solar revolution!",
+            "color": "#ffffff",
+            "block_link": "https:\/\/shopsolarkits.com\/products\/mini-course",
+            "button_text": "Take The Course",
+            "button_style": "primary",
+            "show_overlay": true,
+            "background": "#222F3E",
+            "opacity": 65
+          }
+        },
+        "template--16000729612428__bf578c26-f150-4548-8fca-57b42c4389ab-promotion-2": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Peace_of_mind_1920x1080_c874049a-fa25-466b-a469-5f56a430914e.jpg",
+            "title": "💰 Get a Solar Quote",
+            "text": "Curious about which type of solar system is right for you? Let us show you!  Request a free, no-obligation solar quote and discover the stunning financial benefits awaiting you. See firsthand how the sun can put money back in your pocket!",
+            "color": "#FFFFFF",
+            "block_link": "https:\/\/shopsolarkits.com\/pages\/solar-kit-recommender",
+            "button_text": "Start Your Quote",
+            "button_style": "primary",
+            "show_overlay": true,
+            "background": "#222F3E",
+            "opacity": 65
+          }
+        },
+        "template--16000729612428__bf578c26-f150-4548-8fca-57b42c4389ab-promotion-3": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_1d22344c-01b6-460e-a197-eb92a7436062.png",
+            "title": "🌐 Join The Solar Lab",
+            "text": "Step into a space of like-minded solar enthusiasts! Our community is brimming with people just like you who are celebrating the solar lifestyle. Get tips, share experiences, ask questions, and get inspired as you embark on this sun-powered adventure!",
+            "color": "#ffffff",
+            "block_link": "https:\/\/thesolarlab.com\/home",
+            "button_text": "Join The Community",
+            "button_style": "primary",
+            "show_overlay": true,
+            "background": "#222F3E",
+            "opacity": 65
+          }
+        }
+      },
+      "block_order": [
+        "template--16000729612428__bf578c26-f150-4548-8fca-57b42c4389ab-promotion-1",
+        "template--16000729612428__bf578c26-f150-4548-8fca-57b42c4389ab-promotion-2",
+        "template--16000729612428__bf578c26-f150-4548-8fca-57b42c4389ab-promotion-3"
+      ],
+      "settings": {
+        "title": "",
+        "section_height": "small",
+        "section_columns": 3,
+        "text_alignment": "top-left"
+      }
+    }
+  },
+  "order": [
+    "24382fb3-48e5-4e32-bc50-f6c3873464af",
+    "7bb0d943-c4e3-46db-8fb7-2770e6cdfea8",
+    "950f38f1-93df-41ed-9b46-f64bd4d7e0da",
+    "ded6f03f-70bd-4ce5-996c-c843023d8d82",
+    "460e5d6f-ed04-4cd5-a5d5-ce4140815fce",
+    "73b25a57-55c5-4b25-8b71-9d98c4c0d069",
+    "385de3ea-cb3d-481f-a3da-007bac36cf44",
+    "12f22a68-a817-402a-b495-d32e18047b6a",
+    "e8355983-7983-45bc-bab7-abb2e4179749",
+    "b22c7d2f-eda4-47fd-ba36-6c73da1dbc09",
+    "bf578c26-f150-4548-8fca-57b42c4389ab"
+  ]
+}

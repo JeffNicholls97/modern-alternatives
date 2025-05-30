@@ -1,0 +1,127 @@
+<style>
+    #shopify-section-{{ section.id }} .site-header-actions-contact p,
+    #shopify-section-{{ section.id }} .site-header-actions-contact a,
+    #shopify-section-{{ section.id }} .site-header-actions-contact svg g {
+        color: {{ settings.color_header_background }};
+        fill: {{ settings.color_header_background }};
+        text-decoration: none;
+    }
+    #shopify-section-{{ section.id }} .site-header-actions-contact a span {
+        color: {{ settings.color_button_background }};
+        font-size: 20px;
+        line-height: 1;
+    }
+    #shopify-section-{{ section.id }} .site-header-actions-contact {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+    #shopify-section-{{ section.id }} .site-header-actions-contact p {
+        margin: 2px;
+    }
+    #shopify-section-{{ section.id }} .site-header-contact-call-btn {
+        display: flex;
+        align-items: center;
+    }
+    #shopify-section-{{ section.id }} .site-header-actions-contact svg {
+        max-height: 20px;
+        width: 24px;
+        margin-right: 3px;
+    }
+    {% unless template contains 'cart' or request.path == '/pages/solar-kit-recommender' %}
+    #shopify-section-{{ section.id }} .site-header-actions {
+        margin-right: 80px;
+    }
+    {% endunless %}
+    #shopify-section-{{ section.id }} .site-mobile-nav .site-header-actions {
+        height: unset;
+        margin-top: auto;
+        margin-bottom: 30px;
+        max-height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #shopify-section-{{ section.id }} .site-header-mobile-search-button--button svg * {
+        stroke: {{ settings.color_header_background }};
+    }
+    {% if template contains 'cart' %}
+    #shopify-section-{{ section.id }} .site-header-mobile-search-button {
+        left: 0;
+    }
+    {% endif %}
+</style>
+
+{% comment %}
+<ul class="site-header-actions test" data-header-actions>
+    {% assign phone = section.settings.header_contact_section_phone %}
+    {% assign contact_title = section.settings.header_contact_title %}
+    {% assign contact_info = section.settings.header_contact_info %}
+    <div class="site-header-actions-contact">
+        {{ contact_title }}
+        <a class="site-header-contact-call-btn" href="tel:{{ phone }}">
+            {% render 'icon-library', id: 'icon-contact-phone' %}
+            <span>{{ phone }}</span>
+        </a>
+        {{ contact_info }}
+    </div>
+
+    {% comment %}
+    {% unless template contains 'cart' %}
+    {% if shop.customer_accounts_enabled %}
+      {% unless customer %}
+        <li class="site-header-actions__account-link">
+          <a
+            class="site-header_account-link-anchor"
+            href="{{ routes.account_login_url }}"
+          >
+            <span class="site-header__account-icon">
+              {%
+                  render 'icon-library',
+                  id: 'icon-account',
+              %}
+            </span>
+
+            <span class="site-header_account-link-text">
+              {{ 'header.account.login' | t }}
+            </span>
+          </a>
+        </li>
+      {% else %}
+        <li class="site-header-actions__account-link">
+          <span class="site-header__account-icon">
+            {% render 'icon-library', id: 'icon-account' %}
+          </span>
+          <span class="site-header__account-links">
+            <a
+              class="site-header__account-link--account"
+              href="{{ routes.account_url }}"
+            >
+              {{ 'header.account.title' | t }}
+            </a>
+
+            <a
+              class="site-header__account-link--logout"
+              href="{{ routes.account_logout_url }}"
+              data-no-instant
+            >
+              {{ 'header.account.logout' | t }}
+            </a>
+          </span>
+        </li>
+      {% endunless %}
+    {% endif %}
+    {% else %}
+    <li class="site-header-actions__account-link">
+      <a
+              class="site-header_account-link-anchor"
+              href="/pages/contact-us"
+      >
+        <span class="site-header_account-link-text">
+          Contact Us
+        </span>
+      </a>
+    </li>
+    {% endunless %}
+    {% endcomment %}
+</ul>
+{% endcomment %}

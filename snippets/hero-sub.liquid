@@ -1,0 +1,61 @@
+<div class="mt-20 py-10 md:py-0">
+  {% if section.settings.marquee-pos == 'top' %}
+    <div id="container" class="bg-[#FAFAFA] py-5 border-t border-[#A4A4A4] w-full">
+      <div class="scroll flex items-center w-full gap-[140px]">
+        <span class="flex item items-center w-full gap-5">
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_one }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-06c8f1a7" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_two }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-48b7e8a6" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_three }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-061c5432" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_four }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-5810c578" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        </span>
+        <span class="flex item w-full items-center gap-5">
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_one }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-b528ea08" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_two }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-02c443d3" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_three }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-89f30182" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+          <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_four }}</h4>
+          <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-67b6c958" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        </span>
+      </div>
+    </div>
+  {% endif %}
+  <div class="w-full h-auto md:h-[350px] py-10 md:py-0 flex items-center justify-center text-center relative">
+    <img alt="{{ section.settings.background.alt }}" class="absolute inset-0 w-full h-full object-cover hs-id-6da5b525" height="400" loading="lazy" src="{{ section.settings.background_image | img_url: 'large' }}" width="1440"/>
+    <div class="mx-auto flex flex-col justify-center items-center relative z-10 max-w-[1440px] px-10 md:px-5">
+      <h2 class="text-3xl mb-10 text-white font-bold">{{ section.settings.title }}</h2>
+      <p class="text-white w-full md:max-w-[70%] min-w-[70%] leading-[35px]">{{ section.settings.long_text }}</p>
+    </div>
+  </div>
+  {% if section.settings.marquee-pos == 'bottom' %}
+  <div id="container" class="bg-[#FAFAFA] py-5 border-b border-[#A4A4A4] w-full">
+    <div class="scroll flex items-center w-full gap-[140px]">
+      <span class="flex item items-center w-full gap-5">
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_one }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-50ad30ea" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_two }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-6e80d238" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_three }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-9d8f6ca7" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_four }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-9f0436e4" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+      </span>
+      <span class="flex item w-full items-center gap-5">
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_one }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-9495ca23" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_two }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-c983c29d" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_three }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-18ab6fb4" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+        <h4 class="text-2xl text-black font-bold">{{ section.settings.usp_four }}</h4>
+        <img alt="Icon representing sun" class="w-8 h-8 object-contain hs-id-1e0ea9dd" height="30" loading="lazy" src="{{ section.settings.icon_image | img_url: 'master' }}" width="30"/>
+      </span>
+    </div>
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,24 @@
+<select name="appliance-name" class="calculator__appliance-selection" aria-hidden="true" onchange="eventController(event, this)">
+    {% capture watt_appliances %}{% include 'watt-appliances' %}{% endcapture %}
+    {% assign watt_appliances = watt_appliances | remove: '[' | remove: ']' | split: ' },' %}
+    {% for watt_appliance in watt_appliances %}
+        {% assign watt_appliance_object = watt_appliance | remove: '{ ' | split: ',' %}
+        {% assign name = '' %}
+        {% for watt_appliance_param in watt_appliance_object %}
+            {% assign watt_appliance_param_array = watt_appliance_param | split: ': ' %}
+            {% assign key = watt_appliance_param_array | first | remove: '"' %}
+            {% assign value = watt_appliance_param_array | last | remove: '"' %}
+            {% if key contains 'name' %}
+                {% assign name = value %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        <option value='{{ watt_appliance }} }'>{{ name }}</option>
+    {% endfor %}
+</select>
+<input type="text" value="0" name="watts" onchange="eventController(event, this)" readonly>
+<input type="text" value="0" name="quantity" onchange="eventController(event, this)">
+<input type="text" value="0" name="totalWatts" readonly>
+<input type="text" value="0" name="hoursOfUse" onchange="eventController(event, this)">
+<input type="text" value='0' name="wattHours" readonly>
+<button class="calculator__delete-button" name="removeRow" onclick="eventController(event, this)"><i class="fa fa-close"></i></button>

@@ -1,0 +1,562 @@
+{
+  "pages": [
+    {
+      "ca": "\/pages\/about-us",
+      "us": "\/pages\/about-us"
+    },
+    {
+      "ca": "\/pages\/contact-us-canada",
+      "us": "\/pages\/contact"
+    },
+    {
+      "ca": "\/pages\/shipping-returns-canada",
+      "us": "\/pages\/shipping-delivery-returns"
+    },
+    {
+      "ca": "\/pages\/privacy-policy",
+      "us": "\/pages\/privacy-policy"
+    },
+    {
+      "ca": "\/pages\/disclaimer",
+      "us": "\/pages\/disclaimer"
+    },
+    {
+      "ca": "\/pages\/terms-of-service",
+      "us": "\/pages\/terms-of-service"
+    },
+    {
+      "ca": "\/pages\/why-buy-from-us",
+      "us": "\/pages\/why-buy-from-ssk"
+    }
+  ],
+  "products": [
+    {
+      "ca": "\/products\/2-x-orient-power-lifepo4-battery-5-12kw-48v100ah-wall-mounted-powerwall",
+      "us": "\/products\/2-x-orient-power-5-12kwh-lifepo4-batteries"
+    },
+    {
+      "ca": "\/products\/4-x-orient-power-lifepo4-battery-5-12kw-48v100ah-wall-mounted-powerwall",
+      "us": "\/products\/4-x-orient-power-5-12kwh-lifepo4-batteries"
+    },
+    {
+      "ca": "\/products\/b300",
+      "us": "\/products\/bluetti-b300-open-box"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-hex-kit",
+      "us": "\/products\/bluetti-ac200-max-hex-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-eclipse-kit",
+      "us": "\/products\/bluetti-ac200-max-eclipse-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-nomad-kit",
+      "us": "\/products\/bluetti-ac200-max-nomad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max",
+      "us": "\/products\/open-box-bluetti-ac200-max-2-200w-2-048wh-solar-generator-expandable-up-to-8-192wh"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-double-kit",
+      "us": "\/products\/bluetti-ac200-max-double-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-quad-kit",
+      "us": "\/products\/bluetti-ac200-max-quad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-b230",
+      "us": "\/products\/bluetti-ac200max-4000"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200-max-quad-kit-1",
+      "us": "\/products\/bluetti-ac200-max-4-quad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200p-hex-kit",
+      "us": "\/products\/bluetti-ac200-hex-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200p",
+      "us": "\/products\/bluetti-ac200p-portable-solar-generator-2-000wh-2-000w-output-700w-pv-input-4-800w-surge-open-box"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200p-nomad-kit",
+      "us": "\/products\/bluetti-ac200p-nomad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac200p-quad-kit",
+      "us": "\/products\/bluetti-ac200p-quad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac300-b300",
+      "us": "\/products\/bluetti-ac300-b300"
+    },
+    {
+      "ca": "\/products\/bluetti-ac300-hex-kit",
+      "us": "\/products\/bluetti-ac300-hex-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac300-nomad-kit",
+      "us": "\/products\/bluetti-ac300-nomad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac300-quad-kit",
+      "us": "\/products\/bluetti-ac300-quad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac300-6144wh-hex-kit",
+      "us": "\/products\/bluetti-ac300-6kwh-hex-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac300",
+      "us": "\/products\/bluetti-ac300-base-unit-expandable-solar-power-station-no-battery-inside-open-box"
+    },
+    {
+      "ca": "\/products\/bluetti-ac500-b300s",
+      "us": "\/products\/bluetti-ac500-b300s"
+    },
+    {
+      "ca": "\/products\/bluetti-ac500-5-000w-3-072wh-hex-kit",
+      "us": "\/products\/ac500-hex-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac500-nomad-kit",
+      "us": "\/products\/bluetti-ac500-nomad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac500-quad-kit",
+      "us": "\/products\/ac500-quad-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-ac500-dual-hex-kit",
+      "us": "\/products\/ac500-dual-hex-kit"
+    },
+    {
+      "ca": "\/products\/bluetti-b300s",
+      "us": "\/products\/bluetti-b300s"
+    },
+    {
+      "ca": "\/products\/bluetti-eb55",
+      "us": "\/products\/bluetti-eb55-portable-power-station"
+    },
+    {
+      "ca": "\/products\/bluetti-pv200",
+      "us": "\/products\/bluetti-200w-solar-panel"
+    },
+    {
+      "ca": "\/products\/bluetti-pv350-solar-panel-350w",
+      "us": "\/products\/bluetti-pv350-solar-panel"
+    },
+    {
+      "ca": "\/products\/bluetti-solar-generator-canada",
+      "us": "\/products\/bluetti-solar-generator"
+    },
+    {
+      "ca": "\/products\/bluetti-eb240-solar-generator-canada",
+      "us": "\/products\/bluetti-eb240-solar-generator"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-dual-hex",
+      "us": "\/products\/ecoflow-delta-double-pro-1-2kw"
+    },
+    {
+      "ca": "\/products\/delta-pro-infinity-cable-smart-battery",
+      "us": "\/products\/delta-pro-infinity-cable-smart-battery"
+    },
+    {
+      "ca": "\/products\/easysolar-ii-48-3000-35-32-mppt-250-70-gx",
+      "us": "\/products\/easysolar-ii-gx"
+    },
+    {
+      "ca": "\/products\/ecoflow-110-watt-portable-foldable-solar-panel",
+      "us": "\/products\/ecoflow-110-watt-portable-foldable-solar-panel"
+    },
+    {
+      "ca": "\/products\/ecoflow-160w-folding-solar-panel",
+      "us": "\/products\/ecoflow-160w-folding-solar-panel"
+    },
+    {
+      "ca": "\/products\/ecoflow-400w-folding-solar-panel",
+      "us": "\/products\/ecoflow-400w-folding-solar-panel"
+    },
+    {
+      "ca": "\/products\/ecoflow-ac-charging-cable",
+      "us": "\/products\/ecoflow-ac-charging-cable"
+    },
+    {
+      "ca": "\/products\/ac-dc-smart-distribution-panel",
+      "us": "\/products\/ac-dc-smart-distribution-panel"
+    },
+    {
+      "ca": "\/products\/ecoflow-blade-lawn-sweeper-kit",
+      "us": "\/products\/ecoflow-blade-lawn-sweeper-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-blade-robotic-lawn-mower",
+      "us": "\/products\/ecoflow-blade"
+    },
+    {
+      "ca": "\/products\/ecoflow-car-charging-cable-1",
+      "us": "\/products\/ecoflow-car-charging-cable"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-1800w-1300wh-quad-kit",
+      "us": "\/products\/ecoflow-delta-1800w-1300wh-quad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-solar-generator-nomad-kit",
+      "us": "\/products\/ecoflow-delta-solar-generator-nomad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-1800w-1300wh-double-kit",
+      "us": "\/products\/ecoflow-delta-1800w-1300wh-double-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-eclipse-kit",
+      "us": "\/products\/ecoflow-delta-eclipse-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-2-smart-extra-battery",
+      "us": "\/products\/ecoflow-delta-2-smart-extra-battery"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-2-double-kit",
+      "us": "\/products\/ecoflow-delta-2-double-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-2-eclipse-kit",
+      "us": "\/products\/ecoflow-delta-2-eclipse-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-2-nomad-kit",
+      "us": "\/products\/ecoflow-delta-2-nomad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-2-quad-kit",
+      "us": "\/products\/ecoflow-delta-2-quad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-octo-kit",
+      "us": "\/products\/ecoflow-delta-max-octo-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-eclipse-kit",
+      "us": "\/products\/ecoflow-delta-max-eclipse-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-hex-kit",
+      "us": "\/products\/ecoflow-delta-max-hex-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-nomad-kit",
+      "us": "\/products\/ecoflow-delta-max-nomad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-quad-kit",
+      "us": "\/products\/ecoflow-delta-max-quad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-quad-kit",
+      "us": "\/products\/ecoflow-delta-max-quad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-bag-cover",
+      "us": "\/products\/ecoflow-delta-max-bag-cover"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-max-smart-extra-battery",
+      "us": "\/products\/ecoflow-delta-max-smart-battery"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-hex-kit",
+      "us": "\/products\/ecoflow-delta-pro-hex-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-quad-kit",
+      "us": "\/products\/ecoflow-delta-pro-quad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-bag-cover",
+      "us": "\/products\/ecoflow-delta-max-bag-cover"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-to-smart-generator-adapter",
+      "us": "\/products\/ecoflow-delta-pro-to-smart-generator-adapter"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-remote-control",
+      "us": "\/products\/ecoflow-delta-pro-remote-control"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-2-2-000wh-quad-kit",
+      "us": "\/products\/ecoflow-delta-2-2kwh-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-double-quad-kit",
+      "us": "\/products\/ecoflow-delta-double-quad-kits"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-nomad-kit",
+      "us": "\/products\/ecoflow-delta-pro-nomad-kit"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-pro-canada",
+      "us": "\/products\/ecoflow-delta-pro-portable-power-station-3-600wh-3-600w-solar-generator-1-600w-solar-input-6-000-lifecycles-includes-remote-control-monitor-open-box"
+    },
+    {
+      "ca": "\/products\/ecoflow-delta-two-by-four-kit",
+      "us": "\/products\/ecoflow-delta-double"
+    },
+    {
+      "ca": "\/products\/ecoflow-double-voltage-hub",
+      "us": "\/products\/ecoflow-double-voltage-hub"
+    },
+    {
+      "ca": "\/products\/ecoflow-ev-x-stream-adapter-delta-pro",
+      "us": "\/products\/ecoflow-ev-x-stream-adapter-delta-pro"
+    },
+    {
+      "ca": "\/products\/ecoflow-glacier-plug-in-battery",
+      "us": "\/products\/ecoflow-glacier-plug-in-battery"
+    },
+    {
+      "ca": "\/products\/ecoflow-glacier-portable-refrigerator",
+      "us": "\/products\/ecoflow-glacier-portable-refrigerator-1"
+    },
+    {
+      "ca": "\/products\/ecoflow-glacier-portable-refrigerator-glacier-plug-in-battery",
+      "us": "\/products\/ecoflow-glacier-portable-refrigerator"
+    },
+    {
+      "ca": "\/products\/lfp-battery",
+      "us": "\/products\/lfp-battery"
+    },
+    {
+      "ca": "\/products\/ecoflow-mc4-to-xt60-solar-cable-3-5m",
+      "us": "\/products\/ecoflow-mc4-to-xt60-solar-cable"
+    },
+    {
+      "ca": "\/products\/ecoflow-power-hub-solar-charge-cable-20-feet",
+      "us": "\/products\/ecoflow-power-hub-solar-charge-cable-20-feet"
+    },
+    {
+      "ca": "\/products\/ecoflow-power-kit-console",
+      "us": "\/products\/ecoflow-power-kit-console"
+    },
+    {
+      "ca": "\/products\/power-kits-power-hub",
+      "us": "\/products\/power-kits-power-hub"
+    },
+    {
+      "ca": "\/products\/ecoflow-smart-gas-generator",
+      "us": "\/products\/ecoflow-smart-gas-generator"
+    },
+    {
+      "ca": "\/products\/ecoflow-smart-home-panel-infinity-cable",
+      "us": "\/products\/ecoflow-smart-home-panel-infinity-cable"
+    },
+    {
+      "ca": "\/products\/ecoflow-solar-extension-cable",
+      "us": "\/products\/ecoflow-solar-extension-cable"
+    },
+    {
+      "ca": "\/products\/ef-solar-panel-tracker",
+      "us": "\/products\/ef-solar-panel-tracker"
+    },
+    {
+      "ca": "\/products\/ecoflow-wave-2-add-on-battery",
+      "us": "\/products\/ecoflow-wave-2-add-on-battery"
+    },
+    {
+      "ca": "\/products\/ecoflow-river-2-256wh-capacity-300w-output-portable-power-station",
+      "us": "\/products\/river-2-256wh-capacity-300w-output"
+    },
+    {
+      "ca": "\/products\/jakiper-pro-lithium-battery-48v-100ah-5-120wh-5-12kwh-server-rack-battery",
+      "us": "\/products\/jakiper-51-2v-100ah-server-rack-lifepo4-battery"
+    },
+    {
+      "ca": "\/products\/orient-power-lifepo4-battery-5-12kw-48v100ah-wall-mounted-powerwall",
+      "us": "\/products\/orient-power-lifepo4-battery-5-12kw-48v100ah-wall-mounted-powerwall"
+    },
+    {
+      "ca": "\/products\/rack-system-for-server-rack-battery-4u-size",
+      "us": "\/products\/rack-system-for-server-rack-battery-4u-size"
+    },
+    {
+      "ca": "\/products\/vcutech-200w-foldable-solar-panel",
+      "us": "\/products\/vcutech-200w-foldable-solar-panel"
+    },
+    {
+      "ca": "\/products\/vcutech-delta-portable-power-station-1000w",
+      "us": "\/products\/vcutech-delta-1228wh-1000w-portable-power-station"
+    },
+    {
+      "ca": "\/products\/victron-bmv-700-battery-monitor",
+      "us": "\/products\/victron-energy-battery-monitor-bmv-700"
+    },
+    {
+      "ca": "\/products\/victron-bmv-712-smart-battery-monitor",
+      "us": "\/products\/victron-bmv-712-smart-battery-monitor"
+    },
+    {
+      "ca": "\/products\/victron-energy-battery-monitor-bmv-702",
+      "us": "\/products\/victron-energy-battery-monitor-bmv-702"
+    },
+    {
+      "ca": "\/products\/victron-energy-bluesolar-mppt-charge-controller-100-50-12-24v-50a",
+      "us": "\/products\/victron-energy-bluesolar-mppt-charge-controller-100-50-12-24v-50a"
+    },
+    {
+      "ca": "\/products\/victron-energy-bluesolar-mppt-charge-controller-150-35",
+      "us": "\/products\/victron-energy-bluesolar-mppt-charge-controller-150-35-12-24-36-48v-35a"
+    },
+    {
+      "ca": "\/products\/victron-energy-bluesolar-mppt-charge-controller-150-45",
+      "us": "\/products\/victron-energy-bluesolar-mppt-charge-controller-150-45-mc-4-12-24-36-48v-45a"
+    },
+    {
+      "ca": "\/products\/victron-energy-cerbo-gx-panels-and-system-monitoring",
+      "us": "\/products\/victron-cerbo-gx"
+    },
+    {
+      "ca": "\/products\/victron-energy-cerbo-s-gx-panels-and-system-monitoring",
+      "us": "\/products\/victron-cerbo-s-gx"
+    },
+    {
+      "ca": "\/products\/victron-energy-lynx-distributor",
+      "us": "\/products\/victron-lynx-distributor"
+    },
+    {
+      "ca": "\/products\/victron-energy-smartshunt-500-amp-battery-monitor-bluetooth",
+      "us": "\/products\/victron-smartshunt"
+    },
+    {
+      "ca": "\/products\/victron-energy-smartsolar-mppt-100v-30-amp-12-24-volt-solar-charge-controller-bluetooth",
+      "us": "\/products\/victron-energy-smartsolar-mppt-100v-30-amp-12-24-volt-solar-charge-controller-bluetooth"
+    },
+    {
+      "ca": "\/products\/victron-energy-smartsolar-mppt-100v-50-amp-12-24-volt-solar-charge-controller-bluetooth",
+      "us": "\/products\/victron-smartsolar-mppt-100-50-charge-controller"
+    },
+    {
+      "ca": "\/products\/victron-energy-smartsolar-mppt-150-100-tr-ve-can",
+      "us": "\/products\/victron-energy-smartsolar-mppt-charge-controller-150-100-mc-4-12-24-36-48v-100a"
+    },
+    {
+      "ca": "\/products\/victron-energy-smartsolar-mppt-75v-10-amp-12-24-volt-solar-charge-controller-bluetooth",
+      "us": "\/products\/victron-energy-smartsolar-mppt-75v-10-amp-12-24-volt-solar-charge-controller-bluetooth"
+    },
+    {
+      "ca": "\/products\/victron-energy-smartsolar-mppt-75v-15-amp-12-24-volt-solar-charge-controller-bluetooth",
+      "us": "\/products\/victron-energy-smartsolar-mppt-75v-15-amp-12-24-volt-solar-charge-controller-bluetooth"
+    },
+    {
+      "ca": "\/products\/victron-orion-tr-12-12-30a-360w-isolated-dc-dc-converter",
+      "us": "\/products\/orion-tr-12-12-30a-360w-isolated-dc-dc-converter"
+    },
+    {
+      "ca": "\/products\/victron-orion-tr-smart-12-12-18a-220w-isolated-dc-dc-charger",
+      "us": "\/products\/victron-orion-tr-smart-dc-dc-charger-isolated"
+    },
+    {
+      "ca": "\/products\/victron-orion-tr-smart-12-12-30a-360w-isolated-dc-dc-charger",
+      "us": "\/products\/orion-tr-smart-12-12-30a-360w-isolated-dc-dc-charger"
+    },
+    {
+      "ca": "\/products\/victron-orion-tr-smart-12-12-30a-360w-non-isolated-dc-dc-charger",
+      "us": "\/products\/victron-orion-tr-smart-12-12-30a-360w-non-isolated-dc-dc-charger"
+    }
+  ],
+  "collections": [
+    {
+      "ca": "\/collections\/all-solar-kits",
+      "us": "\/collections\/complete-solar-panel-kits"
+    },
+    {
+      "ca": "\/collections\/ecoflow-delta-pro-canada",
+      "us": "\/collections\/ecoflow-delta-pro-solar-kits"
+    },
+    {
+      "ca": "\/collections\/ecoflow-delta-canada",
+      "us": "\/collections\/ecoflow"
+    },
+    {
+      "ca": "\/collections\/all-products-canada",
+      "us": "\/collections\/all"
+    },
+    {
+      "ca": "\/collections\/ecoflow-solar-generators",
+      "us": "\/collections\/ecoflow-generators"
+    },
+    {
+      "ca": "\/collections\/solar-generators-canada",
+      "us": "\/collections\/solar-generators"
+    },
+    {
+      "ca": "\/collections\/best-sellers-canada",
+      "us": "\/collections\/best-sellers"
+    },
+    {
+      "ca": "\/collections\/cables",
+      "us": "\/collections\/solar-cabling"
+    },
+    {
+      "ca": "\/collections\/renogy-canada",
+      "us": "\/collections\/renogy"
+    },
+    {
+      "ca": "\/collections\/solar-batteries-canada",
+      "us": "\/collections\/solar-batteries"
+    },
+    {
+      "ca": "\/collections\/solar-panels-canada",
+      "us": "\/collections\/solar-panels"
+    },
+    {
+      "ca": "\/collections\/jakiper-canada",
+      "us": "\/collections\/jakiper-battery"
+    },
+    {
+      "ca": "\/collections\/ecoflow-delta-pro-solar-kits-canada",
+      "us": "\/collections\/ecoflow-delta-pro-solar-kits"
+    },
+    {
+      "ca": "\/collections\/bluetti-solar-generators-canada",
+      "us": "\/collections\/bluetti"
+    },
+    {
+      "ca": "\/collections\/bluetti-solar-generators",
+      "us": "\/collections\/bluetti-solar-generators"
+    },
+    {
+      "ca": "\/collections\/lion-energy-canada",
+      "us": "\/collections\/lion-energy-batteries"
+    },
+    {
+      "ca": "\/collections\/solar-panel-kits-canada",
+      "us": "\/collections\/solar-power-systems"
+    },
+    {
+      "ca": "\/collections\/goal-zero-power-anything-anywhere-shop-solar-kits",
+      "us": "\/collections\/goal-zero"
+    },
+    {
+      "ca": "\/collections\/solar-power-inverters-canada",
+      "us": "\/collections\/solar-power-inverters"
+    },
+    {
+      "ca": "\/collections\/frontpage",
+      "us": "\/collections\/frontpage"
+    }
+  ],
+  "blogs": [
+
+  ],
+  "blog_posts": [
+
+  ]
+}

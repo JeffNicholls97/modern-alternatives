@@ -1,0 +1,44 @@
+{% if template contains 'product' or checkout %}
+    {% if template contains 'product' and settings.shipping_messaging_enable_on_pdp %}
+        {% assign shipping_messaging_pdp_types = settings.shipping_messaging_pdp_types | newline_to_br | replace: '<br />', ',' | strip_newlines | strip | rstrip | lstrip | split: ',' %}
+        {% assign is_allowed = false %}
+        {% for pdt_type in shipping_messaging_pdp_types %}
+            {% if product.type == pdt_type %}
+                {% assign is_allowed = true %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        {% if is_allowed %}
+            <style>
+                .savings-additional:after,
+                .saved:after {
+                    content: "{{ settings.shipping_messaging_pdp_text }}";
+                }
+                .savings-additional:after {
+                    padding-left: 4px;
+                }
+                .saved:after {
+                    font-size: 16px;
+                    padding-left: 5px;
+                }
+            </style>
+        {% endif %}
+    {% endif %}
+    {% if checkout and checkout.shipping_address.country_code == "US" and settings.shipping_messaging_enable_on_checkout %}
+        {% assign shipping_messaging_checkout_types = settings.shipping_messaging_checkout_types | newline_to_br | replace: '<br />', ',' | strip_newlines | strip | rstrip | lstrip | split: ',' %}
+        {% assign is_allowed = false %}
+        {% for pdt_type in shipping_messaging_checkout_types %}
+             {% for item in checkout.line_items %}
+                {% if item.product.type == pdt_type %}
+                    {% assign is_allowed = true %}
+                    {% break %}
+                {% endif %}
+             {% endfor %}
+        {% endfor %}
+        {% if is_allowed %}
+            <style>
+                
+            </style>
+        {% endif %}
+    {% endif %}
+{% endif %}

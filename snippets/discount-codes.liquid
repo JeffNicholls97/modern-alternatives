@@ -1,0 +1,85 @@
+<style>
+  span.discount-codes {
+    justify-content: center;
+    padding: 15px;
+    background-color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    gap: 6px;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+  }
+
+  span#discount-code {
+    color: #ff991b;
+    font-weight: 900;
+    font-size: 17px;
+  }
+
+  span.discount-value {
+    color: #000000;
+    font-weight: 900;
+    font-size: 17px;
+  }
+</style>
+
+<style>
+  span.discount-codes-single {
+    justify-content: center;
+    padding: 15px;
+    background-color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    border-top: 1px dashed #b7b7b7;
+    border-bottom: 1px dashed #b7b7b7;
+    gap: 6px;
+    align-items: center;
+    position: relative;
+  }
+
+  span#discount-code-single {
+    color: #ff991b;
+    font-weight: 900;
+    font-size: 17px;
+  }
+
+  span.discount-value-single {
+    color: #000000;
+    font-weight: 900;
+    font-size: 17px;
+  }
+</style>
+
+
+<span
+  id="load_data"
+  style="display:none;"
+  data-load-id="{{ product.selected_or_first_available_variant.id }}"></span>
+{%- unless product.has_only_default_variant -%}
+  {% for variant in product.variants %}
+    {% if variant.metafields.custom.discount_code %}
+      <span
+        class="discount-codes text-[13px]"
+        style="display:none;"
+        data-id="{{ variant.id }}"
+        data-code="{{ variant.metafields.custom.discount_code }}">use code
+        <span id="discount-code">{{ variant.metafields.custom.discount_code }}</span>
+        to save
+        <span class="discount-value">{{ variant.metafields.custom.discount_code_value }}</span>
+        Expires Soon</span>
+    {% endif %}
+  {% endfor %}
+{%- else -%}
+  {% for variant in product.variants %}
+    {% if variant.metafields.custom.discount_code %}
+      <span class="discount-codes-single text-[13px]" style="display:flex;">use code
+        <span id="discount-code-single">{{ variant.metafields.custom.discount_code }}</span>
+        to save
+        <span class="discount-value-single">{{ variant.metafields.custom.discount_code_value }}</span>
+        Expires Soon</span>
+    {% endif %}
+  {% endfor %}
+{%- endunless -%}

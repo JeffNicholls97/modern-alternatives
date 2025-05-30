@@ -1,0 +1,54 @@
+{% comment %}
+  @param quick_links {LinkedList}
+    Handle of menu to display
+
+  @param enable_images {Bool}
+    Display images in flydown
+
+  @param enable_content {Bool}
+    Display Articles and Pages results
+
+  @param placeholder {String|Nil}
+    Add a custom placeholder string
+{% endcomment %}
+
+{% assign placeholder = placeholder | default: nil %}
+
+{%- assign placeholder_text = blank -%}
+{%- if placeholder != blank -%}
+    {%- assign placeholder_text = placeholder -%}
+{% else %}
+    {%- assign placeholder_text = 'search.form.placeholder' | t -%}
+{%- endif -%}
+
+<div class="live-search">
+    <form
+            class="
+      live-search-form
+      form-fields-inline
+    "
+            action="{{ routes.search_url }}"
+            method="get"
+    >
+        <div class="form-field no-label">
+            <input
+                    class="form-field-input live-search-form-field"
+                    type="text"
+                    name="q"
+                    aria-label="{{ 'search.form.label' | t }}"
+                    placeholder="{{ placeholder_text | escape }}"
+                    autocomplete="off">
+
+            <button
+                    class="live-search-button"
+                    type="submit"
+                    aria-label="{{ 'general.accessibility.search' | t }}"
+                    {% comment %}onclick="doFinderHandler(this, event)"{% endcomment %}
+            >
+                <span class="search-icon search-icon--inactive">
+                  {% render 'icon-search' %}
+                </span>
+            </button>
+        </div>
+    </form>
+</div>

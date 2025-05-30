@@ -1,0 +1,75 @@
+{% render 'hero-sub' %}
+{% schema %}
+{
+  "name": "Hero-sub",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "marquee-pos",
+      "label": "Marquee Position",
+        "options": [
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          },
+          {
+            "value": "top",
+            "label": "Top"
+          }
+        ],
+        "default": "bottom"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "Marquee Icon"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Solar That Makes Sense - DIY+"
+    },
+    {
+      "type": "textarea",
+      "id": "long_text",
+      "label": "paragraph text",
+      "default": "Why pay more when you can go solar your way? With our DIY+ model, you become the master of your own solar project - we call it being your own general contractor, using our seasoned technicians to help guide you at every turn. So you can skip the high-commission salespeople and source your own top-tier equipment from us, and if you need a professional installer, we can help with that too. It’s solar, but smarter and more rewarding—because who said going green couldn’t also save you some green?"
+    },
+    {
+      "type": "text",
+      "id": "usp_one",
+      "label": "enter usp one",
+      "default": "Solar Power, Your Way - Expert Guidance Included"
+    },
+    {
+      "type": "text",
+      "id": "usp_two",
+      "label": "enter usp two",
+      "default": "Become Your Own Solar Contractor with Our DIY+ Program"
+    },
+    {
+      "type": "text",
+      "id": "usp_three",
+      "label": "enter usp three",
+      "default": "Save Thousands with Our DIY Solar Kits and Support"
+    },
+    {
+      "type": "text",
+      "id": "usp_four",
+      "label": "enter usp four",
+      "default": "Go Green and Save Green with Our Do-It-Yourself Solar Solution"
+    }
+  ],
+  "presets": [
+  {
+    "name": "Sub Hero with Marquee"
+  }
+]
+}
+{% endschema %}

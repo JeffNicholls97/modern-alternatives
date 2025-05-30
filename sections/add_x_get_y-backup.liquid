@@ -1,0 +1,281 @@
+<script>
+    {% comment %}
+    function getEmptyCartHeaderHtml(){
+        return `
+        <div id="cart-popup" class="empty-popup">
+          <div class="container">
+            <ul class="cart-popup-ul-bottom">
+              <li class="empty-cart-popup-msg">{{ 'cart.general.empty' | t }}</li>
+              <li>
+                <a href="/collections/all" class="btn btn-large btn-primary">{{ 'cart.general.shop_now' | t }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>`;
+    }
+    {% endcomment %}
+    function xyRemoveItem(condition, cart){
+        if(Shopify.template === 'cart'){
+            console.log('item should be removed')
+            const item = document.querySelector(`[data-cartitem-key="${condition.key}"]`);
+            if (item) {
+                item.remove();
+            }
+            if(cart.item_count === 0){
+                window.location.reload();
+            }
+        }
+    }
+    function xyAddItem(condition, cart){
+        console.log('item should be added')
+        {% comment %}
+        cart.items.forEach(item => {
+            if(item.id === condition.id){
+                /*const product_url = item.url.split('?variant=')[0];
+                fetch(product_url+'.js').then((response) => response.json()).then((product) => {*/
+                    const tbody = document.querySelector('form[action="/cart"] table tbody');
+                    if(tbody){
+                        const tr_totals = tbody.querySelector('tr.pricecolumn-bottom');
+                        const tr = getLineHtml(item);
+                        tbody.insertBefore(tr, tr_totals);
+                        //tbody.append(tr);
+                    }
+                /*});*/
+            }
+        })
+        {% endcomment %}
+    }
+    function prepareConditions(conditions){
+        let data = {
+            update_data: {updates: {}},
+            conditions_to_add: [],
+            conditions_to_remove: []
+        }
+        conditions.forEach(condition => {
+            if(condition.in_collections && !condition.in_cart){
+                //add
+                data.update_data['updates'][condition.id] = 1;
+                data.conditions_to_add.push(condition);
+
+            }else if(!condition.in_collections && condition.in_cart){
+                //remove
+                data.update_data['updates'][condition.key] = 0;
+                data.conditions_to_remove.push(condition);
+            }
+        })
+        return data;
+    }
+    async function xyOnItemRemove(cart, callback_function){
+        if(buy_x_get_y.conditions.length) {
+            buy_x_get_y.items = cart.items;
+            console.log(cart);
+            let fetchPromises = [];
+
+            for(let j=0;j<buy_x_get_y.items.length;j++){
+                const collections_url = buy_x_get_y.items[j].url.split('?variant=')[0];
+                let fetchPromise = fetch(collections_url+'?view=collections')
+                    .then((response) => response.text())
+                    .then((collections) => {
+                        buy_x_get_y.items[j].collections = collections.split(',');
+                        console.log(buy_x_get_y.items[j].collections);
+                    });
+                fetchPromises.push(fetchPromise);
+            }
+
+            // Wait for all fetch promises to finish
+            await Promise.all(fetchPromises);
+
+            // At this point, we know all fetch promises have finished
+            if(buy_x_get_y.conditions.length){
+                for(let condition of buy_x_get_y.conditions) {
+                    condition.in_cart = false;
+                    condition.in_collections = false;
+                    condition.key = '';
+                    if(buy_x_get_y.items.length){
+                        for(let item of buy_x_get_y.items){
+                            if(item.id === condition.id){
+                                condition.in_cart = true;
+                                condition.key = item.key;
+                            }
+                            if(item.collections.length){
+                                for(let collection of item.collections){
+                                    if(condition.collections.includes(collection)){
+                                        condition.in_collections = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                console.log('conidtions', buy_x_get_y.conditions)
+                let data = {updates: {}};
+                const conditions_to_add = [];
+                const conditions_to_remove = [];
+
+                for(let condition of buy_x_get_y.conditions){
+                    if(condition.in_collections && !condition.in_cart){
+                        //add
+                        xyUpdateItemsInCart(condition.id, 1, (is_success, cart) => {
+                            if(is_success === 'success'){
+                                xyAddItem(condition, cart);
+                                callback_function(cart);
+                            }
+                        })
+                    }else if(!condition.in_collections && condition.in_cart){
+                        //remove
+                        xyUpdateItemsInCart(condition.key, 0, (is_success, cart) => {
+                            if(is_success === 'success') {
+                                xyRemoveItem(condition, cart);
+                                callback_function(cart);
+                            }
+                        })
+                    }else if("function" == typeof callback_function){
+                        callback_function(cart);
+                    }
+                }
+            }
+        }
+    }
+    {% comment %}
+    function getLineHtml(item) {
+        console.log(item)
+        const tr = document.createElement('tr');
+        tr.dataset.key = item.key;
+        tr.className = 'cart__row table__section';
+        tr.innerHTML = `
+            <td class="text-center product-image" data-label="Product">
+              <a class="cart__image">
+                <img src="${item.featured_image.url}" alt="${item.title}" width="100" height="100" loading="lazy">
+              </a>
+            </td>
+            <td class="text-left pro-cart-des">
+              <a class="desktop-title">
+                ${item.product_title}
+              </a>
+
+              <a class="mobile-title" data-fulltitle="${item.product_title}" data-partialtext="${item.product_title.slice(0, 30)}">
+               <span class="title-text">${item.product_title.slice(0, 30)}</span>
+                <span class="readMore" data-action="more">Read more</span>
+              </a>
+                <br>
+            </td>
+            <td class="text-center cart-qty" data-label="Quantity">
+              <div class="product-quantity">
+                <div class="product-quantity__item" style="justify-content: center">${item.quantity}</div>
+              </div>
+            </td>
+            <td class="text-left medium-down--hide" data-label="Price"><span class="money">Free</span></td>
+            <td class="text-right cart-tot" data-label="Total">
+
+              <span class="amount price-0"> <span class="money">Free</span>
+              </span>
+            </td>
+        `;
+        return tr;
+    }
+    {% endcomment %}
+    function xyUpdateItemsInCart (data, __callback_function){
+        fetch('/cart/update.js', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then((response) => response.json()).then((cart) => {
+            __callback_function('success', cart);
+        }).catch((error) => {
+            __callback_function('error', error);
+        });
+    }
+
+    let buy_x_get_y = {
+        conditions: [],
+        items: []
+    }
+    {% for block in section.blocks %}
+    {% assign condition_collection_list = block.settings.collection_list %}
+    {% assign condition_product = block.settings.product %}
+    {% assign condition_variant = condition_product.selected_or_first_available_variant %}
+    buy_x_get_y.conditions.push({
+        id: {{ condition_variant.id }},
+        collections: [{% for condition_collection in condition_collection_list %}'{{ condition_collection.handle }}'{% unless forloop.last %},{% endunless %}{% endfor %}],
+        in_cart: false,
+        in_collections: false,
+        key: ''
+    });
+    {% endfor %}
+    {% for item in cart.items %}
+    {% assign item_collections = item.product.collections %}
+    buy_x_get_y.items.push({
+        id: {{ item.id }},
+        key: `{{ item.key }}`,
+        collections: [{% for item_collection in item_collections %}'{{ item_collection.handle }}'{% unless forloop.last %},{% endunless %}{% endfor %}]
+    });
+    {% endfor %}
+    if(buy_x_get_y.conditions.length){
+        buy_x_get_y.conditions.forEach(condition => {
+            if(buy_x_get_y.items.length){
+                buy_x_get_y.items.forEach(item => {
+                    if(item.id === condition.id){
+                        condition.in_cart = true;
+                        condition.key = item.key;
+                    }
+                    if(item.collections.length){
+                        item.collections.forEach(collection => {
+                            if(condition.collections.includes(collection)){
+                                condition.in_collections = true;
+                            }
+                        })
+                    }
+                })
+            }
+        })
+        const data = prepareConditions(buy_x_get_y.conditions);
+        console.log('data', data.update_data);
+        console.log('conditions_to_add', data.conditions_to_add);
+        console.log('conditions_to_remove', data.conditions_to_remove);
+        xyUpdateItemsInCart(data.update_data, (is_success, cart) => {
+            if(is_success === 'success'){
+                if(data.conditions_to_remove.length){
+                    data.conditions_to_remove.forEach(condition => xyRemoveItem(condition, cart));
+                }
+                if(data.conditions_to_add.length){
+                    data.conditions_to_add.forEach(condition => xyAddItem(condition, cart));
+                }
+            }
+        })
+    }
+</script>
+
+{% schema %}
+{
+"name": "Buy X Get Y",
+"settings": [],
+"blocks": [
+{
+"name": "Condition",
+"type": "condition",
+"settings": [
+{
+"type": "header",
+"content": "Customer buys"
+},
+{
+"type": "collection_list",
+"id": "collection_list",
+"label": "Any items from Specific Collections"
+},
+{
+"type": "header",
+"content": "Customer gets"
+},
+{
+"type": "product",
+"id": "product",
+"label": "Product"
+}
+]
+}
+]
+}
+{% endschema %}

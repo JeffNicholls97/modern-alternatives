@@ -1,0 +1,113 @@
+{% render 'dynamic-hero-section' %}
+
+{% schema %}
+  {
+    "name": "New Hero Dynamic",
+    "max_blocks": 2,
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "hero-image",
+        "label": "Choose Hero Image"
+      },
+      {
+        "type": "text",
+        "id": "hero-title",
+        "label": "Hero Title",
+        "default": ",Hybrid, Portable & Emergency Backup Power."
+      },
+      {
+        "type": "text",
+        "id": "hero-title-highlight",
+        "label": "Title Highlight in Orange",
+        "default": "#1 Source for Off-Grid"
+      },
+      {
+        "type": "text",
+        "id": "usp-1",
+        "label": "Hero USP 1 Text",
+        "default": "Best Prices in America"
+      }, {
+        "type": "text",
+        "id": "usp-2",
+        "label": "Hero USP 2 Text",
+        "default": "Free System Designs"
+      }, {
+        "type": "text",
+        "id": "usp-3",
+        "label": "Hero USP 3 Text",
+        "default": "Legendary Customer Support"
+      }, {
+        "type": "text",
+        "id": "button-text",
+        "label": "Button link text",
+        "default": "Start Shopping"
+      }, {
+        "type": "url",
+        "id": "button-url",
+        "label": "Button URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "banner",
+        "name": "Add Banner",
+        "settings": [
+          {
+            "type": "radio",
+            "id": "media-type",
+            "label": "Choose Banner Type",
+            "options": [
+              {
+                "value": "product",
+                "label": "Product"
+              }, {
+                "value": "image",
+                "label": "Image Banner"
+              }, {
+                "value": "info",
+                "label": "Information Banner"
+              }
+            ],
+            "default": "product"
+          },
+          {
+            "type": "product",
+            "id": "product-select",
+            "label": "Choose product to showcase",
+            "visible_if": "{{ block.settings.media-type == 'product' }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "product-image-bool",
+            "label": "Use custom product image?",
+            "default": true,
+            "visible_if": "{{ block.settings.media-type == 'product' }}"
+          },
+          {
+            "type": "image_picker",
+            "id": "product-image-custom",
+            "label": "Choose Image",
+            "visible_if": "{{ block.settings.product-image-bool and block.settings.media-type == 'product' }}"
+          }, {
+            "type": "text",
+            "id": "promo-tag",
+            "label": "Enter promo tag",
+            "default": "Deal of the week",
+            "visible_if": "{{ block.settings.media-type == 'product' }}"
+          }, {
+            "type": "url",
+            "id": "banner-link",
+            "label": "Choose link",
+            "visible_if": "{{ block.settings.media-type == 'image' }}"
+          }, {
+            "type": "image_picker",
+            "id": "banner-image",
+            "label": "Choose Banner Image",
+            "visible_if": "{{ block.settings.media-type == 'image' }}"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

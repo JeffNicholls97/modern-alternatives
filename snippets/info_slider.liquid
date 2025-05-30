@@ -1,0 +1,35 @@
+<div>
+  <div class="w-full mt-2 mb-5 md:mt-20 md:mb-20  text-center">
+    <h2 class="text-3xl text-black font-bold">{{ section.settings.title }}</h2>
+  </div>
+
+  <!-- Slider main container -->
+  <div class="swiper-info mb-10 md:mb-40 mx-auto max-w-[420px] md:max-w-[750px] relative">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+
+      {% for block in section.blocks %}
+        <div class="swiper-slide p-5 md:p-0">
+          {% if block.settings.video_url %}
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="h-[250px] md:h-[350px] rounded-md rounded-b-none md:rounded-b-md hs-id-5afe6735" frameborder="0" height="350" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/{{ block.settings.video_url.id }}?si=Xn_kpnkP4d_vX5pV&amp;controls=0" title="YouTube video player" width="100%">
+</iframe>
+          {% else %}
+            <img alt="{{ block.settings.image.alt }}" class="rounded-md rounded-b-none md:rounded-b-md object-cover w-full h-[250px] md:h-[350px] hs-id-8a3300b6 hs-lazyload" height="350" loading="lazy" src="{{ block.settings.image | img_url: 'master' }}" width="500"/>
+          {% endif %}
+          <div class="text-center rounded-b-md md:rounded-b-none mx-auto bg-[#f9f9f9] md:bg-white md:mt-10 p-5 md:p-0 w-auto md:w-[45rem]">
+            <h4 class="text-3xl mb-5 text-black font-bold">{{ block.settings.title }}</h4>
+            <p class="leading-[30px]">{{ block.settings.long_text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="absolute top-[120px] md:top-[unset] z-[999999] md:bottom-[-100px] left-1/2 -translate-x-1/2 flex items-center justify-between w-full md:justify-center gap-5">
+          <div class="info-prev w-14 h-14 flex items-center justify-center bg-[#EF942D] rounded-full">
+            <img alt="arrow" class="w-5 object-contain rotate-180 hs-id-1096dd83 hs-lazyload" height="20" loading="lazy" src="{{ 'arrow-long.png' | asset_img_url }}" width="20"/>
+          </div>
+          <div class="info-next w-14 h-14 flex items-center justify-center bg-[#EF942D] rounded-full">
+            <img alt="arrow" class="w-5 object-contain hs-id-c6f18ad7 hs-lazyload" height="20" loading="lazy" src="{{ 'arrow-long.png' | asset_img_url }}" width="20"/>
+          </div>
+    </div>
+  </div>
+</div>

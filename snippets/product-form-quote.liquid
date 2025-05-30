@@ -1,0 +1,422 @@
+{% comment %}
+  @param product
+
+  @param selected_variant
+
+  @param show_dynamic_checkout_button {Boolean}
+  If true, show dynamic checkout button
+{% endcomment %}
+
+{% if is_product_modal and show_dynamic_checkout_button %}
+  {% assign quickshop_smart_buttons = true %}
+{% endif %}
+
+{% if is_product_modal == false and show_dynamic_checkout_button %}
+  {% assign product_smart_buttons = true %}
+{% endif %}
+
+{% if product.selling_plan_groups.size > 0 %}
+  {% assign show_dynamic_checkout_button = false %}
+{% endif %}
+{% assign show_dynamic_checkout_button = false %}
+
+{% if selected_variant.available == false %}
+  {% assign quickshop_smart_buttons = false %}
+  {% assign product_smart_buttons = false %}
+{% endif %}
+
+{% assign product_form_class = '' %}
+
+{% if show_dcb %}
+  {% if product_smart_buttons or quickshop_smart_buttons %}
+    {% assign product_form_class = 'smart-payment-enabled' %}
+  {% endif %}
+{% endif %}
+
+{% form 'product', product, class: product_form_class, data-product-form: '' %}
+  {% comment %}
+    Display variant options for a product
+
+    @param product
+    @param selected_variant
+    @param style
+
+    @param enable_swatches
+    @param swatches_shape
+    @param swatches_option_trigger
+    @param swatches_option_style
+    @param swatches_product_page_size
+    @param swatch_colors
+
+    @param select_main_classes
+    @param select_classes
+    @param input_select_wrapper_classes
+    @param input_select_classes
+    @param input_select_label_classes
+    @param input_select_chevron_classes
+
+    @param radios_classes
+    @param option_header_classes
+    @param option_name_classes
+    @param option_values_classes
+    @param option_value_classes
+    @param option_value_label_classes
+    @param option_value_input_classes
+    @param option_value_name_classes
+
+    @param swatches_classes
+    @param option_swatch_wrapper_classes
+    @param option_swatch_classes
+    @param option_swatch_inner_classes
+  {% endcomment %}
+  {% assign product = product %}
+  {% assign selected_variant = selected_variant %}
+  {% assign style = settings.product_option_style %}
+  {% assign enable_swatches = settings.swatches_enable %}
+  {% assign sold_out_options = settings.sold_out_options %}
+  {% assign swatches_shape = settings.swatches_shape %}
+  {% assign swatches_option_trigger = settings.swatches_swatch_trigger %}
+  {% assign swatches_option_style = settings.swatches_option_style %}
+  {% assign swatches_product_page_size = settings.swatches_product_page_size %}
+  {% assign swatches_custom_colors = settings.swatches_custom_colors %}
+  {% assign swatch_file_type = 'files' %}
+  {% assign select_main_classes = 'form-options' %}
+  {% assign select_classes = 'form-field form-options' %}
+  {% assign input_select_wrapper_classes = 'form-field-select-wrapper' %}
+  {% assign input_select_classes = 'form-field-input form-field-select' %}
+  {% assign input_select_label_classes = 'form-field-title' %}
+  {% assign radios_classes = 'form-options form-options-selectable-boxes' %}
+  {% assign option_header_classes = 'options-selection__option-header' %}
+  {% assign option_name_classes = 'options-selection__option-name' %}
+  {% assign option_values_classes = 'options-selection__option-values' %}
+  {% assign option_value_classes = 'options-selection__option-value' %}
+  {% assign option_value_label_classes = 'options-selection__option-value-label' %}
+  {% assign option_value_input_classes = 'options-selection__option-value-input' %}
+  {% assign option_value_name_classes = 'options-selection__option-value-name' %}
+  {% assign swatches_classes = 'form-options form-options-swatches' %}
+  {% assign option_swatch_wrapper_classes = 'option-value-name option-value-swatch-wrapper' %}
+  {% assign option_swatch_classes = 'swatch' %}
+  {% assign option_swatch_inner_classes = 'swatch-inner' %}
+
+  {% comment %}Inject @pixelunion/shopify-variants-ui/variant-selection begin{% endcomment %}
+  {% comment %}
+    Display variant options for a product
+
+    @param product
+    @param selected_variant
+    @param variant_selection_id
+    @param sold_out_options
+    @param style
+
+    @param enable_swatches
+    @param swatches_shape
+    @param swatches_option_trigger
+    @param swatches_option_style
+    @param swatches_product_page_size
+    @param swatches_custom_colors
+  {% endcomment %}
+
+  <variant-selection
+    {% if variant_selection_id != blank %}
+      id="{{ variant_selection_id }}"
+    {% endif %}
+    class="variant-selection"
+    product-url="{{ product.url }}.js"
+    variant="{% if selected_variant %}{{ selected_variant.id }}{% else %}not-selected{% endif %}"
+    data-variant-selection
+  >
+    {% if product.has_only_default_variant %}
+      <input
+        class="variant-selection__variants variant-selection__variants--default"
+        name="id"
+        type="hidden"
+        value="{{ product.variants.first.id }}"
+        data-variants
+      >
+    {% else %}
+      <noscript>
+        <style>
+          .variant-selection__variants {
+            display: block !important;
+          }
+        </style>
+      </noscript>
+      <select
+        class="variant-selection__variants"
+        name="id"
+        style="display: none"
+        data-variants
+      >
+        <option
+          value="not-selected"
+          disabled
+          {% if selected_variant == blank %}
+            selected
+          {% endif %}
+        >
+          {{ 'product.variants.choose_variant' | t }}
+        </option>
+        {% for variant in product.variants %}
+          <option
+            {% if selected_variant and selected_variant.id == variant.id %}
+              selected
+            {% endif %}
+            value="{{ variant.id }}"
+            {% unless variant.available %}
+              disabled
+            {% endunless %}
+          >
+            {{ variant.title }} - {{ variant.price | money }}
+          </option>
+        {% endfor %}
+      </select>
+
+      {% comment %}Inject @pixelunion/shopify-variants-ui/options-selection begin{% endcomment %}
+      {% comment %}
+        Display variant options for a product
+
+        @param product
+        @param selected_variant
+        @param variant_selection_id
+        @param sold_out_options
+        @param style
+
+        @param enable_swatches
+        @param swatches_shape
+        @param swatches_option_trigger
+        @param swatches_option_style
+        @param swatches_product_page_size
+        @param swatches_custom_colors
+        @param swatch_file_type
+      {% endcomment %}
+
+      <options-selection
+        {% if variant_selection_id != blank %}
+          variant-selection="{{ variant_selection_id }}"
+        {% endif %}
+        style="display: none;"
+        {% if sold_out_options == 'disabled' %}
+          disable-unavailable
+        {% endif %}
+        {% if sold_out_options == 'hidden' %}
+          remove-unavailable
+        {% endif %}
+        data-options-selection
+      >
+        <script>
+          (function() {
+            const scriptTag = document.scripts[document.scripts.length - 1];
+            const parentTag = scriptTag.parentNode;
+
+            parentTag.style.display = '';
+          })()
+        </script>
+
+        {% for option in product.options_with_values %}
+          {% assign option_index = forloop.index0 %}
+          {% assign show_swatches = false %}
+          {% if enable_swatches %}
+            {%- assign swatches_option_trigger = swatches_option_trigger | strip | downcase -%}
+            {%- assign option_name = option.name | strip | downcase -%}
+
+            {% if option_name == swatches_option_trigger %}
+              {% assign show_swatches = true %}
+              {% assign swatch_option_key = 'option' | append: forloop.index %}
+            {% endif %}
+          {% endif %}
+
+          {% if style == 'select' and show_swatches == false %}
+            {% render 'options-select',
+              product: product,
+              selected_variant: selected_variant,
+              option: option,
+              option_index: option_index
+            %}
+          {% elsif style == 'radio' or show_swatches == true %}
+            {% render 'options-radios',
+              product: product,
+              selected_variant: selected_variant,
+              option: option,
+              option_index: option_index,
+              show_swatches: show_swatches,
+              swatch_option_key: swatch_option_key,
+              swatch_size: swatches_product_page_size,
+              swatches_option_style: swatches_option_style,
+              swatch_file_type: swatch_file_type,
+              swatches_custom_colors: swatches_custom_colors,
+              swatches_shape: swatches_shape
+            %}
+          {% endif %}
+        {% endfor %}
+      </options-selection>
+      {% comment %}Inject @pixelunion/shopify-variants-ui/options-selection end{% endcomment %}
+    {% endif %}
+  </variant-selection>
+  {% comment %}Inject @pixelunion/shopify-variants-ui/variant-selection end{% endcomment %}
+
+  <style>
+a.quiz-button {
+    background-color: #212936;
+    text-decoration: none;
+    color: white;
+    padding: 14px;
+    display: block;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+  </style>
+
+  <a class="quiz-button" href="https://shopsolarkits.com/pages/solar-kit-sizing-tool?custom=Get%20Started">Not Sure What Your Looking For? Take Our Quiz</a>
+
+      <style>
+.solar-calc-container {
+    background-color: #f0942d;
+    border: 1px solid #A86519;
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 13px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none !important;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+}
+                            span.solar-image {
+          background-color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 1000px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 5px solid #ececec;
+      }
+                            span.solar-image img {
+          width: 20px;
+          height: 20px;
+      }
+
+        span.solar-text {
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+}
+    </style>
+    <a class="solar-calc-container" href="https://024wwq6ojms.typeform.com/to/F24PjymZ"
+      ><span class="solar-image">
+        <img class="hs-id-7735e52d hs-lazyload" height="10" loading="lazy" src="{{ 'form-icon.png' | asset_url }}" width="10"/>
+      </span>
+      <span class="solar-text">{{ section.settings['solar-quote-text'] }}</span></a
+    >
+
+  <style>
+a.chat-support {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    color: black;
+    gap: 5px;
+  cursor: pointer;
+}
+
+    a.chat-support img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+    </style>
+
+  <a class="chat-support" onclick="document.querySelector('.zsiq_floatmain')?.click();return false;"><img class="hs-id-15cc6443 hs-lazyload" height="40" loading="lazy" src="{{ 'chat-support.png' | asset_url }}" width="40"/>Instant Live Chat - Available Now</a>
+
+  <style>
+    .product-form--atc-button, .product-form--atc-button:not(.disabled):hover {
+    background-color: #efefef !important;
+    border-color: #fad94c;
+    color: #b2b2b2;
+    border: none;
+}
+
+    .quantity-selector__input {
+    background-color: #ffffff !important;
+    border: none;
+}
+
+    .quantity-selector__button-wrapper button {
+    background: #ffffff;
+    color: #a8a8a8;
+    border: none;
+}
+
+    .quantity-selector__wrapper {
+    border: 1px solid #ffffff;
+    border-radius: 9px;
+}
+  </style>
+
+  <div class="product-form--atc">
+    <div class="product-form__action-wrapper">
+      {% render 'quantity-selector', context: 'product' %}
+
+      <button
+        class="
+          product-form--atc-button
+          {% if selected_variant and selected_variant.available == false %}
+            disabled
+          {% endif %}
+        "
+        type="submit"
+        {% if selected_variant and selected_variant.available == false %}
+          disabled
+        {% endif %}
+        data-product-atc
+        {% if product.template_suffix contains 'pre-order' %}
+          data-product-atc-preorder
+        {% endif %}
+        onclick="addToCartPDPFBE()"
+      >
+        <span class="atc-button--text">
+          {% unless selected_variant and selected_variant.available == false %}
+            {% if product.template_suffix contains 'pre-order' %}
+              {{ 'product.buttons.pre_order' | t }}
+            {% else %}
+              {{ 'product.buttons.add_to_cart' | t }}
+            {% endif %}
+          {% else %}
+            {{ 'product.buttons.sold_out' | t }}
+          {% endunless %}
+        </span>
+        <span class="atc-button--icon">
+          {%- render 'icon-spinner' -%}
+        </span>
+      </button>
+    </div>
+
+    <style>
+      .mt-5 {
+          margin-top: 25px;
+      }
+    </style>
+
+    <div class="usp-product-container-mobile">
+      {% render 'product-page-usp' %}
+    </div>
+
+    {% if show_dynamic_checkout_button %}
+      {{ form | payment_button }}
+    {% endif %}
+  </div>
+
+  <div data-payment-terms-reference style="display: none;">
+    {{ form | payment_terms }}
+  </div>
+
+  {% if enable_local_pickup %}
+    <div class="surface-pick-up" data-surface-pick-up></div>
+  {% endif %}
+{% endform %}

@@ -1,0 +1,226 @@
+{% assign compare_at_price = 0 %}
+
+{% for variant in item.product.variants %}
+  {% if variant.id == item.variant.id and variant.compare_at_price > item.price %}
+    {% assign compare_at_price = variant.compare_at_price %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{%- assign item_has_discounts = false -%}
+{%- if item.line_level_discount_allocations.size > 0 -%}
+  {%- assign item_has_discounts = true -%}
+{%- endif -%}
+{% assign is_free_gift = false %}
+{% if item.product.metafields.seo.hidden == 1 and item.price == 0 %}
+  {% assign is_free_gift = true %}
+  {% assign main_product = all_products[item.product.metafields.main.product_handle] %}
+{% endif %}
+<li
+  class="cart-item"
+  data-cartitem
+  data-cartitem-id="{{ item.variant_id }}"
+  data-cartitem-key="{{ item.key }}"
+  data-cartitem-price="{{ item.price }}">
+  <figure class="cart-item--image-wrapper">
+    {% comment %}
+    <a href="{{ item.url }}">
+    {% endcomment %}
+      {% if item.image %}
+        {%
+          render 'rimg',
+          img: item.image,
+          alt: item.title,
+          size: '120x'
+        %}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder--image' }}
+      {% endif %}
+    {% comment %}
+    </a>
+    {% endcomment %}
+  </figure>
+
+  <div class="cart-item--inner">
+
+    <div class="cart-item--content">
+      <h2 class="cart-item--content-title">
+        {% comment %}
+          <a href="{{ item.url }}">
+            {{ item.product.title }}
+          </a>
+        {% endcomment %}
+        {{ item.product.title }}
+      </h2>
+
+      {% unless item.product.has_only_default_variant %}
+        {% for option in item.product.options %}
+          <div class="cart-item--product-options">
+            <span class="cart-item--option-name">{{ option }}</span>
+            {{ item.variant.options[forloop.index0] }}
+          </div>
+        {% endfor %}
+      {% endunless %}
+
+      {% if item.selling_plan_allocation.selling_plan %}
+        <span class="cart-item--line-item-subscriptions">{{ item.selling_plan_allocation.selling_plan.name }}</span>
+      {% endif %}
+
+      <div class="cart-item--content-price">
+        <span class="cart-item--price-title">
+          {{ 'cart.general.price' | t }}
+        </span>
+
+        {% if compare_at_price > item.price or item.original_price > item.final_price %}
+          <span class="visually-hidden">{{ 'product_price.price.original' | t }}</span>
+          <s class="cart-item--sale-price money">
+            {% comment %} Update Cart Prices to be Line Price - Fri 27 Oct{% endcomment %}
+            {%- if item_has_discounts -%}
+              {% comment %}{{ item.original_price | money }}{% endcomment %}
+              {{ item.original_line_price | money }}
+            {%- else -%}
+              {% comment %}{{ compare_at_price | money }}{% endcomment %}
+              {{ compare_at_price | times: item.quantity | money }}
+            {%- endif %}
+          </s>
+          <span class="visually-hidden">{{ 'product_price.price.current' | t }}</span>
+        {% endif %}
+
+        <span class="money {% if item_has_discounts %}cart-item--discount-price{% endif %}">
+          {% comment %} Update Cart Prices to be Line Price - Fri 27 Oct{% endcomment %}
+          {%- if item_has_discounts -%}
+            {% comment %}{{ item.final_price | money }}{% endcomment %}
+            {{ item.final_line_price | money }}
+          {%- else -%}
+            {% comment %}{{ item.original_price | money }}{% endcomment %}
+            {% unless is_free_gift %}
+              {{ item.original_line_price | money }}
+            {% else %}
+              Free
+            {% endunless %}
+          {%- endif %}
+        </span>
+      </div>
+
+      {% capture total_quantity %}<span class="cart-item--total-quantity" data-total-quantity>{{ item.unit_price_measurement.quantity_value }}{{ item.unit_price_measurement.quantity_unit }}</span>{% endcapture %}
+      {% capture unit_price %}<span class="cart-item--unit-price-amount money" data-unit-price-amount>{{ item.unit_price | money }}</span>{% endcapture %}
+      {% capture unit_measure %}<span class="cart-item--unit-price-measure" data-unit-price-measure>{%- if item.unit_price_measurement.reference_value != 1 -%}{{ item.unit_price_measurement.reference_value }}{%- endif %}{{ item.unit_price_measurement.reference_unit }}</span>{% endcapture %}
+
+      {% if item.unit_price_measurement %}
+        <div class="cart-item--unit-price">
+          {{ 'product.general.price_per_unit_html' | t: total_quantity: total_quantity, unit_price: unit_price, unit_measure: unit_measure | strip_newlines }}
+        </div>
+      {% endif %}
+
+      {%- if item_has_discounts -%}
+        <ul class="discount-list" aria-label="{{ 'product.general.discounts' | t }}">
+          {% for discount_allocation in item.line_level_discount_allocations %}
+            <li class="discount-list-item">
+              {% render 'icon-library', id: 'icon-sale-tag' %}
+              {{ discount_allocation.discount_application.title }}
+              (-<span class="money">{{ discount_allocation.amount | money }}</span>)
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if show_sku %}
+        <div
+          class="
+            cart-item--sku
+            {% if item.sku == empty %}cart-item--sku-empty{% endif %}
+          "
+        >
+          {{ 'product.general.sku_html' | t: sku: item.sku | strip_newlines }}
+        </div>
+      {% endif %}
+
+      {% if settings.inventory_status %}
+        {% if item.variant.inventory_quantity > 0 and item.variant.inventory_quantity <= settings.low_stock_threshold %}
+          {%
+            render 'product-stock-level',
+            inventory_display: settings.inventory_display,
+            inventory_transfer: settings.inventory_transfer_notice,
+            variant: item.variant,
+            verbose: false,
+          %}
+        {% endif %}
+      {% endif %}
+    </div>
+
+    <div class="cart-item__info">
+      <div class="cart-item__quantity">
+        {% unless is_free_gift %}
+            {%
+              render 'quantity-selector',
+              context: 'cart',
+              item: item,
+              is_allowed_cart_drawer: is_allowed_cart_drawer
+            %}
+        {% endunless %}
+      </div>
+
+      {% comment %} Update Cart Prices to be Line Price - Fri 27 Oct{% endcomment %}
+      {% comment %}
+      <div class="cart-item__total">
+        <span class="visually-hidden">
+          {{- 'cart.general.total_line_price' | t -}}
+        </span>
+
+        {%- if item_has_discounts -%}
+          <span class="visually-hidden">
+            {{- 'product_price.price.original' | t -}}
+          </span>
+
+          <s class="original-price money">
+            {{- item.original_line_price | money -}}
+          </s>
+
+          <span class="visually-hidden">
+            {{- 'product_price.price.current' | t -}}
+          </span>
+        {%- endif -%}
+
+        <div
+          class="
+            money
+            {% if item_has_discounts %}
+              cart-item--discount-price
+            {% endif %}
+          "
+          aria-live="polite"
+          data-cartitem-total
+        >
+          {% unless is_free_gift %}
+          {{ item.final_line_price | money }}
+          {% else %}
+          Free
+          {% endunless %}
+        </div>
+      </div>
+      {% endcomment %}
+
+      <div class="cart-item__remove"{% if is_allowed_cart_drawer and is_free_gift %} style="display: none" {% endif %}>
+        {% unless is_free_gift %}
+        <a
+          class="cart-item__remove-link"
+          aria-label="remove {{ item.product.title | escape }}"
+          {% unless is_allowed_cart_drawer %}
+          href="{{ routes.cart_change_url }}?line={{ item_index }}&amp;quantity=0"
+          data-cartitem-remove
+          data-no-instant
+          {% else %}
+          data-key="{{ item.key }}"
+          onclick="MatrixCart.removeItemFromCart(event, this)"
+          {% endunless %}
+        >
+          {%
+            render 'icon-library',
+            id: 'icon-remove',
+          %}
+        </a>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+</li>

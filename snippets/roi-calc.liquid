@@ -1,0 +1,159 @@
+<script>
+    function initROICalcPDP(create = true){
+        const helpSection = window.innerWidth > 720 ? document.querySelector('#roi_calculator_widget') : document.querySelector('#roi_calculator_widget_mobile');
+        if(!helpSection){ return false;}
+        let roi_calc;
+        if(create){
+            const html = `{% render 'roi-calc-main-html', product: product %}`;
+            const roi_calc_element = document.createElement('div');
+            roi_calc_element.innerHTML = html;
+            roi_calc = roi_calc_element.querySelector('#roi-calc');
+        }else{
+            roi_calc = document.querySelector('#roi-calc');
+        }
+
+        roi_calc && helpSection.append(roi_calc);
+        roi_calc.style.setProperty('--element_height', `${roi_calc.offsetHeight}px`);
+        if(helpSection.id === 'roi_calculator_widget'){
+            const product_gallery = helpSection.parentNode.querySelector('.product-gallery');
+            const product_main = helpSection.parentNode.querySelector('.product-main');
+            if(product_gallery && product_main){
+                roi_calc.style.setProperty('--product_gallery_height', `${product_gallery.offsetHeight + 80}px`);
+                roi_calc.style.setProperty('--product_gallery_width', `${product_gallery.offsetWidth}px`);
+                const pdt_gallery_plus_roi = product_gallery.offsetHeight + roi_calc.offsetHeight;
+                helpSection.parentNode.style.paddingBottom = `${pdt_gallery_plus_roi - product_main.offsetHeight}px`;
+            }
+        }
+    }
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function handleInputChange(target, secondInput) {
+        let progress = target;
+        if (progress.type !== 'range') {
+            progress = secondInput;
+        }
+        secondInput.value = target.value;
+        const range_helper_num_value = document.querySelector('#roi-calc .range-helper-number-input-wrap .range-helper-num-value');
+        if(range_helper_num_value){
+            range_helper_num_value.textContent = numberWithCommas(target.value);
+        }
+        const min = target.min;
+        const max = target.max;
+        const val = target.value;
+        //console.log((val - min) * 100 / (max - min));
+        progress.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%';
+        calculateROIValues();
+    }
+    function handleROIVariables(template, data){
+        const available_vars = Object.keys(data);
+        let prepared = template;
+        const before = template;
+        available_vars.forEach(roi_variable => {
+            if(prepared.includes(roi_variable) && data[roi_variable]){
+                prepared = prepared.replaceAll(roi_variable, data[roi_variable]);
+            }
+        });
+        const after = prepared;
+        //console.log(before, after)
+        return Math.round(eval(prepared));
+    }
+    function calculateROIValues(){
+        let roi_vars = {
+            '[price]': 0,
+            '[roi_result_federal_tax_credit]': 0,
+            '[roi_result_estimated_annual_electricity_savings]': 0,
+            '[roi_result_cost_after_incentives_and_savings]': 0,
+            '[roi_result_estimated_home_value_increase]': 0
+        }
+        const data = document.querySelector('#roi_calc_data');
+        const price = document.querySelector('#roi_calc_product_price_helper')?.value;
+        if(!price){ return false }
+        roi_vars['[price]'] = price;
+        /* federal_tax_credit */
+        let roi_result_federal_tax_credit = data.dataset.roi_result_federal_tax_credit;
+        if(!roi_result_federal_tax_credit){ return false }
+        //console.log('roi_result_federal_tax_credit');
+        roi_result_federal_tax_credit = handleROIVariables(roi_result_federal_tax_credit, roi_vars);
+        roi_vars['[roi_result_federal_tax_credit]'] = roi_result_federal_tax_credit;
+
+        const roi_result_federal_tax_credit_html = document.querySelector('.roi_result_federal_tax_credit');
+        if(roi_result_federal_tax_credit_html && roi_result_federal_tax_credit) {
+            roi_result_federal_tax_credit_html.innerHTML = `<span>${numberWithCommas(roi_result_federal_tax_credit)}</span>`;
+        }
+        /* end federal_tax_credit */
+
+        /* roi_result_estimated_annual_electricity_savings */
+        let roi_result_estimated_annual_electricity_savings = data.dataset.roi_result_estimated_annual_electricity_savings;
+        if(!roi_result_estimated_annual_electricity_savings){ return false }
+        //console.log('roi_result_estimated_annual_electricity_savings');
+        roi_result_estimated_annual_electricity_savings = handleROIVariables(roi_result_estimated_annual_electricity_savings, roi_vars);
+        roi_vars['[roi_result_estimated_annual_electricity_savings]'] = roi_result_estimated_annual_electricity_savings;
+
+        const roi_result_estimated_annual_electricity_savings_html = document.querySelector('.roi_result_estimated_annual_electricity_savings');
+        if(roi_result_estimated_annual_electricity_savings_html && roi_result_estimated_annual_electricity_savings) {
+            roi_result_estimated_annual_electricity_savings_html.innerHTML = `<span>${numberWithCommas(roi_result_estimated_annual_electricity_savings)}</span>`;
+        }
+        /* end roi_result_estimated_annual_electricity_savings */
+
+
+        /* roi_result_cost_after_incentives_and_savings */
+        let roi_result_cost_after_incentives_and_savings = data.dataset.roi_result_cost_after_incentives_and_savings;
+        if(!roi_result_cost_after_incentives_and_savings){ return false }
+        //console.log('roi_result_cost_after_incentives_and_savings');
+        roi_result_cost_after_incentives_and_savings = handleROIVariables(roi_result_cost_after_incentives_and_savings, roi_vars);
+        roi_vars['[roi_result_cost_after_incentives_and_savings]'] = roi_result_cost_after_incentives_and_savings;
+
+        const roi_result_cost_after_incentives_and_savings_html = document.querySelector('.roi_result_cost_after_incentives_and_savings');
+        if(roi_result_cost_after_incentives_and_savings_html && roi_result_cost_after_incentives_and_savings) {
+            roi_result_cost_after_incentives_and_savings_html.innerHTML = `<span>${numberWithCommas(roi_result_cost_after_incentives_and_savings)}</span>`;
+        }
+        /* end roi_result_cost_after_incentives_and_savings */
+
+        /* roi_result_estimated_home_value_increase */
+        let roi_result_estimated_home_value_increase = data.dataset.roi_result_estimated_home_value_increase;
+        if(!roi_result_estimated_home_value_increase){ return false }
+        //console.log('roi_result_estimated_home_value_increase');
+        roi_result_estimated_home_value_increase = handleROIVariables(roi_result_estimated_home_value_increase, roi_vars);
+        roi_vars['[roi_result_estimated_home_value_increase]'] = roi_result_estimated_home_value_increase;
+
+        const roi_result_estimated_home_value_increase_html = document.querySelector('.roi_result_estimated_home_value_increase');
+        if(roi_result_estimated_home_value_increase_html && roi_result_estimated_home_value_increase) {
+            roi_result_estimated_home_value_increase_html.innerHTML = `<span>${numberWithCommas(roi_result_estimated_home_value_increase)}</span>`;
+        }
+        /* end roi_result_estimated_home_value_increase */
+    }
+    (function (){
+        window.addEventListener('load', () => {
+            initROICalcPDP();
+            window.addEventListener('resize', () => initROICalcPDP(false));
+            const roi_calc_product_price_helper = document.querySelector('#roi_calc_product_price_helper');
+            const roi_calc_product_price = document.querySelector('#roi_calc_product_price');
+            handleInputChange(roi_calc_product_price, roi_calc_product_price_helper);
+            handleInputChange(roi_calc_product_price_helper, roi_calc_product_price);
+            /* variants swatches */
+            const select_options = document.querySelectorAll('.lh-swatch-select, .product-swatch__item, .options-selection__input-select');
+            if(select_options.length){
+                select_options.forEach(select_option => {
+                    let eventName = 'click';
+                    if(select_option.nodeName === 'SELECT'){
+                        eventName = 'change'
+                    }
+                    select_option.addEventListener(eventName, () => {
+                        setTimeout(() => {
+                            const url = new URL(window.location.href);
+                            const variant_id = url.searchParams.get('variant');
+                            if(variant_id){
+                                const new_price = document.querySelector(`#variant_${variant_id}`)?.dataset.price;
+                                if(new_price){
+                                    roi_calc_product_price_helper.value = new_price;
+                                    handleInputChange(roi_calc_product_price_helper, roi_calc_product_price);
+                                }
+                            }
+                        }, 500);
+                    })
+                })
+            }
+        })
+    }())
+</script>

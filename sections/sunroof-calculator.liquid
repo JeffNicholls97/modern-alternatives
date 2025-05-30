@@ -1,0 +1,552 @@
+{% liquid
+    assign title = section.settings.title
+    assign text = section.settings.text
+    assign google_maps_api_key = section.settings.google_maps_api_key
+%}
+
+{% render 'hs-defer-css' with filename: 'sunrooftop.css', pages: 'collection,index' | split: ',', local: true %}
+<script src="{% render 'hs-cdn-script' with filename: 'sunrooftop.js' %}"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/common.js" type="text/javascript"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/util.js" type="text/javascript"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/map.js" type="text/javascript"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/marker.js" type="text/javascript"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/controls.js" type="text/javascript"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/places_impl.js" type="text/javascript"></script>
+<script charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/51/1/intl/en_gb/onion.js" type="text/javascript"></script>
+
+<div class="sunroof-calculator-form sunroof-calculator-container">
+    {% if title != blank or text != blank %}
+    <div class="container">
+        <div class="sunroof-calculator-info">
+            <h2>{{ title }}</h2>
+            {{ text }}
+        </div>
+    </div>
+    {% endif %}
+    <form action="" method="post" accept-charset="utf-8" class="global-input" id="process-address">
+        <div class="section-enter-address">
+            <div class="container step-spacing visible" data-step="1">
+                <h3 class="step-title">STEP 1</h3>
+                <p>Enter you address:</p>
+                <div class="section-enter-address-control">
+                    <div class="step-triangle">
+                        <div class="arrow-up"></div>
+                        <div class="arrow-down"></div>
+                        <div class="arrow-left"></div>
+                        <div class="arrow-right"></div>
+                    </div>
+                    <div class="maps-viewport-wrap">
+                        <div id="map_caption">
+                            <span><em>Is the pin on your roof?</em><span>If not, drag it into place.</span></span>
+                        </div>
+                        <div id="map_canvas" style="overflow: hidden;"></div>
+                    </div>
+                    <div class="address-map">
+                        <div id="error-street-name" class="error"></div>
+
+                        <div class="process-fields">
+                            <input type="text" name="full_address" id="processAddress" required="" class="pac-target-input" placeholder="Enter a location" autocomplete="off">
+                            <div id="processAddress-message"></div>
+                            <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container step-spacing" data-step="2">
+            <h3 class="step-title">STEP 2</h3>
+            <p>Enter you monthly bill cost:</p>
+            <div class="range-input-wrap">
+                <input class="range-input" type="range" id="monthly_bill_cost" name="monthly_bill_cost" min="10" max="1000" value="10" oninput="handleInputChange(this, monthly_bill_cost_helper)" />
+                <div class="range-helper-number-input-wrap">
+                    <span>{{ cart.currency.symbol }}</span>
+                    <input class="range-helper-number-input" type="number" id="monthly_bill_cost_helper" name="monthly_bill_cost_helper" min="10" max="1000" value="10" oninput="handleInputChange(this, monthly_bill_cost)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="container step-spacing" data-step="3">
+            <h3 class="step-title">STEP 3</h3>
+            <p>Enter you monthly energy usage:</p>
+            <div class="range-input-wrap">
+                <input class="range-input" type="range" id="monthly_energy_usage" name="monthly_energy_usage" min="0" max="3000" value="0" oninput="handleInputChange(this, monthly_energy_usage_helper)" />
+                <div class="range-helper-number-input-wrap">
+                    <span>kW</span>
+                    <input class="range-helper-number-input" type="number" id="monthly_energy_usage_helper" name="monthly_energy_usage_helper" min="0" max="3000" value="0" oninput="handleInputChange(this, monthly_energy_usage)" />
+                </div>
+            </div>
+        </div>
+        <div class="container step-spacing" data-step="4">
+            <h3 class="step-title">STEP 4</h3>
+            <p>Enter what you want to achieve:</p>
+
+            <div class="achieve-wrap">
+                <input type="radio" class="step-radio" name="achieve" id="achieve_monthly_bill" value="lower_your_monthly_bill" onchange="handleArchieve()" data-message="{{ section.settings.step_4_lower_bill }}">
+                <label for="achieve_monthly_bill" class="step-fake-radio">Lower your monthly bill</label>
+                <div class="how-much-lower">
+                    <input class="range-input" type="range" id="lower_bill_percentage" name="lower_bill_percentage" min="0" max="99" value="0" oninput="handleInputChange(this, lower_bill_percentage_helper)" />
+                    <div class="range-helper-number-input-wrap">
+                        <span>%</span>
+                        <input class="range-helper-number-input" type="number" id="lower_bill_percentage_helper" name="lower_bill_percentage_helper" min="0" max="99" value="0" oninput="handleInputChange(this, lower_bill_percentage)" />
+                    </div>
+                </div>
+                <input type="radio" class="step-radio" name="achieve" id="achieve_100_off_grid" value="100_off_grid" onchange="handleArchieve()" data-message="{{ section.settings.step_4_100_off_grid }}">
+                <label for="achieve_100_off_grid" class="step-fake-radio">Take your house 100% off-grid</label>
+            </div>
+        </div>
+
+        <div class="container step-spacing sunroof-submit-button-wrap" data-step="5">
+            <button type="button" class="sunroof-submit-button" id="estimateSubmit">Calculate Now</button>
+        </div>
+
+        {% comment %} onchange="updateCustomFormFields(this)" {% endcomment %}
+        <div class="hidden-fields">
+            <input type="text" class="input-hidden" name="street_num" id="processStreetNum">
+            <input type="text" class="input-hidden" name="street_name" id="processStreetName">
+            <input type="text" class="input-hidden" name="city" id="processCity">
+            <input type="text" class="input-hidden" name="state" id="processState">
+            <input type="text" class="input-hidden" name="county" id="processCounty">
+            <input type="text" class="input-hidden" name="postal_code" id="processPostalCode">
+            <input type="text" class="input-hidden" name="latitude" id="processLat">
+            <input type="text" class="input-hidden" name="longitude" id="processLon">
+            <input type="text" class="input-hidden" name="successful_address" id="successfulAddress">
+            <input type="text" class="input-hidden" name="did_pin_drag" id="id_did_pin_drag">
+        </div>
+    </form>
+</div>
+
+<input id="sunroof-popup-trigger" type="checkbox" class="hidden_element">
+<label for="sunroof-popup-trigger" id="sunroof-calculator-result-popup-backdrop" onclick="handlePopupState()"></label>
+<div id="sunroof-calculator-result-popup">
+    <div class="sunroof-calculator-result-popup-close-wrap"><label for="sunroof-popup-trigger" id="sunroof-calculator-result-popup-close" onclick="handlePopupState()">✕</label></div>
+    <div class="sunroof-scroll">
+        <div class="sunroof-hero">
+            <div class="sunroof-background"></div>
+        </div>
+        <div class="sunroof-popup-text">
+            <h3></h3>
+        </div>
+        <div class="calc-arrows-scroller">
+            <div class="calc-arrow-wrap" style="display: none">
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper calc-swiper-results">
+                <div class="swiper-wrapper calc-result-tables">
+                    <div class="calculator-compatible-kits-wrapper swiper-slide">
+                        <table id="calc_table_solar_generator" class="calculator-compatible-kits" style="display: none">
+                            <thead class="cck-header">
+                            <tr>
+                                <td>SOLAR GENERATOR KITS</td>
+                                <td title="Inverter Capacity">INV</td>
+                                <td title="Battery Capacity">BATT</td>
+                                <td title="Panels Capacity">PAN</td>
+                            </tr>
+                            </thead>
+                            <tbody class="cck-data"></tbody>
+                        </table>
+                    </div>
+                    <div class="calculator-compatible-kits-wrapper swiper-slide">
+                        <table id="calc_table_hybrid" class="calculator-compatible-kits" style="display: none">
+                            <thead class="cck-header">
+                            <tr>
+                                <td>HYBRID KITS</td>
+                                <td title="Inverter Capacity">INV</td>
+                                <td title="Battery Capacity">BATT</td>
+                                <td title="Panels Capacity">PAN</td>
+                            </tr>
+                            </thead>
+                            <tbody class="cck-data"></tbody>
+                        </table>
+                    </div>
+                    <div class="calculator-compatible-kits-wrapper swiper-slide">
+                        <table id="calc_table_off_grid" class="calculator-compatible-kits" style="display: none">
+                            <thead class="cck-header">
+                            <tr>
+                                <td>OFF-GRID KIT</td>
+                                <td title="Inverter Capacity">INV</td>
+                                <td title="Battery Capacity">BATT</td>
+                                <td title="Panels Capacity">PAN</td>
+                            </tr>
+                            </thead>
+                            <tbody class="cck-data"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="calc-arrow-wrap" style="display: none">
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{{ 'jquery.min.js' | asset_url }}"></script>
+<script>
+    (function($) {
+        // Prevent Enter Key from Submitting a form
+        function enterKeyHandler(event) {
+            if (event.which == '13') {
+                if (event.target.nodeName.toLowerCase() !== 'textarea') {
+                    event.preventDefault();
+                }
+            }
+        }
+        $('form').on('keypress', enterKeyHandler);
+    })(jQuery);
+</script>
+<script src="{{ 'html2canvas.min.js' | asset_url }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&region=US&key={{ google_maps_api_key }}"></script>
+<script src="{% render 'hs-cdn-script' with filename: 'address_map_script.js' %}"></script>
+<script type="text/javascript">
+    var Shopify = Shopify || {};
+    // ---------------------------------------------------------------------------
+    // Money format handler
+    // ---------------------------------------------------------------------------
+    Shopify.money_format = "{{ shop.money_format }}";
+    Shopify.formatMoneyCalc = function(cents, format){
+        if (typeof cents == 'string') { cents = cents.replace('.',''); }
+        var value = '';
+        var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+        var formatString = (format || this.money_format);
+
+        function defaultOption(opt, def){
+            return (typeof opt == 'undefined' ? def : opt);
+        }
+
+        function formatWithDelimiters(number, precision, thousands, decimal){
+            precision = defaultOption(precision, 2);
+            thousands = defaultOption(thousands, ',');
+            decimal   = defaultOption(decimal, '.');
+
+            if (isNaN(number) || number == null) { return 0; }
+
+            number = (number/100.0).toFixed(precision);
+
+            var parts   = number.split('.'),
+                dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands),
+                cents   = parts[1] ? (decimal + parts[1]) : '';
+
+            return dollars + cents;
+        }
+
+        switch(formatString.match(placeholderRegex)[1]){
+            case 'amount':
+                value = formatWithDelimiters(cents, 2);
+                break;
+            case 'amount_no_decimals':
+                value = formatWithDelimiters(cents, 0);
+                break;
+            case 'amount_with_comma_separator':
+                value = formatWithDelimiters(cents, 2, '.', ',');
+                break;
+            case 'amount_no_decimals_with_comma_separator':
+                value = formatWithDelimiters(cents, 0, '.', ',');
+                break;
+        }
+
+        return formatString.replace(placeholderRegex, value);
+    }
+    function showResultsAnimation(data, failed = false){
+        const wrap = document.querySelector('#sunroof-calculator-result-popup .sunroof-scroll');
+        if(!wrap){
+            return false;
+        }
+        wrap.scrollTo({ top: 0, behavior: 'smooth' });
+
+        const sunroof_background = document.querySelector('#sunroof-calculator-result-popup .sunroof-background');
+        if(!sunroof_background){
+            return false;
+        }
+        sunroof_background.style.backgroundImage = `url("${window.google_maps_image_canvas}")`;
+        sunroof_background.style.backgroundSize = `150%`;
+
+        const sunroof_popup_trigger = document.querySelector('#sunroof-popup-trigger');
+        if(!sunroof_popup_trigger){
+            return false;
+        }
+        const popup_message = document.querySelector('#sunroof-calculator-result-popup .sunroof-popup-text h3');
+        if(popup_message){
+            if(failed){
+                const message = `{{ section.settings.if_no_kits }}`;
+                const percentage = message.split('[')[1].split(']')[0];
+                popup_message.innerHTML = message.replace(percentage, '100%').replace('[', '').replace(']', '');
+            }else{
+                popup_message.textContent = window.sunroof_message.replace('[', '').replace(']', '');
+            }
+        }
+
+        /* submit entries */
+        const submitDataBtn = document.querySelector('#shopify-block-acerill_custom_forms_block .submit-button-wrapper button.cf-btn');
+        if(submitDataBtn){
+            submitDataBtn.click();
+        }
+
+        setTimeout(() => {
+            sunroof_popup_trigger.checked = true;
+            handlePopupState();
+        }, 1000);
+    }
+    function prepareKits (kitsData){
+        if(kitsData) {
+            let kitsDataSunroof = kitsData;
+            for(let i=0;i<kitsDataSunroof.length;i++){
+                kitsDataSunroof[i]['total_cap'] = Number(kitsDataSunroof[i]['BATT']) + (Number(kitsDataSunroof[i]['PAN']) * 1.5);
+            }
+            return kitsDataSunroof;
+        }
+        return [];
+    }
+    function specialCasesTableTypeStringChecker(string){
+        if(string === 'off_grid'){
+            return 'Off-Grid';
+        }else{
+            let arr = string.replace('_', ' ').split(' ');
+            arr =  arr.map(element => {
+                return element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
+            });
+            string = arr.join(' ');
+            return string;
+        }
+    }
+    var $_the_callout = $('#map_caption'),
+        $_address_section = $('.section-enter-address'),
+        $_addressForm = $('#process-address');
+
+    const kitsDataSunroof = prepareKits(kitsData);
+
+    $(window).scroll(pinCallOut);
+
+    $('#estimateSubmit').on('click', function (e) {
+        e.preventDefault();
+
+        $_addressForm.off('submit.validation');
+        const formData = new FormData($_addressForm[0]);
+        let formDataObject = {};
+        if(formData){
+            formData.forEach((value, key) => {
+                if(key === 'state'){
+                    formDataObject[key] = abbrRegion(value, 'name');
+                }else{
+                    formDataObject[key] = value;
+                }
+            })
+        }
+        let daily_energy_usage_kW = Number(formDataObject.monthly_energy_usage)/30;
+        console.log('=============================================================')
+        if(formDataObject.achieve === 'lower_your_monthly_bill'){
+            daily_energy_usage_kW = daily_energy_usage_kW * (Number(formDataObject.lower_bill_percentage)/100);
+        }
+        const daily_energy_usage_W = daily_energy_usage_kW * 1000;
+        //alert('Battery Capacity: '+daily_energy_usage_W);
+        let compatibleKits = kitsDataSunroof.filter((item) => item['total_cap'] > daily_energy_usage_W);
+        // copy of the watt calc
+        const tableKits = document.querySelectorAll('.calculator-compatible-kits');
+        if(tableKits.length && compatibleKits.length){
+
+            const table_types = ['solar_generator', 'hybrid', 'off_grid']
+            const tableRows = {};
+            if(table_types.length){
+                table_types.forEach(table_type => {
+                    tableRows[table_type] = [];
+                })
+            }
+            console.log('step-1');console.log(tableRows);
+            for(let i = 0; i<compatibleKits.length; i++){
+                const compatibleKit = compatibleKits[i];
+                const handle = compatibleKit['handle'].split('?variant=')[0];
+                const variantId = compatibleKit['handle'].split('?variant=')[1];
+                let variantCost = 0;
+                if(compatibleKit['cost']){
+                    variantCost = parseInt(compatibleKit['cost']);
+                }
+                fetch(`/products/${handle}.js`).then((response) => response.json()).then((productObject) => {
+                    console.log(handle, productObject.handle);
+                    const tr = document.createElement('tr');
+                    tr.onclick = () => window.location.href = `/products/${compatibleKit['handle']}`;
+                    tr.dataset.handle = handle;
+                    tr.dataset.variant = variantId;
+                    let selectedVariant = {};
+                    productObject.variants.forEach(variant => {
+                        if(variant.id === parseInt(variantId)){
+                            selectedVariant = variant;
+                        }
+                    })
+                    if(!selectedVariant.id){
+                        selectedVariant = productObject.variants[0];
+                    }
+                    if(variantCost){
+                        tr.dataset.margin = Number((1-(variantCost/selectedVariant.price)) * 100).toFixed(1);
+                    }
+                    tr.innerHTML = `
+                            <td class="calc_pdt_details">
+                                <div class="cpd_image">
+                                    <img class="cpd_featured_image" src="${productObject.featured_image}">
+                                    <img class="cpd_hover_image" src="${productObject.images[1]}">
+                                </div>
+                                <div class="cpd_control">
+                                    <span class="cpd_title">${productObject.title}</span>
+                                    <table class="cpd_table">
+                                        <thead class="cck-header">
+                                            <tr>
+                                                <td title="Inverter Capacity">INV</td>
+                                                <td title="Battery Capacity">BATT</td>
+                                                <td title="Panels Capacity">PAN</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                              <td>${compatibleKit['INV']}</td>
+                                              <td>${compatibleKit['BATT']}</td>
+                                              <td>${compatibleKit['PAN']}</td>
+                                           </tr>
+                                        </tbody>
+                                    </table>
+                                    <span class="cpd_price">
+                                        <span class="cpd_real_price">${Shopify.formatMoneyCalc(selectedVariant.price)}</span>
+                                        <span class="cpd_compare_at_price">${selectedVariant.compare_at_price > selectedVariant.price ? Shopify.formatMoneyCalc(selectedVariant.compare_at_price) : '' }</span>
+                                        <p class="cpd_money_saved">${selectedVariant.compare_at_price > selectedVariant.price ? '<span>You Saved: </span>'+Shopify.formatMoneyCalc((selectedVariant.compare_at_price - selectedVariant.price)) : '' }</p>
+                                    </span>
+                                    <button class="cdp_atc_btn" onclick="calcAddToCart(event, this)" data-variant="${selectedVariant.id}">ADD TO CART</button>
+                                </div>
+                            </td>
+                            <td>${compatibleKit['INV']}</td>
+                            <td>${compatibleKit['BATT']}</td>
+                            <td>${compatibleKit['PAN']}</td>
+                            `;
+                    if(table_types.length){
+                        if(productObject.title.includes('Sol-Ark') || productObject.title.includes('Sol Ark')){
+                            tableRows['hybrid'][i] = tr;
+                        }else if(productObject.title.includes('DPK-')){
+                            tableRows['solar_generator'][i] = tr;
+                        }else{
+                            table_types.forEach(table_type => {
+                                //console.log('step-2');console.log(table_type);
+                                const capitalTableTypeString = specialCasesTableTypeStringChecker(table_type);
+                                //console.log('step-3');console.log(capitalTableTypeString);
+                                if(productObject.title.includes(capitalTableTypeString)){
+                                    //console.log('step-4');console.log(productObject.title);
+                                    tableRows[table_type][i] = tr;
+                                }
+                            })
+                        }
+                    }
+
+                    //tableKits.style.display = '';
+                    if(i === compatibleKits.length-1){
+                        //console.log(tableRows);
+                        tableKits.forEach(tableKit => {
+                            const cckData = tableKit.querySelector('.cck-data');
+                            if(cckData){
+                                cckData.innerHTML = '';
+                                const table_type = tableKit.id.replace('calc_table_', '');
+                                //console.log(table_type);
+                                if(tableRows[table_type] && tableRows[table_type].length){
+                                    tableRows[table_type] = tableRows[table_type].sort((p1, p2) => (p1.dataset.margin < p2.dataset.margin) ? 1 : (p1.dataset.margin > p2.dataset.margin) ? -1 : 0);
+                                    //here we can add - round by 5 results per table
+                                    tableRows[table_type].forEach(tr => {
+                                        cckData.append(tr);
+                                    })
+                                    tableKit.style.display = '';
+                                }
+                            }
+                        })
+                        const arrows = document.querySelectorAll('.calc-arrow-wrap');
+                        if(arrows){
+                            arrows.forEach(arrow => {
+                                arrow.style.display = '';
+                            })
+                        }
+                        showResultsAnimation(formDataObject);
+                    }
+                });
+            }
+        }else{
+            console.log('no kits')
+            showResultsAnimation(formDataObject, true);
+            if(tableKits.length){
+                tableKits.forEach(tableKit => {
+                    const cckData = tableKit.querySelector('.cck-data');
+                    tableKit.style.display = 'none';
+                    if(cckData){
+                        cckData.innerHTML = '';
+                    }
+                })
+            }
+        }
+        console.log(formDataObject);
+        console.log('=============================================================')
+    });
+</script>
+{% include 'watt-hour-calc-styles' %}
+<script>
+    class wattSlider {
+        constructor() {
+            this.swiper = new Swiper(".calc-arrows-scroller .calc-swiper-results", {});
+            this.initSwiper();
+            window.addEventListener('resize', () => {
+                this.initSwiper();
+            })
+        }
+        initSwiper(){
+            this.swiper.destroy();
+            if(window.innerWidth < 961){
+                this.swiper = new Swiper(".calc-arrows-scroller .calc-swiper-results", {
+                    navigation: {
+                        nextEl: ".calc-arrows-scroller .swiper-button-next",
+                        prevEl: ".calc-arrows-scroller .swiper-button-prev",
+                    }
+                });
+            }
+        }
+    }
+    (function (){
+        const swiper = new wattSlider();
+    })();
+</script>
+{% schema %}
+{
+    "name": "Sunroof Calculator",
+    "class": "sunroof-calculator-section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Solar Calculator"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this solar panel calculator to quickly estimate your solar potential and savings by address.</p><p>Estimates are based on your roof, electricity bill, energy usage, and actual offers in your area.</p><p>Reminder: we will not sell, trade, or rent your personal information to others without your permission.</p>"
+        },
+        {
+            "type": "text",
+            "id": "google_maps_api_key",
+            "label": "Google Maps Api Key",
+            "default": "AIzaSyA2QfUL4RrXDP1kXsi8rVH9bH7AouyRi8g"
+        },
+        {
+            "type": "text",
+            "id": "step_4_100_off_grid",
+            "label": "Step 4 Text for '100 off grid'",
+            "default": "All these kits below will work to take your house a [percentage] off grid"
+        },
+        {
+            "type": "text",
+            "id": "step_4_lower_bill",
+            "label": "Step 4 Text for 'Lower your monthly bill'",
+            "default": "All these kits below will work to lower your monthly bill by [percentage]"
+        },
+        {
+            "type": "richtext",
+            "id": "if_no_kits",
+            "label": "Message if there is no kits",
+            "default": "<p>It looks like none of our pre-designed kits are big enough to [customer input]. Based on what you need, it looks like you'll need a custom built solar kit.  Please click here to get a custom quote built by our solar professionals.</p>"
+        }
+    ]
+}
+{% endschema %}

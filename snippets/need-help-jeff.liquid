@@ -1,0 +1,61 @@
+<div x-cloak x-data="{ dropdown: false }" class="section-need-help !hidden">
+  <div class="dropdown-container-grey">
+    <div class="left-side-dropdown">
+      <div class="section-need-help-image">
+        <img alt="Support Agent" class="hs-id-f3b94436 hs-lazyload" height="100" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/alex-headshot.jpg?v=1699559185" width="100"/>
+      </div>
+      <div class="section-need-help-content">
+        <p>
+          Need Help?
+          <a href="tel:877-242-2792">877-242-2792</a>
+        </p>
+      </div>
+    </div>
+    <div x-on:click="dropdown = !dropdown" class="dropdown-arrow-container">
+      <img
+        :class="dropdown ? 'rotate-180' : 'rotate-0'"
+        width="20"
+        height="20"
+        class="dropdown-arrow"
+        alt="arrow"
+        src="{{ "chevron-dropdown.svg" | asset_url }}"
+      >
+    </div>
+    <div x-show="dropdown" x-transition class="dropdown-options">
+      {% unless block.settings.live_chat %}
+        <p>
+          <span>Instant Live Chat:&nbsp;</span>
+          <a onclick="document.querySelector('.zsiq_floatmain')?.click();return false;">Chat Now</a>
+        </p>
+      {% endunless %}
+      <p>Mon-Fri 10am-6pm EST</p>
+    </div>
+  </div>
+</div>
+
+<div class="w-full p-5 bg-[#F7F7F7] border-solid mt-5 border grid grid-cols-12 gap-5 rounded-md border-[#EEE]">
+      <div class="col-span-full xl:col-span-7 flex items-center gap-3">
+        <img alt="Support Agent" class="hs-id-f3b94436 border-8 border-solid border-[#FFE2C1] hs-lazyload rounded-full w-20 h-20" height="200" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/alex-headshot.jpg?v=1699559185" width="200"/>
+        <div>
+          <p class="text-black text-base font-medium">Need Help? We're Here for You!</p>
+          <p class="text-[#686868] text-sm font-normal">If you need help, we're here to assist you whether you're facing issues, have questions, or need clarification.</p>
+        </div>
+      </div>
+      <div class="col-span-full xl:col-span-5 flex flex-col gap-2">
+        <a href="tel:877-242-2792" class="bg-white duration-200 transition-all hover:scale-95 text-sm gap-3 font-medium w-full px-2 flex items-center rounded-md h-10">
+          <img alt="phone" class="hs-id-4c33a320 hs-lazyload" height="25" loading="lazy" src="{{ 'phone-help.png' | asset_url }}" width="25"/>
+          877-242-2792
+        </a>
+        <a onclick="document.querySelector('.zsiq_floatmain')?.click();return false;" class="bg-white duration-200 transition-all hover:scale-95 cursor-pointer text-sm gap-3 font-medium w-full pl-2 pr-5 flex items-center rounded-md h-10">
+          <img alt="phone" class="hs-id-4c33a320 hs-lazyload" height="25" loading="lazy" src="{{ 'chat-help.png' | asset_url }}" width="25"/>
+          <span class="flex flex-grow items-center justify-between">Instant Live Chat <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span></span>
+        </a>
+        <a href="/pages/contact-us" class="bg-white duration-200 transition-all hover:scale-95 text-sm gap-3 font-medium w-full px-2 flex items-center rounded-md h-10">
+          <img alt="phone" class="hs-id-4c33a320 hs-lazyload" height="25" loading="lazy" src="{{ 'clock-help.png' | asset_url }}" width="25"/>
+          Mon-Fri 10am-6pm EST
+        </a>
+      </div>
+</div>

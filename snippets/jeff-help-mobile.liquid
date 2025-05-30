@@ -1,0 +1,34 @@
+<div x-cloak x-data="{ dropdown: false }" class="section-need-help mobile">
+  <div class="dropdown-container-grey">
+    <div class="left-side-dropdown">
+      <div class="section-need-help-image">
+        <img alt="Support Agent" class="hs-id-19271ecd hs-lazyload" height="100" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/alex-headshot.jpg?v=1699559185" width="100"/>
+      </div>
+      <div class="section-need-help-content">
+        <p>
+          Need Help?
+          <a href="tel:877-242-2792">877-242-2792</a>
+        </p>
+      </div>
+    </div>
+    <div x-on:click="dropdown = !dropdown" class="dropdown-arrow-container">
+      <img
+        :class="dropdown ? 'rotate-180' : 'rotate-0'"
+        width="20"
+        height="20"
+        class="dropdown-arrow"
+        alt="arrow"
+        src="{{ "chevron-dropdown.svg" | asset_url }}"
+      >
+    </div>
+    <div x-show="dropdown" x-transition class="dropdown-options">
+      {% unless block.settings.live_chat %}
+        <p>
+          <span>Instant Live Chat:&nbsp;</span>
+          <a onclick="document.querySelector('.zsiq_floatmain')?.click();return false;">Chat Now</a>
+        </p>
+      {% endunless %}
+      <p>Mon-Fri 10am-6pm EST</p>
+    </div>
+  </div>
+</div>

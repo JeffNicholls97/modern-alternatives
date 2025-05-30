@@ -1,0 +1,56 @@
+{% render 'reviews_slider' %}
+{% schema %}
+  {
+    "name": "Review Slider",
+    "settings": [
+      {
+      "type": "text",
+      "id": "review-title",
+      "label": "Review Title",
+      "default": "Customer Success Stories"
+    }
+    ],
+  	"blocks": [
+     {
+       "name": "Reviews",
+       "type": "review",
+       "settings": [
+         {
+           "type": "text",
+           "id": "review-name-tag",
+           "label": "Enter Name Tag",
+           "default": "JM"
+         },
+         {
+           "type": "text",
+           "id": "review-name",
+           "label": "Enter Review Name",
+           "default":"James Martin"
+         },
+         {
+           "type": "text",
+           "id": "review-title",
+           "label": "Enter Review Title",
+           "default":"So much shipping/delivery care!!"
+         },
+         {
+           "type": "textarea",
+           "id": "review-body",
+           "label": "Enter Review text",
+           "default":"I love this thing so much! I have a small cabin that I added a 14x14 addition onto, and it powers everything I need. Fans, lights, microwave, Keurig for coffee in the mornings, electric blankets and my smoker grill!"
+         },
+         {
+           "type": "image_picker",
+           "id": "review-image",
+           "label": "Choose Review Image"
+         }
+       ]
+     }
+  ],
+    "presets": [
+    {
+      "name": "Review Slider"
+    }
+  ]
+  }
+{% endschema %}

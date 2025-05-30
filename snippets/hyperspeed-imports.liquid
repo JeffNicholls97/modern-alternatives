@@ -1,0 +1,70 @@
+{% comment %}DO NOT MODIFY. Any changes made here may be overwritten by Hyperspeed.{% endcomment %}
+<!-- Hyperspeed:302705 -->
+<!-- hs-shared_id:614a4ef8 -->
+
+{% render 'hs-critical-css' %}
+
+<script>window.HS_JS_OVERRIDES = {{ shop.metaobjects['app--2675107--hyperspeed_script_settings']['app--2675107--hyperspeed-script-settings-yrjxraxz'].scripts.value.smart_defer_js | json }};</script>
+<script>!function(e,t){if("object"==typeof exports&&"object"==typeof module)module.exports=t();else if("function"==typeof define&&define.amd)define([],t);else{var n=t();for(var r in n)("object"==typeof exports?exports:e)[r]=n[r]}}(self,(()=>(()=>{"use strict";var e={};(e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})})(e);const t="hyperscript/defer-load",n="ON_ACTION",r=window.HS_JS_OVERRIDES||[];function o(e,t){const n=!e||"string"!=typeof e,o=t&&t.hasAttribute("hs-ignore");if(!t&&n||o)return null;{const n=r.find((n=>e&&e.includes(n.match)||t&&t.innerHTML&&t.innerHTML.includes(n.match)&&!t.innerHTML.includes("asyncLoad")));return n?function(e,t){let n=t;if(e.cdn){n=`https://cdn.hyperspeed.me/script/${t.replace(/^(http:\/\/|https:\/\/|\/\/)/,"")}`}return{load_method:e.load_method||"default",src:n}}(n,e):null}}window.HS_LOAD_ON_ACTION_SCRIPTS=window.HS_LOAD_ON_ACTION_SCRIPTS||[];const c=document.createElement,s={src:Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype,"src"),type:Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype,"type")};function i(e,n){window.HS_LOAD_ON_ACTION_SCRIPTS.push([e,n]),e.type=t;const r=function(n){e.getAttribute("type")===t&&n.preventDefault(),e.removeEventListener("beforescriptexecute",r)};e.addEventListener("beforescriptexecute",r)}return document.createElement=function(...e){if("script"!==e[0].toLowerCase()||window.hsUnblocked)return c.bind(document)(...e);const r=c.bind(document)(...e);try{Object.defineProperties(r,{src:{...s.src,set(e){const r=o(e,null),c=r&&r.load_method===n,i=r?r.src:e;c&&s.type.set.call(this,t),s.src.set.call(this,i)}},type:{...s.type,set(e){const c=o(r.src,null);c&&c.load_method===n?s.type.set.call(this,t):s.type.set.call(this,e)}}}),r.setAttribute=function(e,t){"type"===e||"src"===e?r[e]=t:HTMLScriptElement.prototype.setAttribute.call(r,e,t)}}catch(e){console.warn("HyperScripts: unable to prevent script execution for script src ",r.src,".\n",'A likely cause would be because you are using a third-party browser extension that monkey patches the "document.createElement" function.')}return r},window.hsScriptObserver=new MutationObserver((e=>{for(let r=0;r<e.length;r++){const{addedNodes:c}=e[r];for(let e=0;e<c.length;e++){const r=c[e];if(1===r.nodeType&&"SCRIPT"===r.tagName)if(r.type===t)i(r,null);else{const e=o(r.src,r);e&&e.load_method===n&&i(r,r.type===t?null:r.type)}}}})),window.hsScriptObserver.observe(document.documentElement,{childList:!0,subtree:!0}),e})()));</script>
+
+
+<!-- Third party app optimization -->
+<!-- Is an app not updating? Just click Rebuild Cache in Hyperspeed. -->
+<!-- Or, stop deferring the app by clicking View Details on App Optimization in your Theme Optimization settings. -->
+<script hs-ignore>{% render 'hs-3p-optimize.js' %}</script>
+
+<!-- instant.load -->
+<script defer src="{{ 'hs-instantload.min.js' | asset_url }}"></script>
+
+<!-- defer JS until action -->
+<script async src="{{ 'hs-script-loader.min.js' | asset_url }}"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{%- assign preloads = shop.metaobjects['app--2675107--hyperspeed_image_preloads']['app--2675107--hyperspeed-image-preloads-nghf7giq'].image_preloads.value -%}
+
+{% if template.name == 'index' %}
+<!-- Preload LCP Image -->
+{% assign base_url = 'https://' | append: request.host -%}
+{%- for preload in preloads.home -%}
+{%- assign preload_sizes = preload.sizes -%}
+{%- assign preload_src = preload.src | replace: 'HS_URL_PLACEHOLDER', base_url -%}
+{%- assign preload_srcset = preload.srcset | replace: 'HS_URL_PLACEHOLDER', base_url -%}
+{%- assign preload_media = preload.media -%}
+<link
+    rel="preload"
+    as="image"
+    href="{{ preload_src }}"
+    imagesrcset="{{ preload_srcset }}"
+    imagesizes="{{ preload_sizes }}"
+    media="{{ preload_media }}"
+/>
+{%- endfor -%}
+{%- endif -%}
+
+{% if template.name == 'product' %}
+<!-- Preload LCP Product Image -->
+{% for preload in preloads.product -%}
+{%- assign preload_src_width = preload.src -%}
+{%- assign preload_product = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+{%- assign widths = preload.srcset | split: "," -%}
+{%- if preload.tag_type == 'img_url' -%}
+<link
+    rel="preload"
+    as="image"
+    href="{{ preload_product.src | img_url: preload_src_width }}"
+    imagesizes="{{ preload.sizes }}"
+    {% if widths -%}imagesrcset="{% for width in widths %}{{ preload_product.src | img_url: width }} {{ width }}w{% unless forloop.last %}, {% endunless %}{% endfor %}"{%- endif -%}
+/>
+{%- elsif preload.tag_type == 'image_url' -%}
+<link
+    rel="preload"
+    as="image"
+    href="{{ preload_product.src | image_url: width: preload_src_width }}"
+    imagesizes="{{ preload.sizes }}"
+    {% if widths -%}imagesrcset="{% for width in widths %}{{ preload_product.src | image_url: width: width }} {{ width }}w{% unless forloop.last %}, {% endunless %}{% endfor %}"{%- endif -%}
+/>
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+

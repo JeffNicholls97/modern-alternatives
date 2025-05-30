@@ -1,0 +1,139 @@
+<script src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js" type="text/javascript"></script>
+{% include 'watt-hour-calc-styles' %}
+<div class="calculator-wrapper">
+    <div class="calculator__description">
+        <div class="calculator__header">
+            <h1>{{ section.settings.title }}</h1>
+            {% if section.settings.sub_title != blank %}<h3>{{ section.settings.sub_title }}</h3>{% endif %}
+        </div>
+        <div class="calculator-parent-container">
+            <div class="calculator-container">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="calculator__column-header-large"><span>Appliances</span></div>
+                    <div class="calculator__column-header-small"><span>Wattage</span></div>
+                    <div class="calculator__column-header-small"><span>Number Of Item</span></div>
+                    <div class="calculator__column-header-small"><span>Total Watts</span></div>
+                    <div class="calculator__column-header-small"><span>Hours of Use</span></div>
+                    <div class="calculator__column-header-small calculator__input-watt-hours-per-day"><span>Watt hours</span></div>
+                </div>
+                <div id="calculator-lines">
+                    {% assign starting_rows = 5 %}
+                    {% for i in (1..starting_rows) %}
+                        <div class="calculator-line">
+                            {% include 'watt-hour-calc-select' %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button id="add-section-button" name="addSection" class="calculator__add-section-button" onclick="eventController(event, this)">+ Add Appliance</button>
+                <div class="calculator__watts-result">
+                    <div class="calculator__watts-totals">
+                        <div>
+                            <div>Total watt hours per day</div>
+                            <div class="calculator__result" id="total-watt-hours-per-day">0</div>
+                        </div>
+                        <div>
+                            <div>Kilowatt hours per month</div>
+                            <div id="kilowatt-hours-per-month" class="calculator__result">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="calculator-hidden-title" style="display: none">{{ section.settings.on_calc_message }}</h3>
+            <div class="calc-arrows-scroller">
+                <div class="calc-arrow-wrap" style="display: none">
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper calc-swiper-results">
+                    <div class="swiper-wrapper calc-result-tables">
+                        <div class="calculator-compatible-kits-wrapper swiper-slide">
+                            <table id="calc_table_solar_generator" class="calculator-compatible-kits" style="display: none">
+                                <thead class="cck-header">
+                                <tr>
+                                    <td>SOLAR GENERATOR KITS</td>
+                                    <td title="Inverter Capacity">INV</td>
+                                    <td title="Battery Capacity">BATT</td>
+                                    <td title="Panels Capacity">PAN</td>
+                                </tr>
+                                </thead>
+                                <tbody class="cck-data"></tbody>
+                            </table>
+                        </div>
+                        <div class="calculator-compatible-kits-wrapper swiper-slide">
+                            <table id="calc_table_hybrid" class="calculator-compatible-kits" style="display: none">
+                                <thead class="cck-header">
+                                <tr>
+                                    <td>HYBRID KITS</td>
+                                    <td title="Inverter Capacity">INV</td>
+                                    <td title="Battery Capacity">BATT</td>
+                                    <td title="Panels Capacity">PAN</td>
+                                </tr>
+                                </thead>
+                                <tbody class="cck-data"></tbody>
+                            </table>
+                        </div>
+                        <div class="calculator-compatible-kits-wrapper swiper-slide">
+                            <table id="calc_table_off_grid" class="calculator-compatible-kits" style="display: none">
+                                <thead class="cck-header">
+                                <tr>
+                                    <td>OFF-GRID KIT</td>
+                                    <td title="Inverter Capacity">INV</td>
+                                    <td title="Battery Capacity">BATT</td>
+                                    <td title="Panels Capacity">PAN</td>
+                                </tr>
+                                </thead>
+                                <tbody class="cck-data"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="calc-arrow-wrap" style="display: none">
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'watt-hour-calc-scripts' %}
+
+{% schema %}
+{
+    "name": "Watt hour calculator",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Solar Watt Hour Calculator"
+        },
+        {
+            "type": "text",
+            "id": "sub_title",
+            "label": "Sub Title"
+        },
+        {
+            "type": "text",
+            "id": "on_calc_message",
+            "label": "On Calculate Message",
+            "default": "All the kits below will work for what you wanna power"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Appliance",
+            "type": "appliance",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Name"
+                },
+                {
+                    "type": "number",
+                    "id": "watts",
+                    "label": "Watts"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

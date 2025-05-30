@@ -1,0 +1,589 @@
+#shopify-block-acerill_custom_forms_block {
+    display: none;
+}
+input {
+    border: 1px solid #dddcdc;
+    max-width: 100%;
+    padding: 8px 10px;
+    border-radius: 0;
+}
+.input-hidden {
+    display: none !important;
+}
+.section-enter-address .section-enter-address-control {
+    padding: 20px;
+    margin: 20px 0;
+}
+.section-enter-address .section-enter-address-control,
+.range-input-wrap,
+.achieve-wrap {
+    /*border-left: 2px solid #222f3e;*/
+    position: relative;
+}
+
+.step-spacing.visible .section-enter-address-control:after,
+.step-spacing.visible .range-input-wrap:after,
+.step-spacing.visible .achieve-wrap:after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    height: 0;
+    width: 2px;
+    background-color: #222f3e;
+    transition: height .5s;
+}
+
+.step-spacing.visible.arrow .section-enter-address-control:after,
+.step-spacing.visible.arrow .range-input-wrap:after,
+.step-spacing.visible.arrow .achieve-wrap:after {
+    height: 100%;
+}
+
+
+.step-spacing.visible .section-enter-address-control:before,
+.step-spacing.visible .range-input-wrap:before,
+.step-spacing.visible .achieve-wrap:before{
+    content: "";
+    position: absolute;
+    left: -5px;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    transition: bottom .5s;
+}
+.step-spacing.visible.arrow .section-enter-address-control:before,
+.step-spacing.visible.arrow .range-input-wrap:before,
+.step-spacing.visible.arrow .achieve-wrap:before {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+
+    border-top: 6px solid #222f3e;
+    bottom: -3px;
+}
+
+.step-spacing {
+    opacity: 0;
+    max-height: 0;
+    overflow: initial;
+}
+.step-spacing.visible {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    animation: stepFadeIn .5s forwards .8s;
+}
+@keyframes stepFadeIn {
+    0% {
+        opacity: 0;
+        overflow: hidden;
+    }
+    100% {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+.sunroof-submit-button {
+    background: #222f3e;
+    color: #ff991c;
+    border-color: #222f3e;
+    padding: 15px 35px;
+    font-weight: bold;
+    border-radius: 0;
+    transition: all .3s;
+}
+.sunroof-submit-button:hover {
+    background: #ff991c;
+    color: #222f3e;
+}
+.sunroof-submit-button-wrap {
+    display: flex;
+    justify-content: center;
+}
+.step-radio {
+    display: none !important;
+}
+.step-fake-radio {
+    position: relative;
+    padding-left: 25px;
+    display: block;
+    margin-bottom: 10px;
+}
+.step-fake-radio:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    border: 2px solid #222f3e;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+}
+.step-radio:checked + .step-fake-radio:after {
+    content: "";
+    background-color: #ff991c;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border: 2px solid #FFF;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+.achieve-wrap {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+
+.maps-viewport-wrap {
+    position: relative;
+    height: 500px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+.maps-viewport-wrap:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(34, 47, 62, 1);
+    pointer-events: none;
+}
+/* On map init */
+.maps-viewport-wrap.init {
+    max-height: 500px;
+}
+.maps-viewport-wrap.init:before {
+    animation: mapViewportBeforeTransition 1s forwards 1s;
+}
+@keyframes mapViewportBeforeTransition {
+    0% {
+        background-color: rgba(34, 47, 62, 1);
+    }
+    100% {
+        background-color: rgba(34, 47, 62, 0);
+    }
+}
+
+#map_caption {
+    background-color: rgba(34, 47, 62, 1);
+    color: #FFF;
+    padding: 10px 20px;
+}
+#map_caption em {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 5px;
+}
+#map_caption > span {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* ============================= */
+/* ===== monthly bill cost ===== */
+/* ============================= */
+#shopify-section-sunroof-hero .sunroof-text-box-control,
+.sunroof-calculator-form.sunroof-calculator-container
+{
+    transition: all .3s;
+}
+.hidden_element {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    max-height: 0;
+    overflow: hidden;
+}
+.range-input-wrap,
+.how-much-lower {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 20px 0;
+}
+.how-much-lower {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0 0 0 20px;
+    margin: 0;
+    transition: all .3s;
+}
+.how-much-lower.active {
+    padding: 20px 0 20px 20px;
+    margin: 20px 0;
+    max-height: 200px;
+}
+.range-helper-number-input-wrap {
+    padding: 4px 5px;
+    background-color: #222f3e;
+    color: #FFF;
+    font-weight: bold;
+}
+/*
+black #222f3e
+orange #ff991c
+*/
+.range-helper-number-input {
+    width: 60px;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #ff991c;
+    background-color: #222f3e;
+    text-align: right;
+}
+
+.range-input {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    padding: 5px 0;
+}
+
+.range-input {
+    -webkit-appearance: none;
+    margin-right: auto;
+    width: calc(100% - 200px);
+    height: 7px;
+    background: #fff;
+    border-radius: 5px;
+    background-image: linear-gradient(#ff991c, #ff991c);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+}
+
+/* Input Thumb */
+.range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #ff991c;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+.range-input::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #ff991c;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+.range-input::-ms-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #ff991c;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+.range-input::-webkit-slider-thumb:hover {
+    background: #ff991c;
+}
+
+.range-input::-moz-range-thumb:hover {
+    background: #ff991c;
+}
+
+.range-input::-ms-thumb:hover {
+    background: #ff991c;
+}
+
+/* Input Track */
+.range-input::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+.range-input::-moz-range-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+.range-input::-ms-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+/* ============================= */
+/* === end monthly bill cost === */
+/* ============================= */
+
+@keyframes beginBrowserAutofill {
+    0% {
+    }
+    to {
+    }
+}
+
+@keyframes endBrowserAutofill {
+    0% {
+    }
+    to {
+    }
+}
+
+.pac-container {
+    background-color: #fff;
+    position: absolute !important;
+    z-index: 1000;
+    border-radius: 2px;
+    border-top: 1px solid #d9d9d9;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden
+}
+
+.pac-logo:after {
+    content: "";
+    padding: 1px 1px 1px 0;
+    height: 18px;
+    box-sizing: border-box;
+    text-align: right;
+    display: block;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 120px 14px
+}
+
+.hdpi.pac-logo:after {
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)
+}
+
+.pac-item {
+    cursor: default;
+    padding: 0 4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 30px;
+    text-align: left;
+    border-top: 1px solid #e6e6e6;
+    font-size: 11px;
+    color: #515151
+}
+
+.pac-item:hover {
+    background-color: #fafafa
+}
+
+.pac-item-selected, .pac-item-selected:hover {
+    background-color: #ebf2fe
+}
+
+.pac-matched {
+    font-weight: 700
+}
+
+.pac-item-query {
+    font-size: 13px;
+    padding-right: 3px;
+    color: #000
+}
+
+.pac-icon {
+    width: 15px;
+    height: 20px;
+    margin-right: 7px;
+    margin-top: 6px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
+    background-size: 34px
+}
+
+.hdpi .pac-icon {
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)
+}
+
+.pac-icon-search {
+    background-position: -1px -1px
+}
+
+.pac-item-selected .pac-icon-search {
+    background-position: -18px -1px
+}
+
+.pac-icon-marker {
+    background-position: -1px -161px
+}
+
+.pac-item-selected .pac-icon-marker {
+    background-position: -18px -161px
+}
+
+.pac-placeholder {
+    color: gray
+}
+
+.pac-target-input:-webkit-autofill {
+    animation-name: beginBrowserAutofill
+}
+
+.pac-target-input:not(:-webkit-autofill) {
+    animation-name: endBrowserAutofill
+}
+/*-----------------------------------------*/
+.gm-style-moc {
+    background-color: rgba(0, 0, 0, .45);
+    pointer-events: none;
+    text-align: center;
+    transition: opacity ease-in-out
+}
+
+.gm-style-mot {
+    color: white;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 22px;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%)
+}
+/*-----------------------------------------*/
+.gm-style img {
+    max-width: none;
+}
+
+.gm-style {
+    font: 400 11px Roboto, Arial, sans-serif;
+    text-decoration: none;
+}
+/* -------------------------------------- */
+#processAddress {
+    width: 100%;
+}
+.sunroof-calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.sunroof-calculator-form h2 {
+    margin-bottom: 20px;
+}
+.sunroof-calculator-info {
+    border-left: 3px solid #ff991c;
+    border-right: 3px solid #ff991c;
+    padding: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+/* POPUP */
+body.scroll-freeze {
+    overflow: hidden !important;
+}
+.sunroof-calculator-result-popup-close-wrap {
+    display: flex;
+    justify-content: right;
+    padding-bottom: 20px;
+}
+#sunroof-calculator-result-popup-close {
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    padding-top: 1px;
+}
+#sunroof-calculator-result-popup-backdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s;
+}
+#sunroof-calculator-result-popup {
+    position: fixed;
+    width: 100%;
+    max-width: 1600px;
+    height: calc(100% - 40px);
+    top: calc(100% + 20px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #FFF;
+    z-index: -1;
+    opacity: 0;
+    padding: 20px;
+    overflow: hidden;
+    transition: opacity 1s, top 1s;
+}
+.sunroof-scroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+}
+.sunroof-scroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sunroof-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.sunroof-scroll::-webkit-scrollbar-thumb {
+    background-color: #ff991c;
+    outline: 1px solid #222f3e;
+    border-radius: 25px;
+}
+#sunroof-popup-trigger:checked + #sunroof-calculator-result-popup-backdrop {
+    z-index: 199998;
+    opacity: 1;
+}
+#sunroof-popup-trigger:checked ~ #sunroof-calculator-result-popup {
+    top: 20px;
+    z-index: 199999;
+    opacity: 1;
+}
+#sunroof-calculator-result-popup .sunroof-popup-text h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+/* END POPUP */
+@media only screen and (max-width: 1640px){
+    #sunroof-calculator-result-popup {
+        max-width: calc(100% - 40px);
+    }
+}
+@media only screen and (max-width: 999px){
+    #sunroof-calculator-result-popup {
+        max-width: 999px;
+    }
+    .range-input {
+        width: calc(100% - 100px);
+    }
+}

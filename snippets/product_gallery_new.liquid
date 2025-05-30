@@ -1,0 +1,363 @@
+<style>
+#chevron-left,#chevron-right{top:50%;transform:translateY(-50%)}.mySwiperMain .swiper-slide{opacity:1}.mySwiperThumbnails{height:100%;padding:10px;box-sizing:border-box}.mySwiperThumbnails .swiper{height:500px;overflow:hidden!important}.mySwiperMain .swiper-slide img,.mySwiperMain .swiper-slide video{object-fit:cover}.mySwiperThumbnails .swiper-slide img{width:100px;height:100px;object-fit:contain}.mySwiperThumbnails .swiper-slide{border:2px solid #f4f4f4;transition:border-color .3s;cursor:pointer;padding:5px;margin-bottom:8px;box-sizing:border-box;background:#fff;border-radius:5px}.mySwiperThumbnails .swiper-slide-thumb-active,.mySwiperThumbnails .swiper-slide:hover{border-color:#f0942d;opacity:1}#chevron-down,#chevron-left,#chevron-right,#chevron-up{background:rgba(255,255,255,.9);box-shadow:0 2px 4px rgba(0,0,0,.2);border-radius:50%;padding:5px;cursor:pointer;transition:background .3s;z-index:10;width:40px;height:40px;display:flex;align-items:center;justify-content:center}#chevron-down svg,#chevron-left svg,#chevron-right svg,#chevron-up svg{width:24px;height:24px}#chevron-down:hover,#chevron-left:hover,#chevron-right:hover,#chevron-up:hover{background:rgba(240,148,45,.9)}#chevron-up{top:-7px}#chevron-down{bottom:-7px}#chevron-left{left:10px}#chevron-right{right:10px}.video-container{position:relative;width:100%;max-height:700px;height:417px}.video-container iframe,.video-container video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}@media (max-width:1023px){.mySwiperThumbnails .swiper-slide{padding:3px;margin-bottom:0;margin-right:5px}#chevron-down,#chevron-up{display:none}}@media (max-width:768px){.mySwiperThumbnails .swiper-slide{padding:3px;margin-bottom:0;margin-right:5px;height:75px}.mySwiperThumbnails .swiper{height:90px;overflow:hidden!important}.mySwiperThumbnails .swiper-slide img{width:100px;height:100%;object-fit:contain}}
+.off-screen-content {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px; /* Adjust based on your content */
+  }
+</style>
+
+{% assign main_image = product.featured_image %}
+<link
+  rel="preload"
+  as="image"
+  href="{{ main_image | img_url: '640x' }}" />
+
+<div class="flex flex-col lg:flex-row-reverse lg:gap-4">
+  <!-- Main Image Container -->
+  <div class="w-full lg:w-4/5 h-full relative">
+    <!-- Left Chevron -->
+    <div id="chevron-left" class="absolute cursor-pointer z-10 bg-white rounded-full p-1 hidden lg:block">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 19l-7-7 7-7" />
+      </svg>
+    </div>
+
+    <!-- Right Chevron -->
+    <div id="chevron-right" class="absolute cursor-pointer z-10 bg-white rounded-full p-1 hidden lg:block">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+
+    <!-- Swiper for Main Media -->
+    <div class="swiper mySwiperMain">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          <div
+            id="gallery--no-dynamic-import"
+            class="swiper-slide"
+            data-media-id="{{ media.id }}">
+            {% if media.media_type == 'image' %}
+              {% assign variant_image_id = '' %}
+
+              <!-- Loop through each variant to check if its image matches the current media ID -->
+              {% for variant in product.variants %}
+                {% if variant.featured_image and variant.featured_image.id == media.id %}
+                  {% assign variant_image_id = variant.featured_image.id %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+
+              <!-- Gallery Slide with Variant Image ID -->
+                <img
+                  {% if forloop.first %}
+                  loading="eager"
+                  fetchpriority="high"
+                  src="{{ main_image | img_url: '640x' }}"
+                  srcset="{{ main_image | img_url: '320x' }} 320w,
+          {{ main_image | img_url: '640x' }} 640w,
+          {{ main_image | img_url: '960x' }} 960w"
+                  sizes="(max-width: 640px) 100vw, 640px"
+                  width="{{ main_image.width }}"
+                  height="{{ main_image.height }}"
+                  alt="{{ main_image.alt | escape }}"
+                  {% else %}
+                  loading="lazy"
+                  fetchpriority="low"
+                  src="{{ media | img_url: '640x' }}"
+                  srcset="{{ media | img_url: '320x' }} 320w,
+          {{ media | img_url: '640x' }} 640w,
+          {{ media | img_url: '960x' }} 960w"
+                  sizes="(max-width: 640px) 100vw, 640px"
+                  width="{{ media.width }}"
+                  height="{{ media.height }}"
+                  alt="{{ media.alt | escape }}"
+                  {% endif %}
+                  
+                  class="w-full h-full object-cover"
+                  alt="{{ media.alt }}" />
+            {% elsif media.media_type == 'video' %}
+              <div class="video-container">
+                <video
+                  controls
+                  muted
+                  loop>
+                  <source src="{{ media | video_tag }}" type="video/mp4">
+                </video>
+              </div>
+            {% elsif media.media_type == 'external_video' %}
+              <iframe
+                src="{{ media | external_video_url }}"
+                class="video-container w-full h-full"
+                frameborder="0"
+                allowfullscreen></iframe>
+            {% elsif media.media_type == 'model' %}
+              <model-viewer
+                src="{{ media | model_url }}"
+                class="w-full h-full"
+                autoplay
+                ar
+                shadow-intensity="1"
+                camera-controls></model-viewer>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        <!-- Loop to Include Each Variant's Image in Its Own Slide -->
+        {% for variant in product.variants %}
+          {% if variant.image %}
+            <div
+              id="gallery--no-dynamic-import"
+              class="swiper-slide"
+              data-variant-id="{{ variant.id }}">
+                <img alt="{{ variant.title | escape }}" class="w-full h-full object-cover hs-id-8a56f850" height="1024" loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 75vw, 50vw" src="{{ variant.image | img_url: '1024x1024' }}" srcset="{{ variant.image | img_url: '320x320' }} 320w, 
+                          {{ variant.image | img_url: '640x640'}} 640w, 
+                          {{ variant.image | img_url: '768x768'}} 768w, 
+                          {{ variant.image | img_url: '1024x1024'}} 1024w, 
+                          {{ variant.image | img_url: '1280x1280'}} 1280w" width="1024"/>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Thumbnails Container with Chevron Controls -->
+    <div class="w-full lg:w-1/5 h-full mySwiperThumbnails relative mb-0">
+    <!-- Up Chevron -->
+    <div id="chevron-up" class="absolute top-0 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 bg-white rounded-full p-1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 15l7-7 7 7" />
+      </svg>
+    </div>
+
+    <!-- Swiper for Thumbnails -->
+    <div class="swiper swiper-main-gallery h-full">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          <div class="swiper-slide" data-media-id="{{ media.id }}">
+            {% if media.media_type == 'image' %}
+              <img
+                {% if forloop.first %}
+                loading="eager"
+                fetchpriority="high"
+                {% else %}
+                loading="lazy"
+                fetchpriority="low"
+                {% endif %}
+                src="{{ media | img_url: '200x' }}"
+                srcset="{{ media | img_url: '100x' }} 100w, 
+                    {{ media | img_url: '150x' }} 150w, 
+                    {{ media | img_url: '200x' }} 200w, 
+                    {{ media | img_url: '300x' }} 300w"
+                sizes="(max-width: 768px) 20vw, 
+                   (max-width: 1024px) 10vw, 
+                   5vw"
+                width="200"
+                height="200"
+                alt="{{ media.alt }}"
+                class="w-full h-full object-contain md:object-cover cursor-pointer" />
+            {% elsif media.media_type == 'video' %}
+              <img
+                {% if forloop.first %}
+                loading="eager"
+                fetchpriority="high"
+                {% else %}
+                loading="lazy"
+                fetchpriority="low"
+                {% endif %}
+                src="{{ media.preview_image.src | img_url: '200x' }}"
+                srcset="{{ media.preview_image.src | img_url: '100x' }} 100w, 
+                    {{ media.preview_image.src | img_url: '150x' }} 150w, 
+                    {{ media.preview_image.src | img_url: '200x' }} 200w, 
+                    {{ media.preview_image.src | img_url: '300x' }} 300w"
+                sizes="(max-width: 768px) 20vw, 
+                   (max-width: 1024px) 10vw, 
+                   5vw"
+                width="200"
+                height="200"
+                alt="Video Thumbnail"
+                class="w-full h-full object-contain md:object-cover cursor-pointer" />
+            {% elsif media.media_type == 'external_video' %}
+              <img
+                {% if forloop.first %}
+                loading="eager"
+                fetchpriority="high"
+                {% else %}
+                loading="lazy"
+                fetchpriority="low"
+                {% endif %}
+                src="{{ media.preview_image.src | img_url: '200x' }}"
+                srcset="{{ media.preview_image.src | img_url: '100x' }} 100w, 
+                    {{ media.preview_image.src | img_url: '150x' }} 150w, 
+                    {{ media.preview_image.src | img_url: '200x' }} 200w, 
+                    {{ media.preview_image.src | img_url: '300x' }} 300w"
+                sizes="(max-width: 768px) 20vw, 
+                   (max-width: 1024px) 10vw, 
+                   5vw"
+                width="200"
+                height="200"
+                alt="External Video Thumbnail"
+                class="w-full h-full object-contain md:object-cover cursor-pointer" />
+            {% elsif media.media_type == 'model' %}
+              <img
+                {% if forloop.first %}
+                loading="eager"
+                fetchpriority="high"
+                {% else %}
+                loading="lazy"
+                fetchpriority="low"
+                {% endif %}
+                src="{{ media.preview_image.src | img_url: '200x' }}"
+                srcset="{{ media.preview_image.src | img_url: '100x' }} 100w, 
+                    {{ media.preview_image.src | img_url: '150x' }} 150w, 
+                    {{ media.preview_image.src | img_url: '200x' }} 200w, 
+                    {{ media.preview_image.src | img_url: '300x' }} 300w"
+                sizes="(max-width: 768px) 20vw, 
+                   (max-width: 1024px) 10vw, 
+                   5vw"
+                width="200"
+                height="200"
+                alt="3D Model Thumbnail"
+                class="w-full h-full object-contain md:object-cover cursor-pointer" />
+            {% endif %}
+          </div>
+        {% endfor %}
+        {% for variant in product.variants %}
+          {% if variant.image %}
+            <div class="swiper-slide" data-variant-id="{{ variant.id }}">
+              <img alt="{{ variant.title | escape }}" class="w-full h-full object-contain md:object-cover cursor-pointer hs-id-d55478ff" height="200" loading="lazy" src="{{ variant.image | img_url: '200x200' }}" width="200"/>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Down Chevron -->
+    <div id="chevron-down" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 bg-white rounded-full p-1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+      const swiperThumbnails = new Swiper(".mySwiperThumbnails .swiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        mousewheel: true,
+        direction: window.innerWidth >= 1024 ? "vertical" : "horizontal",
+      });
+
+      const swiperMain = new Swiper(".mySwiperMain", {
+        spaceBetween: 10,
+        navigation: {
+          nextEl: "#chevron-right",
+          prevEl: "#chevron-left",
+        },
+        thumbs: {
+          swiper: swiperThumbnails,
+        },
+      });
+
+      // Cache DOM elements and create a variant-to-index map
+      const mainSlides = Array.from(document.querySelectorAll('.mySwiperMain .swiper-slide'));
+      const variantMap = new Map(mainSlides.map((slide, index) => [slide.getAttribute('data-variant-id'), index]));
+      const variantSelectionElement = document.querySelector('.variant-selection');
+
+      // Flag to track if the page has just loaded
+      let isInitialLoad = true;
+
+      // Function to navigate to the image that matches the variant ID
+      function navigateToVariantImageById(variantId) {
+        const index = variantMap.get(variantId);
+        if (index !== undefined && !isInitialLoad) {
+          swiperMain.slideTo(index);
+        }
+      }
+
+      // Function to get the currently selected variant ID
+      const getCurrentVariantId = () => variantSelectionElement?.getAttribute('variant') || null;
+
+      // Function to update image based on current variant
+      const updateImageForCurrentVariant = () => {
+        const currentVariantId = getCurrentVariantId();
+        if (currentVariantId) navigateToVariantImageById(currentVariantId);
+      };
+
+      // Set up observer for variant selection changes
+      if (variantSelectionElement) {
+        new MutationObserver((mutations) => {
+          for (const mutation of mutations) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'variant') {
+              if (isInitialLoad) {
+                isInitialLoad = false;
+              } else {
+                updateImageForCurrentVariant();
+              }
+              break;
+            }
+          }
+        }).observe(variantSelectionElement, { attributes: true });
+      }
+
+      // Chevron click functionality for thumbnails
+      document.getElementById('chevron-up')?.addEventListener('click', () => swiperThumbnails.slidePrev());
+      document.getElementById('chevron-down')?.addEventListener('click', () => swiperThumbnails.slideNext());
+
+      // Handle window resize for thumbnail swiper direction
+      window.addEventListener('resize', () => {
+        swiperThumbnails.params.direction = window.innerWidth >= 1024 ? "vertical" : "horizontal";
+        swiperThumbnails.update();
+      });
+
+      // Set isInitialLoad to false after a short delay
+      setTimeout(() => {
+        isInitialLoad = false;
+      }, 500);
+    }, 0);
+  });
+</script>

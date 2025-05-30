@@ -1,0 +1,3 @@
+{% layout none %}
+{% assign main_product = all_products[product.metafields.main.product_handle] %}
+<script>window.location.replace("{% if main_product.id %}{{ main_product.url }}{% else %}/{% endif %}")</script>

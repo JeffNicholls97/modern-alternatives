@@ -1,0 +1,261 @@
+<style>
+    html.matrix-freeze-window body {
+        overflow: hidden !important;
+        touch-action: manipulation;
+    }
+</style>
+<script type="text/javascript">!function(e){(e.MatrixCart=e.MatrixCart||{
+        loaded: false,
+        id: 'matrix-cart',
+        shopUrl: '{{ shop.url }}',
+        routes: {
+            cart_add_url: '{{ routes.cart_add_url }}',
+            cart_change_url: '{{ routes.cart_change_url }}',
+            cart_update_url: '{{ routes.cart_update_url }}',
+            predictive_search_url: '{{ routes.predictive_search_url }}'
+        },
+        /* Sections for Rerender */
+        getSectionsToRender: function () {
+            return [
+                {
+                    id: this.id,
+                    section: this.id,
+                    selector: `#shopify-section-${this.id}`
+                }
+            ];
+        },
+        freezeWindow: function (ice = false) {
+            const html = document.querySelector('html');
+            if(ice && ice.htmlFor){
+                const checkbox = document.querySelector('#'+ice.htmlFor);
+                if(checkbox){
+                    if(checkbox.checked){
+                        if(html.classList.contains('matrix-freeze-window')){
+                            html.classList.remove('matrix-freeze-window');
+                        }
+                    }else{
+                        if(!html.classList.contains('matrix-freeze-window')){
+                            html.classList.add('matrix-freeze-window');
+                        }
+                    }
+                }
+            }else if(ice){
+                if(!html.classList.contains('matrix-freeze-window')){
+                    html.classList.add('matrix-freeze-window');
+                }
+            }else{
+                if(html.classList.contains('matrix-freeze-window')){
+                    html.classList.remove('matrix-freeze-window');
+                }
+            }
+        },
+        /* Parse Response HTML String of Section */
+        getSectionInnerHTML: function (html, selector = '.shopify-section') {
+            return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
+        },
+        renderContents: function (parsedState) {
+            if(parsedState.sections){
+                parsedState = parsedState.sections;
+            }
+            this.getSectionsToRender().forEach((section => {
+                document.querySelector(section.selector).innerHTML = this.getSectionInnerHTML(parsedState[section.id]);
+            }));
+        },
+        /* Adding Item to MatrixCart & Reloading MatrixCart
+         example: const item = { variant_id: variant_id };
+         example: const item = { variant_id: variant_id, quantity: 10 };
+        */
+        addItemToCart: function (item, __callback_function = false) {
+            if(!item.variant_id){
+                return
+            }
+            if(!item.quantity){
+                item.quantity = 1
+            }
+            let formData = new FormData();
+            const sections = this.getSectionsToRender().map((section) => section.id)
+            formData.append('id', item.variant_id.toString());
+            formData.append('quantity', item.quantity.toString());
+            //formData.append('sections', sections);
+            //formData.append('sections_url', window.location.pathname);
+            const config = {
+                method: 'POST',
+                headers: {'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/javascript'},
+                body: formData
+            };
+
+            fetch(`${this.routes.cart_add_url}`, config).then((response) => response.json()).then((response) => {
+                if(response.status){
+                    return;
+                }
+                //this.renderContents(response);
+                if(__callback_function && typeof __callback_function === 'function'){
+                    __callback_function(response);
+                }
+                try {
+                    const activeCode = getActiveCode();
+                    if(activeCode){
+                        window.Abra.activate(activeCode);
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+            })
+        },
+        /* update cart and return sections */
+        updateItemsInCart: function (items, __callback_function = false){
+            if(!items){
+                return;
+            }
+            const update = {};
+            items.forEach(item => update[item.key] = item.value);
+
+            const sections = this.getSectionsToRender().map((section) => section.id);
+            const data = {
+                updates: update,
+                //sections: sections,
+                //sections_url: window.location.pathname
+            };
+
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/javascript'
+                },
+                body: JSON.stringify(data)
+            };
+
+            fetch(`${this.routes.cart_update_url}.js`, config).then((response) => response.json()).then((response) => {
+                //this.renderContents(response);
+                if("function" === typeof onCartUpdateStephenDiscountCodes){
+                    onCartUpdateStephenDiscountCodes(response);
+                }
+                if("function" === typeof xyOnItemRemove) {
+                    xyOnItemRemove(response, (response) => {
+                        this.updateAfterCartHtml(response);
+                        if(__callback_function && typeof __callback_function === 'function'){
+                            __callback_function(response);
+                        }
+                    });
+                }else{
+                    this.updateAfterCartHtml(response);
+                    if(__callback_function && typeof __callback_function === 'function'){
+                        __callback_function(response);
+                    }
+                }
+                try {
+                    const activeCode = getActiveCode();
+                    if(activeCode){
+                        window.Abra.activate(activeCode);
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+            });
+        },
+        updateQtyInputInCart: function (event, element, input){
+            event.preventDefault();
+            event.stopPropagation();
+            console.log(event, element, input)
+            if(element.classList.contains('matrix-minus')){
+                if(input.value > 1){
+                    input.value--;
+                }
+            }else if(element.classList.contains('matrix-plus')){
+                input.value++;
+            }
+            const items = [
+                {
+                    key: input.dataset.key,
+                    value: input.value
+                }
+            ]
+            /* response available in the second param, param type callback function */
+            this.updateItemsInCart(items);
+        },
+        /* =========== CUSTOM MatrixCart functions =========== */
+        updateAfterCartHtml: function (cart, __callback_function = false){
+            const cart_count = document.querySelector('[data-header-cart-count]');
+            if(cart_count){
+                cart_count.dataset.headerCartCount = cart.item_count;
+            }
+            const sections = this.getSectionsToRender().map((section) => section.id);
+            let startPath = window.location.pathname;
+            if(startPath[startPath.length - 1] !== '/'){
+                startPath += '/';
+            }
+            fetch(startPath+'?sections='+sections.join(',')).then(response => response.json()).then(response => {
+                this.renderContents(response);
+                if(__callback_function && typeof __callback_function === 'function'){
+                    __callback_function(response);
+                }
+            });
+        },
+        instantAddToCart: function (element, event){
+            if(element.disabled) return false;
+            event.preventDefault();
+            event.stopPropagation();
+            element.classList.add('processing');
+            this.addItemToCart({variant_id: element.dataset.variantId}, (response_json) => {
+                const item = response_json;
+                if(item && item['key']){
+                    fetch('/cart.js').then(response => response.json()).then(cart => {
+                        if("function" === typeof onCartUpdateStephenDiscountCodes){
+                            onCartUpdateStephenDiscountCodes(cart);
+                        }
+                        if("function" === typeof xyOnItemRemove) {
+                            xyOnItemRemove(cart, (cart) => {
+                                element.classList.remove('processing');
+                                this.updateAfterCartHtml(cart, (cart) => {
+                                    console.log('bbbbbbbbbbb');
+                                    const cart_trigger = document.querySelector(`#${this.id}-trigger`);
+                                    if(cart_trigger){
+                                        cart_trigger.checked = true;
+                                        this.freezeWindow(true);
+                                    }
+                                });
+                            });
+                        }else{
+                            element.classList.remove('processing');
+                            this.updateAfterCartHtml(cart, (cart) => {
+                                console.log('vvvvvvvvvvvvv');
+                                const cart_trigger = document.querySelector(`#${this.id}-trigger`);
+                                if(cart_trigger){
+                                    cart_trigger.checked = true;
+                                    this.freezeWindow(true);
+                                }
+                            });
+                        }
+                    })
+                }
+            })
+        },
+
+        /* =========== END CUSTOM MatrixCart functions =========== */
+        removeItemFromCart: function (event, element){
+            event.preventDefault();
+            event.stopPropagation();
+            console.log(event, element)
+            const items = [
+                {
+                    key: element.dataset.key,
+                    value: 0
+                }
+            ]
+            /* response available in the second param, param type callback function */
+            this.updateItemsInCart(items);
+        },
+        handleToggle: function (element){
+            const matrix_cart = document.querySelector(':root .matrix-cart');
+            matrix_cart.style.setProperty('--height', `${window.innerHeight}px`);
+        }
+    }).loaded=!0}(window);
+
+    window.addEventListener('resize', () => {
+        const matrix_cart = document.querySelector(':root .matrix-cart');
+        console.log(matrix_cart, window.innerHeight);
+        matrix_cart.style.setProperty('--height', `${window.innerHeight}px`);
+    })
+</script>

@@ -1,0 +1,195 @@
+/* MatrixCart css vars
+info: move vars into section css if you want them load from Customizer
+*/
+:root .matrix-cart,
+:root #matrix-cart-backdrop {
+    --width: 350px;
+    --height: 100vh;
+    --background-color: rgba(255,255,255,1);
+    --transition: .3s;
+    --backdrop-opacity: .5;
+    --backdrop-color: rgba(0,0,0,.5);
+}
+:root .matrix-cart {
+    --z-index: 2147483647;
+}
+:root #matrix-cart-backdrop {
+    --z-index: 2147483646;
+}
+:root .zsiq_floatmain {
+    z-index: 2147483640 !important;
+}
+label[for="matrix-cart-trigger"] {
+    cursor: pointer;
+}
+
+#matrix-cart-trigger {
+    display: none !important;
+}
+
+#matrix-cart-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-color: var(--backdrop-color);
+    transition: opacity var(--transition);
+}
+/* FIRE ON MatrixCart open */
+#matrix-cart-trigger:checked ~ #matrix-cart-backdrop {
+    opacity: var(--backdrop-opacity);
+    height: 100%;
+    width: 100%;
+    z-index: var(--z-index);
+    pointer-events: all;
+}
+.matrix-cart {
+    position: fixed;
+    top: 0;
+    right: calc(-1 * var(--width));
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--background-color);
+    transition: all var(--transition);
+    z-index: var(--z-index);
+}
+/* FIRE ON MatrixCart open */
+#matrix-cart-trigger:checked ~ .matrix-cart {
+    right: 0;
+}
+@media only screen and (max-width: var(--width)) {
+    .matrix-cart {
+        width: 100%;
+    }
+}
+
+
+
+/* =========== CUSTOM STYLES BOTTOM =========== */
+[data-header-cart-count="0"] {
+    display: none;
+}
+.cart-drawer-wrap {
+    --header-height: 20px;
+    --footer-height: 370px;
+    box-sizing: border-box;
+}
+.button-cart-page {
+    margin-top: 10px;
+    background: transparent;
+    color: #222f3e;
+    width: 100%;
+    text-align: center;
+}
+.button-cart-page:hover {
+    color: #FFF;
+}
+.cart-drawer-wrap > * {
+    padding: 10px;
+}
+.cart-drawer-wrap .cart-drawer-main {
+    height: calc(var(--height) - (var(--header-height) + var(--footer-height)));
+    overflow-y: scroll;
+}
+.cart-drawer-wrap .cart-drawer-main ul {
+    padding: 0;
+}
+.cart-drawer-wrap .cart-drawer-header {
+    background: #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    display: flex;
+    justify-content: space-between;
+}
+.cart-drawer-wrap .cart-drawer-header h5 {
+    margin: 0;
+}
+.cart-drawer-wrap .cart-drawer-header label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-drawer-wrap .cart-drawer-main .cart-item {
+    flex-direction: column;
+}
+.cart-drawer-wrap .cart-drawer-main .cart-item > * {
+    width: 100%;
+}
+.cart-drawer-wrap .cart-drawer-main .cart-item__info {
+    position: initial;
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: nowrap !important;
+    align-items: center;
+}
+.cart-drawer-wrap .cart-drawer-main .cart-item__quantity {
+    max-width: 100%;
+}
+.cart-drawer-wrap .cart-drawer-main .quantity-selector {
+    max-width: 175px;
+    margin-right: 5px;
+}
+.cart-drawer-wrap .cart-drawer-main .cart-item__total {
+    min-width: 0;
+    margin-top: 0;
+    flex-grow: 1;
+    padding: 0;
+    text-align: right;
+}
+.cart-drawer-wrap .cart-drawer-main .cart-item__remove {
+    position: absolute;
+    top: 0;
+    bottom: unset !important;
+    left: unset !important;
+    right: 0;
+    margin: 10px;
+    padding: 0;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+.cart-drawer-wrap .cart-drawer-footer {
+    background: #f8f8f8;
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+.cart-drawer-wrap .cart-drawer-footer .cart-ordernote .form-field #cart-note {
+    min-height: 30px;
+    padding: 5px;
+    width: 100% !important;
+}
+.cart-drawer-wrap .cart-drawer-footer .button-primary {
+    background-color: #fad94c;
+    border-color: #fad94c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart-drawer-wrap .cart-drawer-footer .button-primary svg {
+    height: 20px;
+    margin-right: 5px;
+}
+.cart-drawer-wrap .cart-drawer-footer .money-totals > div {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.cart-drawer-wrap .cart-drawer-footer .price-wrapper {
+    margin-bottom: 3px;
+}
+.cart-drawer-wrap .cart-drawer-footer .cart-terms-of-condition {
+    padding: 0;
+    border-top: 1px solid rgba(0,0,0,.15);
+    margin-top: 10px;
+}
+.cart-drawer-wrap .cart-drawer-footer .cart-terms-of-condition p {
+    margin: 0;
+    font-size: 10px;
+}
+.cart-drawer-wrap .cart-drawer-footer .discount-list:empty {
+    display: none;
+}
+.cart-drawer-wrap .cartitems-empty {
+    height: calc(var(--height) - var(--header-height));
+}

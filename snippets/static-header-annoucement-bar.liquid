@@ -1,0 +1,34 @@
+{% assign text_align = section.settings.header_annoucement_text_align %}
+{% assign text = section.settings.header_annoucement_text %}
+{% assign text_mob = section.settings.header_annoucement_text_mob %}
+{% assign font_size = section.settings.header_annoucement_font_size %}
+{% assign background_color = section.settings.header_annoucement_background_color %}
+{% assign text_color = section.settings.header_annoucement_text_color %}
+<style>
+    #shopify-section-{{ section.id }} .site-header-announcement-bar {
+        position: relative;
+        z-index: 51;
+        padding: 10px 25px;
+        color: {{ text_color }};
+        background-color: {{ background_color }};
+        text-align: {{ text_align }};
+    }
+    #shopify-section-{{ section.id }} .site-header-announcement-bar p {
+        margin: 0;
+        font-size: {{ font_size | append: 'px' }};
+    }
+    @media screen and (min-width: 720px) {
+        #shopify-section-{{ section.id }} .site-header-announcement-bar .site-header-announcement-text-mobile {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 719px) {
+        #shopify-section-{{ section.id }} .site-header-announcement-bar .site-header-announcement-text {
+            display: none;
+        }
+    }
+</style>
+<div class="site-header-announcement-bar">
+    <div class="site-header-announcement-text">{{ text }}</div>
+    <div class="site-header-announcement-text-mobile">{{ text_mob }}</div>
+</div>

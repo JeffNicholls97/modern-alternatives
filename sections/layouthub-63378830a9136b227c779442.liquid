@@ -1,0 +1,1292 @@
+{% comment %}
+ LayoutHub (https://layouthub.com)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from LayoutHub
+ {% endcomment %} 
+ 
+ <div class="lh-sections-wrapper" data-id="63378830a9136b227c779442" data-type="product">
+<section id="" data-section-id="fqrmgwd4ue" data-section="product-detail-145" data-dev="huynh-duc" data-lh-page-id="487" data-lh-page-name="Landing Yogmat" data-layouthub="section">  
+ <!--  Product single Swatch images -->
+{%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+		 	 
+		 		{%- comment -%} Assign product when not in product page {%- endcomment -%}
+		 		{%- assign p  = all_products['complete-solar-kit-dual-smart-home-integration-kit']  -%}
+		 		{%- if  p.id != ""  and tpl != 'product' -%}
+		 			{% assign product  = p  %}
+		 		{%- endif -%}{%- assign color_names = '' | split: ',' -%}
+		{%- assign color_names_downcase = '' | split: ',' -%}
+		{%- assign color_values = '' | split: ','  -%}
+		{%- if shop.metafields.layouthub and shop.metafields.layouthub.colors and shop.metafields.layouthub.colors contains '|' -%}
+			{% assign colors = shop.metafields.layouthub.colors | split: '|' %}
+			{%- assign color_names = colors | first | strip | split: ',' -%}
+			{%- assign color_names_downcase = colors | first | strip | downcase | split: ',' -%}
+			{%- assign color_values = colors | last | strip | split: ',' -%}
+		 {%- endif -%}<div  class="lh-wrapper lh-product-single" data-pid="{{- product.id -}}" data-money-format='{{shop.money_format | url_encode }}' data-vid_url="{%- if tpl != 'product' -%}
+				{%- assign vid_url = false -%}
+			{%- else -%}
+				{%- assign vid_url = true -%}
+			{%- endif -%}
+			{{- vid_url -}}">
+		<div class="lh-container">
+			<div class="lh-details-product">
+			<div class="lh-row lh-align-start">
+				<div class="lh-product-sync-images lh-col-md-6">
+					<div class="lh-details-images lh-row use-zoom-no lh-promote-no" data-hub-attr-state="class%3D%22lh-details-images%20lh-row%20use-zoom-%257B%253A%257Bsection.settings.use_zoom%257D%253A%257D%20lh-promote-%257B%253A%257Bsection.settings.show_badge%257D%253A%257D%22"  data-hub-attr-use_zoom  data-hub-attr-show_badge >
+						<div class="lh-small-slide lh-col-md-2">
+							<div class="block-slide-sm lh-slick-nav swiper-container">
+								<div class="swiper-wrapper">
+									{%- for image in product.images -%}
+				   <div class="items-img swiper-slide" data-variant_id="{{image.variants | map:'id' | join: ','}}">
+		                <img alt="{{ image.alt}}" class="hs-id-8668b77b hs-lazyload" loading="lazy" src="{{ image | img_url: 'medium'}}"/>
+		            </div>
+				{%- endfor -%}</div>
+
+							</div>
+							<div class="lh-slide-small-nav">
+								<div class="swiper-button-prev">
+									<svg version="1.1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<path fill="currentColor" d="M70.4,2.4L26.2,46.8c-0.9,0.9-1.3,2.1-1.3,3.3c0,1.2,0.5,2.4,1.3,3.3l44.2,44.2c1.1,1.1,2.8,1.1,3.9,0
+													c0.5-0.5,0.8-1.2,0.8-1.9c0-0.7-0.3-1.4-0.8-1.9L30.7,50.1L74.3,6.3c1.1-1.1,1.1-2.8,0-3.9C73.2,1.3,71.5,1.3,70.4,2.4z" ></path>
+									</svg>
+
+								</div>
+								<div class="swiper-button-next">
+									<svg version="1.1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<path fill="currentColor" d="M29.6,97.6l44.2-44.4c0.9-0.9,1.3-2.1,1.3-3.3c0-1.2-0.5-2.4-1.3-3.3L29.6,2.4c-1.1-1.1-2.8-1.1-3.9,0
+													c-0.5,0.5-0.8,1.2-0.8,1.9c0,0.7,0.3,1.4,0.8,1.9l43.6,43.6L25.7,93.7c-1.1,1.1-1.1,2.8,0,3.9C26.8,98.7,28.5,98.7,29.6,97.6z" ></path>
+									</svg>
+
+								</div>
+							</div>
+						</div>
+						<div class="lh-big-slide lh-col-md-10">
+							<div class="lh-big_slide-lg">
+								<div class="lh-label lh-absolute">
+				{% assign first_variant = product.selected_or_first_available_variant %}
+				{%- assign compare_at_price = product.compare_at_price -%}
+				{%- assign price = product.price -%}
+				{%- assign price_varies = product.price_varies -%}
+				{%- assign available = product.available -%}
+				{%-assign on_new = false-%}
+				{%-unless product.tags contains 'notnew'%}
+						{%-assign now_date_int = "now" | date: "%j" | plus: 0-%}
+						{%-assign now_year_int = "now" | date: '%Y' | plus: 0-%}
+						{%-assign pub_date_int = product.published_at | date: "%j" | plus: 0-%}
+						{%-assign pub_year_int = product.published_at | date: '%Y' | plus: 0-%}
+						{%-if now_year_int == pub_year_int-%}
+							{%-assign new_day_int = 30 -%}
+							{%-assign check_new = now_date_int | minus: pub_date_int-%}
+							{%-if check_new >= 0 and check_new <= new_day_int-%}
+								<span class="lh-new_label"  data-lhi="trans_new" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_new' | t }}</span>
+							{%-endif-%}
+						{%-else-%}
+							{%-assign new_day_int = 30 | plus: 366-%}
+							{%-assign check_new = now_date_int | plus: 366-%}
+							{%-if check_new <= new_day_int-%}
+											<span class="lh-new_label"  data-lhi="trans_new" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_new' | t }}</span>
+							{%-endif-%}
+						{%-endif-%}
+				{%-endunless-%}
+				{%-assign on_sale = false-%}
+				{%-if first_variant.price < first_variant.compare_at_price and first_variant.available -%}
+					{%-unless product.tags contains 'notsale'-%}
+					{%-assign on_sale = true-%}
+					{%-endunless-%}
+				{%-endif-%}
+				{%-assign sold_out = true-%}
+
+				{%-unless available == false-%}
+					{%-assign sold_out = false-%}
+				{%-endunless-%}
+				<span class="lh-sale_label" style="display: {%- if on_sale -%}block{%- else -%}none{%- endif -%}"  data-lhi="trans_sale" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_sale' | t }}</span>
+				{%- if sold_out -%}
+					<span class="lh-soldout_label"  data-lhi="trans_sold_out" data-lh-lang>{{'fqrmgwd4ue.lh_k4hsr9_out' | t }}</span>
+				{%- endif -%}
+			</div><div class=" block-slide-lg lh-slick-big swiper-container">
+									<div class="swiper-wrapper">
+										{%- for image in product.images -%}
+		          <div class="items-img swiper-slide zoom__image" data-variant_id="{{image.variants.first.id}}">
+		                      <img alt="{{ image.alt}}" class="hs-id-5fb77965 hs-lazyload" data-bigimg="{{ image | img_url: 'master'}}" data-height="{{image.height}}" data-width="{{image.width}}" loading="lazy" src="{{ image | img_url: 'master'}}"/>
+		                  </div>
+		        {%- endfor -%}</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="lh-summary lh-col-md-6 lh-pl0">
+					<div class="lh-content-summary" data-hidden="{% assign variant_slected = product.selected_or_first_available_variant %}
+				{% assign isHidden = true %}
+				{%- if variant_slected.available and variant_slected.price < variant_slected.compare_at_price -%}
+						{% assign isHidden = false %}
+				{%- endif -%}
+				{{isHidden}}">
+						<h1 class="product-name lh-product-title">
+							{%- if tpl != 'product' -%}
+				{{product.title}}
+			{%- else -%}
+				{{product.title}}
+			{%- endif -%}</h1>
+						<div class="clearfix"></div>
+						{%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+		 	 
+		 		{%- comment -%} Assign product when not in product page {%- endcomment -%}
+		 		{%- assign p  = all_products['complete-solar-kit-dual-smart-home-integration-kit']  -%}
+		 		{%- if  p.id != ""  and tpl != 'product' -%}
+		 			{% assign product  = p  %}
+		 		{%- endif -%}<div data-oke-reviews-product-listing-rating data-oke-reviews-product-id="shopify-{{- product.id -}}" class="okeReviews-lhStarRating"></div>
+
+                                <div id="klarna"><klarna-placement
+            data-id="30b97450-6f51-48fc-bd83-2f713bf6f376"
+            data-purchase_amount="{{product.price}}"
+            ></klarna-placement></div>
+                                 
+
+						
+						<p class="yourprice">Your Price:</p>
+						<span class="lh-price-block price ">
+						    
+							<ins class="lh-price">
+		         <span class="money">{{ product.price | money }}</span>
+		    </ins>
+        
+            <del class="lh-compare-at-price">
+					<span class="money">{%- if product.compare_at_price  > product.price  -%}{{ product.compare_at_price  | money }}{%- endif -%}</span>
+				</del>
+			
+		    <p class="lh-sold-out-title" style="display: none"><span  data-lhi="trans_outstock" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_outstock' | t }}</span></p></span>
+						<p>{% if template == 'product' %}
+                      {{ 'products.product.on_sale' | t }}
+                    {% else %}
+                      {% assign amount = 0 %}
+                      {% for variant in product.variants %}
+                      {% assign saving = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price %}
+                      {% assign amount = saving | at_least: amount %}
+                      {% endfor %} 
+                      {% capture saved_amount %}{{ amount | money_without_trailing_zeros }}{% endcapture %}
+                      <div class="saved"><span>You Saved:</span> {{ saved_amount }}</div>
+                    {% endif %}</p>
+                               
+                        <div class="lh-product-sku">
+					<p class="lh-product-sku-title"><text  data-lhi="trans_sku" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_sku' | t }}</text> {{product.selected_or_first_available_variant.sku | default: "N/A"}}</p>
+				</div><div class="clearfix"></div>
+						
+						 
+							<div class="lh-wrap-product-rating">
+				        {% render 'layouthub_review',  review_type: 'rating' , product: product %}</div>
+							<div class="clearfix"></div>
+						 
+						<include data-live-product_introcude data-live-short_desc_content data-name="product-introduce" data-id="1">  
+  
+  <text  data-lhi="short_desc_content" data-lh-lang  data-lhi="short_desc_content" data-lh-lang>{{'fqrmgwd4ue.lh_5l0kk4_content_html' | t }}</text>
+   </include><div class="clearfix"></div>
+						<include data-live-trans_quantity data-live-enable_buynow data-live-trans_buynow data-live-add_to_cart data-live-trans_unavai data-live-trans_outstock data-name="product-form" data-id="2">  
+ <form class="lh-product-form {% if product.variants.size > 1%} lh-form-product-variants{% else %} lh-form-product-variant {% endif%}" method="POST" accept-charset="utf-8" enctype="multipart/form-data"  action="/cart/add" data-pid="{{- product.id -}}">
+	<div class="lh-wrap-variant" data-variants-size="">
+		{% assign variant_slected = product.selected_or_first_available_variant %}
+				{% assign arr_swatch = 'Color' | split: ',' %}
+				{%- if  arr_swatch.size > 0 %}
+					{%- if product.variants.size >= 1%}
+						{%- for option in product.options -%}
+							{%- assign option_index = forloop.index0 -%}
+							{%- assign o = option | downcase -%}
+								{%- if arr_swatch contains option -%}
+									{%- assign index = 'option' | append: forloop.index -%}
+									 	<div class="lh-swatch-images  swatch-index lh-swatch-variations"  data-option-index="{{ option_index }}">
+											<div class="meta">
+												<label title="">{{ option }}
+												</label>
+											</div>
+											<div class="list-swatch-images">
+														{%- assign values = ""  -%}
+														{%- for variant in product.variants -%}
+															{%- assign option_value = variant[index] -%}
+															{%- assign option_value_downcase = variant[index] | downcase -%}
+															{%- if values != ""%}
+																{%- assign tmp = values | split: '|' -%}
+																{%- if tmp contains option_value_downcase  -%} {%- continue-%}{%- endif -%}
+																{%- assign values = values  | append:   '|' | append: option_value_downcase -%}
+															{%- else -%}
+																{%- assign values =   option_value_downcase -%}
+															{%- endif -%}
+															<li data-option-index="{{ option_index }}" data-lh-tooltip="{{option_value | escape}}" class="lh-swatch-select lh-tooltip_top lh-swatch-image {% if option_value == variant_slected[index] %} active{% endif %}" data-value="{{option_value | escape}}" onclick="if (typeof affirmApplyVariantAndRefresh === "function") { affirmApplyVariantAndRefresh('{{ variant.price }}'); }">
+
+																 
+																	<span><img alt="{{option_value}}" class="hs-id-07bab630 hs-lazyload" loading="lazy" src="{{ variant | img_url: '120x120', crop: 'center' }}"/>
+																	</span>
+																 
+															</li>
+														{%- endfor -%}
+													</div>
+									  </div>
+								{%- endif -%}
+						{%- endfor -%}
+					{%- endif -%}
+				{%- endif%}{%- if product.variants.size >= 1%}
+                    {% capture data_variants %}[{%- for variant in product.variants -%}{ "id": "{{ variant.id }}", "price": "{{ variant.price }}", "format_price": "{{ variant.price | money }}", "compare_at_price": "{{ variant.compare_at_price }}", "format_compare_at_price": "{{ variant.compare_at_price | money }}", "image": "{{ variant.image | img_url: '1280x' }}", "available": {% if variant.available %}true{% else %}false{% endif %}, "options": "{% for option in variant.options %}{{ option }}{% unless forloop.last %},{% endunless %}{% endfor %}" }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{% endcapture %}
+                    <div id="pdt-swatches-{{ product.id }}" data-variants="{{ data_variants | escape }}">
+
+					{%- for option in product.options_with_values -%}
+							{%- assign option_index = forloop.index0 -%}
+							{%- assign o = option.name | downcase -%}
+							{%- if arr_swatch contains option.name or option.name == "Title" and product.options_with_values.size == 1 and option.values contains "Default Title" -%}
+								{%- continue -%}
+							{%- endif -%}
+							{%- assign index = 'option' | append: forloop.index -%}
+							<div class="lh-swatch-simple select-{{option.name | handleize }} swatch-index lh-swatch-variations"  data-option-index="{{ option_index }}">
+						      <div class="meta">
+						         <label title="">{{ option.name }}
+						         </label>
+						      </div>
+									<div class="lh-wrap-combobox">
+								      <ul class="list-swatch-items" >
+												{%- for value in option.values -%}
+													<li class="lh-swatch-select {% if value == variant_slected[index] %} active{% endif %}" data-option-index="{{ option_index }}" data-value="{{value | escape}}" data-swatch-object-id="pdt-swatches-{{ product.id }}" data-options-size="{{ product.options_with_values.size }}" data-product-id="{{ product.id }}" onclick="getVariantObject(this)"><span  title="{{value | escape}}" >{{ value}}</span></li>
+
+												{%- endfor -%}
+								      </ul>
+									</div>
+	   					</div>
+					{%- endfor -%}
+					<script>
+    					const getVariantObject = (element) => {
+                            const rootObject = document.getElementById(element.dataset.swatchObjectId)
+                            const product_id = element.dataset.productId;
+                            const variants = JSON.parse(rootObject.dataset.variants);
+                            const optionsSize = parseInt(element.dataset.optionsSize);
+                            let selectedOptions = '';
+                            selectedOptions += element.dataset.value;
+                            let variantObject = {};
+                            for(let j=0; j<variants.length; j++){
+                                const variant = variants[j];
+                                if(variant.options === selectedOptions){
+                                    variantObject = variant;
+                                    break;
+                                }
+                            }
+                            //console.log(variantObject)
+                            if (typeof affirmApplyVariantAndRefresh === "function") { affirmApplyVariantAndRefresh(variantObject.price); }
+                            return variantObject;
+                        }
+					</script>
+				{%- endif -%}<div class="lh-quantity">
+			<div class="meta">
+				<label title=""  data-lhi="trans_quantity" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_quantity' | t }}</label>
+			</div>
+			<div class="lh-quantity-form quantity-form lh-flex lh-flex-wrap">
+							 <div class="lh-quantity_form">
+									<div class="lh-control">
+										<input type="number" class="lh-input-qty lh-input-number lh-qty number "  name="quantity" value="1" min="1" max="{%- if current_variant.inventory_management != null -%}{{current_variant.inventory_quantity}}{%- else -%}999{%- endif -%}"><a href="javascript:;" class="lh-btn-number lh-qtyminus lh-quantity-minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown();this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'));return false"  title=""> </a>
+										 <a href="javascript:;" class="lh-btn-number lh-qtyplus lh-quantity-plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp();this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'));return false" title=""></a>
+									</div>
+							 </div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+   <div class="lh-option-wrappers show-swatch-no" >
+       <select name="id"  id="product-select-{{- product.id -}}" style="display: none">
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+					{%- for variant in product.variants -%}
+		                {%- if variant.available -%}
+		                  <option {%  if variant == product.selected_or_first_available_variant   %} selected="selected" {%  endif  %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+		                {%- else -%}
+		                  <option disabled="disabled">
+		                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+		                  </option>
+		                {%- endif -%}
+		              {%- endfor -%}</select>
+    </div>
+
+   <div class="lh-cart-button-group" data-available='{{product.selected_or_first_available_variant.available}}'>
+	  
+		<div class="lh-d-flex lh-flex-wrap lh-wrap-buynow">
+			    <button class="lh-buy-now bt lh-bt-primary lh-bt-type_01"  data-lhi="trans_buynow" data-lh-lang>{{'fqrmgwd4ue.lh_up5omg_buynow' | t }}</button>
+<button class="lh-add-to-cart" type="submit"  data-lhi="add_to_cart" data-lh-lang>{{'fqrmgwd4ue.lh_f635tz_cart' | t }}</button>
+		</div>
+		 
+		<div class="clearfix"></div>
+   </div>
+</form>
+{%- unless product == empty -%}
+				        <script type="application/json" id="lh-product-json-{{product.id}}">
+								{
+								"id": {{product.id}},
+								"title": {{product.title | json}},
+								"handle": {{product.handle | json}},
+								"price": {{product.price| json}},
+								"price_min": {{product.price_min| json}},
+								"price_max": {{product.price_max| json}},
+								"available": {{product.available | json}},
+								"price_varies": {{product.price_varies| json}},
+								"compare_at_price": {{product.compare_at_price| json}},
+								"compare_at_price_min": {{product.compare_at_price_min| json}},
+								"compare_at_price_max": {{product.compare_at_price_max| json}},
+								"compare_at_price_varies": {{product.compare_at_price_varies| json}},
+								"variants": [
+								{%- for variant in product.variants -%}
+								{
+								"id": {{variant.id}},
+								"title": "{{variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%}{{variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%}{{variant.option3 | handleize }}",
+								"option1": {{variant.option1  | json}},
+								"option2": {%- if product.options.size == 1 -%}null{%-else-%}{{variant.option2  | json}}{%-endif-%},
+								"option3": {%- if product.options.size == 1 or product.options.size == 2 -%}null{%-else-%}{{variant.option3  | json}}{%-endif-%},
+								"sku": {{variant.sku | json}},
+								"requires_shipping": {{variant.requires_shipping}},
+								"taxable": {{variant.taxable |json}},
+								"featured_image": {%- if variant.image.id != blank -%}{
+										"id": {{variant.image.id | json}},
+										"product_id": {{product.id | json}},
+										"width": {{variant.image.width | json}},
+										"height": {{variant.image.height | json}},
+										"src": {{variant.image.src | json}},
+										"position":{{variant.image.position}}
+									}{%- else-%}null{%-endif-%},
+								"available": {{variant.available}},
+								"public_title": "{{variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%}{{variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%}{{variant.option3 | handleize }}",
+								"options":  {{variant.options | json}},
+								"price": {{variant.price| json}},
+								"weight": {{variant.weight| json}},
+								"compare_at_price": {{variant.compare_at_price | json}},
+								"inventory_quantity": {{variant.inventory_quantity | json}},
+								"inventory_management": {{variant.inventory_management | json}},
+								"inventory_policy": {{variant.inventory_policy | json}},
+								"barcode": {{variant.barcode | json}}
+								}{%- if forloop.last == false -%},{%- endif -%}
+								{%- endfor -%}
+								],
+								"featured_image": {{product.featured_image | json}},
+								"options": [
+								{%- for option in product.options -%}
+								{{ option | json}}{%- if forloop.last == false -%},{%- endif -%}
+								{%-endfor -%}
+								]
+								}
+				        </script>
+				      {%- endunless -%}   </include><div id="affirm"><p
+            class="affirm-as-low-as"
+            data-page-type="product"
+            data-amount="{{ product.selected_or_first_available_variant.price }}"
+            ></p></div>
+					</div>
+					
+<table class="help">
+<tbody><tr><td>
+<img class="support-img hs-id-8be4d5c0 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/Image_from_iOS_256x256_crop_center.jpg?v=1644461592586" width="70"/>
+</td>
+<td class="">
+<h4>Have a question? We're here to help.</h4>
+Friendly Phone Support: <a href="tel:877-242-2792">877-242-2792</a> <br> | <a href="https://024wwq6ojms.typeform.com/solar-kit-reco">Quick Quote</a> | Mon-Fri 10am-6pm EST</td>
+</tr></tbody></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+  </section><section id="" data-section-id="rfxj0e3850c" data-section="incentives-50" data-dev="hongyen" data-lh-page-id="1135" data-lh-page-name="Uno" data-layouthub="section">  
+ <div class="lh-incentives" >
+	<div class="lh-container " >
+		<div class="lh-row">
+             <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-star" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_0_font_icon="list_item[0]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[0]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'rfxj0e3850c.lh_9wid92_item_html' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-money-location" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_1_font_icon="list_item[1]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[1]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'rfxj0e3850c.lh_a5w0bb_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-package" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_2_font_icon="list_item[2]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[2]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'rfxj0e3850c.lh_af9ndk_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-cup" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_3_font_icon="list_item[3]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[3]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'rfxj0e3850c.lh_aonaft_item_html' | t }}</p></div>
+                    
+               
+			</div>
+              
+		</div>
+        </div>
+	</div>
+  </section><section id="" data-section-id="4uk3vn7p6tx" data-section="why-do-you-need6468" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+		    <div id="cbb-frequently-bought-box"></div>
+			
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="t54sxzwme0o" data-section="contents" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'t54sxzwme0o.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'t54sxzwme0o.lh_2rtbyt_desc_html' | t }}</p>
+
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+                <text  data-lhi="content_items[0]img" data-lhis="content_items-img"></text>
+              <div class="iactiveImg" data-ii="44019"></div><script src="https://interactive-img.com/js/include.js"></script>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="den6khqpqhs" data-section="why-do-you-need6462" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'den6khqpqhs.lh_a168_title' | t }}</h3>
+		
+			
+<ul>			
+<li>Ships from the USA!</li>
+<li>2 x EcoFlow DELTA [PRO] 3,600wH / 3,600W Solar Power Stations</li>
+<li>1 x Remote Control Monitor & Display Screen</li>
+<li>1 x Smart Home Panel Combo</li>
+<li>8 x 200W 12V Monocrystalline Solar Panels - 25-Year Warranty</li>
+<li>1 x Set of PV Branch Connectors for Series-Parallel Panel Configuration</li>
+<li>2 x 100 ft. PV Solar Panel Extension Cable (10 AWG)</li>
+<li>2 x PV Solar Charging Cable (PV to XT60)</li>
+<li>2 x Car Charging Cable (Car to XT60)</li>
+<li>2 x AC wall charger for charging from any standard wall outlet</li>
+<li>1 x Extra infinity cable</li>
+<li>2 x Handle Cover</li>
+<li>2 x User Manual</li>
+<li>1 x 2-Year Warranty Certification</li>
+<li> 1 x 5-Year Extended Warranty (Industry Leading)</li>
+<li>1 x Free Digital Copy of our 10,000-word solar generator setup & maintenance guide</li>
+<li>Free Shipping</li>
+<li>Lifetime Customer Support (Phone, Email, Live Chat)</li>
+</ul><br>
+
+			
+			
+           	<div class="lh-desc"  data-lhi="desc" data-lh-lang>{{'den6khqpqhs.desc_html' | t }}</div>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="j2jqb5a6r6j" data-section="why-do-you-need6460" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'j2jqb5a6r6j.lh_a168_title' | t }}</h3>
+			
+            
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="0qsr90fl9fv" data-section="why-do-you-need6467" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'0qsr90fl9fv.lh_a168_title_html' | t }}</h3>
+			
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="why_button" data-section-id="9dfm1hm1f9u" data-section="contents785655" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <table>
+                    <tr>
+                    <th colspan="2">EcoFlow Delta PRO</th>
+                    
+                    </tr>
+                    <tr>
+                    <td>Capacity</td>
+                    <td>3600wH</td>
+                    </tr>
+                    <tr>
+                    <td>Extra Battery</td>
+                    <td>Support up to two DELTA Pro Smart Extra Battery/Smart Generator</td>
+                    </tr>
+                    <tr>
+                    <td>AC Output Ports</td>
+                    <td>5 outlets, 3600W total (Surge 7200W)</td>
+                    </tr>
+                    <tr>
+                    <td>Anderson Port</td>
+                    <td>12.6V, 30A</td>
+                    </tr>
+                    <tr>
+                    <td>AC Charging Input</td>
+                    <td>1800W Max, 120V~15A, 3000W Max, 240V~12.5A</td>
+                    </tr>
+                    <tr>
+                    <td>Solar Charging Input</td>
+                    <td>1600W Max, 11-150V, 15A Max</td>
+                    </tr>
+                    <tr>
+                    <td>Battery Chemistry</td>
+                    <td>LiFePO4</td>
+                    </tr>
+                    <tr>
+                    <td>Net Weight</td>
+                    <td>Approx. 99lbs/45kg</td>
+                    </tr>
+                    <tr>
+                    <td>Warranty</td>
+                    <td>5-Years (Extended)</td>
+                    </tr>
+                </table>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+                <table>
+                    
+                    <tr>
+                    <th colspan="2">200 Watt Solar Panel</th>
+                    
+                    
+                    </tr>
+                    <tr>
+                    <td>Maximum Power(Pmax)</td>
+                    <td>200W</td>
+                    
+                    </tr>
+                    <tr>
+                    <td>Maximum Power Voltage(Vmp)</td>
+                    <td>20.4V</td>
+                   
+                    </tr>
+                    <tr>
+                    <td>Maximum Power Current(Imp)</td>
+                    <td>9.80A</td>
+                    
+                    </tr>
+                    <tr>
+                    <td>Open Circuit Voltage(Voc)</td>
+                    <td>24.3V</td>
+                    
+                    </tr>
+                    <tr>
+                    <td>Short Circuit Current(Isc)</td>
+                    <td>10.2A</td>
+                   
+                    </tr>
+                    <tr>
+                    <td>Maximum System Voltage(Vmax)</td>
+                    <td>1000VDC</td>
+                   
+                    </tr>
+                    
+                    <tr>
+                    <td>Dimension</td>
+                    <td>58.7 x 26.8 x 1.4 in</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>26.5 lbs</td>
+                       
+                    </tr>
+                    <tr>
+                    <td>Warranty</td>
+                    <td>25 years</td>
+                    
+                    </tr>
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="why_button" data-section-id="3kkr7ubvoaf" data-section="contents7856478" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'3kkr7ubvoaf.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'3kkr7ubvoaf.lh_2rtbyt_desc_html' | t }}</p>
+                
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+               <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="hs-id-0af73914" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/JQuDxdaLOMY" title="YouTube video player" width="560">
+</iframe>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="yp92gvhdd2" data-section="gallery3" data-dev="nguyen-minh" data-lh-page-id="786" data-lh-page-name="Bastro - Landing" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <h3  data-lhi="heading" data-lh-lang>{{'yp92gvhdd2.heading' | t }}</h3>
+
+    <div class="lh-slider">
+
+      <div class="owl-carousel lh-owl-g">
+
+         
+
+          <div class="lh-item " >
+
+             
+
+              <text  data-lhi="items[0]img" data-lhi-child="a" data-lhis="items-img"><a target="_blank" data-ga-action="img" data-ga-label="Image" href="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/3_y82t.png?v=1667346191775" data-lhlink><img class="hs-id-17c08046 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/3_y82t.png?v=1667346191761"/></a></text>
+
+             
+
+          </div>
+
+         
+
+          <div class="lh-item " >
+
+             
+
+              <text  data-lhi="items[1]img" data-lhi-child="a" data-lhis="items-img"><a data-ga-action="img" data-ga-label="Image" href="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/2_1ZWI.png?v=1667346192196" data-lhlink><img class="hs-id-1352fe2d hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/2_1ZWI.png?v=1667346192941"/></a></text>
+
+             
+
+          </div>
+
+         
+
+          <div class="lh-item " >
+
+             
+
+              <text  data-lhi="items[2]img" data-lhi-child="a" data-lhis="items-img"><a data-ga-action="img" data-ga-label="Image" href="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/1_YldB.png?v=166734619310" data-lhlink><img class="hs-id-3bafbe59 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/1_YldB.png?v=1667346193545"/></a></text>
+
+             
+
+          </div>
+
+         
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+ 
+  </section><section id="" data-section-id="7n1zcdz7yuw" data-section="why-do-you-need646044" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'7n1zcdz7yuw.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"><text  data-lhi="desc" data-lh-lang data-lh-live-editor></text><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="hs-id-a5e61379" frameborder="0" height="415" loading="lazy" src="https://www.youtube.com/embed/ozVzv0jo_BM" title="YouTube video player" width="760">
+</iframe></div>
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="o8idgonww3q" data-section="why-do-you-need64608" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+		
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang data-lh-live-editor><b>The portable home battery: </b>DELTA Pro supports a 3.6kWh capacity that can be expanded all the way to 25kWh. The kicker? You can integrate it directly with your home circuits via the Smart Home Panel. Ideal for home backup.<br><br>
+
+<b>Power pretty much anything: </b>DELTA Pro leads the industry when it comes to AC output. With 3600W you’ve got a portable generator that can power heavy-duty appliances such as dryers, AC units & more. Need even more power? Pair two units together to hit a massive 7200W.<br><br>
+
+<b>An expandable ecosystem: </b>DELTA Pro is more than a portable power station. It can be expanded with  Extra Batteries, Smart Generators and even the Smart Home Panel. Control it all via your phone with the EcoFlow app.<br><br>
+
+<b>The world’s fastest charging portable power station: </b>DELTA Pro can charge via one of 6 methods. It's the first that can be charged from an EV station, and can even Multicharge by combining methods to achieve a rapid 6500W charge. That’s the industry gold standard.<br><br>
+
+<b>Integrates with your home:</b> By using the Smart Home Panel (sold separately), DELTA Pro can provide power to up to 10 home circuits. Ideal for when a power outage hits, or for regular use to save on your bills.</div>
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="sudcbu6cn6l" data-section="why-do-you-need6461" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'sudcbu6cn6l.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang>{{'sudcbu6cn6l.desc_html' | t }}</div>
+            <p class="lh-center"  data-lhi="image"><img class="hs-id-46d7d38b hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/delta-pro-pc-all-the-ac-output-you-ll-need-1800x_6UJk.jpg?v=1664990020738"/></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="bm1fynvj9" data-section="why-do-you-need64617" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'bm1fynvj9.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang>{{'bm1fynvj9.desc_html' | t }}</div>
+            <p class="lh-center"  data-lhi="image"><img class="hs-id-16b9d5e7 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/us-pc-1800x_H4vu.jpg?v=1664990098207"/></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="qfgumi3wrki" data-section="why-do-you-need646171" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'qfgumi3wrki.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang>{{'qfgumi3wrki.desc_html' | t }}</div>
+            <p class="lh-center"  data-lhi="image"><img class="hs-id-4e88d799 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/delta-pro-pc-multiple-ways-to-control-monitor-1800x_az7B.jpg?v=1664990017151"/></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="6ka8e86usjl" data-section="why-do-you-need6461711" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'6ka8e86usjl.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang>{{'6ka8e86usjl.desc_html' | t }}</div>
+            <p class="lh-center"  data-lhi="image"><img class="hs-id-c13bab55 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/delta-pro-pc-power-that-means-business-1800x_64Fj.jpg?v=1665013968140"/></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="2y5lgzmffio" data-section="features-5" data-dev="trong-dai" data-lh-page-id="659" data-lh-page-name="Thinh / Snek / Shoes (Landing)" data-layouthub="section">  
+ <div class="lh-feature">
+	<div class="lh-container">
+		<div class="lh-heading">
+			<h3  data-lhi="heading" data-lh-lang>{{'2y5lgzmffio.heading' | t }}</h3>
+			<p  data-lhi="desc" data-lh-lang>{{'2y5lgzmffio.desc' | t }}</p>
+		</div>
+		<div class="lh-feature-item">
+			<div class="lh-row lh-jcc">
+				 <div class="lh-col-md-4">
+						<div class="lh-item">
+							<div class="lh-overlay" style="background-color: rgba(0,0,0,0);" data-hub-attr-state="class%3D%22lh-overlay%22%20style%3D%22background-color%3A%20%3B%22"   data-hub-attr-feature_items_0_overlay="feature_items[0]overlay" data-lhis="feature_items-overlay" data-lh-image-helper="section.settings.feature_items[0]overlay"overlay"></div>
+							<div class="lh-img"  data-lhi="feature_items[0]img" data-lhis="feature_items-img"><img class="hs-id-c701384f hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/panels_DUf0.jpg?v=1664990095230"/></div>
+							<div class="lh-text">
+								<h4  data-lhi="feature_items[0]title" data-lh-lang data-lhis="feature_items-title"></h4>
+								<p  data-lhi="feature_items[0]desc" data-lh-lang data-lhis="feature_items-desc"></p>
+							</div>
+						</div>
+					</div>
+				 <div class="lh-col-md-4">
+						<div class="lh-item">
+							<div class="lh-overlay" style="background-color: rgba(0,0,0,0);" data-hub-attr-state="class%3D%22lh-overlay%22%20style%3D%22background-color%3A%20%3B%22"   data-hub-attr-feature_items_1_overlay="feature_items[1]overlay" data-lhis="feature_items-overlay" data-lh-image-helper="section.settings.feature_items[1]overlay"overlay"></div>
+							<div class="lh-img"  data-lhi="feature_items[1]img" data-lhis="feature_items-img"><img class="hs-id-41b499dd hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/deltaprosolgens_5CaU.png?v=1658206853176"/></div>
+							<div class="lh-text">
+								<h4  data-lhi="feature_items[1]title" data-lh-lang data-lhis="feature_items-title"></h4>
+								<p  data-lhi="feature_items[1]desc" data-lh-lang data-lhis="feature_items-desc"></p>
+							</div>
+						</div>
+					</div>
+				 <div class="lh-col-md-4">
+						<div class="lh-item">
+							<div class="lh-overlay" style="background-color: rgba(0,0,0,0);" data-hub-attr-state="class%3D%22lh-overlay%22%20style%3D%22background-color%3A%20%3B%22"   data-hub-attr-feature_items_2_overlay="feature_items[2]overlay" data-lhis="feature_items-overlay" data-lh-image-helper="section.settings.feature_items[2]overlay"overlay"></div>
+							<div class="lh-img"  data-lhi="feature_items[2]img" data-lhis="feature_items-img"><img class="hs-id-2a1fee6e hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/untitleddesign61_Kfvu.png?v=1658207183823"/></div>
+							<div class="lh-text">
+								<h4  data-lhi="feature_items[2]title" data-lh-lang data-lhis="feature_items-title"></h4>
+								<p  data-lhi="feature_items[2]desc" data-lh-lang data-lhis="feature_items-desc"></p>
+							</div>
+						</div>
+					</div>
+				 
+			</div>
+		</div>
+	</div>
+</div>
+  </section><section id="" data-section-id="31cifv7ogr7" data-section="why-do-you-need64604" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'31cifv7ogr7.lh_a168_title' | t }}</h3>
+			
+            
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="7ge2ylmupk" data-section="faqs-332" data-dev="hongyen" data-lh-page-id="1445" data-lh-page-name="Etee - Landing" data-layouthub="section">  
+ <div class="lh-faqs">        
+    <div class="lh-container">
+        <div class="lh-row">
+            <div class="lh-col-md-2"></div>
+            <div class="lh-col-md-8">
+                
+              
+                <div class="lh-content">
+                    
+                    <div class="lh-list-faq">
+                    
+                      <include data-live-accordion_items data-live-faq_style data-name="style_2" data-id="1">  
+ <ol class="lh-accordion-wrapper">
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[0]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_ezc4q5_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[0]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_ezc4q5_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[1]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_ezhhnw_name_html' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[1]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_ezhhnw_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[2]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_ezmuln_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[2]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_ezmuln_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[3]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_ezs7je_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[3]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_ezs7je_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[4]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_ezxkh5_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[4]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_ezxkh5_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[5]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_f02xew_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[5]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_f02xew_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[6]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_f08acn_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[6]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_f08acn_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[7]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_f0dnae_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[7]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_f0dnae_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[8]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_f0j085_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[8]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_f0j085_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[9]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_f0od5w_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[9]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_f0od5w_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[10]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_ki54mq_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[10]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_ki54mq_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[11]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_kiahkh_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[11]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_kiahkh_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[12]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_kifui8_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[12]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_kifui8_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[13]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_kil7fz_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[13]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_kil7fz_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[14]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'7ge2ylmupk.lh_kiqkdq_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[14]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'7ge2ylmupk.lh_kiqkdq_content_html' | t }}</div>
+    </li>
+   
+</ol>
+     </include></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+  </section><section id="" data-section-id="em4eum6kkhw" data-section="why-do-you-need64687" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'em4eum6kkhw.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang>{{'em4eum6kkhw.desc_html' | t }}</div>
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="why_button" data-section-id="o6vk8feknej" data-section="contents78567" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'o6vk8feknej.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'o6vk8feknej.lh_2rtbyt_desc_html' | t }}</p>
+                
+                <p style="width: 90%; margin: 0 auto;">
+  <span style="padding-right: 12px; color: #000; font-weight: 17px;">
+    <i class="fas fa-phone"></i> <b>Call us:</b> <a href="tel:1-877-242-2792">1-877-242-2792</a> </span> <br> 
+  <span style="padding-right: 12px;color: #000;">
+    <i class="fas fa-envelope"></i> <b>Email us:</b> <a href="mailto:info@shopsolarkits.com">info@shopsolarkits.com</a></span></p>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-1f504dc8 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/screenshot-4_KSLA.png?v=1658207090700"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="why_button" data-section-id="xlhzxyhfdyl" data-section="contents7852" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row lh-text-or2" data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lh-live-editor data-lhis="content_items-title"></h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'xlhzxyhfdyl.lh_2rtbyt_desc_html' | t }}</p>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-1b09a3d5 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/thesolarhub4_A2Tr.png?v=1660587816356"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="why_button" data-section-id="oaygptso58d" data-section="contents78564" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row lh-text-or2" data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'oaygptso58d.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'oaygptso58d.lh_2rtbyt_desc_html' | t }}</p>
+                
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+                <text  data-lhi="content_items[0]img" data-lhis="content_items-img"></text>
+                
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="hs-id-27acc1f5" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/2bGUYoMibkA" title="YouTube video player" width="560">
+</iframe>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="cf7iekipqhv" data-section="why-do-you-need64628" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'cf7iekipqhv.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"><text  data-lhi="desc" data-lh-lang data-lh-live-editor></text>
+			
+			<div data-oke-media-grid data-oke-reviews-hide-arrow="false" data-oke-reviews-cell-link-text="Read More" data-oke-reviews-gap-size="10" data-oke-reviews-load-more-on-scroll="false"></div>
+			</div>
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="xhc8o0oy0j" data-section="why-do-you-need646" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'xhc8o0oy0j.lh_a168_title' | t }}</h3>
+			
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="tbf2av1ys5b" data-section="review-3" data-dev="huynh-duc" data-lh-page-id="764" data-lh-page-name="Product Group" data-layouthub="section">  
+ {%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+ 
+{%- assign layout_hub_product = all_products['complete-solar-kit-dual-smart-home-integration-kit'] -%}
+{%- if tpl != 'product' and layout_hub_product != blank -%}
+	{% assign product  = layout_hub_product  %}
+{%- endif -%}<div data-oke-reviews-widget data-oke-reviews-product-id="shopify-{{- product.id -}}" class="okeReviews-lhWidgetHolder"></div>
+  </section>
+</div>
+ {%schema%} 
+{"locales":{"en":{"fqrmgwd4ue":{"lh_up5omg_outstock":"Out of stock","lh_up5omg_new":"New","lh_up5omg_sale":"Sale","lh_k4hsr9_out":"Sold out","lh_up5omg_sku":"SKU:","lh_5l0kk4_content_html":"<span style=\"color: rgb(0, 0, 0); font-size: medium;\">\u2714\u00a0<\/span><font size=\"3\">All Orders Processed In 72 Hours or Less!<br>\u2714 Best Online Price, Guaranteed.<br><\/font><font size=\"3\">\u2714 Lifetime Customer Support.<br>\u2714 Guaranteed FREE Shipping & Handling.<\/font><!--lh-live-editor-->","lh_up5omg_quantity":"Quantity:","lh_up5omg_buynow":"Add To Cart","lh_f635tz_cart":"Add To Cart"},"rfxj0e3850c":{"lh_9wid92_item_html":"Industry Leading<br>Warranties & Support","lh_a5w0bb_item":"Instant Financing Available at Checkout","lh_af9ndk_item":"Guaranteed Free Shipping & Handling","lh_aonaft_item_html":"2,000+ Reviews &amp; 30,000+ Customers"},"t54sxzwme0o":{"lh_2rtbyt_title_html":"The Delta Pro Difference<!--lh-live-editor-->","lh_2rtbyt_desc_html":"Shopping for an off-grid solar kit that includes everything you need to get up and running with off-grid power? Look no further! Our DUAL Delta PRO Hex Kit is a complete solar kit package, designed for simplicity and reliability. Off-grid, portable and emergency backup power does not get any easier than this, everything is plug-and-play!<br><br>\n\nJust click add to cart, complete your purchase and you'll receive everything you need to get up and running. Included with your DUAL HEX Kit is - 2 x EcoFlow Delta PRO main units ($3,599 each) + 8 x 200W Monocrystalline Solar Panels, Remote Monitor &amp; Controller, 120\/240V double voltage hub, PLUS all of the cables (50 ft.+), and connectors needed to get up and running with off-grid solar power.<br><br>\n\nThe 120\/240V voltage hub is required when trying to run your appliances such as a 240V well pump, larger AC unit and other 240V type devices (making this an EXTREMELY popular off grid solar kit).<!--lh-live-editor-->"},"den6khqpqhs":{"lh_a168_title":"What's Included With Your EcoFlow Delta Pro [Dual Smart Home Integration] Kit Order","desc_html":"Whether you are looking for a backup power supply for emergency situations and prolonged blackouts, or you need portable power for your RV or off-grid cabin, the EcoFlow DELTA PRO has everything you need!<!--lh-live-editor-->"},"j2jqb5a6r6j":{"lh_a168_title":"*GET $202 OFF Today! Limited Time Only. Use Code PRO202 at Checkout..(Enter After Adding To Cart)*"},"0qsr90fl9fv":{"lh_a168_title_html":"Product &amp; Kit Specifications"},"3kkr7ubvoaf":{"lh_2rtbyt_title_html":"What Type of Solar Panels Are Included in My Solar Kit?<!--lh-live-editor-->","lh_2rtbyt_desc_html":"We only include Tier-1 \/ Grade A solar panels in our solar kits. They are always monocrystalline and come with at least a 25-year power output warranty. We only source and supply solar panels from reputable brands that have been in business for many years. For more information on your solar panels, click to watch our video.<!--lh-live-editor-->"},"yp92gvhdd2":{"heading":"Reviews From Happy Customers"},"7n1zcdz7yuw":{"lh_a168_title":"Benefits of an EcoFlow Delta Pro Solar Kit"},"sudcbu6cn6l":{"lh_a168_title":"All the AC Output you\u2019ll need","desc_html":"A single Delta Pro unit packs a 3600W AC output, which can be expanded up to 4500W with X-Boost technology. Power 99.95% heavy-duty devices at home, outdoors or at work. You can even pair two units together to achieve 7200W<!--lh-live-editor-->"},"bm1fynvj9":{"lh_a168_title":"The World\u2019s Fastest Charging Portable Power Station","desc_html":"MultiCharge delivers record-breaking speeds at 6500W. To reach 6500W, you can opt for these charging methods.<!--lh-live-editor-->"},"qfgumi3wrki":{"lh_a168_title":"Multiple ways to control & monitor.","desc_html":"Control DELTA Pro either on the unit itself, using the remote control accessory, or unlock a ton of customization via the EcoFlow app. On the app, you can access your power settings, such as charging and discharging levels, AC charge speeds, control the Smart Generator and a whole lot more.<!--lh-live-editor-->"},"6ka8e86usjl":{"lh_a168_title":"Power That Means Business","desc_html":"Not only does DELTA Pro provide home backup and off-grid power, it also gives you a secure power source for any type of professional work. Whether you\u2019re working at home or outdoors, from DIY to professional projects, DELTA Pro helps you get the job done.<!--lh-live-editor-->"},"2y5lgzmffio":{"heading":"DELTA PRO SOLAR POWER SYSTEMS IN ACTION","desc":"Photos from our 30,000+ Customers"},"31cifv7ogr7":{"lh_a168_title":"Buy With Confidence. All of Your Questions Answered:"},"7ge2ylmupk":{"lh_ezc4q5_name":"What warranty is included with this solar kit?","lh_ezc4q5_content_html":"When you buy this solar kit, you are covered by the full manufacturer warranties on each component. Plus, you\u2019ll receive our lifetime customer and technical support.<!--lh-live-editor-->","lh_ezhhnw_name_html":"How long will it take to receive my solar kit after ordering?&nbsp;","lh_ezhhnw_content_html":"If you're in the lower 48 states we do our best to get you your order within 5-15 business days. Recently with the incredible demand for products, our delivery times to customer's door are averaging around 9-12 business days. You will receive your tracking numbers as soon as they are available.\n&nbsp;<!--lh-live-editor-->","lh_ezmuln_name":"How much is shipping?","lh_ezmuln_content_html":"Shipping is free in the USA on Delta PRO kits for a limited time. \n<!--lh-live-editor-->","lh_ezs7je_name":"Will I be able to track my order and deliveries?","lh_ezs7je_content_html":"You will receive your tracking numbers via email and\/or text message as soon as they are available. So please make sure you use your best email address when ordering, and to include your phone number so you can receive updates for your tracking information. Also, please expect to receive multiple deliveries and packages as we ship from multiple warehouses to keep costs down.<!--lh-live-editor-->","lh_ezxkh5_name":"What happens if stuff arrives damaged?","lh_ezxkh5_content_html":"We stand behind what we sell and we'll take care of the costs of getting you a new working product. Just reach out to us if this happens and we will get you all taken care of. <!--lh-live-editor-->","lh_f02xew_name":"Where do you ship from?","lh_f02xew_content_html":"We have 3 main distribution centers (CA, TX, NY) along with suppliers across the US. We ship from multiple different warehouses in order to try and keep costs as low as possible for our customers. <!--lh-live-editor-->","lh_f08acn_name":"Do you offer financing?","lh_f08acn_content_html":"Yes we do! We have 2 financing options which you can learn more about if you keep scrolling down this page.<!--lh-live-editor-->","lh_f0dnae_name":"How big is this kit? How much space do I need?","lh_f0dnae_content_html":"The solar panels will come in their own boxes and can be left inside or outside. The Delta PRO unit would be the heaviest at 99lbs, but it is on wheels.<!--lh-live-editor-->","lh_f0j085_name":"Can I install this solar kit myself?","lh_f0j085_content_html":"We've created the kits for absolute simplicity. That said, we highly recommend getting the help of a professional installer \/ certified electrician should you want to connect the system into your home\u2019s electrical panel. You should plan on potential costs associated with this as well.<!--lh-live-editor-->","lh_f0od5w_name":"Does the kit come with a wiring\/setup guide?","lh_f0od5w_content_html":"Yes, you'll get access to our setup diagram and instruction manual along with all of the manufacturer guides and user manuals. We've also created the SolarHub which you get lifetime access to when you order from us. <!--lh-live-editor-->","lh_ki54mq_name":"Can I use a generator or the grid to charge my battery bank if needed?","lh_ki54mq_content_html":"Absolutely. The Delta PRO comes ready to go with an AC wall charger where you can hook it up to a standby generator for charging the batteries on cloudy days or at night if needed. You can also use the grid in your home as the AC input source if it's available.<!--lh-live-editor-->","lh_kiahkh_name":"How long will my battery bank last?","lh_kiahkh_content_html":"You'll be covered by a 2-year warranty. The battery is Lithium LFP meaning it's rated for up to 6,000 lifecycles (15+ years of daily use). To calculate daily run times, divide the total battery bank watt hours by your average load in watts to get rough hours of run time. <!--lh-live-editor-->","lh_kifui8_name":"Can I sell power back to the grid with this system?","lh_kifui8_content_html":"This kit is not designed to sell power back to the grid. You can use the grid to charge your battery though.  Most people who buy this kit are looking to gain power and grid independence and opt for storing or using any excess power they may have!<!--lh-live-editor-->","lh_kil7fz_name":"What kind of after sale support do you offer?","lh_kil7fz_content_html":"You can reach us Monday to Friday via phone, live chat or email. You'll also get free, lifetime access to the industry leading \"Solar Hub\" - Where you'll find all of our diagrams, installation manuals, troubleshooting guides and more!<!--lh-live-editor-->","lh_kiqkdq_name":"Can I qualify for the 30% federal tax credit if I order this kit?","lh_kiqkdq_content_html":"Yes, if you order this solar kit and install it before the end of the year, you may be eligible to claim 30% of its cost as a credit on your federal tax return. This is made possible by the Solar Investment Tax Credit (ITC), which is part of the Inflation Reduction Act.<br><br>\n\nWe recommend consulting a tax professional to make sure you\u2019re eligible to receive the federal solar tax credit.<!--lh-live-editor-->"},"em4eum6kkhw":{"lh_a168_title":"Qualify for a 30% Tax Credit when You Order This Kit","desc_html":"If you order this solar kit and install it before the end of the year, you may be eligible to claim 30% of its cost as a credit on your federal tax return this year. This is made possible by the Solar Tax Credit, part of the Inflation Reduction Act.<!--lh-live-editor-->"},"o6vk8feknej":{"lh_2rtbyt_title_html":"Lifetime Customer Support<!--lh-live-editor-->","lh_2rtbyt_desc_html":"When you invest in a solar kit, you want to have peace of mind knowing that you have all the support you need to ensure that it\u2019s always working properly. \n<br><br>\nAt Shop Solar Kits, providing legendary customer support is at our core, so we provide all of our customers with lifetime support. \n<br><br>\nThis means that anytime you have a question, concern or are troubleshooting - you\u2019ll have timely access to solar (and human) experts that can help you. \n<br><br><!--lh-live-editor-->"},"xlhzxyhfdyl":{"lh_2rtbyt_desc_html":"Your order also <b>unlocks free, lifetime access to The Solar Hub.<\/b>\n<br><br>\nInside, you\u2019ll find everything you need to know about DIY solar, along with wiring diagrams, installation guides and maintenance manuals for your specific solar kit and products.\n<br><br>\nYou'll receive login access after placing your order, unlocking and equipping you with the products, knowledge and tools needed to achieve your solar power goals.<!--lh-live-editor-->"},"oaygptso58d":{"lh_2rtbyt_title_html":"Simplifying Off-Grid Solar Since 2018<!--lh-live-editor-->","lh_2rtbyt_desc_html":"When you buy a solar generator kit from ShopSolarKits.com, you\u2019re guaranteed a win. Your complete solar generator kit comes with all of the parts, pieces and compatible connections you need, along with tons of supporting materials like manuals and setup resources.\n<br><br>\nSetting up a solar generator kit has never been easier than this. Just click add to cart, enter your details and we\u2019ll ship you everything you need. PLUS, we\u2019ll guarantee you lifetime customer support via email, live chat and phone.\n<br><br>\nWe\u2019re on a mission to make solar simple for everyday folks just like yourself and you can feel confident knowing that we already have over 30,000+ happy customers!<!--lh-live-editor-->"},"cf7iekipqhv":{"lh_a168_title":"Real Customer Projects, Real Results."},"xhc8o0oy0j":{"lh_a168_title":"Customer Reviews"}}},"name":"Delta PRO Dual Smart H"}
+ {%endschema%}

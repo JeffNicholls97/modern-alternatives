@@ -1,0 +1,43 @@
+<style>
+    #chat-widget-container {
+        bottom: 0 !important;
+    }
+    #chat-widget-minimized {
+        display: none !important;
+    }
+    .zsiq_floatmain .zsiq_flt_rel {
+      background-color: #222F3E !important;
+    }
+    {% unless template contains 'product' or template contains 'collection' %}
+    .zsiq_floatmain {
+        display: none !important;
+    }
+    {% endunless %}
+</style>
+<!-- Start of LiveChat code -->
+<script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siqe86329f1b8a6d5262eb2be3e7dde9c015565e54a2f07afed2aa35b0e193751c1", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+{% comment %} Old Live chat
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 14379024;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/14379024/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+{% endcomment %}
+<!-- End of LiveChat code -->
+{% if page.handle contains 'contact' %}
+    <script>
+        (function (){
+            const icons = document.querySelectorAll('.lh-incentives .lh-item');
+            if(icons){
+                icons.forEach(icon => {
+                    const text = icon.querySelector('.lh-text');
+                    if(text && text.textContent.toLowerCase().includes('live chat')){
+                        icon.setAttribute('onclick', "document.querySelector('.zsiq_floatmain')?.click();return false;");
+                        icon.style.cursor = 'pointer';
+                    }
+                })
+            }
+        })()
+    </script>
+{% endif %}

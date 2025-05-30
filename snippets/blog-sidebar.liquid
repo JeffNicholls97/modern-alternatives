@@ -1,0 +1,168 @@
+{% if blog.all_tags.size > 0 %}
+    {% assign color_links = '#222f3e' %}
+    <script>
+        function apply_tags(){
+            let url = '{{ blog.url }}';
+            const all_tags = document.querySelectorAll('[name="all_tags[]"]');
+            let applied_tags = '';
+            for (const tag of all_tags) {
+                if(tag.checked){
+                    if(applied_tags){
+                        applied_tags += '+';
+                    }
+                    applied_tags += tag.value;
+                }
+            }
+            if(applied_tags){
+                url += /tagged/+applied_tags;
+            }
+            window.location.href = url;
+        }
+    </script>
+    <style>
+        .blog-cat-checkbox {
+            display: none !important;
+        }
+        .blog-sidebar .productgrid--sidebar-title {
+            display: flex;
+        }
+        .blog-sidebar .productgrid--sidebar-title .utils-filter-icon {
+            padding-left: .46875rem;
+            display: none;
+        }
+        .blog-wrap {
+            display: flex;
+        }
+        .blog-sidebar {
+            min-width: 185px;
+            margin-right: 30px;
+            margin-top: 1.640625rem;
+        }
+        .blog-posts-wrap {
+            width: 100%;
+        }
+        .blog-sidebar .checkmark {
+            display: block;
+            width: 14px;
+            height: 14px;
+            color: {{ color_links }};
+            border-color: {{ settings.color_input_border }};
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 2px;
+            stroke-miterlimit: 10;
+
+            border-color: {{ settings.color_input_border }};
+            box-shadow: inset 0px 0px 0px {{ color_links }};
+            transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), border-color 100ms cubic-bezier(0.4, 0, 0.2, 1) 175ms;
+        }
+        .blog-sidebar .blog-cat-checkbox:checked ~ .collection-filters__filter-link .checkmark {
+            border-color: {{ color_links }};
+            box-shadow: inset 0px 0px 0px 30px {{ color_links }};
+            transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blog-sidebar .checkmark__check,
+        .blog-sidebar .checkmark__indeterminate {
+            stroke: #FFF;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke-width: 2;
+            transform-origin: 50% 50%;
+        }
+        .blog-sidebar .blog-cat-checkbox:checked ~ .collection-filters__filter-link .checkmark__check {
+            stroke-dashoffset: 0;
+            stroke: #FFF;
+            transition: stroke-dashoffset 250ms cubic-bezier(0.4, 0, 0.2, 1) 125ms;
+        }
+        .blog-sidebar .blog-category {
+            padding-top: 0.9375rem;
+        }
+        .blog-sidebar .blog-category label {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: 0;
+        }
+        @media screen and (max-width: 859px) {
+            .blog-wrap {
+                flex-direction: column;
+            }
+            .blog-sidebar .productgrid--sidebar-title .utils-filter-icon {
+                display: block;
+            }
+        }
+    </style>
+    <div class="blog-sidebar">
+        <h2 class="productgrid--sidebar-title">
+            Filters
+            <span class="utils-filter-icon">
+                <svg class="icon-filters " aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8733 3.448H19.0202C19.5613 3.448 20 3.88666 20 4.42777C20 4.96888 19.5613 5.40753 19.0202 5.40753H16.8733C16.6687 6.11494 16.2488 6.73525 15.6759 7.17629C15.1031 7.61732 14.4078 7.85553 13.6935 7.85553C12.9792 7.85553 12.284 7.61732 11.7111 7.17629C11.1382 6.73525 10.7183 6.11494 10.5137 5.40753H0.979765C0.438656 5.40753 0 4.96888 0 4.42777C0 3.88666 0.438656 3.448 0.979764 3.448H10.5137C10.7183 2.74059 11.1382 2.12028 11.7111 1.67925C12.284 1.23822 12.9792 1 13.6935 1C14.4078 1 15.1031 1.23822 15.6759 1.67925C16.2488 2.12028 16.6687 2.74059 16.8733 3.448ZM9.49889 14H19.0177C19.5588 14 19.9975 14.4387 19.9975 14.9798C19.9975 15.5209 19.5588 15.9595 19.0177 15.9595H9.49889C9.29432 16.6669 8.8744 17.2873 8.30153 17.7283C7.72866 18.1693 7.03342 18.4075 6.31912 18.4075C5.60481 18.4075 4.90957 18.1693 4.3367 17.7283C3.76383 17.2873 3.34391 16.6669 3.13934 15.9595H0.979764C0.438655 15.9595 0 15.5209 0 14.9798C0 14.4387 0.438655 14 0.979763 14H3.13934C3.34391 13.2926 3.76383 12.6723 4.3367 12.2312C4.90957 11.7902 5.60481 11.552 6.31912 11.552C7.03342 11.552 7.72866 11.7902 8.30153 12.2312C8.8744 12.6723 9.29432 13.2926 9.49889 14ZM6.31912 16.776C5.85823 16.776 5.41623 16.5868 5.09034 16.2499C4.76444 15.913 4.58136 15.4562 4.58136 14.9798C4.58136 14.5034 4.76444 14.0465 5.09034 13.7096C5.41623 13.3728 5.85823 13.1835 6.31912 13.1835C6.78 13.1835 7.222 13.3728 7.5479 13.7096C7.87379 14.0465 8.05687 14.5034 8.05687 14.9798C8.05687 15.4562 7.87379 15.913 7.5479 16.2499C7.222 16.5868 6.78 16.776 6.31912 16.776ZM13.6935 6.224C13.2326 6.224 12.7906 6.03476 12.4647 5.6979C12.1389 5.36104 11.9558 4.90416 11.9558 4.42777C11.9558 3.95138 12.1389 3.4945 12.4647 3.15764C12.7906 2.82078 13.2326 2.63153 13.6935 2.63153C14.1544 2.63153 14.5964 2.82078 14.9223 3.15764C15.2482 3.4945 15.4313 3.95138 15.4313 4.42777C15.4313 4.90416 15.2482 5.36104 14.9223 5.6979C14.5964 6.03476 14.1544 6.224 13.6935 6.224Z" fill="currentColor"></path>
+                </svg>
+            </span>
+        </h2>
+        <style>
+            /* Dropdown */
+            #categories-filter {
+                display: none;
+            }
+            .categories-filter-wrap {
+                max-height: 0;
+                overflow: hidden;
+                transition: .3s;
+            }
+            #categories-filter:checked ~ .collection-filters__filter-group-heading svg {
+                transform: scale(1.25) translateY(-22%);
+            }
+            #categories-filter:checked ~ .collection-filters__filter-group-heading .icon-chevron-down-left {
+                transform: rotate(45deg);
+            }
+            #categories-filter:checked ~ .collection-filters__filter-group-heading .icon-chevron-down-right {
+                transform: rotate(-45deg);
+            }
+            #categories-filter:checked ~ .categories-filter-wrap {
+                max-height: 500px;
+            }
+            @media screen and (max-width: 859px) {
+                .blog-sidebar {
+                    margin-right: 0;
+                }
+            }
+        </style>
+        <div class="filter-form">
+            <div class="collection-filters__filter-group">
+                <input type="checkbox" id="categories-filter" checked>
+                <label for="categories-filter" class="collection-filters__filter-group-heading productgrid--sidebar-button" data-filter-group-trigger="" aria-expanded="true">
+                    <div class="collection-filters__filter-title">
+                        Categories
+                    </div>
+                    <div class="collection-filters__filter-icon-wrapper" tabindex="-1">
+                      <span class="collection-filters__filter-icon">
+                        <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
+                            <path class="icon-chevron-down-left" d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                            <path class="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                        </svg>
+                      </span>
+                    </div>
+                </label>
+                <div class="categories-filter-wrap">
+                    {% for tag in blog.all_tags %}
+                        <div class="blog-category">
+                            <input type="checkbox" id="tag_{{ tag.handle | replace: '-', '_' }}" class="blog-cat-checkbox" name="all_tags[]" value="{{ tag.handle }}" onchange="apply_tags()"{% if current_tags contains tag %} checked{% endif %}>
+                            <label for="tag_{{ tag.handle | replace: '-', '_' }}" class="collection-filters__filter-link">
+                        <span class="filter-icon--checkbox" data-handle="filter-Product-type-0">
+                            <svg class="checkmark " aria-hidden="true" focusable="false" role="presentation" width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                              <path class="checkmark__check" fill="none" d="M2.5 7L5.5 10L11.5 4"></path>
+                              <path class="checkmark__indeterminate" fill="none" d="M2.5 7L6 7L12 7"></path>
+                            </svg>
+                        </span>
+                                <span class="collection-filters__filter-list-item-text">
+                            {{ tag }}
+                        </span>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

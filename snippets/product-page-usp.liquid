@@ -1,0 +1,137 @@
+{% assign date = 'now' | date: '%s' %}
+{% assign first = 5 | times: 24 | times: 60 | times: 60 %}
+{% assign second = 7 | times: 24 | times: 60 | times: 60 %}
+
+{% assign min = 7 %}
+{% assign max = 17 %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = 'now' | date: '%N' | modulo: diff | plus: min %}
+
+<div class="usp-container  !mt-5">
+  <div class="usp-top-flex">
+    <div class="usp-wrapper">
+      <div
+        {% if product.selected_or_first_available_variant.available %}
+        {% else %}
+        style="filter: grayscale();"
+        {% endif %}
+        class="usp-image">
+        <img
+          alt="truck"
+          class="hs-id-ae2b2b84 hs-lazyload"
+          height="30"
+          loading="lazy"
+          src="{{ 'Paid.png' | asset_url }}"
+          width="30" />
+      </div>
+      <div class="usp-text-container">
+        <span style="color: #79a45c;" class="usp-title">
+          {%- if product.selected_or_first_available_variant.available %}
+            {% if product.metafields.stock.stock_status.value %}
+              Ships {{ product.metafields.stock.stock_status.value }}
+            {% else %}
+              In Stock
+            {% endif %}
+          {% else %}
+            <span style="color: #db1919;">
+              Out of stock
+            </span>
+          {% endif -%}
+        </span>
+        {%- if product.selected_or_first_available_variant.available %}
+          {% if product.metafields.stock.stock_status.value %}
+            <span class="usp-sub">Order Now</span>
+          {% else %}
+            <span class="usp-sub">Get yours today!</span>
+          {% endif %}
+        {% else %}
+          <span class="usp-sub">Check back soon!</span>
+        {% endif -%}
+
+      </div>
+    </div>
+    <span class="line-divider-vertical"></span>
+    <div class="usp-wrapper">
+      <div class="usp-image">
+        <img
+          alt="truck"
+          class="hs-id-3ab5cc3a hs-lazyload"
+          height="30"
+          loading="lazy"
+          src="{{ 'Increase.png' | asset_url }}"
+          width="30" />
+      </div>
+      <div class="usp-text-container">
+        <span style="color: #bb261a;" class="usp-title">{{ randomNumber }}+ sold</span>
+        <span class="usp-sub">In the last 7 days</span>
+      </div>
+    </div>
+  </div>
+
+  {% if product.tags contains 'Solar Kits' or product.tags contains 'Solar Generator Kits' %}
+    <span class="line-divider"></span>
+    <div class="usp-wrapper">
+      <div class="usp-image">
+        <img
+          style="filter: brightness(0.1);;"
+          alt="truck"
+          class="hs-id-8657541d hs-lazyload"
+          height="30"
+          loading="lazy"
+          src="{{ 'shipping-green.png' | asset_url }}"
+          width="30" />
+      </div>
+      <div class="usp-text-container">
+
+        {%- assign variant = product.variants.first -%}
+        {%- assign weightInPounds = variant.weight | divided_by: 453.59237 | round: 1 | strip | plus: 0 -%}
+
+        {{ weightInPounds }}
+
+        {% if weightInPounds > 1 %}
+          <span class="usp-title">Flat Rate Shipping - Calculated at Checkout</span>
+        {% else %}
+          <span class="usp-title">Free Shipping</span>
+        {% endif %}
+
+        <span style="color: #068406;" class="usp-sub">Get it between {{ date | date: '%s' | plus: first | date: '%a, %b %e' }} -
+          {{ date | date: '%s' | plus: second | date: '%a, %b %e' -}}
+        </span>
+      </div>
+    </div>
+  {% endif %}
+  <span class="line-divider"></span>
+  <div class="usp-wrapper">
+    <div class="usp-image">
+      <img
+        style="filter: brightness(0.1);"
+        alt="truck"
+        class="hs-id-7913e3eb hs-lazyload"
+        height="30"
+        loading="lazy"
+        src="{{ 'rotate-green.png' | asset_url }}"
+        width="30" />
+    </div>
+    <div class="usp-text-container">
+      <span class="usp-title">Free Returns</span>
+      <span style="color: #068406;" class="usp-sub ">Free Returns within 30 Days of Purchase</span>
+    </div>
+  </div>
+  <span class="line-divider"></span>
+  <div class="usp-wrapper">
+    <div class="usp-image">
+      <img
+        style="filter: brightness(0.1);"
+        alt="trust"
+        class="hs-id-be2ac55c hs-lazyload"
+        height="30"
+        loading="lazy"
+        src="{{ 'love-green.png' | asset_url }}"
+        width="30" />
+    </div>
+    <div class="usp-text-container">
+      <span class="usp-title">Lifetime Customer Support</span>
+      <span style="color: #068406;" class="usp-sub">Unlimited lifetime support, always available.</span>
+    </div>
+  </div>
+</div>

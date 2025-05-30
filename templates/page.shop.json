@@ -1,0 +1,328 @@
+{
+  "sections": {
+    "22abd170-8ef8-4fac-89fd-bd75338761d6": {
+      "type": "dynamic-slideshow",
+      "blocks": {
+        "template--15919912091788__22abd170-8ef8-4fac-89fd-bd75338761d6-1679675980837395f2-0": {
+          "type": "slide",
+          "settings": {
+            "title": "Slide 1",
+            "text": "Introduce customers to your shop with lifestyle and product imagery",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "text_2": "Introduce customers to your shop with lifestyle and product imagery",
+            "button_one_label": "Button",
+            "button_one_link": "",
+            "button_one_style": "primary",
+            "button_two_label": "",
+            "button_two_link": "",
+            "button_two_style": "primary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        },
+        "template--15919912091788__22abd170-8ef8-4fac-89fd-bd75338761d6-1679675980837395f2-1": {
+          "type": "slide",
+          "settings": {
+            "title": "Slide 2",
+            "text": "Introduce customers to your shop with lifestyle and product imagery",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "text_2": "Introduce customers to your shop with lifestyle and product imagery",
+            "button_one_label": "Button",
+            "button_one_link": "",
+            "button_one_style": "primary",
+            "button_two_label": "",
+            "button_two_link": "",
+            "button_two_style": "primary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--15919912091788__22abd170-8ef8-4fac-89fd-bd75338761d6-1679675980837395f2-0",
+        "template--15919912091788__22abd170-8ef8-4fac-89fd-bd75338761d6-1679675980837395f2-1"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "arrows_hidden": true,
+        "autoplay_duration": 8,
+        "slideshow_width": "full",
+        "slideshow_height": "medium",
+        "slideshow_height_mobile": "medium",
+        "slideshow_text_below_image": true
+      }
+    },
+    "2c9eefcd-f0ee-4942-8140-462c1a314e41": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-0": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Free Shipping",
+            "text": "<p>When you spend $100+<\/p>",
+            "link": ""
+          }
+        },
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-cell-phone",
+            "title": "Give Us A Call",
+            "text": "<p>+1 (201) 555-5555<\/p>",
+            "link": ""
+          }
+        },
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-chat-alternate",
+            "title": "Chat With Us",
+            "text": "<p>We offer 24-hour chat support<\/p>",
+            "link": ""
+          }
+        },
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-pin",
+            "title": "Locations",
+            "text": "<p>Find a store near you<\/p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-0",
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-1",
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-2",
+        "template--15919912091788__2c9eefcd-f0ee-4942-8140-462c1a314e41-167967593923f94e31-3"
+      ],
+      "settings": {
+        "section_spacing": false,
+        "section_width": "full-width",
+        "icon_layout": "left",
+        "color": "#4d4d4d",
+        "icon_color": "#4d4d4d",
+        "background_color": "#f8f8f8",
+        "mobile_layout": "slider"
+      }
+    },
+    "190decc7-cd70-4680-8d2c-09b870bee528": {
+      "type": "shop-search-kit",
+      "blocks": {
+        "8f842010-42a8-4cd2-8b27-58409481593a": {
+          "type": "filter",
+          "settings": {
+            "filter_name": "Volt"
+          }
+        },
+        "0db34601-6fc1-4795-8d3b-0addc1d27f16": {
+          "type": "filter",
+          "settings": {
+            "filter_name": "Specification Checkmarks"
+          }
+        },
+        "96987c55-1013-43d9-b22e-ceba794b80df": {
+          "type": "filter",
+          "settings": {
+            "filter_name": "Product type"
+          }
+        },
+        "f89461aa-a195-4ad5-b9ab-405c418ed072": {
+          "type": "filter",
+          "settings": {
+            "filter_name": "Voltage"
+          }
+        }
+      },
+      "block_order": [
+        "8f842010-42a8-4cd2-8b27-58409481593a",
+        "0db34601-6fc1-4795-8d3b-0addc1d27f16",
+        "96987c55-1013-43d9-b22e-ceba794b80df",
+        "f89461aa-a195-4ad5-b9ab-405c418ed072"
+      ],
+      "settings": {
+        "title": "Solar Kit Search",
+        "text": "Use the dropdowns to sort your search for a solar kit that fits your needs",
+        "collection_selector": true,
+        "collection_list": [
+          "bluetti-solar-generators",
+          "mppt-charge-controllers",
+          "all-in-one-kits",
+          "solar-generator-kits",
+          "solar-power-systems"
+        ],
+        "button_text": "SEARCH NOW"
+      }
+    },
+    "c086f58e-22b0-470d-82b6-064676b441b1": {
+      "type": "dynamic-promo-mosaic",
+      "blocks": {
+        "template--15919912091788__c086f58e-22b0-470d-82b6-064676b441b1-1679676171a2c2113b-0": {
+          "type": "promotion",
+          "settings": {
+            "title": "Mosaic",
+            "text": "Use this section to welcome customers to your store, say a bit about your brand, or share news.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "",
+            "button_style": "primary",
+            "show_overlay": false,
+            "background": "",
+            "opacity": 50
+          }
+        },
+        "template--15919912091788__c086f58e-22b0-470d-82b6-064676b441b1-1679676171a2c2113b-1": {
+          "type": "promotion",
+          "settings": {
+            "title": "Mosaic",
+            "text": "Use this section to welcome customers to your store, say a bit about your brand, or share news.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "",
+            "button_style": "primary",
+            "show_overlay": false,
+            "background": "",
+            "opacity": 50
+          }
+        },
+        "template--15919912091788__c086f58e-22b0-470d-82b6-064676b441b1-1679676171a2c2113b-2": {
+          "type": "promotion",
+          "settings": {
+            "title": "Mosaic",
+            "text": "Use this section to welcome customers to your store, say a bit about your brand, or share news.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "",
+            "button_style": "primary",
+            "show_overlay": false,
+            "background": "",
+            "opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--15919912091788__c086f58e-22b0-470d-82b6-064676b441b1-1679676171a2c2113b-0",
+        "template--15919912091788__c086f58e-22b0-470d-82b6-064676b441b1-1679676171a2c2113b-1",
+        "template--15919912091788__c086f58e-22b0-470d-82b6-064676b441b1-1679676171a2c2113b-2"
+      ],
+      "settings": {
+        "title": "Mosaic",
+        "section_height": "small",
+        "text_alignment": "top-left",
+        "maintain_aspect_ratio": false,
+        "compress_blocks": false
+      }
+    },
+    "48ece804-a137-48e7-a9d0-8a689028792a": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "5c8f4900-464e-432a-9a7d-34d109252028": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "697bed26-59f6-4257-8ac1-b3b0e23d6b53": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "4fb03430-a790-43a3-bd35-0e89796572ad": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-0",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-1",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-2",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-3",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-4",
+        "5c8f4900-464e-432a-9a7d-34d109252028",
+        "697bed26-59f6-4257-8ac1-b3b0e23d6b53",
+        "4fb03430-a790-43a3-bd35-0e89796572ad"
+      ],
+      "settings": {
+        "title": "Collection list",
+        "thumbnail_columns_desktop": 4,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "View All",
+        "cta_link": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "3801ae43-dbd6-47e3-aaeb-2a122dd69c46": {
+      "type": "pxs-image-with-text-overlay",
+      "settings": {
+        "section_height": "medium",
+        "image_url": "",
+        "title": "Image with text overlay",
+        "text": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": "Button"
+      }
+    }
+  },
+  "order": [
+    "22abd170-8ef8-4fac-89fd-bd75338761d6",
+    "2c9eefcd-f0ee-4942-8140-462c1a314e41",
+    "190decc7-cd70-4680-8d2c-09b870bee528",
+    "c086f58e-22b0-470d-82b6-064676b441b1",
+    "48ece804-a137-48e7-a9d0-8a689028792a",
+    "3801ae43-dbd6-47e3-aaeb-2a122dd69c46"
+  ]
+}

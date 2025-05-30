@@ -1,0 +1,93 @@
+{% assign is_available = false %}
+{% assign is_metafield_section = false %}
+
+{% case block.type %}
+  {% when 'overview' %}
+    <div class="product_tab_content product_tab_content_{{ block.id }}">
+      {% liquid
+        assign is_metafield_section = true
+        if product.selected_or_first_available_variant.metafields.details.text.value
+          assign is_available = true
+        endif
+        unless is_available
+          if product.selected_or_first_available_variant.metafields.details.text.value == blank and product.selected_or_first_available_variant.metafields.details.image.value == blank
+            assign is_available = true
+          endif
+        endunless
+        if is_available
+          render 'product-collapsable-type-details', block: block
+        endif
+      %}
+    </div>
+
+  {% when 'Reviews' %}
+    <div class="product_tab_content product_tab_content_{{ block.id }}">
+      {% assign is_available = true %}
+      {% render 'product-collapsable-type-reviews', block: block %}
+    </div>
+
+  {% when 'specifications' %}
+    <div class="product_tab_content product_tab_content_{{ block.id }}">
+      {% liquid
+        assign is_metafield_section = true
+        if product.selected_or_first_available_variant.metafields.specifications.checkmarks.value or product.selected_or_first_available_variant.metafields.specifications.table_1.value or product.selected_or_first_available_variant.metafields.specifications.table_2.value or product.selected_or_first_available_variant.metafields.specifications.table_3.value or product.selected_or_first_available_variant.metafields.specifications.table_4.value or product.selected_or_first_available_variant.metafields.specifications.table_5.value or product.selected_or_first_available_variant.metafields.specifications.table_6.value or product.selected_or_first_available_variant.metafields.specifications.table_7.value or product.selected_or_first_available_variant.metafields.specifications.table_8.value or product.selected_or_first_available_variant.metafields.specifications.text.value
+          assign is_available = true
+          render 'product-collapsable-type-specifications', block: block
+        endif
+      %}
+    </div>
+
+   {% when 'image_with_text' %}
+    <div class="product_tab_content product_tab_content_{{ block.id }}">
+      {% assign is_available = false %}
+      {% render 'dynamic-image-with-text-new', block: block %}
+    </div>
+
+  {% when 'video_with_text' %}
+    <div class="product_tab_content product_tab_content_{{ block.id }}">
+      {% assign is_available = true %}
+      {% render 'dynamic-video-with-text-new', block: block %}
+    </div>
+
+  {% when 'FAQ' %}
+    <div class="product_tab_content product_tab_content_{{ block.id }}" style="padding-top: 20px">
+      {% liquid
+        assign faqs = product.selected_or_first_available_variant.metafields.faqs.data.value
+      %}
+      {% if faqs.size > 0 %}
+        {% for faq in faqs %}
+          {% assign question = faq | split: ':' | first %}
+          {% assign answer = faq | split: ':' | last %}
+          <div class="pdp-faq">
+            <h3 class="product-section--title pdp-faq-question">
+              <span>
+                {{- question -}}
+                {%- unless question contains '?' %}?{% endunless -%}
+              </span>
+            </h3>
+            <p>{{ answer }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <h3 class="product-section--title pdp-faq-question">
+        <span>{{ block.settings.paragraph_1 }}</span>
+      </h3>
+      <p>{{ block.settings.text_1 }}</p>
+      <h3 class="product-section--title pdp-faq-question">
+        <span>{{ block.settings.paragraph_2 }}</span>
+      </h3>
+      <p>{{ block.settings.text_2 }}</p>
+      <h3 class="product-section--title pdp-faq-question">
+        <span>{{ block.settings.paragraph_3 }}</span>
+      </h3>
+      <p>{{ block.settings.text_3 }}</p>
+      <h3 class="product-section--title pdp-faq-question">
+        <span>{{ block.settings.paragraph_4 }}</span>
+      </h3>
+      <p>{{ block.settings.text_4 }}</p>
+      <h3 class="product-section--title pdp-faq-question">
+        <span>{{ block.settings.paragraph_5 }}</span>
+      </h3>
+      <p>{{ block.settings.text_5 }}</p>
+    </div>
+{% endcase %}

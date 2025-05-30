@@ -1,0 +1,137 @@
+{% comment %}
+  @param context {String}
+    The context, either 'product' or 'cart'
+
+  @param item {Object}
+    The cart item object
+{% endcomment %}
+
+{% assign quantity_increment_value = settings.quantity_increment_value %}
+
+<quantity-selector
+  class="quantity-selector"
+  data-quantity-selector
+>
+  {% unless is_allowed_cart_drawer %}
+  <label
+    class="quantity-selector__label"
+    for="
+      {%- if context == 'product' -%}
+        quantity-selector__input-{{ section.id }}
+      {%- else -%}
+        updates_{{ item.key }}
+      {%- endif -%}
+    "
+  >
+    {{- 'general.general.quantity' | t -}}
+  </label>
+  {% endunless %}
+
+  <div class="quantity-selector__wrapper">
+    <div
+      class="
+        quantity-selector__button-wrapper
+        quantity-selector__button-wrapper--minus
+        {% if is_allowed_cart_drawer -%}
+          {%- unless item.quantity > 1 -%}
+          quantity-selector__button-wrapper--disabled
+          {%- endunless -%}
+        {%- else -%}
+        quantity-selector__button-wrapper--disabled
+        {%- endif -%}
+      "
+      data-button-wrapper
+      data-button-wrapper-minus
+    >
+      <button
+        class="
+          {%- if is_allowed_cart_drawer -%}
+          matrix-minus
+          {%- endif %}
+          quantity-selector__button
+          quantity-selector__button--minus
+        "
+        type="button"
+        name="minus"
+        aria-label="{{ 'general.accessibility.decrease_quantity' | t: increment: quantity_increment_value }}"
+        {% if is_allowed_cart_drawer -%}
+        onclick="MatrixCart.updateQtyInputInCart(event, this, qty_{{ item.key | replace: ':', '_' | md5 }})"
+        {%- else -%}
+        data-quantity-minus
+        {%- endif -%}
+      >
+        {%
+          render 'icon-library',
+          id: 'icon-minus',
+        %}
+      </button>
+    </div>
+
+    <input
+      class="quantity-selector__input"
+      id="{%- if is_allowed_cart_drawer -%}qty_{{ item.key | replace: ':', '_' | md5 }}{%- elsif context == 'product' -%}quantity-selector__input-{{ section.id }}{%- else -%}updates_{{ item.key }}{%- endif -%}"
+      aria-label="{{ 'general.general.quantity' | t }}"
+      name="
+        {%- if context == 'product' -%}
+          quantity
+        {%- else -%}
+          updates[]
+        {%- endif -%}
+      "
+      type="number"
+      step="1"
+      {% if product.title == '*[Open Box]* Rich Solar 100 Watt Polycrystalline Solar Panel | High Efficiency 12V' %}
+        min="6"
+        value="6"
+      {% else %}
+              min="1"
+value="
+        {%- if context == 'product' -%}
+          {{- quantity_increment_value -}}
+        {%- else -%}
+          {{- item.quantity -}}
+        {%- endif -%}
+      "
+      {% endif %}
+      
+      {%- if is_allowed_cart_drawer -%}
+      data-key="{{ item.key }}"
+      {%- else -%}
+      data-quantity-input
+      data-increment-value="{{- quantity_increment_value -}}"
+      {%- endif -%}
+    >
+
+    <div
+      class="
+        quantity-selector__button-wrapper--plus
+        quantity-selector__button-wrapper
+      "
+      data-button-wrapper
+      data-button-wrapper-plus
+    >
+      <button
+        class="
+          {%- if is_allowed_cart_drawer -%}
+          matrix-plus
+          {%- endif %}
+          quantity-selector__button
+          quantity-selector__button--plus
+        "
+        type="button"
+        name="plus"
+        aria-label="{{ 'general.accessibility.increase_quantity' | t: increment: quantity_increment_value }}"
+        {% if is_allowed_cart_drawer -%}
+        onclick="MatrixCart.updateQtyInputInCart(event, this, qty_{{ item.key | replace: ':', '_' | md5 }})"
+        {%- else -%}
+        data-quantity-plus
+        {%- endif -%}
+      >
+        {%
+          render 'icon-library',
+          id: 'icon-plus',
+        %}
+      </button>
+    </div>
+  </div>
+</quantity-selector>

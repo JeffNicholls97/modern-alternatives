@@ -1,0 +1,217 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "track_your_order_heading": {
+      "type": "wonderment-custom-html",
+      "blocks": {
+        "track_your_order": {
+          "type": "html",
+          "settings": {
+            "section_html": "<style>\n  .wndr-sx--heading {\n    font-size: 2.5rem;\n    text-align: center;\n  }\n  .wonderment-ab-container > div > form {\n     margin-top: 20px;\n  }\n  .tp-form-header.tp-search-header {\n    display: none !important;\n  }\n<\/style>\n<h2 class=\"wndr-sx--heading\">Track your order<\/h2>"
+          }
+        }
+      },
+      "block_order": [
+        "track_your_order"
+      ],
+      "settings": {
+        "show_when": "always",
+        "width": "regular"
+      }
+    },
+    "main": {
+      "type": "apps",
+      "blocks": {
+        "wonderment": {
+          "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "wonderment"
+      ],
+      "settings": {
+        "include_padding": true
+      }
+    },
+    "dynamic_featured_collection_HhVhcy": {
+      "type": "dynamic-featured-collection",
+      "settings": {
+        "title": "Best Sellers",
+        "layout": "grid",
+        "collection": "best-sellers",
+        "product_count": 5,
+        "cta_label": "Shop collection",
+        "cta_button_style": "primary"
+      }
+    },
+    "hero": {
+      "type": "wonderment-hero",
+      "disabled": true,
+      "settings": {
+        "width_override": true,
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "faq": {
+      "type": "wonderment-faq",
+      "blocks": {
+        "faq-getting-started": {
+          "type": "section_heading",
+          "settings": {
+            "title": "FAQs"
+          }
+        },
+        "product-where-made-question": {
+          "type": "question",
+          "settings": {
+            "title": "Return Policy",
+            "text": "<p>Return Policy: Returns are free within 30 days of ordering (no restocking or processing fees), however the buyer will be responsible for paying the return shipping. For a return to be accepted, the product(s) must be returned \"as new\" in full working condition, and must<strong>be returned in its original packaging<\/strong>exactly like it was sent to you.<strong>Original packaging is important<\/strong>because these types of products ship with special labels and forms that must be present on the box when shipping them back to us. Installing a product will void returns. If you still have questions about this, feel free to reach out to us today.<strong>All returns 30 days after delivery, will require written approval from Shop Solar Kits prior to the item being returned and are subject to a 15% restocking fee.<\/strong>The Customer is responsible for the cost of return shipping and agrees to use only reputable couriers capable of providing tracking information for proof of delivery and are able to provide insurance for the value of the shipment.<strong>Special custom-built kits (not listed on<\/strong><a href=\"https:\/\/shopsolarkits.com\/\"><strong>shopsolarkits.com<\/strong><\/a><strong>) are not eligible for return.<\/strong>Refunds will only be processed once the returned equipment has been inspected and proven to be in working condition with all of its components accounted for.Any equipment malfunctions due to the addition of third-party equipment without written approval from Shop Solar Kits Technical Product Specialists may be considered misuse and void warranty or returns.To initiate a Return, Exchange or Warranty -<a href=\"https:\/\/shopsolarkits.com\/pages\/support\">Submit Ticket Here<\/a><strong>We'll respond to your email within 24-48 hours, and set up your return, replacement or warranty as soon as possible.<\/strong>Our exchange policy follows the same outline as the return policy above.*All shipping charges are non-refundable.<\/p>"
+          }
+        },
+        "sizes-question": {
+          "type": "question",
+          "settings": {
+            "title": "Receiving Shipments (How to handle damages)",
+            "text": "<p>When your order arrives - thoroughly inspect packaging and goods right away. In the RARE chance there's any visible damage - it is important that you mark this on the way bill\/delivery receipt with the delivery person (if possible). If not, simply take pictures of how your products arrived.<\/p><p>If you're not home when your shipment arrives (generally for smaller orders) and you see it's arrived damaged - again, it is very important that you take pictures right away and contact the shipping carrier directly (FedEx, UPS, DHL, USPS etc) in order to submit a damage claim.<\/p><p>From there, please <a href=\"https:\/\/shopsolarkits.com\/pages\/contact-us\">contact us <\/a>or respond to this e-mail and include the images and any other information we may need.<\/p><p>If you have received a damaged item, please make sure you have all the necessary and relevant information so that we can help you properly.<br\/><br\/><strong>*KEEP ORIGINAL PACKAGING*<\/strong>- We always suggest hanging on to ALL of your original packaging in the off chance you need to return anything.<\/p><p><\/p>"
+          }
+        },
+        "shipping-heading": {
+          "type": "section_heading",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        "when-shipping-question": {
+          "type": "question",
+          "settings": {
+            "title": "Receiving Shipments (Freight and Oversize)",
+            "text": "<p>The majority of our orders ship via standard carriers (Fed-Ex, UPS, DHL, USPS) etc. However, depending on your order, you could have larger or oversize items which will require a special shipping service like freight.<\/p>"
+          }
+        },
+        "when-arriving-question": {
+          "type": "question",
+          "settings": {
+            "title": "Cancellations",
+            "text": "<p>We will gladly cancel orders within the first 24 hours.<\/p><p>If it's been more than 24 hours and\/or your order has shipped, we will work with you to get your products back with minimal cost to you.<\/p>"
+          }
+        },
+        "ship-international-question": {
+          "type": "question",
+          "settings": {
+            "title": "Warranties & Replacements",
+            "text": "<p><strong>Warranty Policy<\/strong>- All ShopSolarKits.com customers receive the full manufacturer warranty as we're authorized distributors of ALL the brands on our website.After 30 days, we are more than happy to help you get in touch with the manufacturer or if you are not sure what your warranty limitations are, please see the manufacturer's information received with your products. When it comes to submitting a warranty claim, you can reach out to the manufacturer directly, or to us and we will loop in the manufacturer to obtain warranty, repair and\/or service information. Please check the manual or instructions that accompanied your product for up to date information. <\/p><p>Most manufacturers will require the following information:<\/p><p>1. Serial number of the item<\/p><p>2. Purchase date<\/p><p>3. Warning, Error or Panel Fault Message<\/p><p>4. Description of the problem <\/p><p><strong>EcoFlow Delta Solar Panel Kits:<\/strong>The panels included in the custom EcoFlow Delta kits are third party panels, tested by professionals with EcoFlow products to ensure compatibility and are warrantied by <a href=\"https:\/\/shopsolarkits.com\/\">ShopSolarKits.com.<\/a><\/p>"
+          }
+        },
+        "shipping-cost-question": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "title": "How much is shipping?",
+            "text": "<p>If you spend over $100, shipping is always free. For any other purchases, shipping will be calculated at checkout.<\/p>"
+          }
+        },
+        "return-policy-question": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "title": "What is your return policy?",
+            "text": "<p>Merchandise that is unworn and in the original packaging can be returned within 30 days with the packing slip included with the product.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-getting-started",
+        "product-where-made-question",
+        "sizes-question",
+        "shipping-heading",
+        "when-shipping-question",
+        "when-arriving-question",
+        "ship-international-question",
+        "shipping-cost-question",
+        "return-policy-question"
+      ],
+      "settings": {
+        "show_answers": false,
+        "text_size": 100,
+        "alignment": "center",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(184deg, rgba(255, 255, 255, 1) 7%, rgba(255, 255, 255, 1) 94%)",
+        "border_color": "#121212",
+        "base_width": 80,
+        "max_width": "",
+        "inner_padding": 100,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "rebuy": {
+      "type": "wonderment-rebuy",
+      "disabled": true,
+      "settings": {
+        "rebuy-widget-id": ""
+      }
+    },
+    "fairing": {
+      "type": "wonderment-fairing",
+      "disabled": true,
+      "settings": {
+        "fairing-key": "",
+        "fairing-padding-tb": 10,
+        "fairing-padding-lr": 10,
+        "fairing-border-color": "#000000",
+        "fairing-border-size": 0,
+        "fairing-border-radius": 0,
+        "fairing-title-text-align": "center",
+        "fairing-title-margin-top": 20,
+        "fairing-title-margin-bottom": 20,
+        "fairing-title-max-width": 100,
+        "fairing-response-border-color": "#000000",
+        "fairing-response-border-size": 0,
+        "fairing-response-border-radius": 0,
+        "fairing-response-padding": 5,
+        "fairing-responses-margin": 20
+      }
+    },
+    "kno": {
+      "type": "wonderment-kno",
+      "disabled": true,
+      "settings": {
+        "shop-key": "",
+        "survey-id": ""
+      }
+    }
+  },
+  "order": [
+    "track_your_order_heading",
+    "main",
+    "dynamic_featured_collection_HhVhcy",
+    "hero",
+    "faq",
+    "rebuy",
+    "fairing",
+    "kno"
+  ]
+}

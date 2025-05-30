@@ -1,0 +1,53 @@
+{% if settings.usp_enable_desktop or settings.usp_enable_mobile %}
+  <style>
+    {% unless settings.usp_enable_desktop %}
+      @media screen and (min-width: 1000px) {
+        .social-proof {
+          display: none;
+        }
+      }
+    {% endunless %}
+    {% unless settings.usp_enable_mobile %}
+      @media screen and (max-width: 999px) {
+        .social-proof {
+          display: none;
+        }
+      }
+    {% else %}
+      {% if settings.usp_position_mobile %}
+      @media screen and (max-width: 999px) {
+        html body .content .wrap {
+          flex-direction: column !important;
+        }
+      }
+      {% endif %}
+    {% endunless %}
+</style>
+{% endif %}
+<div class="social-proof {{ settings.usp_position_mobile }}">
+  <table>
+    <tbody style="display: flex; flex-direction: column;">
+    {% for i in (1..5) %}
+      {% assign usp_img_key = 'usp_img_' | append: forloop.index %}
+      {% assign usp_img = settings[usp_img_key] %}
+
+      {% assign usp_title_key = 'usp_title_' |  append: forloop.index %}
+      {% assign usp_title = settings[usp_title_key] %}
+
+      {% assign usp_text_key = 'usp_text_' |  append: forloop.index %}
+      {% assign usp_text = settings[usp_text_key] %}
+      {% if usp_img and usp_title and usp_text %}
+        <tr style="padding-bottom: 20px; padding-top: 20px">
+          <td style="width: 10%;">
+            {{ usp_img | img_tag }}
+          </td>
+          <td style="text-align: left;">
+            <h2>{{ usp_title }}</h2>
+            {{ usp_text }}
+          </td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
+</div>

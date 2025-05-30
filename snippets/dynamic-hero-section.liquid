@@ -1,0 +1,446 @@
+<div class="bg-[#F7F7F7] h-auto lg:h-[650px] p-5 lg:p-10 w-full">
+  <div class="max-w-[1440px] mx-auto h-full grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-5 gap-4">
+    <div class="col-span-full lg:col-span-3 relative bg-white lg:row-span-5 rounded-md overflow-hidden">
+      <img
+        class="absolute pointer-events-none inset-0 object-cover w-full h-full"
+        src="{{ section.settings.hero-image | img_url: "1000x" }}"
+        alt="hero image"
+        width="1000"
+        height="1000">
+      <div class="w-96 h-full relative z-10">
+        <span class="absolute bg-white w-full scale-150 h-full -left-20 top-0 rounded-full blur-[50px]"></span>
+        <div class="relative p-5 z-10">
+          <h1 class="max-w-full text-[25px] lg:text-3xl">
+            <span class="text-[#ff991c] inline-block">{{ section.settings.hero-title-highlight }}</span>
+            {{ section.settings.hero-title }}</h1>
+          <span class="flex items-center gap-2 text-base text-black mt-10 font-medium"><img
+              class="w-6 h-6 hs-id-207d5334 hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'check-mark-solar.png' | asset_img_url }}"
+              width="20" />
+            {{ section.settings.usp-1 }}
+          </span>
+          <span class="flex items-center gap-2 text-base text-black mt-3 font-medium"><img
+              class="w-6 h-6 hs-id-057fddef hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'check-mark-solar.png' | asset_img_url }}"
+              width="20" />
+            {{ section.settings.usp-2 }}
+          </span>
+          <span class="flex items-center gap-2 text-base text-black mt-3 font-medium"><img
+              class="w-6 h-6 hs-id-e1462a8e hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'check-mark-solar.png' | asset_img_url }}"
+              width="20" />
+            {{ section.settings.usp-3 }}
+          </span>
+          <a class="text-white hover:scale-105 duration-200 text-base mt-8 font-bold inline-block px-10 py-2 text-center bg-[#F0942D] rounded-full" href="{{ section.settings.button-url }}">{{ section.settings.button-text }}</a>
+          <span class="flex gap-1 mt-10 items-center">
+            <img
+              class="w-5 h-5 hs-id-13f8aaf0 hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'review-star.png' | asset_img_url }}"
+              width="20" />
+            <img
+              class="w-5 h-5 hs-id-59fe7848 hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'review-star.png' | asset_img_url }}"
+              width="20" />
+            <img
+              class="w-5 h-5 hs-id-0728e562 hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'review-star.png' | asset_img_url }}"
+              width="20" />
+            <img
+              class="w-5 h-5 hs-id-5d23d2b0 hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'review-star.png' | asset_img_url }}"
+              width="20" />
+            <img
+              class="w-5 h-5 hs-id-dd587a27 hs-lazyload"
+              height="20"
+              loading="lazy"
+              src="{{ 'review-star.png' | asset_img_url }}"
+              width="20" />
+            <span class="ml-3 text-black">50,000+ Happy Customers</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-full p-5 lg:p-0 lg:col-span-2 flex items-center justify-center rounded-md bg-white lg:col-start-4">
+      <script
+        type="text/javascript"
+        src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+        async></script>
+      <div
+        class="trustpilot-widget w-full"
+        data-locale="en-US"
+        data-template-id="5419b6ffb0d04a076446a9af"
+        data-businessunit-id="61b77f5eba78a18da3959705"
+        data-style-height="20px"
+        data-style-width="100%">
+        <a
+          href="https://uk.trustpilot.com/review/shopsolarkits.com"
+          target="_blank"
+          rel="noopener">Trustpilot</a>
+      </div>
+    </div>
+    <div class="col-span-full relative flex-wrap lg:flex-nowrap lg:col-span-2 gap-2 lg:gap-5 flex item-center p-5 lg:row-span-2 lg:col-start-4 lg:row-start-2 rounded-md bg-white">
+      {% for block in section.blocks limit: 1 %}
+        {% if block.type == 'banner' %}
+          {% if block.settings.media-type == 'product' %}
+            <div class="w-full lg:w-[15rem] pb-0 lg:p-5 lg:h-full h-[200px]">
+
+              {% if block.settings.product-image-bool %}
+                <img
+                  class="h-full rounded-md w-full object-contain"
+                  src="{{ block.settings.product-image-custom | img_url: '400x' }}"
+                  alt="{{ block.settings.product-select.title }}"
+                  width="400"
+                  height="400">
+              {% else %}
+                <img
+                  class="h-full rounded-md w-full object-contain"
+                  src="{{ block.settings.product-select.featured_image | img_url: '400x' }}"
+                  alt="{{ block.settings.product-select.title }}"
+                  width="400"
+                  height="400">
+              {% endif %}
+            </div>
+            <div class="flex-grow inline-flex flex-col justify-center items-start">
+              <span class="px-5 absolute top-0 left-0 lg:static mt-5 ml-5 lg:mt-0 lg:ml-0 mb-3 py-2 border-2 border-solid inline-block bg-white lg:bg-transparent border-[#ff991c] rounded-full text-[#ff991c] uppercase text-xs font-bold">{{ block.settings.promo-tag }}</span>
+              <h3 class="text-lg lg:text-base xl:text-lg font-bold">
+                {% assign title = block.settings.product-select.title %}
+                {% if title.size > 51 %}
+                  {{ title | truncate: 51, '...' }}
+                {% else %}
+                  {{ title }}
+                {% endif %}
+              </h3>
+              <div class="flex gap-5 mt-5 items-center">
+                <div>
+                  <p class="text-gray-500 text-sm">
+                    {% if block.settings.product-select.has_only_default_variant %}
+                      Only
+                    {% else %}
+                      Starting From
+                    {% endif %}
+                  </p>
+                  <p class="">{{ block.settings.product-select.price | money }}</p>
+                </div>
+                <a class="text-white hover:scale-105 duration-200 text-sm font-bold inline-block px-5 py-2 text-center bg-[#F0942D] rounded-full" href="{{ block.settings.product-select.url }}">
+                  {% if block.settings.product-select.has_only_default_variant %}
+                    Buy Now
+                  {% else %}
+                    Find Out More
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+          {% elsif block.settings.media-type == 'image' %}
+            <a class="w-full h-full block" href="{{ block.settings.banner-link }}">
+              <img
+                class="object-cover w-full h-full rounded-sm"
+                src="{{ block.settings.banner-image | img_url: "800x"  }}"
+                alt="{{ block.settings.banner-image.alt }}"
+                width="800"
+                height="800">
+            </a>
+          {% else %}
+          <style>
+            .marquee {
+  overflow: hidden;
+  width: 100%;
+  /* Optional: set a fixed height if needed */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  width: max-content; /* Ensures content doesn't wrap */
+}
+          </style>
+            <div class="flex items-center w-full flex-col gap-5">
+              <div class="w-full">
+                <div class="bg-[#F7F7F7] w-full relative rounded-[10px] text-black p-5">
+                  <h4>DIY+ Solar Kits</h4>
+                  <p class="text-[#404040] text-base mt-2">Perfect for hands-on projects, full system customization and saving on installation.</p>
+                  <div class="w-16 bottom-[-20px] left-[40px] absolute z-10 overflow-hidden inline-block">
+                    <div class="h-5 w-5 rounded-sm bg-[#F7F7F7] -rotate-45 transform origin-top-left"></div>
+                  </div>
+                </div>
+                  <div class="mt-5 gap-10 flex items-center">
+                    <a href="https://024wwq6ojms.typeform.com/to/Pje8kZiX" class="bg-[#F0942D] w-64 inline-flex items-center justify-between font-medium text-white px-5 py-3 rounded-[10px]">Start Here <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"></path></svg></a>
+                    <!-- Marquee container with blur effects -->
+<div class="relative w-full overflow-hidden">
+  <!-- Blur gradients -->
+  <div class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10"></div>
+  <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
+  
+  <!-- Scrolling content -->
+  <div class="overflow-hidden">
+    <div class="flex animate-marquee">
+      <!-- First group -->
+      <div class="flex">
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'cash-in-hand.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Be your own contractor</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Interior_Design.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Stay in control</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Maintenance.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Expert Support</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Duplicate group (exact clone) for seamless looping -->
+      <div class="flex">
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'cash-in-hand.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Be your own contractor</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Interior_Design.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Stay in control</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Maintenance.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Expert Support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                  </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col-span-full relative flex-wrap lg:flex-nowrap lg:col-span-2 gap-2 lg:gap-5 flex item-center p-5 lg:row-span-2 lg:col-start-4 lg:row-start-4 rounded-md bg-white">
+      {% for block in section.blocks limit: 1
+        , offset: 1 %}
+        {% if block.type == 'banner' %}
+          {% if block.settings.media-type == 'product' %}
+            <div class="w-full lg:w-[15rem] pb-0 lg:p-5 lg:h-full h-[200px]">
+
+              {% if block.settings.product-image-bool %}
+                <img
+                  class="h-full rounded-md w-full object-contain"
+                  src="{{ block.settings.product-image-custom | img_url: '400x' }}"
+                  alt="{{ block.settings.product-select.title }}"
+                  width="400"
+                  height="400">
+              {% else %}
+                <img
+                  class="h-full rounded-md w-full object-contain"
+                  src="{{ block.settings.product-select.featured_image | img_url: '400x' }}"
+                  alt="{{ block.settings.product-select.title }}"
+                  width="400"
+                  height="400">
+              {% endif %}
+            </div>
+            <div class="flex-grow inline-flex flex-col justify-center items-start">
+              <span class="px-5 absolute top-0 left-0 lg:static mt-5 ml-5 lg:mt-0 lg:ml-0 mb-3 py-2 border-2 border-solid inline-block bg-white lg:bg-transparent border-[#ff991c] rounded-full text-[#ff991c] uppercase text-xs font-bold">{{ block.settings.promo-tag }}</span>
+              <h3 class="text-lg lg:text-base xl:text-lg font-bold">
+                {% assign title = block.settings.product-select.title %}
+                {% if title.size > 51 %}
+                  {{ title | truncate: 51, '...' }}
+                {% else %}
+                  {{ title }}
+                {% endif %}
+              </h3>
+              <div class="flex gap-5 mt-5 items-center">
+                <div>
+                  <p class="text-gray-500 text-sm">
+                    {% if block.settings.product-select.has_only_default_variant %}
+                      Only
+                    {% else %}
+                      Starting From
+                    {% endif %}
+                  </p>
+                  <p class="">{{ block.settings.product-select.price | money }}</p>
+                </div>
+                <a class="text-white hover:scale-105 duration-200 text-sm font-bold inline-block px-5 py-2 text-center bg-[#F0942D] rounded-full" href="{{ block.settings.product-select.url }}">
+                  {% if block.settings.product-select.has_only_default_variant %}
+                    Buy Now
+                  {% else %}
+                    Find Out More
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+          {% elsif block.settings.media-type == 'image' %}
+            <a class="w-full h-[200px] lg:h-full block" href="{{ block.settings.banner-link }}">
+              <img
+                class="object-cover w-full h-full rounded-sm"
+                src="{{ block.settings.banner-image | img_url: "800x"  }}"
+                alt="{{ block.settings.banner-image.alt }}"
+                width="800"
+                height="800">
+            </a>
+          {% else %}
+          <style>
+            .marquee {
+  overflow: hidden;
+  width: 100%;
+  /* Optional: set a fixed height if needed */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  width: max-content; /* Ensures content doesn't wrap */
+}
+          </style>
+            <div class="flex items-center w-full flex-col gap-5">
+              <div class="w-full">
+                <div class="bg-[#F7F7F7] w-full relative rounded-[10px] text-black p-5">
+                  <h4>Full-Service Install</h4>
+                  <p class="text-[#404040] text-base mt-2">Ideal for those wanting a hassle-free, professional solar solution.</p>
+                  <div class="w-16 bottom-[-20px] left-[40px] absolute z-10 overflow-hidden inline-block">
+                    <div class="h-5 w-5 rounded-sm bg-[#F7F7F7] -rotate-45 transform origin-top-left"></div>
+                  </div>
+                </div>
+                  <div class="mt-5 gap-10 flex items-center">
+                    <a href="https://024wwq6ojms.typeform.com/to/F24PjymZ" class="bg-[#F0942D] w-64 inline-flex items-center justify-between font-medium text-white px-5 py-3 rounded-[10px]">Start Here <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"></path></svg></a>
+                    <!-- Marquee container with blur effects -->
+<div class="relative w-full overflow-hidden">
+  <!-- Blur gradients -->
+  <div class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10"></div>
+  <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
+  
+  <!-- Scrolling content -->
+  <div class="overflow-hidden">
+    <div class="flex animate-marquee">
+      <!-- First group -->
+      <div class="flex">
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Worker.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Turnkey Solutions</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Brainstorm_Skill.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Tailored to you</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Job.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Professional Installation</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Duplicate group (exact clone) for seamless looping -->
+      <div class="flex">
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Worker.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Turnkey Solutions</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Brainstorm_Skill.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Tailored to you</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center gap-5 mx-4">
+          <div>
+            <img width="100" height="100" alt="Act Like Your Own Contractor" class="w-10 h-10 min-w-10 min-h-10 object-contain" 
+                src="{{ 'Job.png' |  asset_img_url }}">
+          </div>
+          <div>
+            <p class="text-black mb-0.5 text-base font-medium">Professional Installation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                  </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

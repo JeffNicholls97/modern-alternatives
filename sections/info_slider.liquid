@@ -1,0 +1,83 @@
+
+
+{% render 'info_slider' %}
+{% schema %}
+  {
+    "name": "Info Slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Why Choose Shop Solar"
+      },
+    ],
+  	"blocks": [
+     {
+       "name": "Info Box",
+       "type": "info_box",
+       "settings": [
+         {
+           "type": "video_url",
+           "id": "video_url",
+           "label": "Enter Video URL",
+           "accept": [
+              "youtube"
+            ]
+         },
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Choose Image"
+         },
+         {
+           "type": "text",
+           "id": "title",
+           "label": "Choose Title"
+         },
+         {
+           "type": "textarea",
+           "id": "long_text",
+           "label": "Body Text"
+         }
+       ]
+     }
+  ],
+    "presets": [
+    {
+      "name": "Info Slider"
+    }
+  ]
+  }
+{% endschema %}
+
+<script>
+  const swiper = new Swiper('.swiper-info', {
+  loop: true,
+  watchSlidesProgress: true,
+  slidesPerView: 'auto',
+  spaceBetween: 50,
+  autoplay: {
+    delay: 3000,
+  },
+
+  breakpoints: {
+          0: {
+            spaceBetween: -30,
+          },
+          768: {
+            spaceBetween: 40,
+          },
+          1024: {
+            spaceBetween: 50,
+          },
+        },
+
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.info-next',
+    prevEl: '.info-prev',
+  }
+});
+</script>

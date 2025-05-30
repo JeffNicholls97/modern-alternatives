@@ -1,0 +1,278 @@
+<style>
+    .price-range-wrapper {
+        padding: 40px 10px 10px 5px;
+    }
+    .price-input {
+        width: 100%;
+        display: flex;
+        margin: 30px 0 35px;
+    }
+    .price-input .field {
+        display: flex;
+        width: 100%;
+        height: 45px;
+        align-items: center;
+    }
+    .field input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        font-size: 19px;
+        margin-left: 12px;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid #999;
+    }
+    .price-input .separator {
+        width: 130px;
+        display: flex;
+        font-size: 19px;
+        align-items: center;
+        justify-content: center;
+    }
+    .slider {
+        height: 5px;
+        position: relative;
+        background: #ddd;
+        border-radius: 5px;
+    }
+    .slider .progress {
+        height: 100%;
+        left: 0;
+        right: 0;
+        position: absolute;
+        border-radius: 5px;
+        background: #222f3e;
+    }
+
+    .slider .progress .progress_min,
+    .slider .progress .progress_max {
+        position: absolute;
+        top: -25px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .range-input {
+        position: relative;
+    }
+    .range-input input {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        top: -5px;
+        background: none;
+        pointer-events: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background: #222f3e;
+        pointer-events: auto;
+        -webkit-appearance: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+    input[type="range"]::-moz-range-thumb {
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background: #222f3e;
+        pointer-events: auto;
+        -moz-appearance: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .collection-filters__price-range-form {
+        display: none !important;
+    }
+</style>
+{% assign max = filter.range_max | money_without_currency | replace: ',', '' | plus: 0 %}
+{% assign min = 0 %}
+{% assign current_min = filter.min_value.value | default: 0 | money_without_currency | replace: ',', '' | plus: 0 %}
+{% assign current_max = filter.max_value.value | default: filter.range_max | money_without_currency | replace: ',', '' | plus: 0 %}
+
+{% if current_min == blank %}
+    {% assign current_min = min %}
+{% endif %}
+
+{% if current_max == blank %}
+    {% assign current_max = max %}
+{% endif %}
+
+{% assign left_percentage = current_min | divided_by: max | times: 100 %}
+{% assign right_helper = current_max | divided_by: max | times: 100 %}
+{% assign right_percentage = 100 | minus: right_helper %}
+
+<div class="d-flex" data-accordion-content style="overflow: initial;">
+    <div class="price-range-wrapper">
+        <div class="slider">
+            <div class="progress" style="left: {{ left_percentage }}%; right: {{ right_percentage }}%;">
+                {% capture progress_min_value %}{% if filter.min_value.value %}{{ filter.min_value.value | money_without_trailing_zeros }}{% else %}{{ 0 | money_without_trailing_zeros }}{% endif %}{% endcapture %}
+                <div class="progress_min" style=" left: {{ progress_min_value | size | times: 2 | prepend: '-' | append: 'px' }};">{{ progress_min_value }}</div>
+                {% capture progress_max_value %}{% if filter.max_value.value %}{{ filter.max_value.value | money_without_trailing_zeros }}{% else %}{{ filter.range_max | money_without_trailing_zeros }}{% endif %}{% endcapture %}
+                <div class="progress_max" style="right: {{ progress_max_value | size | times: 2 | prepend: '-' | append: 'px' }};">{{ progress_max_value }}</div>
+            </div>
+        </div>
+        <div class="range-input">
+            <input type="range" class="range-min"
+                   min="0"
+                   max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                   value="{% if filter.min_value.value %}{{ filter.min_value.value | money_without_currency | replace: ',', '' }}{% else %}0{% endif %}"
+                   step="10" oninput="handleRangeInput(event)">
+
+            <input type="range" class="range-max"
+                   min="0"
+                   max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                   value="{% if filter.max_value.value %}{{ filter.max_value.value | money_without_currency | replace: ',', '' }}{% else %}{{ filter.range_max | money_without_currency | replace: ',', '' }}{% endif %}"
+                   step="10"
+                   oninput="handleRangeInput(event)">
+        </div>
+    </div>
+</div>
+
+<script>
+    {% comment %}
+    function handlePriceInput(e){
+        const rangeInput = document.querySelectorAll(".range-input input"),
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+
+        let minPrice = parseInt(priceInput[0].value),
+            maxPrice = parseInt(priceInput[1].value);
+
+        if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+            if (e.target.className === "input-min") {
+                rangeInput[0].value = minPrice;
+                range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+            } else {
+                rangeInput[1].value = maxPrice;
+                range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+            }
+        }
+    }
+    {% endcomment %}
+    function handleRangeInput(e) {
+        const rangeInput = document.querySelectorAll(".range-input input"),
+            form = document.querySelector('form.collection-filters__price-range-form'),
+            priceInput = document.querySelectorAll(".collection-filters__price-range-form input.form-field-input"),
+            range = document.querySelector(".slider .progress"),
+            progress_min = document.querySelector(".slider .progress .progress_min"),
+            progress_max = document.querySelector(".slider .progress .progress_max");
+        let priceGap = {{ filter.range_max | money_without_currency | replace: ',', '' | plus: 0 | divided_by: 3 | round }};
+
+        let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+
+        if (maxVal - minVal < priceGap) {
+            if (e.target.className === "range-min") {
+                rangeInput[0].value = maxVal - priceGap;
+            } else {
+                rangeInput[1].value = minVal + priceGap;
+            }
+        } else {
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+
+            let progress_min_value = Shopify.formatMoney(minVal * 100);
+            if(progress_min_value.endsWith('00')){
+                progress_min_value = progress_min_value.replace('.00', '');
+            }
+            progress_min.textContent = progress_min_value;
+            progress_min.style.left = -(progress_min_value.length * 2) + "px";
+
+            let progress_max_value = Shopify.formatMoney(maxVal * 100);
+            if(progress_max_value.endsWith('00')){
+                progress_max_value = progress_max_value.replace('.00', '');
+            }
+            progress_max.textContent = progress_max_value;
+            progress_max.style.right = -(progress_max_value.length * 2) + "px";
+
+            range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        }
+        // clear any existing timer
+        if (window.price_filter_timer) {
+            clearTimeout(window.price_filter_timer);
+        }
+
+        window.price_filter_timer = setTimeout(function() {
+            form.submit();
+        }, 2000);
+    }
+</script>
+<form
+        class="collection-filters__price-range-form"
+>
+    <div
+            class="
+            collection-filters__filter
+            collection-filters__filter-range
+          "
+            data-filter-group-range
+    >
+        <div class="collection-filters__filter-range--from">
+            <span class="collection-filters__filter-range-currency">{{ cart.currency.symbol }}</span>
+            <input
+                    class="
+                collection-filters__filter-range-input
+                form-field-input
+              "
+                    name="{{ filter.min_value.param_name }}"
+                    data-test="{{ filter.active_values }}"
+
+                    id="filter-{{ filter.label }}-{{ forloop.index0 }}-from"
+                    {% if filter.min_value.value -%}
+                        value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                    {%- endif %}
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    data-filter-range
+            >
+            <label
+                    class="
+                  form-field-title
+                  collection-filters__filter-range-label
+                "
+                    for="filter-{{ filter.label }}-{{ forloop.index0 }}-from"
+            >
+                From
+            </label>
+        </div>
+        <div class="collection-filters__filter-range--to">
+            <span class="collection-filters__filter-range-currency">{{ cart.currency.symbol }}</span>
+            <input
+                    class="
+                collection-filters__filter-range-input
+                form-field-input
+              "
+                    name="{{ filter.max_value.param_name }}"
+                    data-test="{{ filter.active_values }}"
+
+                    id="filter-{{ filter.label }}-{{ forloop.index0 }}-to"
+                    {% if filter.max_value.value -%}
+                        value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                    {%- endif %}
+                    type="number"
+                    placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    min="0"
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    data-filter-range
+            >
+            <label
+                    class="
+                  form-field-title
+                  collection-filters__filter-range-label
+                "
+                    for="filter-{{ filter.label }}-{{ forloop.index0 }}-to"
+            >
+                To
+            </label>
+        </div>
+    </div>
+</form>

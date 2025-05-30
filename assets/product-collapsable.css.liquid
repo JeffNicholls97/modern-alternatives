@@ -1,0 +1,174 @@
+img[data-stephen-src] {
+    opacity: 0;
+    transition: opacity .3s;
+}
+img[src] {
+    opacity: 1;
+}
+.product-navigator .product-collapsable-titles,
+.product-collapsable .product-collapsable-toggle {
+    position: relative;
+    bottom: 0;
+    opacity: 1;
+}
+.pdp-specifications-content h3 {
+    margin: 10px 0;
+}
+
+.product-collapsable .product-section--container {
+    margin-top: 0;
+}
+.product-collapsable-checkbox {
+    display: none !important;
+}
+.product-collapsable-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+}
+.product-collapsable-toggle,
+.product-navigator-titles
+{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid rgba(128,128,128,.16);
+    box-shadow: 0 1px 4px #8080801c;
+    cursor: pointer;
+}
+.collection-filters__filter-icon svg.product-collapsable-arrow {
+    height: 10px;
+    width: auto;
+    margin-top: -3px;
+    transition: all .3s;
+}
+.product-collapsable-checkbox:checked ~ .product-collapsable-toggle .product-collapsable-arrow {
+    transform: scale(1.25) translateY(-22%);
+}
+.product-collapsable-checkbox:checked ~ .product-collapsable-toggle .product-collapsable-arrow .icon-chevron-down-left {
+    transform: rotate(45deg);
+}
+.product-collapsable-checkbox:checked ~ .product-collapsable-toggle .product-collapsable-arrow .icon-chevron-down-right {
+    transform: rotate(-45deg);
+}
+.product-collapsable-checkbox:checked ~ .product-collapsable-content {
+    max-height: var(--max-height);
+}
+{% comment %} Details {% endcomment %}
+
+/* Only if text */
+.pdp-details-part .pdp-details-only-text {
+    margin: 0;
+}
+
+.pdp-details-with-image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pdp-details-with-image .pdp-details-part {
+    width: 50%;
+    padding: 0 20px;
+}
+.pdp-details-image {
+    display: flex;
+    justify-content: center;
+}
+.pdp-details-image img {
+    max-width: 100%;
+    object-fit: contain;
+}
+@media screen and (max-width: 719px) {
+    .pdp-details-with-image {
+        flex-wrap: wrap;
+    }
+    .pdp-details-with-image .pdp-details-part {
+        width: 100%;
+    }
+    .pdp-details-image {
+        order: -1;
+    }
+}
+{% comment %} End Details {% endcomment %}
+{% comment %} Specifications {% endcomment %}
+/* checkmarks */
+.pdp-specifications-checkmarks ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.pdp-specifications-checkmarks ul li {
+    display: flex;
+    align-items: center;
+}
+.pdp-specifications-checkmarks ul li p {
+    margin: 10px 0;
+}
+.pdp-specifications-checkmarks ul li .pdp-specifications-checkmark-icon {
+    margin-right: 10px;
+}
+/* tables */
+.pdp-specifications-tables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.pdp-specifications-tables.pdp-specs-tables-flex-column {
+    flex-direction: column;
+}
+.pdp-specifications-tables table {
+    width: calc(50% - 10px);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.pdp-specifications-tables.pdp-specs-tables-flex-column table {
+    width: 100%;
+}
+.pdp-specifications-tables table, .pdp-specifications-tables table th, .pdp-specifications-tables table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.pdp-specifications-tables table th,
+.pdp-specifications-tables table td {
+    padding: 5px;
+}
+@media screen and (max-width: 719px) {
+    .pdp-specifications-tables table {
+        width: 100%;
+    }
+    .pdp-details-video-new {
+        flex-direction: column-reverse;
+    }
+}
+/* faqs */
+{% comment %}
+.pdp-faq {
+    padding-left: 30px;
+}
+{% endcomment %}
+.pdp-faq a {
+    color: {{ settings.color_button_background }};
+}
+.product-section--title.pdp-faq-question {
+    text-align: left;
+    margin: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+{% comment %}
+.product-section--title.pdp-faq-question:before {
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: -20px;
+    background-color: {{ settings.color_button_background }};
+}
+{% endcomment %}
+{% comment %} End Specifications {% endcomment %}

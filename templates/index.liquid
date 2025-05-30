@@ -1,0 +1,138 @@
+<style>
+  .Marquee {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em;
+    font-weight: 200;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    overflow-x hidden;
+  }
+  .Marquee-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-animation: marquee 30s linear infinite running;
+    -moz-animation: marquee 30s linear infinite running;
+    -o-animation: marquee 30s linear infinite running;
+    -ms-animation: marquee 30s linear infinite running;
+    animation: marquee 30s linear infinite running;
+  }
+  .Marquee-content:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  @-moz-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+  @-webkit-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+  @-o-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+</style>
+
+{% comment %}
+  {% section 'new_slide_header' %}
+{% endcomment %}
+{% section 'dynamic-hero-section' %} 
+{% section 'brand_logos' %}
+{% section 'category-boxes' %}
+{% section 'dynamic-featured-collection' %}
+{% section 'finance_section' %}
+{% section 'four_upsell_grid' %}
+{% section 'compare_table' %}
+<span class="block mt-5 "></span>
+{% section 'info-slide-header' %}
+{% section 'dynamic-featured-collection-2' %}
+{% section 'reviews_slider' %}
+{% section 'faqs' %}
+
+
+<script>
+    const swiper = new Swiper('.swiper-hero', {
+      loop: true,
+      autoplay: {
+         delay: 5000,
+       },
+
+      navigation: {
+        nextEl: '.next-bt',
+        prevEl: '.prev-bt',
+      },
+    });
+</script>

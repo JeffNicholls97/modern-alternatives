@@ -1,0 +1,29 @@
+{% layout none %}
+{%- for filter in collection.filters -%}
+    {% assign filter_id = filter.label | downcase | replace: ' ', '_' %}
+    {% unless filter.type == 'price_range' %}
+        {% assign filter_options_html = '' %}
+        {%- for filter_value in filter.values -%}
+            {% if filter_value.count == 0 and filter_value.active == false -%}{% continue %}{%- endif %}
+            {% capture filter_option_html %}<option value="{{ filter_value.value }}" name="{{ filter_value.param_name }}"{% if filter_value.active -%} selected{%- endif %}>{{ filter_value.label }}</option>{% endcapture %}
+            {% assign filter_options_html = filter_options_html | append: filter_option_html %}
+        {%- endfor -%}
+        {% if filter_options_html != blank %}
+        <div class="options-selection__select">
+            <label class="options-selection__select-label" for="{{ filter_id }}">{{ filter.label }}</label>
+            <div class="options-selection__input-select-wrapper">
+                <select id="{{ filter_id }}" class="options-selection__input-select" name="{{ filter.values[0].param_name }}" onchange="updateShopSearchForm()">
+                    <option value="" name="">Select {{ filter.label }}</option>
+                    {{ filter_options_html }}
+                </select>
+                <div class="options-selection__input-select-chevron">
+                    <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                        <path d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        {% endif%}
+    {% endunless %}
+{%- endfor -%}

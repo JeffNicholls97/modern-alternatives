@@ -1,0 +1,855 @@
+{% assign is_available = false %}
+{% assign is_metafield_section = false %}
+
+<style>
+  span.full-line-divider {
+    background-color: #eeeeee;
+    width: 100%;
+    display: block;
+    height: 1px;
+    margin-top: 120px;
+}
+
+.pdp-container-background {
+    background-color: #fbfbfb;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 70px;
+}
+</style>
+
+<span class="full-line-divider"></span>
+<div class="pdp-container-background">
+  <div class="product-section--container">
+
+    {% if product.selected_or_first_available_variant.metafields.specifications.checkmarks.value or product.selected_or_first_available_variant.metafields.specifications.table_1.value or product.selected_or_first_available_variant.metafields.specifications.table_2.value or product.selected_or_first_available_variant.metafields.specifications.table_3.value or product.selected_or_first_available_variant.metafields.specifications.table_4.value or product.selected_or_first_available_variant.metafields.specifications.table_5.value or product.selected_or_first_available_variant.metafields.specifications.table_6.value or product.selected_or_first_available_variant.metafields.specifications.table_7.value or product.selected_or_first_available_variant.metafields.specifications.table_8.value or product.selected_or_first_available_variant.metafields.specifications.text.value %}
+     {% liquid
+            assign is_metafield_section = true
+            if product.selected_or_first_available_variant.metafields.specifications.checkmarks.value or product.selected_or_first_available_variant.metafields.specifications.table_1.value or product.selected_or_first_available_variant.metafields.specifications.table_2.value or product.selected_or_first_available_variant.metafields.specifications.table_3.value or product.selected_or_first_available_variant.metafields.specifications.table_4.value or product.selected_or_first_available_variant.metafields.specifications.table_5.value or product.selected_or_first_available_variant.metafields.specifications.table_6.value or product.selected_or_first_available_variant.metafields.specifications.table_7.value or product.selected_or_first_available_variant.metafields.specifications.table_8.value or product.selected_or_first_available_variant.metafields.specifications.text.value
+                assign is_available = true
+                render 'product-collapsable-type-specifications', block: block
+
+            endif
+        %}
+    {% else %}
+{% liquid
+            assign is_metafield_section = true
+            if product.selected_or_first_available_variant.metafields.details.text.value
+                assign is_available = true
+            endif
+            unless is_available
+                if product.selected_or_first_available_variant.metafields.details.text.value == blank and product.selected_or_first_available_variant.metafields.details.image.value == blank
+                    assign is_available = true
+                endif
+            endunless
+            if is_available
+                render 'product-collapsable-type-details', block: block
+            endif
+      %}
+    {% endif %}
+  
+  </div>
+</div>
+
+  <div class="product-section--container">
+     {% assign is_available = true %}
+    {% render 'product-collapsable-type-reviews', block: block %}
+  </div>
+
+
+  <span class="full-line-divider"></span>
+
+  <div class="pdp-container-background">
+  <div class="product-section--container">
+     <div class="product_tab_content product_tab_content_{{ block.id }}" style="padding-top: 20px">
+        {% liquid
+            assign faqs = product.selected_or_first_available_variant.metafields.faqs.data.value
+        %}
+        {% if faqs.size > 0 %}
+            {% for faq in faqs %}
+                {% assign question = faq | split: ':' | first %}
+                {% assign answer = faq | split: ':' | last %}
+                <div class="pdp-faq">
+                    <h3 class="product-section--title pdp-faq-question">
+                        <span>{{ question }}{% unless question contains '?' %}?{% endunless %}</span>
+                    </h3>
+                    <p>{{ answer }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+       {% for block in section.blocks %}
+          <h3 class="product-section--title pdp-faq-question">
+            <span>{{ block.settings.paragraph_1 }}</span>
+        </h3>
+        <p>{{ block.settings.text_1 }}</p>
+        <h3 class="product-section--title pdp-faq-question">
+            <span>{{ block.settings.paragraph_2 }}</span>
+        </h3>
+        <p>{{ block.settings.text_2 }}</p>
+        <h3 class="product-section--title pdp-faq-question">
+            <span>{{ block.settings.paragraph_3 }}</span>
+        </h3>
+        <p>{{ block.settings.text_3 }}</p>
+        <h3 class="product-section--title pdp-faq-question">
+            <span>{{ block.settings.paragraph_4 }}</span>
+        </h3>
+        <p>{{ block.settings.text_4 }}</p>
+        <h3 class="product-section--title pdp-faq-question">
+            <span>{{ block.settings.paragraph_5 }}</span>
+        </h3>
+        <p>{{ block.settings.text_5 }}</p>
+       {% endfor %}
+        
+    </div>
+  </div>
+</div>
+
+{% schema %}
+    {
+      "name": "Product info-tabs-new",
+      "class": "product-info-tabs-target",
+      "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "Reviews",
+          "name": "Reviews",
+          "settings": [
+            {
+                "type": "text",
+                "id": "label_title",
+                "label": "Title",
+                "default": "Reviews & Questions"
+            }
+          ]
+        },
+        {
+            "type": "overview",
+            "name": "Overview",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "label_title",
+                    "label": "Title",
+                    "default": "Product Overview"
+                },
+                {
+                    "type": "text",
+                    "id": "video_height",
+                    "label": "Video Height",
+                    "default": "320"
+                },
+                {
+                    "type": "text",
+                    "id": "video_width",
+                    "label": "Video Width",
+                    "default": "100%"
+                }
+            ]
+        },
+        {
+            "type": "specifications",
+            "name": "Specifications",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "label_title",
+                    "label": "Title",
+                    "default": "Product Details"
+                }
+            ]
+        },
+            {
+            "type": "image_with_text",
+            "name": "Image with text",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "label_title",
+                    "label": "Title",
+                    "default": "Why Choose Shop Solar"
+                },
+                {
+                    "type": "header",
+                    "content": "Image with text 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_1",
+                    "label": "Image 1"
+                },
+                {
+                    "id": "heading_1",
+                    "type": "text",
+                    "label": "Heading 1",
+                    "default": "Image with text"
+                },
+                {
+                    "id": "subheading_1",
+                    "type": "richtext",
+                    "label": "Subheading 1",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "button_label_1",
+                    "type": "text",
+                    "label": "Button label 1",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link_1",
+                    "type": "url",
+                    "label": "Button link 1"
+                },
+                {
+                    "id": "desktop_image_alignment_1",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop image alignment 1"
+                },
+                {
+                    "type": "header",
+                    "content": "Image with text 2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_2",
+                    "label": "Image 2"
+                },
+                {
+                    "id": "heading_2",
+                    "type": "text",
+                    "label": "Heading 2",
+                    "default": "Image with text"
+                },
+                {
+                    "id": "subheading_2",
+                    "type": "richtext",
+                    "label": "Subheading 2",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "button_label_2",
+                    "type": "text",
+                    "label": "Button label 2",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link_2",
+                    "type": "url",
+                    "label": "Button link 2"
+                },
+                {
+                    "id": "desktop_image_alignment_2",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop image alignment 2"
+                },
+                {
+                    "type": "header",
+                    "content": "Image with text 3"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_3",
+                    "label": "Image 3"
+                },
+                {
+                    "id": "heading_3",
+                    "type": "text",
+                    "label": "Heading 3",
+                    "default": "Image with text"
+                },
+                {
+                    "id": "subheading_3",
+                    "type": "richtext",
+                    "label": "Subheading 3",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "button_label_3",
+                    "type": "text",
+                    "label": "Button label 3",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link_3",
+                    "type": "url",
+                    "label": "Button link 3"
+                },
+                {
+                    "id": "desktop_image_alignment_3",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop image alignment 3"
+                },
+                {
+                    "type": "header",
+                    "content": "Image with text 4"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_4",
+                    "label": "Image 4"
+                },
+                {
+                    "id": "heading_4",
+                    "type": "text",
+                    "label": "Heading 4",
+                    "default": "Image with text"
+                },
+                {
+                    "id": "subheading_4",
+                    "type": "richtext",
+                    "label": "Subheading 4",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "button_label_4",
+                    "type": "text",
+                    "label": "Button label 4",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link_4",
+                    "type": "url",
+                    "label": "Button link 4"
+                },
+                {
+                    "id": "desktop_image_alignment_4",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop image alignment 4"
+                },
+                {
+                    "type": "header",
+                    "content": "Image with text 5"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_5",
+                    "label": "Image 5"
+                },
+                {
+                    "id": "heading_5",
+                    "type": "text",
+                    "label": "Heading 5",
+                    "default": "Image with text"
+                },
+                {
+                    "id": "subheading_5",
+                    "type": "richtext",
+                    "label": "Subheading 5",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "button_label_5",
+                    "type": "text",
+                    "label": "Button label 5",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link_5",
+                    "type": "url",
+                    "label": "Button link 5"
+                },
+                {
+                    "id": "desktop_image_alignment_5",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop image alignment 5"
+                },
+                {
+                    "type": "select",
+                    "id": "desktop_height",
+                    "label": "Desktop height",
+                    "options": [
+                        {
+                            "value": "natural",
+                            "label": "Natural"
+                        },
+                        {
+                            "value": "400px",
+                            "label": "400px"
+                        },
+                        {
+                            "value": "500px",
+                            "label": "500px"
+                        },
+                        {
+                            "value": "600px",
+                            "label": "600px"
+                        },
+                        {
+                            "value": "700px",
+                            "label": "700px"
+                        },
+                        {
+                            "value": "800px",
+                            "label": "800px"
+                        }
+                    ],
+                    "default": "natural"
+                },
+                {
+                    "type": "select",
+                    "id": "mobile_height",
+                    "label": "Mobile height",
+                    "options": [
+                        {
+                            "value": "natural",
+                            "label": "Natural"
+                        },
+                        {
+                            "value": "300px",
+                            "label": "300px"
+                        },
+                        {
+                            "value": "400px",
+                            "label": "400px"
+                        },
+                        {
+                            "value": "500px",
+                            "label": "400px"
+                        }
+                    ],
+                    "default": "natural"
+                },
+                {
+                    "id": "mobile_image_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "top",
+                            "label": "Top"
+                        },
+                        {
+                            "value": "bottom",
+                            "label": "Bottom"
+                        }
+                    ],
+                    "default": "top",
+                    "label": "Mobile image alignment"
+                },
+                {
+                    "type": "header",
+                    "content": "Text"
+                },
+                {
+                    "id": "text_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Text alignment"
+                }
+            ]
+        },
+        {
+        "type": "video_with_text",
+        "name": "Product Video with text",
+        "settings": [
+            {
+                "type": "text",
+                "id": "label_title",
+                "label": "Title",
+                "default": "Product Videos"
+            },
+            {
+                "type": "header",
+                "content": "Video 1"
+            },
+            {
+                "type": "text",
+                "id": "video_1",
+                "label": "Video Link 1",
+                "info": "Copy youtube video embedded link here"
+            },
+            {
+                "id": "heading_1",
+                "type": "text",
+                "label": "Heading 1",
+                "default": "Video with text"
+            },
+            {
+                "id": "subheading_1",
+                "type": "richtext",
+                "label": "Subheading 1",
+                "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+            },
+            {
+                "id": "button_label_1",
+                "type": "text",
+                "label": "Button label 1",
+                "default": "Button"
+            },
+            {
+                "id": "button_link_1",
+                "type": "url",
+                "label": "Button link 1"
+            },
+            {
+                "id": "desktop_image_alignment_1",
+                "type": "select",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ],
+                "default": "left",
+                "label": "Desktop video alignment 1"
+            },
+            {
+                "type": "header",
+                "content": "Video 2"
+            },
+            {
+                "type": "text",
+                "id": "video_2",
+                "label": "Video Link 2",
+                "info": "Copy youtube video embedded link here"
+            },
+            {
+                "id": "heading_2",
+                "type": "text",
+                "label": "Heading 2",
+                "default": "Video with text"
+            },
+            {
+                "id": "subheading_2",
+                "type": "richtext",
+                "label": "Subheading 2",
+                "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+            },
+            {
+                "id": "button_label_2",
+                "type": "text",
+                "label": "Button label 2",
+                "default": "Button"
+            },
+            {
+                "id": "button_link_2",
+                "type": "url",
+                "label": "Button link 2"
+            },
+            {
+                "id": "desktop_image_alignment_2",
+                "type": "select",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ],
+                "default": "left",
+                "label": "Desktop video alignment 2"
+            },
+            {
+                "type": "header",
+                "content": "Video 3"
+            },
+            {
+                "type": "text",
+                "id": "video_3",
+                "label": "Video Link 3",
+                "info": "Copy youtube video embedded link here"
+            },
+            {
+                "id": "heading_3",
+                "type": "text",
+                "label": "Heading 3",
+                "default": "Video with text"
+            },
+            {
+                "id": "subheading_3",
+                "type": "richtext",
+                "label": "Subheading 3",
+                "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+            },
+            {
+                "id": "button_label_3",
+                "type": "text",
+                "label": "Button label 3",
+                "default": "Button"
+            },
+            {
+                "id": "button_link_3",
+                "type": "url",
+                "label": "Button link 3"
+            },
+            {
+                "id": "desktop_image_alignment_3",
+                "type": "select",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ],
+                "default": "left",
+                "label": "Desktop video alignment 3"
+            },
+            {
+                "type": "header",
+                "content": "Video Dimensions"
+            },
+            {
+                "type": "text",
+                "id": "video_height",
+                "label": "Video Height",
+                "default": "320"
+            },
+            {
+                "type": "text",
+                "id": "video_width",
+                "label": "Video Width",
+                "default": "100%"
+            },
+            {
+                "type": "select",
+                "id": "desktop_height",
+                "label": "Desktop height",
+                "options": [
+                    {
+                        "value": "natural",
+                        "label": "Natural"
+                    },
+                    {
+                        "value": "400px",
+                        "label": "400px"
+                    },
+                    {
+                        "value": "500px",
+                        "label": "500px"
+                    },
+                    {
+                        "value": "600px",
+                        "label": "600px"
+                    },
+                    {
+                        "value": "700px",
+                        "label": "700px"
+                    },
+                    {
+                        "value": "800px",
+                        "label": "800px"
+                    }
+                ],
+                "default": "natural"
+            },
+            {
+                "type": "select",
+                "id": "mobile_height",
+                "label": "Mobile height",
+                "options": [
+                    {
+                        "value": "natural",
+                        "label": "Natural"
+                    },
+                    {
+                        "value": "300px",
+                        "label": "300px"
+                    },
+                    {
+                        "value": "400px",
+                        "label": "400px"
+                    },
+                    {
+                        "value": "500px",
+                        "label": "400px"
+                    }
+                ],
+                "default": "natural"
+            },
+            {
+                "id": "mobile_image_alignment",
+                "type": "select",
+                "options": [
+                    {
+                        "value": "top",
+                        "label": "Top"
+                    },
+                    {
+                        "value": "bottom",
+                        "label": "Bottom"
+                    }
+                ],
+                "default": "top",
+                "label": "Mobile video alignment"
+            },
+            {
+                "type": "header",
+                "content": "Text"
+            },
+            {
+                "id": "text_alignment",
+                "type": "select",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "center",
+                        "label": "Center"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ],
+                "default": "left",
+                "label": "Text alignment"
+            }
+            ]
+        },
+        {
+          "type": "FAQ",
+          "name": "FAQ",
+          "settings": [
+            {
+                "type": "text",
+                "id": "label_title",
+                "label": "Title",
+                "default": "FAQ"
+            },
+            {
+                "type": "richtext",
+                "id": "paragraph_1",
+                "label": "Question"
+            },
+            {
+                "type": "richtext",
+                "id": "text_1",
+                "label": "Answer"
+            },
+            {
+                "type": "richtext",
+                "id": "paragraph_2",
+                "label": "Question"
+            },
+            {
+                "type": "richtext",
+                "id": "text_2",
+                "label": "Answer"
+            },
+            {
+                "type": "richtext",
+                "id": "paragraph_3",
+                "label": "Question"
+            },
+            {
+                "type": "richtext",
+                "id": "text_3",
+                "label": "Answer"
+            },
+            {
+                "type": "richtext",
+                "id": "paragraph_4",
+                "label": "Question"
+            },
+            {
+                "type": "richtext",
+                "id": "text_4",
+                "label": "Answer"
+            },
+            {
+                "type": "richtext",
+                "id": "paragraph_5",
+                "label": "Question"
+            },
+            {
+                "type": "richtext",
+                "id": "text_5",
+                "label": "Answer"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Product info-tabs-new"
+        }
+      ]
+    }
+    {% endschema %}

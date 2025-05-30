@@ -1,0 +1,83 @@
+{% liquid
+  assign checkmarks = variant.metafields.specifications.checkmarks.value
+  assign is_tables = false
+  if product.selected_or_first_available_variant.metafields.specifications.table_1.value
+    assign is_tables = true
+  endif
+  assign text = product.selected_or_first_available_variant.metafields.specifications.text.value
+  assign sort = product.selected_or_first_available_variant.metafields.specifications.sort.value | default: 'checkmarks:tables:text'
+%}
+
+{% for variant in product.variants %}
+  <div style="display:none;" data-spec-id="{{ variant.id }}" class="spec-container">
+    {% if variant.metafields.specifications.checkmarks.value %}
+      <h3
+        {% if compare %}
+          class="product-compare__table-cell-heading"
+        {% endif %}
+      >
+        What's Included:
+      </h3>
+      <div class="pdp-specifications-checkmarks">
+        <ul>
+          {% for checkmark in variant.metafields.specifications.checkmarks.value %}
+            <li>
+              <svg
+                class="pdp-specifications-checkmark-icon"
+                width="18"
+                height="13"
+                viewBox="0 0 18 13"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fill="{{ settings.color_button_background }}" fill-rule="evenodd" d="M6.23 9.1L2.078 5.2 0 7.15 6.23 13 18 1.95 15.923 0z" />
+              </svg>
+              <p class="image-with-text__text">
+                {{ checkmark }}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    {% if is_tables %}
+      <h3
+        {% if compare %}
+          class="product-compare__table-cell-heading"
+        {% endif %}
+      >
+        Product Specifications:
+      </h3>
+      <div class="pdp-specifications-tables{% if compare  %} pdp-specs-tables-flex-column{% endif %}">
+        {% for i in (1..8) %}
+          {% assign table_key = 'table_' | append: i %}
+          {% assign table_inputs = variant.metafields.specifications[table_key].value %}
+          {% if table_inputs %}
+            <table>
+              {% for table_input in table_inputs %}
+                <tr>
+                  {% if table_input contains ':' %}
+                    {% assign table_key = table_input | split: ':' | first %}
+                    {% assign table_value = table_input | split: ':' | last %}
+                    <td>{{ table_key }}</td>
+                    <td>{{ table_value }}</td>
+                  {% else %}
+                    {% if forloop.first %}
+                      <th colspan="2">{{ table_input }}</th>
+                    {% else %}
+                      <td colspan="2">{{ table_input }}</td>
+                    {% endif %}
+                  {% endif %}
+                </tr>
+              {% endfor %}
+            </table>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if variant.metafields.specifications.text.value %}
+      <p class="image-with-text__text">
+        {{ variant.metafields.specifications.text.value }}
+      </p>
+    {% endif %}
+  </div>
+{% endfor %}

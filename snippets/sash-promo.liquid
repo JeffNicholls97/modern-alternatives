@@ -1,0 +1,43 @@
+<style>
+.promo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    margin: 10px;
+}
+
+  span.promo-best-seller {
+    background-color: #E4ECFA;
+    border: 1px solid #5B7AAD;
+    color: #5B7AAD;
+    padding: 6px 22px;
+    border-radius: 7px;
+}
+
+  span.promo-flyer-special {
+    background-color: #FFF0DF;
+    border: 1px solid #F0942D;
+    color: #F0942D;
+    padding: 6px 22px;
+    border-radius: 7px;
+}
+</style>
+
+{% if product.tags contains 'PROMO' or 'Weekly Promo' %}
+    <div class="promo-container">
+      {% if product.tags contains 'PROMO' %}
+        <span class="promo-best-seller">
+          Best Seller
+        </span>
+      {% endif %}
+      {% if product.tags contains 'Weekly Promo' %}
+        <span class="promo-flyer-special">
+          Flyer Special
+        </span>
+      {% endif %}
+    </div>
+  {% endif %}

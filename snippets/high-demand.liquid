@@ -1,0 +1,17 @@
+{% assign high_demand = false %}
+
+{% for collection in product.collections %}
+  {% if collection.metafields.custom.high_demand_collection_level == true %}
+    {% assign high_demand = true %}
+  {% endif %}
+{% endfor %}
+
+{% if product.metafields.custom.product_in_demand == true or high_demand == true %}
+  <div class="in-demand-message flex items-center justify-center gap-3 font-medium text-black w-full p-2 text-center rounded-md mb-2">
+    <div class="relative flex h-2 w-2">
+      <div class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></div>
+      <div class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></div>
+    </div>
+    <p class="text-base">In High Demand! Order Now To Secure Your Items</p>
+  </div>
+{% endif %}

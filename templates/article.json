@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "3885cbb2-74fa-402c-ae15-7ae2d91c1927": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "section_height": "medium",
+        "image_url": "[blog_image]",
+        "title": "[blog_title]",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "dynamic_html_zJbk9Q": {
+      "type": "dynamic-html",
+      "name": "t:sections.custom_html.presets.custom_html.name",
+      "settings": {
+        "title": "",
+        "custom_html": "<style>\n.shopify-section.article--section.section--canonical {\n    margin-top: 0px !important;\n}\n<\/style>\n\n<p style=\"font-size: 14px; color: #777; margin-top: 10px; margin-bottom: 0;\">\n\nThis page was last reviewed: <span id=\"last-reviewed\"><\/span><br>\n\nWe strive to keep all information accurate and up-to-date to help you make informed decisions.\n\n<\/p>\n\n<script>\n\n(function() {\n\n\n\nconst today = new Date();\nconst randomDaysAgo = Math.floor(Math.random() * (21 - 7 + 1)) + 7;\ntoday.setDate(today.getDate() - randomDaysAgo);\nconst formattedDate = today.toLocaleDateString('en-US', {\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric'\n});\nconst dateElement = document.getElementById('last-reviewed');\nif (dateElement) {\n  dateElement.innerText = formattedDate;\n}\n})();\n\n<\/script>"
+      }
+    },
+    "main": {
+      "type": "static-article",
+      "blocks": {
+        "d6faa52e-a200-4891-9440-334e7905791f": {
+          "type": "author",
+          "settings": {
+            "title": "Alex S",
+            "author_description": "<p>Alex is a co-founder of Shop Solar, a company that he established in 2018 to revolutionize the solar industry by simplifying the process and making it more simple and cost-effective. Under his strategic leadership, Shop Solar has grown into a comprehensive one-stop-shop, empowering over 40,000+ customers to access top-quality solar and storage solutions, comprehensive information, intuitive tools, and professional installation services.<\/p><p>With a passion for innovation and sustainable energy, Alex has successfully expanded the business's reach and impact, serving as a driving force in the company's growth and development. You can <a href=\"https:\/\/shopsolarkits.com\/collections\/promotions\">browse best seller's here<\/a>.<\/p>",
+            "author_image": "shopify:\/\/shop_images\/Alex_Smith_Headshot_cccc244b-3761-4dc9-9358-3e0981582020.jpg"
+          }
+        },
+        "958a563a-9610-47d7-b245-5138c4a0f357": {
+          "type": "author",
+          "settings": {
+            "title": "Cody Oehm",
+            "author_description": "<p>Cody is the Head of Marketing at Shop Solar, and joined the company in spring of 2022. <\/p><p>He has an entrepreneurial background and has been in the ecommerce industry since 2015. With 4 businesses under his belt and a drive to make a bigger impact, he decided to team up with Shop Solar on their mission to make solar simple and affordable. You can <a href=\"https:\/\/shopsolarkits.com\/collections\/promotions\">browse best seller's here<\/a>.<\/p>",
+            "author_image": "shopify:\/\/shop_images\/Cody_Oehm_Headshot.jpg"
+          }
+        },
+        "424252c3-35d4-4280-9a84-9e268da91542": {
+          "type": "author",
+          "settings": {
+            "title": "Max Bair Marshall",
+            "author_description": "<p>Max is a co-founder of Shop Solar, a company that he established in 2018 to revolutionize the solar industry by simplifying the process and making it more simple and cost-effective. Under his strategic leadership, Shop Solar has grown into a comprehensive one-stop-shop, empowering over 40,000 customers to access top-quality solar and storage solutions, comprehensive information, intuitive tools, and professional installation services.<\/p><p>With a passion for innovation and sustainable energy, Max has successfully expanded the business's reach and impact, serving as a driving force in the company's growth and development. Today, as the leader of a dedicated team of 60+ professionals across North America, Max continues to set new standards of excellence in the renewable energy industry, with a mission to transform the way people access and utilize clean energy.<\/p>",
+            "author_image": "shopify:\/\/shop_images\/Max_Bair_Marshall.jpg"
+          }
+        },
+        "a2b73995-cb77-457e-8d62-18a7751c7d89": {
+          "type": "author",
+          "settings": {
+            "title": "Shop Solar",
+            "author_description": "<p>ShopSolar.com is the #1 digital platform that enables consumers & businesses to source and purchase complete solar + storage solutions direct, saving you thousands in time, energy and money.<\/p><p>Over the years, 40,000+ customers have come to know us for extremely affordable prices, legendary customer service, and fast shipping. You can <a href=\"https:\/\/shopsolarkits.com\/collections\/promotions\">browse best seller's here<\/a>.<\/p>",
+            "author_image": "shopify:\/\/shop_images\/Shop_Solar.jpg"
+          }
+        },
+        "author_nedVEH": {
+          "type": "author",
+          "settings": {
+            "title": "Eric S",
+            "author_description": "<p>Eric has been the GM of ShopSolar for nearly 5+ years, boasting a wide ranging background in electricity, construction, and solar - his hands-on expertise and deep insights make him the perfect person to unravel the intricacies of DIY solar technology and products.<\/p>",
+            "author_image": "shopify:\/\/shop_images\/TNR5WKLQZ-UTWRNTVS7-a104b5e5edaa-512.png"
+          }
+        }
+      },
+      "block_order": [
+        "d6faa52e-a200-4891-9440-334e7905791f",
+        "958a563a-9610-47d7-b245-5138c4a0f357",
+        "424252c3-35d4-4280-9a84-9e268da91542",
+        "a2b73995-cb77-457e-8d62-18a7751c7d89",
+        "author_nedVEH"
+      ],
+      "settings": {
+        "featured_image_width": "full-width",
+        "show_date": false,
+        "show_author": false,
+        "show_author_section": true,
+        "use_share_buttons": true
+      }
+    },
+    "d77267ed-fcd5-4da7-9a39-a6ff49d4aca8": {
+      "type": "dynamic-blog-posts",
+      "settings": {
+        "title": "Blog posts",
+        "blog": "learning-center",
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": false
+      }
+    },
+    "dynamic_custom_liquid_XjK39c": {
+      "type": "dynamic-custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-RKB5vc\"><\/div>"
+      }
+    },
+    "dynamic_custom_liquid_XnqxXt": {
+      "type": "dynamic-custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-SKvpNn\"><\/div>"
+      }
+    }
+  },
+  "order": [
+    "3885cbb2-74fa-402c-ae15-7ae2d91c1927",
+    "dynamic_html_zJbk9Q",
+    "main",
+    "d77267ed-fcd5-4da7-9a39-a6ff49d4aca8",
+    "dynamic_custom_liquid_XjK39c",
+    "dynamic_custom_liquid_XnqxXt"
+  ]
+}

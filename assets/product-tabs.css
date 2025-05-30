@@ -1,0 +1,156 @@
+    /* <---CSS FOR FAQ ACCORDIONS---> */
+
+    input:checked ~ label .arrow_carret svg {
+        transform: rotate(180deg);
+    }
+    .container_for_accordions {
+        max-width: 770px;
+        margin: 30px auto;
+    }
+    .expand {
+        max-height: 0;
+        overflow: hidden;
+        transition: 200ms all;
+    }
+    .expand p {
+        margin: 0;
+    }
+    .accordion_all:checked ~ .expand {
+        max-height: 300px;
+        padding: 0 60px;
+    }
+    .accordion_all {
+        display: none;
+    }
+    .container_for_accordions label {
+        color: #2B2B2B;
+        font-family: Libre Franklin;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;   
+        padding: 10px 20px 10px 19px;
+        align-items: center;
+        gap: 10px;   
+        margin: 18px 0 18px 0;
+        border-radius: 3px;
+        border: 2px solid #DDD;
+        background: #FFF;
+    }
+    /* <--CSS FOR PRODUCT-TABS---> */
+
+    .product-tabs-nav {
+        display: flex;
+        align-items: center;
+    }
+    .product-tabs-nav .swiper-slide {
+        flex-grow: 1;
+    }
+    .tabsId_width {
+        width: 23%;
+    }
+    .none_block_single_label {
+        display: block;
+    }
+    .tags_metafields {
+        display: block;
+    }
+    .tags_metafields {
+        display: block;
+        margin-bottom: 8px;
+    }
+    .tags_metafields a {
+        color: #3a4f83;
+        text-decoration: none;
+    }
+    .tags_metafields a:hover {
+        color: #b7cd00;
+    }
+    /* <---CSS FOR SWIPER---> */
+
+    .product-tabs .tabSwiper .swiper-button-next:after, .product-tabs .tabSwiper .swiper-button-prev:after {
+        display: none;
+    }
+    .product-tabs .tabSwiper .swiper-button-next, .product-tabs .tabSwiper .swiper-button-prev {
+        background-color: #ff991c;
+        padding: 23px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-left: 10px;
+        background-size: 13px;
+        background-repeat: no-repeat;
+        height: auto;
+        background-position-y: center;
+    }
+    .product-tabs .tabSwiper .swiper-button-next {
+        background-image: url("swiper-arrow-next.png");
+        background-position-x: calc(50% + 1px);
+    }
+    .product-tabs .tabSwiper .swiper-button-prev {
+        background-image: url("swiper-arrow-prev.png");
+        background-position-x: calc(50% - 1px);
+    }
+    .product-tabs .tabSwiper .swiper-button-next.swiper-button-disabled,
+    .product-tabs .tabSwiper .swiper-button-prev.swiper-button-disabled {
+        opacity: 0;
+    }
+@media only screen and (max-width: 760px) {
+    .product-tabs-nav {
+        gap: 0;
+    }
+
+    .tabsId_width {
+        width: 100%;
+    }
+    .product-tabs .tabSwiper .swiper-button-next, .product-tabs .tabSwiper .swiper-button-prev {
+        color: white;
+        display: block;
+    }
+    .product-tabs .tabSwiper .swiper-button-next svg, .product-tabs .tabSwiper .swiper-button-prev svg {
+        width: 16px;
+    }
+}
+.image-with-text:empty, section:empty {
+    display: none!important;
+}
+.tabSwiper label {
+    border-right: none;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pdp-faq-question p {
+    margin: 0;
+}
+.info_tabs_container {
+    position: relative;
+}
+.sticky_position_div {
+    display: block;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+.fixed_product_tabs {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000;
+}
+.invisible_div_height {
+    height: 79px;
+}
+@media screen and (min-width: 720px) {
+}
+@media screen and (max-width: 720px) {
+    .fixed_product_tabs {
+        right: 10px;
+        left: 10px;
+    }
+}
+

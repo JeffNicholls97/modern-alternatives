@@ -1,0 +1,130 @@
+{% if template contains 'product' %}
+
+  <div class="mx-auto max-w-[1350px] mb-20 md:mb-[150px] px-10 md:px-0 flex flex-col items-center justify-center mt-20 w-full text-center md:w-[70%] leading-[35px]">
+    <h2 class="text-black text-3xl font-bold">{{ section.settings['compare-title'] }}</h2>
+    <p class=" mt-5 w-auto">{{ section.settings['compare-body'] }}</p>
+</div>
+<div class="mx-auto relative grid bg-white divide-y border-b border-[#C9C9C9] text-center divide-[#C9C9C9] grid-cols-4 max-w-[1350px]">
+  <div class="col-span-1 flex items-center border-t border-solid border-[#C9C9C9] text-white justify-center"></div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Local Installer</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Other Online Retailers</div>
+  <div class="col-span-1 border-none relative z-10 p-3 flex items-center justify-center">
+    <img alt="shop solar logo" aspect_ratio="" class="w-40 object-contain hs-id-7a8793f5" height="48" src="{{ 'high-res-logo.png' | asset_img_url: 'medium' }}" width="160" }}"=""/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Best for You Systems</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-48c9733a hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-2eecd1b8 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 relative z-10 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-16e63f95 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Transparent Pricing</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-96bfc703 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-28efe397 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 relative z-10 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-78c8b06f hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Installation Guidance</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-aace54c9 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-7b865b18 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex relative z-10 items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-9c35857b hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Lifetime Customer Support</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-7498c1a2 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-7e46984b hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex !border-b !border-[#C9C9C9] relative z-10 items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-30f09073 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div
+    style="box-shadow: 0px 0px 80.6px 0px rgba(0, 0, 0, 0.17);"
+    class="col-span-1 hidden md:block z-0 lg:w-[360px] md:w-[190px] bg-white rounded-md scale-y-125 h-full absolute right-0 top-0"
+  ></div>
+</div>
+
+  {% else %}
+
+  <div class="w-full h-[25rem] mt-20 py-10 bg-[#212936]">
+  <div class="mx-auto max-w-[1440px] px-10 md:px-0 flex flex-col items-center justify-center md:mt-[2rem] w-full text-center">
+    <h2 class="text-white text-3xl font-bold">{{ section.settings['compare-title'] }}</h2>
+    <p class="text-white mt-5 md:w-[40rem] w-auto">{{ section.settings['compare-body'] }}</p>
+  </div>
+</div>
+<div class="mx-auto relative grid bg-white -mt-20 divide-y border-b border-[#C9C9C9] text-center divide-[#C9C9C9] grid-cols-4 max-w-[1440px]">
+  <div class="col-span-1 flex items-center justify-center"></div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Local Installer</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Other Online Retailers</div>
+  <div class="col-span-1 border-none relative z-10 p-3 flex items-center justify-center">
+    <img alt="shop solar logo" aspect_ratio="" class="w-40 object-contain hs-id-dc821923" height="48" src="{{ 'high-res-logo.png' | asset_img_url: 'medium' }}" width="160" }}"=""/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Best for You Systems</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-76e57a49 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-6ff94b86 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 relative z-10 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-06e8cb83 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Transparent Pricing</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-2896fc6a hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-1b7769ca hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 relative z-10 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-746a5656 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Installation Guidance</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-9b6d0a73 hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-6175ac68 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex relative z-10 items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-d7bf8fdb hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Lifetime Customer Support</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-03513702 hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img alt="cross" class="w-8 object-contain hs-id-6bca2caa hs-lazyload" height="38" loading="lazy" src="{{ 'Close.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div class="col-span-1 p-3 flex !border-b !border-[#C9C9C9] relative z-10 items-center justify-center">
+    <img alt="tick" class="w-8 object-contain hs-id-6ff3f54f hs-lazyload" height="38" loading="lazy" src="{{ 'Done.jpg' | asset_img_url: '32x32' }}" width="38"/>
+  </div>
+  <div
+    style="box-shadow: 0px 0px 80.6px 0px rgba(0, 0, 0, 0.17);"
+    class="col-span-1 hidden md:block z-0 w-[360px] bg-white rounded-md scale-y-125 h-full absolute right-0 top-0"
+  ></div>
+</div>
+
+<div class="flex items-center mt-[5rem] md:mt-32 w-full justify-center">
+  <a
+    class="text-white hover:scale-105 mx-auto text-center duration-200 mt-8 font-bold inline-block px-10 py-3 text-center bg-[#F0942D] rounded-md"
+    href="https://024wwq6ojms.typeform.com/to/F24PjymZ"
+    >Start Your Free Proposal</a
+  >
+</div>
+
+  {% endif %}
+

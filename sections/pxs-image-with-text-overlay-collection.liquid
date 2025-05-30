@@ -1,0 +1,269 @@
+{% assign onboarding = false %}
+{% assign image = collection.image %}
+
+{% if image == blank %}
+  {% assign onboarding = true %}
+{% endif %}
+
+{% assign collection_list = section.settings.collection_list %}
+{% assign collections_img_border = section.settings.collections_img_border %}
+
+{% render 'hs-defer-css' with filename: 'collection-overlay.css', pages: 'collection,index' | split: ',', local: true %}
+{% if collections_img_border %}
+<style> #shopify-section-{{ section.id }} .pxs-collection-single_img { border-radius: 50%; } </style>
+{% endif %}
+
+{% render 'breadcrumbs' %}
+
+<section
+  class="
+    pxs-image-with-text
+    pxs-image-with-text-section-height-{{ section.settings.section_height }}
+  "
+>
+  <div class="pxs-image-with-text-wrapper">
+    <div
+      class="pxs-image-with-text-background"
+      {% if image != blank %}
+        {% capture background_style %}
+          {% if section.settings.section_height == 'original' %}
+            padding-bottom: {{- 100 | divided_by: image.aspect_ratio -}}%;
+          {% endif %}
+        {% endcapture %}
+
+        {%
+          render 'rimg',
+          img: image,
+          size: '1400x',
+          style: background_style,
+          lazy: true,
+          background: true,
+          focal_point: image.presentation.focal_point,
+        %}
+      {% endif %}
+      >
+      {% if onboarding %}
+        {{ 'lifestyle-1' | placeholder_svg_tag }}
+      {% endif %}
+    </div>
+
+    {% if section.settings.overlay_opacity != 0 and section.settings.overlay_background != 'rgba(0,0,0,0)' %}
+      {% assign opacity = section.settings.overlay_opacity | times: 0.01 %}
+      {% assign overlay = section.settings.overlay_background | color_modify: 'alpha', opacity %}
+
+      <div
+        class="pxs-image-with-text-overlay"
+        style="background-color: {{ overlay }};"
+      ></div>
+    {% endif %}
+
+    <div
+      class="
+        pxs-image-with-text-content-wrapper
+        pxs-image-with-text-content-position-y-{{ section.settings.content_position | split: '-' | first }}
+        pxs-image-with-text-content-position-x-{{ section.settings.content_position | split: '-' | last }}
+      "
+    >
+        <div
+          class="pxs-image-with-text-content"
+          style="color: {{ section.settings.color }};"
+        >
+        {% if section.settings.title != blank %}
+          <h2
+            class="pxs-image-with-text-heading"
+          >
+            {{ section.settings.title | escape }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div
+            class="pxs-image-with-text-subheading rte"
+          >
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <span class="pxs-image-with-text-button">
+            {{ section.settings.button_text | escape }}
+          </span>
+        {% endif %}
+
+        {% if section.settings.link != blank %}
+          <a
+            class="pxs-image-with-text-link"
+            href="{{ section.settings.link }}"
+          ></a>
+        {% endif %}
+        </div>
+    </div>
+  </div>
+  {% if collection.handle == 'all' %}
+    <div class="pxs-collection-list">
+      {% for single_collection in collection_list %}
+        <div class="pxs-collection-single">
+          <a href="{{ single_collection.url }}">
+            <img alt="{{ single_collection.title }}" class="pxs-collection-single_img hs-id-5e8e44f4 hs-lazyload" loading="lazy" src="{{ single_collection.image | img_url: '400x400' }}"/>
+          </a>
+          <a class="pxs-collection-single-title productgrid--sidebar-title">{{ single_collection.title }}</a>
+        </div>
+      {% endfor %}
+    </div>
+    <script>
+      (function (){
+        if(window.innerWidth < 719){
+          const collection_list = document.querySelector('#shopify-section-{{ section.id }} .pxs-collection-list');
+          if(!collection_list.hasAttribute('data-flickity')){
+            collection_list.setAttribute('data-flickity', '');
+          }
+        }
+      })()
+    </script>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "IWT overlay collection",
+  "class": "pxs-image-with-text-section collection-overlay",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "t:sections.image_with_text_overlay.section_height.label",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image_with_text_overlay.section_height.option_1"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image_with_text_overlay.section_height.option_2"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image_with_text_overlay.section_height.option_3"
+        },
+        {
+          "value": "original",
+          "label": "t:sections.image_with_text_overlay.section_height.option_4"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collection List on All Collections",
+      "limit": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "collections_img_border",
+      "label": "Collection Images are Circle",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.image_with_text_overlay.header_2.content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.image_with_text_overlay.title.label",
+      "default": "Image with text overlay"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.image_with_text_overlay.text.label",
+      "default": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "t:sections.image_with_text_overlay.content_position.label",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.image_with_text_overlay.content_position.option_1"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.image_with_text_overlay.content_position.option_2"
+        },
+        {
+          "value": "top-right",
+          "label": "t:sections.image_with_text_overlay.content_position.option_3"
+        },
+        {
+          "value": "center-left",
+          "label": "t:sections.image_with_text_overlay.content_position.option_4"
+        },
+        {
+          "value": "center-center",
+          "label": "t:sections.image_with_text_overlay.content_position.option_5"
+        },
+        {
+          "value": "center-right",
+          "label": "t:sections.image_with_text_overlay.content_position.option_6"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:sections.image_with_text_overlay.content_position.option_7"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:sections.image_with_text_overlay.content_position.option_8"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:sections.image_with_text_overlay.content_position.option_9"
+        }
+      ],
+      "default": "center-center"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "t:sections.image_with_text_overlay.color.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_background",
+      "label": "t:sections.image_with_text_overlay.overlay_background.label",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.image_with_text_overlay.overlay_opacity.label",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.image_with_text_overlay.link.label"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:sections.image_with_text_overlay.button_text.label",
+      "default": "Button"
+    }
+  ],
+  "presets": [
+    {
+      "category": "t:sections.image_with_text_overlay.presets.category",
+      "name": "IWT overlay collection"
+    }
+  ]
+}
+
+{% endschema %}

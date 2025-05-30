@@ -1,0 +1,13 @@
+{%- assign load_layouthub = true -%}
+{%- case template -%}
+    {% when 'index' %}
+        {% assign load_layouthub = false %}
+    {% when 'product' %}
+        {% assign load_layouthub = false %}
+    {% when 'collection' %}
+        {% assign load_layouthub = false %}
+    {% when 'blog' %}
+        {% assign load_layouthub = false %}
+    {% when 'article' %}
+        {% assign load_layouthub = false %}
+{%- endcase -%}

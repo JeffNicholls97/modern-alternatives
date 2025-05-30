@@ -1,0 +1,31 @@
+<div class="w-full py-4">
+  <div class="mx-auto px-5 lg:px-0 grid grid-cols-2 lg:grid-cols-6 gap-4 max-w-[1440px]">
+    <!-- Shop All The Top Brands Card -->
+    <a href="/collections/best-sellers" class="bg-[#F7F7F7] rounded-lg flex flex-col justify-center items-start p-6 h-32 min-w-0">
+      <div class="flex flex-col justify-center h-full">
+        <span class="text-xl font-semibold text-[#23272B]">Shop All The</span>
+        <span class="text-xl font-semibold text-[#ff991c]">Top Brands</span>
+      </div>
+      <div class="flex-grow"></div>
+      <div class="flex items-center justify-end w-full mt-2">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-[#ff991c]">
+          <svg width="20" height="20" fill="none" stroke="#ff991c" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </a>
+    <!-- Brand Logo Blocks -->
+    {% for block in section.blocks %}
+      <div class="bg-[#F7F7F7] rounded-lg flex justify-center items-center h-32 min-w-0">
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" target="_blank" class="flex justify-center items-center w-full h-full">
+        {% endif %}
+        {% if block.settings.logo != blank %}
+          <img class="max-h-16 max-w-[120px] object-contain" src="{{ block.settings.logo | img_url: 'master' }}" alt="Brand logo" loading="lazy" />
+        {% endif %}
+        {% if block.settings.link != blank %}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

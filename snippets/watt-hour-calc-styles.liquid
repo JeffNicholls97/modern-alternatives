@@ -1,0 +1,390 @@
+<style>
+    #site-main {
+        overflow: initial;
+    }
+    .calculator-hidden-title {
+        text-align: center;
+        padding: 40px 0 20px;
+    }
+    .calc-arrows-scroller {
+        margin: 50px auto;
+    }
+    @media only screen and (min-width: 961px) {
+        .calc-result-tables {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    .calc-result-tables .calculator-compatible-kits-wrapper {
+        width: 30%;
+    }
+    .calculator-wrapper {
+        --header-menu-bg-color: #222f3e;
+        --header-menu-font-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .calculator-wrapper img {
+        max-width: 100%;
+    }
+    .calculator-wrapper table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    .calculator__delete-button {
+        color: #ff991c;
+    }
+    .calculator__result {
+        background-color: white;
+        font-weight: bold;
+        margin-top: 8px;
+        border: 1px solid #d8d8d8;
+        border-radius: 3px;
+        justify-content: center;
+        padding: 10px;
+        text-align: center;
+    }
+    .calculator__add-section-button {
+        margin-top: 8px;
+        color: #222f3e;
+    }
+
+    .calculator__header {
+        text-align: center;
+    }
+    .calculator-container {
+        max-width: 100%;
+    }
+    .d-flex {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .calculator__delete-button {
+        position: relative;
+    }
+    .calculator__delete-button:before,
+    .calculator__delete-button:after {
+        content: "";
+        background-color: #ff9900;
+        width: 15px;
+        height: 3px;
+        position: absolute;
+        border-radius: 25px;
+        left: 5px;
+    }
+    .calculator__delete-button:before {
+        transform: rotate(45deg);
+    }
+    .calculator__delete-button:after {
+        transform: rotate(-45deg);
+    }
+    .calculator-wrapper button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .calculator-wrapper input {
+        border: 1px solid #dddcdc;
+        max-width: 100%;
+        padding: 8px 10px;
+        border-radius: 0;
+    }
+    .calculator-wrapper select {
+        /* for Firefox */
+        -moz-appearance: none;
+        /* for Chrome */
+        -webkit-appearance: none;
+        background-image: url(//cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/down-arrow.png?v=8798719…);
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-color: #fafafa;
+        background-size: 10px;
+        text-indent: 0.01px;
+        text-overflow: '';
+        cursor: pointer;
+        border: 1px solid #dddcdc;
+        max-width: 100%;
+        padding: 8px 10px;
+        border-radius: 0;
+    }
+    /* For IE10 */
+    .calculator-wrapper select::-ms-expand {
+        display: none;
+    }
+    .calculator-container .d-flex {
+        flex-wrap: nowrap;
+    }
+    .calculator__column-header-large {
+        min-width: 30%;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .calculator__column-header-small {
+        min-width: 12%;
+        margin-left: 1%;
+        text-align: center;
+        font-size: 12px;
+    }
+    .calculator__column-header-small:last-child {
+        margin-right: 5%;
+    }
+    .cpd_title,
+    .cpd_real_price,
+    .cpd_compare_at_price {
+        font-weight: bold;
+    }
+    .cpd_compare_at_price {
+        color: #b12707;
+        text-decoration: line-through;
+        font-size: 14px;
+    }
+    .cpd_money_saved {
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+    .cpd_money_saved span {
+        color: #b12707;
+    }
+    .calc_pdt_details .cpd_image {
+        margin-left: 0;
+        margin-right: 10px;
+        max-width: 150px;
+        position: relative;
+    }
+    .calc_pdt_details .cpd_featured_image {
+        opacity: 1;
+        transition: all .3s;
+    }
+    .calc_pdt_details .cpd_hover_image {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: all .3s;
+    }
+    .calc_pdt_details .cpd_image:hover .cpd_featured_image {
+        opacity: 0;
+    }
+    .calc_pdt_details .cpd_image:hover .cpd_hover_image {
+        opacity: 1;
+    }
+    .calculator-compatible-kits > .cck-header > tr > td:nth-child(n+2),
+    .calculator-compatible-kits > .cck-data > tr > td:nth-child(n+2) {
+        padding: 5px;
+    }
+    .calculator-compatible-kits > .cck-data > tr > td:nth-child(n+2){
+        font-size: 12px;
+    }
+    @media only screen and (max-width: 1600px) {
+        .calc_pdt_details {
+            flex-direction: column;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        .calc_pdt_details .cpd_image {
+            margin: 0 auto;
+        }
+        .calculator__watts-totals > div > div:first-child {
+            font-size: 16px;
+        }
+    }
+    .footer-newsletter .form-group-x {
+        max-width: 500px;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .calculator-line {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 16px
+    }
+    .calculator-line > select {
+        width: 30%;
+    }
+    .calculator-line > input {
+        width: 12%;
+    }
+    .calculator-line > input {
+        margin-left: 1%;
+    }
+    .calculator-line > button {
+        width: 5%;
+    }
+    .calculator-container {
+        justify-content: center;
+        margin-top: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+    }
+    .calculator__header h1 {
+        padding: 30px 0;
+    }
+    .calculator__watts-totals {
+        display: flex;
+    }
+    .calculator__watts-totals > div:first-child {
+        margin-right: 8px
+    }
+    @media only screen and (min-width: 961px) {
+
+        .calculator__watts-result {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .calc-arrows-scroller .swiper-button-next,
+        .calc-arrows-scroller .swiper-button-prev {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 960px) {
+        :root {
+            --swiper-theme-color: #ff991c;
+            --default-font-size: 13px;
+        }
+
+        /* allowing position sticky to arrows */
+        .header_sticky_banner {
+            display: block;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        #PageContainer {
+            overflow: visible !important;
+        }
+        .calc-arrow-wrap {
+            padding-top: 60px;
+        }
+        .calc-arrows-scroller {
+            display: flex;
+            max-width: 400px;
+        }
+        .calc-arrows-scroller .swiper-button-next,
+        .calc-arrows-scroller .swiper-button-prev {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 50%;
+        }
+        .calc-swiper-results {
+            max-width: 300px;
+        }
+        .calculator-parent-container {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .calculator__watts-result {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    /* Table Results CSS */
+    .calculator-compatible-kits .cck-header {
+        background-color: var(--header-menu-bg-color);
+        color: var(--header-menu-font-color);
+        border: 2px solid var(--header-menu-bg-color);
+        font-weight: bold;
+    }
+    .calculator-compatible-kits tr,
+    .calculator-compatible-kits tr td {
+        padding: 10px 15px;
+        text-align: center;
+    }
+    .calculator-compatible-kits tr td {
+        vertical-align: middle;
+    }
+    .calculator-compatible-kits .cck-data {
+        border: 2px solid #ff991c;
+    }
+    .calculator-compatible-kits .cck-data tr {
+        border-bottom: 2px solid #ff991c;
+        transition: all .3s;
+        cursor: pointer;
+    }
+    .calculator-compatible-kits .cck-data tr:hover {
+        background-color: #ffebd2;
+        transform: scale(1.05);
+        box-shadow: 0 0 2px #ff991c;
+    }
+    /* END Table Results CSS */
+
+    /* Table Row Styles */
+    .calc_pdt_details {
+        display: flex;
+        align-items: center;
+    }
+    .cpd_control {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    .cpd_control > span,
+    .cpd_control > table {
+        margin-bottom: 10px;
+    }
+    /*var(--header-menu-bg-color)*/
+    .cpd_control .cdp_atc_btn {
+        width: 200px;
+        background-color: #ff991c;
+        color: var(--header-menu-font-color);
+        border-radius: 0;
+        padding: 10px;
+        font-weight: bold;
+        transition: all .3s;
+    }
+    .cpd_control .cdp_atc_btn:hover {
+        background-color: var(--header-menu-bg-color);
+    }
+    @media only screen and (min-width: 1201px) {
+        .cpd_table {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        .calculator-compatible-kits > .cck-header tr td,
+        .calculator-compatible-kits > .cck-data > tr > td {
+            display: none;
+        }
+        .calculator-compatible-kits > .cck-header tr td:first-child,
+        .calculator-compatible-kits > .cck-data > tr > td:first-child {
+            display: block;
+        }
+        .cpd_price {
+            text-align: center;
+        }
+        .cpd_control .cdp_atc_btn {
+            margin: 0 auto;
+        }
+        .cpd_table {
+            width: 90%;
+            max-width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cpd_table tbody tr {
+            border: 2px solid #ff991c;
+        }
+        .cpd_control .cpd_title {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 360px;
+        }
+        .calculator-compatible-kits tr td.calc_pdt_details {
+            padding: 20px;
+        }
+        .calculator__watts-result {
+            margin: 40px 0;
+        }
+    }
+    /* END Table Row Styles */
+</style>

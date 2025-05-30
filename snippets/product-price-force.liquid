@@ -1,0 +1,52 @@
+<style>
+        .force-price-1 {
+          display: none;
+        }
+          .force-price-2 {
+          display: none;
+        }
+          .force-price-3 {
+          display: none;
+        }
+        #price-container span {
+          color: black;
+          font-weight: bold;
+      }
+        #price-container {
+          font-size: 20px;
+      }
+  .force-savings {
+      font-size: 13px;
+      color: red !important;
+      background-color: #ffe8e8;
+      border-radius: 10px;
+      padding: 6px 15px;
+      display: inline-block;
+      margin-bottom: 10px;
+  }
+  .product-pricing {
+    margin: 0;
+    background-color: #f7f7f7;
+    padding: 15px 20px 0;
+    display: block!important;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+</style>
+
+<div class="force-savings">Save $1000</div>
+
+{% for variant in product.variants %}
+  {% assign deposit = product.price %}
+  {% assign var_price = variant.metafields.custom.deposit_kit_price.value %}
+  <div
+    id="price-container"
+    data-selected="{{ product.variants[forloop.index0].id }}"
+    data-price="{{ var_price | minus: deposit | money }}"
+    class="force-price-{{ forloop.index0 }}"
+  >
+    <span>{{ deposit | money }} Deposit </span> (Remaining Balance of
+    <span id="moneyLeft">{{ var_price | money }}</span> due in 30 days)
+  </div>
+{% endfor %}

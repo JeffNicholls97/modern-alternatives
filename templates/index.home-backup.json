@@ -1,0 +1,431 @@
+{
+  "sections": {
+    "ec13821a-6a8b-402d-b804-8e1d02ae24d1": {
+      "type": "dynamic-slideshow-2",
+      "blocks": {
+        "template--16031818547340__ec13821a-6a8b-402d-b804-8e1d02ae24d1-slide-1": {
+          "type": "slide",
+          "settings": {
+            "background_image": "shopify:\/\/shop_images\/5_e7b283a8-5be4-45d4-a995-7a73bd5343f5.png",
+            "mobile_background_image": "shopify:\/\/shop_images\/4_eb444a68-73f2-4c37-bd00-7a2ade0e3dff.png",
+            "title": "Unlock Your Energy Independence Today.",
+            "text": "Best priced solar + battery company in America. With custom system designs and legendary support, save 50% or more compared to other companies when you work with us.",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "text_2": "",
+            "button_one_label": "Start Free Proposal",
+            "button_one_link": "https:\/\/024wwq6ojms.typeform.com\/to\/F24PjymZ",
+            "button_one_style": "primary",
+            "button_two_label": "",
+            "button_two_link": "",
+            "button_two_style": "secondary",
+            "show_overlay": true,
+            "overlay_color": "#222f3e",
+            "overlay_opacity": 55
+          }
+        },
+        "template--16031818547340__ec13821a-6a8b-402d-b804-8e1d02ae24d1-slide-2": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "background_image": "shopify:\/\/shop_images\/1_c567cf20-0a4d-4fd2-a582-2257cd150fa2.png",
+            "mobile_background_image": "shopify:\/\/shop_images\/1_41eda545-aac2-4f14-81c8-39711b272321.png",
+            "title": "Go Solar Today!<br>Fall Energy Savings Sale on Now<br>Ends 09\/18\/23",
+            "text": "",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "text_2": "",
+            "button_one_label": "Find Your Solar Kit",
+            "button_one_link": "https:\/\/shopsolarkits.com\/pages\/solar-kit-sizing-tool",
+            "button_one_style": "primary",
+            "button_two_label": "Shop Promotions",
+            "button_two_link": "https:\/\/shopsolarkits.com\/collections\/promotions",
+            "button_two_style": "secondary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--16031818547340__ec13821a-6a8b-402d-b804-8e1d02ae24d1-slide-1",
+        "template--16031818547340__ec13821a-6a8b-402d-b804-8e1d02ae24d1-slide-2"
+      ],
+      "settings": {
+        "icons_color": "#000000",
+        "bellow_layer_color": "#ffffff",
+        "bellow_layer": 60,
+        "layer_opacity": true,
+        "show_icons": false,
+        "enable_autoplay": false,
+        "arrows_hidden": false,
+        "autoplay_duration": 8,
+        "slideshow_width": "full",
+        "slideshow_height": "fit_screen",
+        "slideshow_height_mobile": "fit_screen",
+        "slideshow_text_below_image": true
+      }
+    },
+    "6ce407da-29c7-4172-b06b-5ea63adcb8a5": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "off-grid-solar-systems",
+            "title": "Off Grid Solar Kits"
+          }
+        },
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "whole-home-solar-kits",
+            "title": "Backup Solar Kits"
+          }
+        },
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "dual-hybrid-solar-kits",
+            "title": "Hybrid Solar Kits"
+          }
+        },
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "remote-solar-kits",
+            "title": "Mobile Solar Kits"
+          }
+        },
+        "collection_bC7jDi": {
+          "type": "collection",
+          "settings": {
+            "collection": "industrial-solar-kits",
+            "title": "Light-Industrial Solar Kits"
+          }
+        },
+        "collection_jFfBm6": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-generator-kits",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-1",
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-2",
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-5",
+        "template--16442092224652__6ce407da-29c7-4172-b06b-5ea63adcb8a5-collection-3",
+        "collection_bC7jDi",
+        "collection_jFfBm6"
+      ],
+      "settings": {
+        "title": "Shop By Solution",
+        "thumbnail_columns_desktop": 6,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "",
+        "cta_link": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "44e54aa1-a3e0-4999-adbf-0f777a6b6914": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-panels",
+            "title": ""
+          }
+        },
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-batteries",
+            "title": ""
+          }
+        },
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-power-inverters",
+            "title": ""
+          }
+        },
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-panel-mounts",
+            "title": ""
+          }
+        },
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-cabling",
+            "title": ""
+          }
+        },
+        "collection_phFCFc": {
+          "type": "collection",
+          "settings": {
+            "collection": "generator-transfer-switches",
+            "title": "Electrical Panels"
+          }
+        }
+      },
+      "block_order": [
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-1",
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-2",
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-3",
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-4",
+        "template--16442092224652__44e54aa1-a3e0-4999-adbf-0f777a6b6914-collection-5",
+        "collection_phFCFc"
+      ],
+      "settings": {
+        "title": "Shop By Component",
+        "thumbnail_columns_desktop": 6,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "",
+        "cta_link": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "dynamic_rich_text_JVVrGP": {
+      "type": "dynamic-rich-text",
+      "settings": {
+        "width": "full-width",
+        "title": "",
+        "text": "<h1>Why choose ShopSolar.com?<\/h1><p>The traditional solar sales model involves multiple salespeople, project managers, dealer fees, custom designs, and more, all adding to your bottom line cost each step of the way.<\/p><p>Which is why most national solar brands have such poor customer ratings - shady sales tactics and lack of after-sales support.<\/p><p>In the United States, in 2023 - most residential and light commercial solar power is still sold through high pressure, high commission (usually door-to-door salespeople).<\/p><p>And the fact is - less than 5% of qualified roofs in the US have solar panels.<\/p><p>So it's pretty clear, there has to be a better way to go solar...<\/p><p>At ShopSolar.com, we’ve cut out all of this traditional bloat and our focus is on saving you time, energy and money by allowing you to purchase one-click complete solar power solutions through our digital-first platform. <\/p><p>By sourcing directly, you will pay 20-50% less and this usually includes the batteries (storage) - giving you true energy independence.<\/p><p>ShopSolar.com is disrupting the solar industry and saving customers thousands in the process. Join us and the 40,000+ people who are enjoying their affordable energy independence today!<\/p>",
+        "heading_size": "medium",
+        "text_alignment": "left",
+        "button_text": "Button",
+        "button_link": "",
+        "background_color": "",
+        "text_color": "",
+        "padding_top_and_bottom": 30,
+        "margin_top_and_bottom": 0
+      }
+    },
+    "deddf326-fffc-42b3-b01a-c863237076b3": {
+      "type": "static-us-vs-them",
+      "blocks": {
+        "333dac3a-e78b-4edc-b349-5c3ac423f9d5": {
+          "type": "table_data",
+          "settings": {
+            "title": ""
+          }
+        },
+        "36eeeacd-91ab-49d9-83e2-d426d705ddf1": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>Local Installers<\/strong><\/p>"
+          }
+        },
+        "c99eade0-cb4e-466e-9fc0-540f68966ec6": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>Other Online Retailers<\/strong><\/p>"
+          }
+        },
+        "6a63a6d0-abe5-4eec-ac36-7524aa313271": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>SSK<\/strong><\/p>"
+          }
+        },
+        "bba348bb-a3fd-4cdd-9d05-4254e86b4053": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>Best for You Systems<\/strong><\/p>"
+          }
+        },
+        "9d4a26ad-23c5-48e2-87ed-aba137229f0d": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>false<\/p>"
+          }
+        },
+        "ba8e0f96-f36e-4967-909f-d2faa1621808": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>false<\/p>"
+          }
+        },
+        "78f5c45a-0b0b-49ba-8103-fb405254dfa7": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>true<\/p>"
+          }
+        },
+        "e8a5bc9e-a510-47e5-96e0-b5cb2777c340": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>Transparent Pricing<\/strong><\/p>"
+          }
+        },
+        "d49399c0-3dfc-4ef7-9646-48bb38a36b3f": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>false<\/p>"
+          }
+        },
+        "51812685-1337-48c2-ba02-bd6218462fdd": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>true<\/p>"
+          }
+        },
+        "0033d4b1-623f-4e6f-adb9-15f60cbac763": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>true<\/p>"
+          }
+        },
+        "31e5c5e3-57fe-4594-9560-80266446b841": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>Installation Guidance<\/strong><\/p>"
+          }
+        },
+        "43ff415f-1fe4-445d-9144-e27a0f608e16": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>true<\/p>"
+          }
+        },
+        "ed908d7e-383b-4f11-9ecf-ee8798451e03": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>false<\/p>"
+          }
+        },
+        "07887aa1-5820-493c-a7a9-134f246ac6f2": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>true<\/p>"
+          }
+        },
+        "f9919c4d-be86-4a77-9df7-9ae070c4cb56": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p><strong>Lifetime Customer Support<\/strong><\/p>"
+          }
+        },
+        "cbeba364-7d24-493f-a3f7-e7275e1c0088": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>false<\/p>"
+          }
+        },
+        "0fe5d9c7-52e0-4b87-9f43-a60f80085c6c": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>false<\/p>"
+          }
+        },
+        "7d86aaab-ea1b-492e-a68d-e24a83d44f45": {
+          "type": "table_data",
+          "settings": {
+            "title": "<p>true<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "333dac3a-e78b-4edc-b349-5c3ac423f9d5",
+        "36eeeacd-91ab-49d9-83e2-d426d705ddf1",
+        "c99eade0-cb4e-466e-9fc0-540f68966ec6",
+        "6a63a6d0-abe5-4eec-ac36-7524aa313271",
+        "bba348bb-a3fd-4cdd-9d05-4254e86b4053",
+        "9d4a26ad-23c5-48e2-87ed-aba137229f0d",
+        "ba8e0f96-f36e-4967-909f-d2faa1621808",
+        "78f5c45a-0b0b-49ba-8103-fb405254dfa7",
+        "e8a5bc9e-a510-47e5-96e0-b5cb2777c340",
+        "d49399c0-3dfc-4ef7-9646-48bb38a36b3f",
+        "51812685-1337-48c2-ba02-bd6218462fdd",
+        "0033d4b1-623f-4e6f-adb9-15f60cbac763",
+        "31e5c5e3-57fe-4594-9560-80266446b841",
+        "43ff415f-1fe4-445d-9144-e27a0f608e16",
+        "ed908d7e-383b-4f11-9ecf-ee8798451e03",
+        "07887aa1-5820-493c-a7a9-134f246ac6f2",
+        "f9919c4d-be86-4a77-9df7-9ae070c4cb56",
+        "cbeba364-7d24-493f-a3f7-e7275e1c0088",
+        "0fe5d9c7-52e0-4b87-9f43-a60f80085c6c",
+        "7d86aaab-ea1b-492e-a68d-e24a83d44f45"
+      ],
+      "settings": {
+        "title": "",
+        "table": "[1][2][3][4]\n[5][6][7][8]\n[9][10][11][12]\n[13][14][15][16]\n[17][18][19][20]",
+        "text": "",
+        "video_button_text": "SHOW VIDEO",
+        "video_url": "",
+        "button_label": "Button",
+        "button_link": ""
+      }
+    },
+    "0e3c5601-9242-412e-954a-08fdda1e1fd4": {
+      "type": "dynamic-image-with-text",
+      "disabled": true,
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/3.01-1x1-ShopSolar-ACS-209249_78ae47d6-ce66-4d49-b8ce-f187421877ef.png",
+        "desktop_height": "natural",
+        "mobile_height": "400px",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "FORCE 15K ESS Early Bird Launch on Now!",
+        "heading_url": "",
+        "subheading": "<p>In a breakthrough move for 2024, we present the FORCE 15K ESS – the inaugural power station by Mammoth RE that genuinely powers your entire home or off-grid property. Boasting more capacity than 4 x Bluetti AC300's and 15% more capacity than a Tesla Powerwall, all at a remarkable 50% of the cost.<\/p><p>Don't miss your chance to save $1,000 and secure your Force 15k ESS at an Early Bird Price. This offer is reserved for 100 units only!<\/p>",
+        "text_alignment": "center",
+        "button_label": "Secure Yours Today!",
+        "button_link": "https:\/\/shopsolarkits.com\/products\/force-15k-ess"
+      }
+    },
+    "138add01-b550-4158-a5dc-0b1dc8a5140f": {
+      "type": "dynamic-image-with-text",
+      "disabled": true,
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/headshot-max.webp",
+        "desktop_height": "natural",
+        "mobile_height": "400px",
+        "desktop_image_alignment": "right",
+        "mobile_image_alignment": "top",
+        "heading": "Get a Free Proposal",
+        "heading_url": "",
+        "subheading": "<p>Answer a few simple questions and our team will provide you with a solar quote based on your specific needs!<\/p>",
+        "text_alignment": "center",
+        "button_label": "Start Now",
+        "button_link": "https:\/\/024wwq6ojms.typeform.com\/to\/F24PjymZ"
+      }
+    },
+    "dynamic_custom_liquid_bMjhmM": {
+      "type": "dynamic-custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-SKvpNn\"><\/div>"
+      }
+    },
+    "dynamic_custom_liquid_LPFDtj": {
+      "type": "dynamic-custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-RKB5vc\"><\/div>"
+      }
+    }
+  },
+  "order": [
+    "ec13821a-6a8b-402d-b804-8e1d02ae24d1",
+    "6ce407da-29c7-4172-b06b-5ea63adcb8a5",
+    "44e54aa1-a3e0-4999-adbf-0f777a6b6914",
+    "dynamic_rich_text_JVVrGP",
+    "deddf326-fffc-42b3-b01a-c863237076b3",
+    "0e3c5601-9242-412e-954a-08fdda1e1fd4",
+    "138add01-b550-4158-a5dc-0b1dc8a5140f",
+    "dynamic_custom_liquid_bMjhmM",
+    "dynamic_custom_liquid_LPFDtj"
+  ]
+}

@@ -1,0 +1,218 @@
+{% comment %}
+ LayoutHub (https://layouthub.com)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from LayoutHub
+ {% endcomment %} 
+ <div class="lh-sections-wrapper" data-id="634dd6d6f766c42713029572" data-type="page">
+<section id="" data-section-id="80mj6u78aad" data-section="why-do-you-need646" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h1 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'80mj6u78aad.lh_a168_title' | t }}</h1>
+			<div class="lh-desc"><text  data-lhi="desc" data-lh-lang data-lh-live-editor></text>
+			
+			<div class="calculator-container">
+
+      <form id="tiltAngleCalculatorForm">
+<button type="submit" disabled="" style="display: none" aria-hidden="true"></button>
+        <div class="calculator-element">
+          <div class="calculator-input">
+            <label class="calculator-input-label" for="userAddress">
+              Address, City, or Zip Code
+            </label>
+            <input id="userAddress" type="text" class="calculator-input-input pac-target-input" data-lpignore="true" placeholder="Enter a location" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="calculator-element">
+          <div class="calculator-input">
+            or
+            <button class="calculator-button" onclick="return getLocation()" type="button">
+              Use Your Current Location
+            </button>
+          </div>
+          <div id="getLocationError" class="calculator-input-error">
+            <strong>Error:</strong> Could not get your location. Make sure location services are enabled in your browser or in your phone's browser app.
+          </div>
+        </div>
+
+      </form>
+
+      <div id="calculatorResults" class="calculator-results">
+        <div class="calculator-results-title">
+          Your optimal year-round tilt angle:
+        </div>
+        <div id="successResults" class="calculator-results-result">
+          <strong></strong> from horizontal
+        </div>
+        <div class="calculator-results-title">
+          Your optimal tilt angles by season:
+        </div>
+        <div id="successResultsSeasons" class="calculator-results-list">
+          <ul>
+            <li id="successResultsSpring"></li>
+            <li id="successResultsSummer"></li>
+            <li id="successResultsFall"></li>
+            <li id="successResultsWinter"></li>
+          </ul>
+        </div>
+        <div class="calculator-results-title">
+          Your optimal tilt angles by month:
+        </div>
+        <div id="successResultsMonths" class="calculator-results-list">
+          <ul>
+            <li id="successResultsJan"></li>
+            <li id="successResultsFeb"></li>
+            <li id="successResultsMar"></li>
+            <li id="successResultsApr"></li>
+            <li id="successResultsMay"></li>
+            <li id="successResultsJun"></li>
+            <li id="successResultsJul"></li>
+            <li id="successResultsAug"></li>
+            <li id="successResultsSep"></li>
+            <li id="successResultsOct"></li>
+            <li id="successResultsNov"></li>
+            <li id="successResultsDec"></li>
+          </ul>
+        </div>
+        <!-- Display Note if Latitude within (+/-) 10 degs -->
+        <div id="successNote" class="calculator-results-note">
+          <strong>Note:</strong> To allow for rain to naturally clean solar panels, installers usually limit tilt angles to 10°.
+        </div>
+      </div>
+    </div>
+    
+    
+
+			
+			</div>
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApYbTi1G23cRsiolXLCG0Agxv01dKuR6o&callback=initAutocomplete&libraries=places&v=weekly&fields=geometry"></script>
+
+<script>
+        // get Location using Google Places API autocomplete
+        function initAutocomplete() {
+          const input = document.getElementById("userAddress");
+          const autocomplete = new google.maps.places.Autocomplete(input);
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            //console.log("dumping address components", place.geometry.location.lat());
+
+            calculateAndDisplayTiltAngle(place.geometry.location.lat());
+          });
+        }
+
+        // get Location using Browser Geolocation API
+        function getLocation() {
+          if (window.navigator && window.navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
+          }
+        }
+
+        function onGeolocateSuccess(coordinates) {
+          const {
+            latitude,
+            longitude
+          } = coordinates.coords;
+          calculateAndDisplayTiltAngle(latitude);
+        }
+
+        function onGeolocateError(error) {
+          console.warn(error.code, error.message);
+          if (error.code === 1) {
+            // they said no
+            document.getElementById("getLocationError").style.display = "block";
+            return false;
+          } else if (error.code === 2) {
+            // position unavailable
+            document.getElementById("getLocationError").style.display = "block";
+            return false;
+          } else if (error.code === 3) {
+            // timeout
+            document.getElementById("getLocationError").style.display = "block";
+            return false;
+          }
+        }
+
+        // Calculate Tilt Angle using Latitude
+        // Hide/Display respective DOM elemnets
+        function calculateAndDisplayTiltAngle(latitude) {
+          document.getElementById("successNote").style.display = "none";
+          document.getElementById("getLocationError").style.display = "none";
+
+          var tiltAngle;
+          if (latitude >= 0) {
+            tiltAngle = 1.3793 + (latitude * (1.2011 + (latitude * (-0.014404 + (latitude * 0.000080509)))));
+          } else {
+            tiltAngle = -0.41657 + (latitude * (1.4216 + (latitude * (0.024051 + (latitude * 0.00021828)))));
+          }
+          tiltAngle = Math.abs(tiltAngle);
+
+          document.getElementById("calculatorResults").style.display = "block";
+
+          var successResults = document.getElementById("successResults");
+          var successResultsSeasons = document.getElementById("successResultsSeasons");
+          var successResultsSpring = document.getElementById("successResultsSpring");
+          var successResultsSummer = document.getElementById("successResultsSummer");
+          var successResultsFall = document.getElementById("successResultsFall");
+          var successResultsWinter = document.getElementById("successResultsWinter");
+
+
+          successResults.style.display = "block";
+          successResultsSeasons.style.display = "block";
+          successResultsMonths.style.display = "block";
+
+          successResults.childNodes[1].innerText = (Math.round(tiltAngle * 10) / 10) + "°";
+
+          successResultsSpring.innerText = ("Spring: " + Math.round(tiltAngle * 10) / 10) + "°";
+          successResultsSummer.innerText = ("Summer: " + Math.round((tiltAngle - 15) * 10) / 10) + "°";
+          successResultsFall.innerText = ("Fall: " + Math.round(tiltAngle * 10) / 10) + "°";
+          successResultsWinter.innerText = ("Winter: " + Math.round((tiltAngle + 15) * 10) / 10) + "°";
+
+          if (latitude >= 0) {
+            successResultsJan.innerText = ("January: " + Math.round((tiltAngle + 10) * 10) / 10) + "°";
+            successResultsFeb.innerText = ("February: " + Math.round((tiltAngle + 5) * 10) / 10) + "°";
+            successResultsMar.innerText = ("March: " + Math.round(tiltAngle * 10) / 10) + "°";
+            successResultsApr.innerText = ("April: " + Math.round((tiltAngle - 5) * 10) / 10) + "°";
+            successResultsMay.innerText = ("May: " + Math.round((tiltAngle - 10) * 10) / 10) + "°";
+            successResultsJun.innerText = ("June: " + Math.round((tiltAngle - 15) * 10) / 10) + "°";
+            successResultsJul.innerText = ("July: " + Math.round((tiltAngle - 10) * 10) / 10) + "°";
+            successResultsAug.innerText = ("August: " + Math.round((tiltAngle - 5) * 10) / 10) + "°";
+            successResultsSep.innerText = ("September: " + Math.round(tiltAngle * 10) / 10) + "°";
+            successResultsOct.innerText = ("October: " + Math.round((tiltAngle + 5) * 10) / 10) + "°";
+            successResultsNov.innerText = ("November: " + Math.round((tiltAngle + 10) * 10) / 10) + "°";
+            successResultsDec.innerText = ("December: " + Math.round((tiltAngle + 15) * 10) / 10) + "°";
+          } else {
+            successResultsJan.innerText = ("January: " + Math.round((tiltAngle - 10) * 10) / 10) + "°";
+            successResultsFeb.innerText = ("February: " + Math.round((tiltAngle - 5) * 10) / 10) + "°";
+            successResultsMar.innerText = ("March: " + Math.round(tiltAngle * 10) / 10) + "°";
+            successResultsApr.innerText = ("April: " + Math.round((tiltAngle + 5) * 10) / 10) + "°";
+            successResultsMay.innerText = ("May: " + Math.round((tiltAngle + 10) * 10) / 10) + "°";
+            successResultsJun.innerText = ("June: " + Math.round((tiltAngle + 15) * 10) / 10) + "°";
+            successResultsJul.innerText = ("July: " + Math.round((tiltAngle + 10) * 10) / 10) + "°";
+            successResultsAug.innerText = ("August: " + Math.round((tiltAngle + 5) * 10) / 10) + "°";
+            successResultsSep.innerText = ("September: " + Math.round(tiltAngle * 10) / 10) + "°";
+            successResultsOct.innerText = ("October: " + Math.round((tiltAngle - 5) * 10) / 10) + "°";
+            successResultsNov.innerText = ("November: " + Math.round((tiltAngle - 10) * 10) / 10) + "°";
+            successResultsDec.innerText = ("December: " + Math.round((tiltAngle - 15) * 10) / 10) + "°";
+          }
+
+          if (tiltAngle <= 10) {
+            document.getElementById("successNote").style.display = "block";
+          }
+
+          document.getElementById("calculatorResults").scrollIntoView({behavior: 'smooth'});
+        }
+</script>
+  </section>
+</div>
+ {%schema%} 
+{"locales":{"en":{"80mj6u78aad":{"lh_a168_title":"Solar Panel Tilt Angle Calculator"}}},"name":"Solar Panel Tilt Angle"}
+ {%endschema%}

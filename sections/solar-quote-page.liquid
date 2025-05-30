@@ -1,0 +1,715 @@
+<style>
+  .Marquee {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em;
+    font-weight: 200;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    overflow-x hidden;
+  }
+  .Marquee-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-animation: marquee 30s linear infinite running;
+    -moz-animation: marquee 30s linear infinite running;
+    -o-animation: marquee 30s linear infinite running;
+    -ms-animation: marquee 30s linear infinite running;
+    animation: marquee 30s linear infinite running;
+  }
+  .Marquee-content:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  @-moz-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+  @-webkit-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+  @-o-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translate(-50%);
+      -moz-transform: translate(-50%);
+      -o-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+    }
+  }
+</style>
+
+<div class="w-full relative h-[480px]">
+  <span class="bg-[linear-gradient(0deg,rgba(255,255,255,0.00)0%,rgba(0,0,0,0.66)100%)] h-[480px] absolute inset-0 z-20 w-full hidden"></span>
+  <img class="absolute md:block hidden object-cover h-[480px] inset-0 w-full hs-id-285057ac hs-lazyload" height="630" loading="lazy" src="{{ section.settings.hero-image | img_url: 'master' }}" width="2000"/>
+  <img class="absolute block md:hidden object-cover h-[480px] inset-0 w-full hs-id-b564e15a hs-lazyload" height="630" loading="lazy" src="{{ section.settings.hero-image-mobile | img_url: 'master' }}" width="500"/>
+  <div class="z-30 max-w-[1440px] mx-auto px-10 md:px-0 w-full h-[480px] text-left absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 flex flex-col justify-center items-start">
+    <h1 class="text-white text-4xl font-bold">{{ section.settings['hero-title'] }}</h1>
+    <span class="flex items-center gap-2 text-xl text-white mt-10 font-medium"><img class="w-6 h-6 hs-id-b55d1275 hs-lazyload" height="20" loading="lazy" src="{{ 'check-mark-solar.png' | asset_img_url }}" width="20"/>
+      {{- section.settings['usp-1'] -}}
+    </span>
+    <span class="flex items-center gap-2 text-xl text-white mt-3 font-medium"><img class="w-6 h-6 hs-id-3cf87fb0 hs-lazyload" height="20" loading="lazy" src="{{ 'check-mark-solar.png' | asset_img_url }}" width="20"/>
+      {{- section.settings['usp-2'] -}}
+    </span>
+    <span class="flex items-center gap-2 text-xl text-white mt-3 font-medium"><img class="w-6 h-6 hs-id-5e333995 hs-lazyload" height="20" loading="lazy" src="{{ 'check-mark-solar.png' | asset_img_url }}" width="20"/>
+      {{- section.settings['usp-3'] -}}
+    </span>
+    <p class="text-white hidden mt-5 md:w-[40rem]">{{ section.settings['hero-sub'] }}</p>
+    <a class="text-white hover:scale-105 duration-200 text-xl mt-8 font-bold inline-block px-10 py-3 text-center bg-[#F0942D] rounded-md" href="https://024wwq6ojms.typeform.com/to/F24PjymZ">Start Your Free Proposal</a>
+    <span class="flex gap-2 mt-10 items-center">
+      <img class="w-6 h-6 hs-id-608b16e3 hs-lazyload" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}" width="20"/>
+      <img class="w-6 h-6 hs-id-938ee170 hs-lazyload" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}" width="20"/>
+      <img class="w-6 h-6 hs-id-bc3fe359 hs-lazyload" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}" width="20"/>
+      <img class="w-6 h-6 hs-id-701ba68f hs-lazyload" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}" width="20"/>
+      <img class="w-6 h-6 hs-id-a3eeaad9 hs-lazyload" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}" width="20"/>
+      <span class="ml-3 text-white">50,000+ Happy Customers</span>
+    </span>
+  </div>
+</div>
+
+<div class="md:h-32 h-auto border-b border-gray-200">
+  <div class="mx-auto md:h-32 h-auto grid border-l border-r border-gray-200 grid-cols-4 md:grid-cols-5 w-full max-w-[1440px]">
+    <div class="col-span-1 hidden gap-10 border-r border-gray-200 md:flex justify-center items-center">
+      <span class="text-[#B3B3B3] tracking-widest">AS SEEN ON</span>
+      <img class="w-10 hs-id-2d1688b3 hs-lazyload" height="20" loading="lazy" src="{{ 'arrow-quote.png' | asset_img_url }}" width="20"/>
+    </div>
+    <div class="col-span-2  md:col-span-1 border-b bg-[#F7F7F7] gap-10 border-r border-gray-200 flex justify-center items-center">
+      <img class="w-24 object-contain h-24 md:h-auto grayscale hs-id-78da427f hs-lazyload" height="20" loading="lazy" src="{{ section.settings.brand-image-1 | img_url: 'master' }}" width="20"/>
+    </div>
+    <div class="col-span-2 md:col-span-1 border-b bg-[#F7F7F7] gap-10 border-r border-gray-200 flex justify-center items-center">
+      <img class="w-24 object-contain h-24 md:h-auto grayscale hs-id-0231063a hs-lazyload" height="20" loading="lazy" src="{{ section.settings.brand-image-2 | img_url: 'master' }}" width="20"/>
+    </div>
+    <div class="col-span-2  md:col-span-1 border-b bg-[#F7F7F7] gap-10 border-r border-gray-200 flex justify-center items-center">
+      <img class="md:w-32 object-contain w-24 h-24 md:h-auto grayscale hs-id-41292e3c hs-lazyload" height="20" loading="lazy" src="{{ section.settings.brand-image-3 | img_url: 'master' }}" width="20"/>
+    </div>
+    <div class="col-span-2 md:col-span-1 border-b bg-[#F7F7F7] gap-10 flex justify-center items-center">
+      <img class="md:w-32 object-contain w-24 h-24 md:h-auto grayscale hs-id-d32e4fe6 hs-lazyload" height="20" loading="lazy" src="{{ section.settings.brand-image-4 | img_url: 'master' }}" width="20"/>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-[1440px] mx-auto px-5 lg:px-0 my-10">
+  <div class="bg-[#212936] overflow-hidden relative rounded-md">
+    <div class="p-10 flex flex-col lg:flex-row justify-between items-center">
+      <div class="lg:w-96 w-full">
+        <h2 class="text-white text-3xl font-bold mb-5">Go Solar Now, Pay Later</h2>
+        <p class="text-[#D1D1D1] text-base">
+          At ShopSolar, we offer a wide variety of payment plan options to meet each customer's needs.
+        </p>
+      </div>
+      <div class="flex flex-col lg:flex-row items-start w-full lg:w-auto mt-5 lg:m-0 lg:items-center gap-5">
+        <img class="rounded-md w-40 hs-id-11621286 hs-lazyload" height="100" loading="lazy" src="{{ 'affirm-whiteout.jpg' | asset_img_url: 'master' }}" width="500"/>
+        <img class="rounded-md w-40 hs-id-38913b71 hs-lazyload" height="100" loading="lazy" src="{{ 'pay-whiteout.jpg' | asset_img_url: 'master' }}" width="500"/>
+      </div>
+    </div>
+    <div class="bg-[#F7F7F7] p-10">
+      <div class="flex justify-start mb-8 md:last:mb-0 md:pr-12 lg:mb-14 lg:last:mb-0">
+        <div class="w-16 mr-8 flex-shrink-0 md:w-16 lg:w-22">
+          <img class="h-20 w-20 object-contain hs-id-83ed4968 hs-lazyload" height="100" loading="lazy" src="{{ 'app-form.png' | asset_img_url: 'master' }}" width="100"/>
+        </div>
+        <div class="mt-[10px]">
+          <h3 class="text-base text-black-100 mb-3 md:font-bold lg:text-xl" wz-last-el-ref="true">
+            Quick and Easy Application
+          </h3>
+          <p class="text-sm text-[#767676] lg:text-base lg:max-w-sm">
+            Fill out a short application and we will match you with multiple payment plan options instantly
+          </p>
+        </div>
+      </div>
+      <div class="flex justify-start mb-8 md:last:mb-0 md:pr-12 lg:mb-14 lg:last:mb-0">
+        <div class="w-16 mr-8 flex-shrink-0 md:w-16 lg:w-22">
+          <img class="h-20 w-20 object-contain hs-id-988e1170 hs-lazyload" height="100" loading="lazy" src="{{ 'cheque.png' | asset_img_url: 'master' }}" width="100"/>
+        </div>
+        <div class="mt-[10px]">
+          <h3 class="text-base text-black-100 mb-3 md:font-bold lg:text-xl" wz-last-el-ref="true">
+            Poor Credit or No Credit?
+          </h3>
+          <p class="text-sm text-[#767676] lg:text-base lg:max-w-sm">
+            Don’t sweat it. We welcome all credit scores and having a credit score is not required for approval.
+          </p>
+        </div>
+      </div>
+      <div class="flex justify-start mb-8 md:last:mb-0 md:pr-12 lg:mb-14 lg:last:mb-0">
+        <div class="w-16 mr-8 flex-shrink-0 md:w-16 lg:w-22">
+          <img class="h-20 w-20 object-contain hs-id-53a1b127 hs-lazyload" height="100" loading="lazy" src="{{ 'fees.png' | asset_img_url: 'master' }}" width="100"/>
+        </div>
+        <div class="mt-[10px]">
+          <h3 class="text-base text-black-100 mb-3 md:font-bold lg:text-xl" wz-last-el-ref="true">
+            No Money Down Today
+          </h3>
+          <p class="text-sm text-[#767676] lg:text-base lg:max-w-sm">
+            Some payment plans offer as little as no money down, if you qualify.*`
+          </p>
+        </div>
+      </div>
+      <img class="absolute bottom-0 xl:right-0 lg:right-[-100px] lg:block hidden hs-id-d50a1f11 hs-lazyload" loading="lazy" src="{{ 'solar-house-cutout.png' | asset_img_url: 'master' }}"/>
+    </div>
+  </div>
+</div>
+
+<div class="mx-auto max-w-[1440px] px-10 md:px-0 mt-20">
+  <div class="w-full text-center">
+    <h2 class="text-3xl text-black font-bold">{{ section.settings['upsell-title'] }}</h2>
+  </div>
+  <div class="grid mt-10 grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="col-span-1 bg-[#F7F7F7] p-6 rounded-md h-auto w-full">
+      <img class="object-cover w-full h-52 rounded-md hs-id-80a25e03 hs-lazyload" loading="lazy" src="{{ section.settings.image-upsell-1 | img_url: 'master' }}"/>
+      <div class="mt-8">
+        <h4 class="font-bold mb-2">{{ section.settings['box-title-upsell-1'] }}</h4>
+        <p class="text-[#424242]">{{ section.settings['box-body-upsell-1'] }}</p>
+      </div>
+    </div>
+    <div class="col-span-1 bg-[#F7F7F7] p-6 rounded-md h-auto w-full">
+      <img class="object-cover w-full h-52 rounded-md hs-id-54ead52d hs-lazyload" loading="lazy" src="{{ section.settings.image-upsell-2 | img_url: 'master' }}"/>
+      <div class="mt-8">
+        <h4 class="font-bold mb-2">{{ section.settings['box-title-upsell-2'] }}</h4>
+        <p class="text-[#424242]">{{ section.settings['box-body-upsell-2'] }}</p>
+      </div>
+    </div>
+    <div class="col-span-1 bg-[#F7F7F7] p-6 rounded-md h-auto w-full">
+      <img class="object-cover w-full h-52 rounded-md hs-id-0bc70321 hs-lazyload" loading="lazy" src="{{ section.settings.image-upsell-3 | img_url: 'master' }}"/>
+      <div class="mt-8">
+        <h4 class="font-bold mb-2">{{ section.settings['box-title-upsell-3'] }}</h4>
+        <p class="text-[#424242]">{{ section.settings['box-body-upsell-3'] }}</p>
+      </div>
+    </div>
+    <div class="col-span-1 bg-[#F7F7F7] p-6 rounded-md h-auto w-full">
+      <img class="object-cover w-full h-52 rounded-md hs-id-09d7eadc hs-lazyload" loading="lazy" src="{{ section.settings.image-upsell-4 | img_url: 'master' }}"/>
+      <div class="mt-8">
+        <h4 class="font-bold mb-2">{{ section.settings['box-title-upsell-4'] }}</h4>
+        <p class="text-[#424242]">{{ section.settings['box-body-upsell-4'] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center mt-10 w-full justify-center">
+    <a class="text-white hover:scale-105 mx-auto text-center duration-200 mt-8 font-bold inline-block px-10 py-3 text-center bg-[#F0942D] rounded-md" href="https://024wwq6ojms.typeform.com/to/F24PjymZ">Start Your Free Proposal</a>
+  </div>
+</div>
+
+<div class="w-full h-[25rem] mt-20 py-10 bg-[#212936]">
+  <div class="mx-auto max-w-[1440px] px-10 md:px-0 flex flex-col items-center justify-center md:mt-[2rem] w-full text-center">
+    <h2 class="text-white text-3xl font-bold">{{ section.settings['compare-title'] }}</h2>
+    <p class="text-white mt-5 md:w-[40rem] w-auto">{{ section.settings['compare-body'] }}</p>
+  </div>
+</div>
+<div class="mx-auto relative grid bg-white -mt-20 divide-y border-b border-[#C9C9C9] text-center divide-[#C9C9C9] grid-cols-4 max-w-[1440px]">
+  <div class="col-span-1 flex items-center justify-center"></div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Local Installer</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Other Online Retailers</div>
+  <div class="col-span-1 border-none relative z-10 p-3 flex items-center justify-center">
+    <img class="w-40 object-contain hs-id-a30b92dd hs-lazyload" loading="lazy" src="{{ 'solar-logo.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Best for You Systems</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-efff0268 hs-lazyload" loading="lazy" src="{{ 'Close.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-4df4696c hs-lazyload" loading="lazy" src="{{ 'Close.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 relative z-10 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-d4881105 hs-lazyload" loading="lazy" src="{{ 'Done.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Transparent Pricing</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-ee071a59 hs-lazyload" loading="lazy" src="{{ 'Close.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-3e388e33 hs-lazyload" loading="lazy" src="{{ 'Done.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 relative z-10 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-35babc8d hs-lazyload" loading="lazy" src="{{ 'Done.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Installation Guidance</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-c4521597 hs-lazyload" loading="lazy" src="{{ 'Done.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-1e125e05 hs-lazyload" loading="lazy" src="{{ 'Close.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex relative z-10 items-center justify-center">
+    <img class="w-8 object-contain hs-id-3d337888 hs-lazyload" loading="lazy" src="{{ 'Done.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">Lifetime Customer Support</div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-a8099eb8 hs-lazyload" loading="lazy" src="{{ 'Close.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex items-center justify-center">
+    <img class="w-8 object-contain hs-id-fab37a9b hs-lazyload" loading="lazy" src="{{ 'Close.jpg' | asset_img_url }}"/>
+  </div>
+  <div class="col-span-1 p-3 flex !border-b !border-[#C9C9C9] relative z-10 items-center justify-center">
+    <img class="w-8 object-contain hs-id-ba2a801b hs-lazyload" loading="lazy" src="{{ 'Done.jpg' | asset_img_url }}"/>
+  </div>
+  <div style="box-shadow: 0px 0px 80.6px 0px rgba(0, 0, 0, 0.17);" class="col-span-1 hidden md:block z-0 w-[360px] bg-white rounded-md scale-y-125 h-full absolute right-0 top-0"></div>
+</div>
+
+<div class="flex items-center mt-[5rem] md:mt-32 w-full justify-center">
+  <a class="text-white hover:scale-105 mx-auto text-center duration-200 mt-8 font-bold inline-block px-10 py-3 text-center bg-[#F0942D] rounded-md" href="https://024wwq6ojms.typeform.com/to/F24PjymZ">Start Your Free Proposal</a>
+</div>
+
+<div class="w-full mt-20 mb-10  text-center">
+  <h2 class="text-3xl text-black font-bold">{{ section.settings['review-title'] }}</h2>
+</div>
+
+<div class="Marquee">
+  <div class="Marquee-content gap-5">
+    {% for block in section.blocks %}
+      <div class="text-block relative h-[40rem] p-10 flex flex-col items-center bg-[#F7F7F7] w-96">
+        <span class="bg-white mt-10 min-w-[3.5rem] min-h-[3.5rem] flex items-center font-bold justify-center rounded-full w-14 h-14">
+          {{- block.settings['review-name-tag'] -}}
+        </span>
+        <p class="font-bold mt-5">{{ block.settings['review-name'] }}</p>
+        <div class="flex mt-3 gap-1 items-center justify-center">
+          <img class="w-5 object-contain hs-id-f4b26748 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-744fcfcc hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-806a1c12 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-255596c6 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-009e0382 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+        </div>
+        <div class="text-center mt-10">
+          <h2 class="font-bold">{{ block.settings['review-title'] }}</h2>
+          <p class="font-normal line-clamp-5 mt-3">{{ block.settings['review-body'] }}</p>
+        </div>
+
+        <img class="absolute w-[90%] border-solid h-64 object-cover z-10 -mb-20 border-8 border-white rounded-md bottom-0 hs-id-3355e6df hs-lazyload" loading="lazy" src="{{ block.settings.review-image | img_url: 'master' }}" style="box-shadow: 0px 0px 26.9px 0px rgba(0, 0, 0, 0.09);"/>
+      </div>
+    {% endfor %}
+    {% for block in section.blocks %}
+      <div class="text-block relative h-[40rem] p-10 rounded-md flex flex-col items-center bg-[#F7F7F7] w-96">
+        <span class="bg-white min-w-[3.5rem] min-h-[3.5rem] mt-10 flex items-center font-bold justify-center rounded-full w-14 h-14">
+          {{- block.settings['review-name-tag'] -}}
+        </span>
+        <p class="font-bold mt-5">{{ block.settings['review-name'] }}</p>
+        <div class="flex mt-3 gap-1 items-center justify-center">
+          <img class="w-5 object-contain hs-id-204437c0 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-52a9a5d9 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-6ba49c18 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-4e8cf28a hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+          <img class="w-5 object-contain hs-id-9dd4cf28 hs-lazyload" loading="lazy" src="{{ 'review-star.png' | asset_img_url }}"/>
+        </div>
+        <div class="text-center mt-10">
+          <h2 class="font-bold">{{ block.settings['review-title'] }}</h2>
+          <p class="font-normal line-clamp-5 mt-3">{{ block.settings['review-body'] }}</p>
+        </div>
+
+        <img class="absolute w-[90%] h-64 object-cover border-solid z-10 -mb-20 border-8 border-white rounded-md bottom-0 hs-id-9a19e800 hs-lazyload" loading="lazy" src="{{ block.settings.review-image | img_url: 'master' }}" style="box-shadow: 0px 0px 26.9px 0px rgba(0, 0, 0, 0.09);"/>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="flex items-center mt-32 w-full justify-center">
+  <a class="text-white hover:scale-105 mx-auto text-center duration-200 mt-8 font-bold inline-block px-10 py-3 text-center bg-[#F0942D] rounded-md" href="https://024wwq6ojms.typeform.com/to/F24PjymZ">Start Your Free Proposal</a>
+</div>
+
+<span class="bg-[#E2E2E2] block w-full h-px mt-20"></span>
+<div class="grid md:grid-cols-2 grid-cols-1 h-auto">
+  <div class="col-span-1 mx-auto max-w-3xl mt-10 px-10 md:mt-0 md:px-0 w-full flex flex-col justify-center">
+    <h2 class="text-3xl mb-10 text-black font-bold">Frequently Asked Questions</h2>
+
+    <div x-data="{ active: 1 }" class=" min-h-[16rem] space-y-4">
+      <div
+        x-data="
+          {
+              id: 1,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]">
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold">
+            <span>How much money will I save by going solar with ShopSolar.com?</span>
+            <span
+              x-show="expanded"
+              aria-hidden="true"
+              class="ml-4">&minus;</span>
+            <span
+              x-show="!expanded"
+              aria-hidden="true"
+              class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            We’re able to help you save up to 50% on your solar solution, offering true energy independence. With our 
+            online model, we’re able offer high quality solutions while cutting out the high commission sales reps and
+            expensive overhead of traditional solar companies, passing those savings on to you.
+          </div>
+        </div>
+      </div>
+
+      <div
+        x-data="
+          {
+              id: 2,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]">
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold">
+            <span>What happens after I submit my quote?</span>
+            <span
+              x-show="expanded"
+              aria-hidden="true"
+              class="ml-4">&minus;</span>
+            <span
+              x-show="!expanded"
+              aria-hidden="true"
+              class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            You will receive a confirmation email and a custom proposal within 48 hours. Our team will work with you to 
+            ensure our recommendations meet your needs.
+          </div>
+        </div>
+      </div>
+
+      <div
+        x-data="
+          {
+              id: 3,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]">
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold">
+            <span>Do you offer financing?</span>
+            <span
+              x-show="expanded"
+              aria-hidden="true"
+              class="ml-4">&minus;</span>
+            <span
+              x-show="!expanded"
+              aria-hidden="true"
+              class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            Yes. We provide quick and accessible financing solutions through Affirm & Lightstream, which can be found at 
+            checkout. We also provide you with the ability to split payments via multiple credit cards.
+          </div>
+        </div>
+      </div>
+      <div
+        x-data="
+          {
+              id: 4,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]">
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex text-left w-full items-center justify-between px-6 py-4 text-xl font-bold">
+            <span>How long will it take to receive my solar kit after I order?</span>
+            <span
+              x-show="expanded"
+              aria-hidden="true"
+              class="ml-4">&minus;</span>
+            <span
+              x-show="!expanded"
+              aria-hidden="true"
+              class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            All orders are processed within 72 hours and you can expect delivery within 5 to 10 business days. You will 
+            receive access to our customer portal after ordering, where it is easy to track all your shipments.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-span-1 mt-10 md:mt-0">
+    <img class="w-full h-[43rem] object-cover hs-id-7d4bacd7 hs-lazyload" loading="lazy" src="{{ section.settings.faq-image | img_url: 'master' }}"/>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Solar Quote Landing Page",
+    "class": "solar-quote-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "hero-image",
+        "label": "Choose Hero Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero-image-mobile",
+        "label": "Choose mobile hero image"
+      },
+      {
+        "type": "text",
+        "id": "hero-title",
+        "label": "Hero Title",
+        "default": "Unlock Your Energy Independence Today"
+      },
+      {
+        "type": "text",
+        "id": "usp-1",
+        "label": "Hero USP 1 Text",
+        "default": "Best Prices in America"
+      }, {
+        "type": "text",
+        "id": "usp-2",
+        "label": "Hero USP 2 Text",
+        "default": "Free System Designs"
+      }, {
+        "type": "text",
+        "id": "usp-3",
+        "label": "Hero USP 3 Text",
+        "default": "Legendary Customer Support"
+      }, {
+        "type": "textarea",
+        "id": "hero-sub",
+        "label": "Hero Description",
+        "default": "Best priced solar + battery company in America. With custom system designs and legendary support, save 50% or more compared to other companies when you work with us."
+      }, {
+        "type": "image_picker",
+        "id": "brand-image-1",
+        "label": "Choose brand image 1"
+      }, {
+        "type": "image_picker",
+        "id": "brand-image-2",
+        "label": "Choose brand image 2"
+      }, {
+        "type": "image_picker",
+        "id": "brand-image-3",
+        "label": "Choose brand image 3"
+      }, {
+        "type": "image_picker",
+        "id": "brand-image-4",
+        "label": "Choose brand image 4"
+      }, {
+        "type": "text",
+        "id": "upsell-title",
+        "label": "Section 2 Title",
+        "default": "We Make Going Solar Simple, Transparent & Affordable"
+      }, {
+        "type": "image_picker",
+        "id": "image-upsell-1",
+        "label": "Choose Image Upsell 1"
+      }, {
+        "type": "text",
+        "id": "box-title-upsell-1",
+        "label": "Box Title 1",
+        "default": "Start Your Quote"
+      }, {
+        "type": "textarea",
+        "id": "box-body-upsell-1",
+        "label": "Box Body 1",
+        "default": "Answer a few simple questions to start your solar journey"
+      }, {
+        "type": "image_picker",
+        "id": "image-upsell-2",
+        "label": "Choose Image Upsell 2"
+      }, {
+        "type": "text",
+        "id": "box-title-upsell-2",
+        "label": "Box Title 2",
+        "default": "Receive a Custom Proposal"
+      }, {
+        "type": "textarea",
+        "id": "box-body-upsell-2",
+        "label": "Box Body 2",
+        "default": "Our team will provide you with a custom solar solution"
+      }, {
+        "type": "image_picker",
+        "id": "image-upsell-3",
+        "label": "Choose Image Upsell 3"
+      }, {
+        "type": "text",
+        "id": "box-title-upsell-3",
+        "label": "Box Title 3",
+        "default": "Order Online"
+      }, {
+        "type": "textarea",
+        "id": "box-body-upsell-3",
+        "label": "Box Body 3",
+        "default": "Place your order online. Pay upfront or secure financing fast with low interest rates"
+      }, {
+        "type": "image_picker",
+        "id": "image-upsell-4",
+        "label": "Choose Image Upsell 4"
+      }, {
+        "type": "text",
+        "id": "box-title-upsell-4",
+        "label": "Box Title 4",
+        "default": "Go Solar"
+      }, {
+        "type": "textarea",
+        "id": "box-body-upsell-4",
+        "label": "Box Body 4",
+        "default": "Install your solar kit with our assistance and enjoy the benefits of going solar!"
+      }, {
+        "type": "text",
+        "id": "compare-title",
+        "label": "Compare Title",
+        "default": "Why Choose ShopSolar.com"
+      }, {
+        "type": "textarea",
+        "id": "compare-body",
+        "label": "Compare Body",
+        "default": "Tired of the costly and complicated traditional solar sales model? At ShopSolar.com, we streamline the process with our digital-first platform, offering one-click complete solar power solutions that save you up to 50%, often including batteries, for true energy independence. Join over 45,000 satisfied customers enjoying affordable solar energy. Start your journey towards saving thousands at ShopSolar.com today!"
+      }, {
+        "type": "text",
+        "id": "review-title",
+        "label": "Review Title",
+        "default": "Customer Success Stories"
+      }, {
+        "type": "image_picker",
+        "id": "faq-image",
+        "label": "FAQ Image"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Reviews",
+        "type": "review",
+        "settings": [
+          {
+            "type": "text",
+            "id": "review-name-tag",
+            "label": "Enter Name Tag",
+            "default": "JM"
+          },
+          {
+            "type": "text",
+            "id": "review-name",
+            "label": "Enter Review Name",
+            "default": "James Martin"
+          },
+          {
+            "type": "text",
+            "id": "review-title",
+            "label": "Enter Review Title",
+            "default": "So much shipping/delivery care!!"
+          },
+          {
+            "type": "textarea",
+            "id": "review-body",
+            "label": "Enter Review text",
+            "default": "I love this thing so much! I have a small cabin that I added a 14x14 addition onto, and it powers everything I need. Fans, lights, microwave, Keurig for coffee in the mornings, electric blankets and my smoker grill!"
+          }, {
+            "type": "image_picker",
+            "id": "review-image",
+            "label": "Choose Review Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

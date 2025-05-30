@@ -1,0 +1,17 @@
+[
+{%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks limit: 10000-%}
+        {%- if block.type == 'variant_data' -%}
+            {
+            "KIT": "{{ block.settings.title }}",
+            "INV": {% if block.settings.inv %}{{ block.settings.inv }}{% else %}0{% endif %},
+            "BATT": {% if block.settings.bat %}{{ block.settings.bat }}{% else %}0{% endif %},
+            "PAN": {% if block.settings.pan %}{{ block.settings.pan }}{% else %}0{% endif %},
+            "COL": "{{ block.settings.col }}",
+            "handle": "{{ block.settings.handle }}",
+            "cost": {% if block.settings.cost %}{{ block.settings.cost }}{% else %}0{% endif %}
+            }{% unless forloop.last %},{% endunless %}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+]

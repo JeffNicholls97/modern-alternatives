@@ -1,0 +1,31 @@
+<template data-html="list">
+  {% render 'cart-item-list' %}
+</template>
+
+{%- assign totalCP = 0 -%}
+{%- for item in cart.items -%}
+    {%- assign tmpVariant = item.product.variants | where:"id",item.id | first -%}
+    {%- if tmpVariant.compare_at_price != blank -%}
+        {% assign tmpPrice = tmpVariant.compare_at_price | times:item.quantity -%}
+    {%- else -%}
+        {% assign tmpPrice = tmpVariant.price | times:item.quantity -%}
+    {%- endif -%}
+    {%- assign totalCP = totalCP | plus:tmpPrice -%}
+{%- endfor -%}
+{%- assign savings = totalCP  | minus: cart.total_price -%}
+
+<template data-html="cart_total_cp">
+    {{- totalCP | money -}}
+</template>
+
+<template data-html="cart_total_savings">
+    {{- savings | money -}}
+</template>
+
+<template data-html="cart_total">
+  {{- cart.total_price | money -}}
+</template>
+
+<template data-html="discounts">
+  {% render 'cart-discounts' %}
+</template>

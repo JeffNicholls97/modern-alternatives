@@ -1,0 +1,54 @@
+<span class="bg-[#E2E2E2] block w-full h-px mt-20"></span>
+<div class="grid md:grid-cols-2 grid-cols-1 h-auto">
+  <div class="col-span-1 py-10 mx-auto max-w-3xl mt-10 px-10 md:mt-0 md:px-0 w-full flex flex-col justify-center">
+    <h2 class="text-3xl mb-10 text-black font-bold">{{ section.settings.review-title }}</h2>
+
+    <div x-data="{ active: 1 }" class=" min-h-[16rem] space-y-4">
+      {% for block in section.blocks %}
+        <div
+          x-data="
+          {
+              id: {{ forloop.index }},
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+          role="region"
+          class="rounded-md bg-[#F7F7F7]">
+          <h2>
+            <button
+              x-on:click="expanded = !expanded"
+              :aria-expanded="expanded"
+              class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold">
+              <span>{{ block.settings.faq-question }}</span>
+              <span
+                x-show="expanded"
+                aria-hidden="true"
+                class="ml-4">&minus;</span>
+              <span
+                x-show="!expanded"
+                aria-hidden="true"
+                class="ml-4">&plus;</span>
+            </button>
+          </h2>
+
+          <div x-show="expanded" x-collapse>
+            <div class="px-6 pb-4 text-[#9B9B9B]">
+              {{ block.settings.faq-answer }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-span-1 mt-10 md:mt-0">
+    <img
+      class="w-full h-[43rem] object-cover hs-id-ae8988d6 hs-lazyload"
+      loading="lazy"
+      src="{{ section.settings.faq-image | img_url: 'master' }}" />
+  </div>
+</div></div>

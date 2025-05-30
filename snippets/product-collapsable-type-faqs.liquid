@@ -1,0 +1,31 @@
+{% liquid
+    assign faqs = product.selected_or_first_available_variant.metafields.faqs.data.value
+%}
+<div class="pdp-faqs-content">
+    {% if faqs.size > 0 %}
+        {% for faq in faqs %}
+            {% assign question = faq | split: ':' | first %}
+            {% assign answer = faq | split: ':' | last %}
+            <div class="pdp-faq">
+                <h3 class="product-section--title pdp-faq-question">
+                    <span>{{ question }}{% unless question contains '?' %}?{% endunless %}</span>
+                </h3>
+                <p>{{ answer }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+            {% if block.type == 'faqs' %}
+                {% assign question = block.settings.question %}
+                {% assign answer = block.settings.answer %}
+                <div class="pdp-faq">
+                    <h3 class="product-section--title pdp-faq-question">
+                        <span>{{ question }}{% unless question contains '?' %}?{% endunless %}</span>
+                    </h3>
+                    <p>{{ answer }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

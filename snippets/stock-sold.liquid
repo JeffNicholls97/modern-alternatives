@@ -1,0 +1,33 @@
+{% assign min = 1001 %}
+{% assign max = 1147 %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+<style>
+p.orders-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+  span.orders-image {
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #0baa0b;
+    color: #0daa0c;
+}
+
+  span.orders-second-text {
+    display: flex;
+    align-items: center;
+    color: #a30000;
+}
+
+  span.orders-graph img {
+    width: 22px;
+    margin-right: 10px;
+}
+  
+</style>
+
+<p class="orders-container"><span class="orders-image"><img class="hs-id-cf426073 hs-lazyload" height="30" loading="lazy" src="{{ 'Tick.svg' | asset_url }}" width="30"/>In Stock</span><span class="orders-second-text"><span class="orders-graph"><img class="hs-id-4544e026 hs-lazyload" height="30" loading="lazy" src="{{ 'Line Chart Up.svg' | asset_url }}" width="30"/></span>{{ randomNumber }}+ sold in the last 7 days</span></p>

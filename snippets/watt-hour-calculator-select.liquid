@@ -1,0 +1,178 @@
+<div style="display: flex; justify-content: center; align-content: center; margin-top: 16px" id="calculatorSection{{sectionNumber}}">
+        <select name="appliance-name" onchange="changeSelection(event, this.value,)" class="calculator__appliance-selection"
+                aria-hidden="true">
+            <option data-select2-id="select2-data-1134-ea9w">Choose an option</option>
+            <option selected="selected" value='{ "name": "Blender", "quantity": "1", "watts": "500", "hoursOnPerDay": "1", "wattHoursPerDay": "500" }' data-select2-id="select2-data-1135-qz5m">Blender</option>
+            <option value='{ "name": "Can Opener", "quantity": "1", "watts": "150", "hoursOnPerDay": "1", "wattHoursPerDay": "150" }' data-select2-id="select2-data-1136-uxlh">Can Opener</option>
+            <option value='{"name":"Coffee Machine","quantity":"1","watts":"1000","hoursOnPerDay":"0.2","wattHoursPerDay":"200"}'>Coffee Machine</option>
+            <option value='{"name":"Dishwasher","quantity":"1","watts":"1500","hoursOnPerDay":"1","wattHoursPerDay":"1500"}'>Dishwasher</option>
+            <option value='{"name":"Espresso Machine","quantity":"1","watts":"800","hoursOnPerDay":"1","wattHoursPerDay":"800"}'>Espresso Machine</option>
+            <option value='{"name":"Freezer - Upright - 15 cu. ft.","quantity":"1","watts":"310","hoursOnPerDay":"4","wattHoursPerDay":"1240"}'>Freezer - Upright</option>
+            <option value='{"name":"Freezer - Chest - 15 cu. ft.","quantity":"1","watts":"270","hoursOnPerDay":"4","wattHoursPerDay":"1080"}'>Freezer - Chest</option>
+            <option value='{"name":"Fridge - 20 cu. ft. (AC)","quantity":"1","watts":"353","hoursOnPerDay":"4","wattHoursPerDay":"1412"}'>Fridge - 20 cu. ft.</option>
+            <option value='{"name":"Fridge -16 cu. ft. (AC)","quantity":"1","watts":"300","hoursOnPerDay":"4","wattHoursPerDay":"1200"}'>Fridge -16 cu. ft.</option>
+            <option value='{"name":"Garbage Disposal","quantity":"1","watts":"450","hoursOnPerDay":"1","wattHoursPerDay":"450"}'>Garbage Disposal</option>
+            <option value='{"name":"Kettle - Electric","quantity":"1","watts":"1200","hoursOnPerDay":"1","wattHoursPerDay":"1200"}'>Kettle - Electric</option>
+            <option value='{"name":"Oven - Electric","quantity":"1","watts":"1200","hoursOnPerDay":"1","wattHoursPerDay":"1200"}'>Oven - Electric</option>
+            <option value='{"name":"Toaster","quantity":"1","watts":"850","hoursOnPerDay":"1","wattHoursPerDay":"850"}'>Toaster</option>
+            <option value='{"name":"Toaster Oven","quantity":"1","watts":"1200","hoursOnPerDay":"0.2","wattHoursPerDay":"240"}'>Toaster Oven</option>
+            <option value='{"name":"Stand Mixer","quantity":"1","watts":"300","hoursOnPerDay":"1","wattHoursPerDay":"300"}'>Stand Mixer</option>
+            <option value='{"name":"Box Fan","quantity":"1","watts":"200","hoursOnPerDay":"1","wattHoursPerDay":"200"}'>Box Fan</option>
+            <option value='{"name":"Ceiling Fan","quantity":"1","watts":"120","hoursOnPerDay":"1","wattHoursPerDay":"120"}'>Ceiling Fan</option>
+            <option value='{"name":"Central Air Conditioner","quantity":"1","watts":"3800","hoursOnPerDay":"1","wattHoursPerDay":"3800"}'>Central Air Conditioner</option>
+            <option value='{"name":"Furnace Fan Blower","quantity":"1","watts":"800","hoursOnPerDay":"1","wattHoursPerDay":"800"}'>Furnace Fan Blower</option>
+            <option value='{"name":"Space Heater NA","quantity":"1","watts":"1500","hoursOnPerDay":"1","wattHoursPerDay":"1500"}'>Space Heater NA</option>
+            <option value='{"name":"Tankless Water Heater - Electric","quantity":"1","watts":"1500","hoursOnPerDay":"1","wattHoursPerDay":"1500"}'>Tankless Water Heater</option>
+            <option value='{"name":"Water Heater - Electric","quantity":"1","watts":"4500","hoursOnPerDay":"1","wattHoursPerDay":"4500"}'>Water Heater</option>
+            <option value='{"name":"Window Air Conditioner 12,000 BTU NA","quantity":"1","watts":"1200","hoursOnPerDay":"1","wattHoursPerDay":"1200"}'>Window Air Conditioner</option>
+            <option value='{"name":"Vacuum","quantity":"1","watts":"1000","hoursOnPerDay":"1","wattHoursPerDay":"1000"}'>Vacuum</option>
+            <option value='{"name":"Clothes Dryer - Electric","quantity":"1","watts":"3000","hoursOnPerDay":"1","wattHoursPerDay":"3000"}'>Clothes Dryer - Electric</option>
+            <option value='{"name":"Clothes Dryer - Gas","quantity":"1","watts":"1800","hoursOnPerDay":"1","wattHoursPerDay":"1800"}'>Clothes Dryer - Gas</option>
+            <option value='{"name":"Clothes Washer","quantity":"1","watts":"800","hoursOnPerDay":"1","wattHoursPerDay":"800"}'>Clothes Washer</option>
+            <option value='{"name":"Bluray Player","quantity":"1","watts":"15","hoursOnPerDay":"1","wattHoursPerDay":"15"}'>Bluray Player</option>
+            <option value='{"name":"Cable Box","quantity":"1","watts":"35","hoursOnPerDay":"1","wattHoursPerDay":"35"}'>Cable Box</option>
+            <option value='{"name":"DVD Player","quantity":"1","watts":"15","hoursOnPerDay":"1","wattHoursPerDay":"15"}'>DVD Player</option>
+            <option value='{"name":"TV - LCD","quantity":"1","watts":"150","hoursOnPerDay":"3","wattHoursPerDay":"450"}'>TV - LCD</option>
+            <option value='{"name":"TV - Plasma","quantity":"1","watts":"200","hoursOnPerDay":"1","wattHoursPerDay":"200"}'>TV - Plasma</option>
+            <option value='{"name":"Satellite Dish","quantity":"1","watts":"25","hoursOnPerDay":"1","wattHoursPerDay":"25"}'>Satellite Dish</option>
+            <option value='{"name":"Stereo Receiver","quantity":"1","watts":"450","hoursOnPerDay":"1","wattHoursPerDay":"450"}'>Stereo Receiver</option>
+            <option value='{"name":"Video Game Console","quantity":"1","watts":"150","hoursOnPerDay":"1","wattHoursPerDay":"150"}'>Video Game Console</option>
+            <option value='{"name":"CFL Bulb - 40 Watt Equivalent","quantity":"1","watts":"11","hoursOnPerDay":"1","wattHoursPerDay":"11"}'>CFL Bulb 40 Watt Equivalent</option>
+            <option value='{"name":"CFL Bulb - 60 Watt Equivalent","quantity":"10","watts":"18","hoursOnPerDay":"6","wattHoursPerDay":"1080"}'>CFL Bulb 60 Watt Equivalent</option>
+            <option value='{"name":"CFL Bulb - 75 Watt Equivalent","quantity":"1","watts":"20","hoursOnPerDay":"1","wattHoursPerDay":"20"}'>CFL Bulb 75 Watt Equivalent</option>
+            <option value='{"name":"CFL Bulb - 100 Watt Equivalent","quantity":"1","watts":"30","hoursOnPerDay":"1","wattHoursPerDay":"30"}'>CFL Bulb 100 Watt Equivalent</option>
+            <option value='{"name":"Compact Fluorescent 20 Watt","quantity":"1","watts":"22","hoursOnPerDay":"1","wattHoursPerDay":"22"}'>Compact Fluorescent 20 Watt</option>
+            <option value='{"name":"Compact Fluorescent 25 Watt","quantity":"1","watts":"28","hoursOnPerDay":"1","wattHoursPerDay":"28"}'>Compact Fluorescent 25 Watt</option>
+            <option value='{"name":"Halogen - 40 Watt","quantity":"1","watts":"40","hoursOnPerDay":"1","wattHoursPerDay":"40"}'>Halogen - 40 Watt</option>
+            <option value='{"name":"Incandescent 50 Watt","quantity":"1","watts":"50","hoursOnPerDay":"1","wattHoursPerDay":"50"}'>Incandescent 50 Watt</option>
+            <option value='{"name":"Incandescent 100 Watt","quantity":"1","watts":"100","hoursOnPerDay":"1","wattHoursPerDay":"100"}'>Incandescent 100 Watt</option>
+            <option value='{"name":"LED Bulb - 40 Watt Equivalent","quantity":"1","watts":"10","hoursOnPerDay":"1","wattHoursPerDay":"10"}'>LED Bulb 40 Watt Equivalent</option>
+            <option value='{"name":"LED Bulb - 60 Watt Equivalent","quantity":"1","watts":"13","hoursOnPerDay":"1","wattHoursPerDay":"13"}'>LED Bulb 60 Watt Equivalent</option>
+            <option value='{"name":"LED Bulb - 75 watt equivalent","quantity":"1","watts":"18","hoursOnPerDay":"1","wattHoursPerDay":"18"}'>LED Bulb 75 Watt equivalent</option>
+            <option value='{"name":"LED Bulb - 100 Watt Equivalent","quantity":"1","watts":"23","hoursOnPerDay":"1","wattHoursPerDay":"23"}'>LED Bulb 100 Watt Equivalent</option>
+            <option value='{"name":"Desktop Computer (Standard)","quantity":"1","watts":"200","hoursOnPerDay":"1","wattHoursPerDay":"200"}'>Desktop Computer (Standard)</option>
+            <option value='{"name":"Desktop Computer (Gaming)","quantity":"1","watts":"500","hoursOnPerDay":"1","wattHoursPerDay":"500"}'>Desktop Computer (Gaming)</option>
+            <option value='{"name":"Laptop","quantity":"1","watts":"100","hoursOnPerDay":"4","wattHoursPerDay":"400"}'>Laptop</option>
+            <option value='{"name":"LCD Monitor","quantity":"1","watts":"100","hoursOnPerDay":"1","wattHoursPerDay":"100"}'>LCD Monitor</option>
+            <option value='{"name":"Modem","quantity":"1","watts":"7","hoursOnPerDay":"24","wattHoursPerDay":"168"}'>Modem</option>
+            <option value='{"name":"Printer","quantity":"1","watts":"100","hoursOnPerDay":"1","wattHoursPerDay":"100"}' data-select2-id="select2-data-1191-ikgo">Printer</option>
+            <option value='{"name":"Router","quantity":"1","watts":"7","hoursOnPerDay":"24","wattHoursPerDay":"168"}' data-select2-id="select2-data-1192-smnd">Router</option>
+            <option value='{"name":"Smart Phone- Recharge","quantity":"1","watts":"6","hoursOnPerDay":"3","wattHoursPerDay":"18"}' data-select2-id="select2-data-1193-vgeb">Smart Phone- Recharge</option>
+            <option value='{"name":"Tablet- Recharge","quantity":"1","watts":"8","hoursOnPerDay":"1","wattHoursPerDay":"8"}' data-select2-id="select2-data-1194-60oz">Tablet- Recharge</option>
+            <option value='{"name":"Band Saw - 14\"","quantity":"1","watts":"1100","hoursOnPerDay":"1","wattHoursPerDay":"1100"}' data-select2-id="select2-data-1195-69fx">Band Saw - 14"</option>
+            <option value='{"name":"Belt Sander - 3\"","quantity":"1","watts":"1000","hoursOnPerDay":"1","wattHoursPerDay":"1000"}' data-select2-id="select2-data-1196-bbuo">Belt Sander - 3"</option>
+            <option value='{"name":"Chain Saw - 12\"","quantity":"1","watts":"1100","hoursOnPerDay":"1","wattHoursPerDay":"1100"}' data-select2-id="select2-data-1197-e2ki">Chain Saw - 12"</option>
+            <option value='{"name":"Circular Saw - 7-1/4\"","quantity":"1","watts":"900","hoursOnPerDay":"1","wattHoursPerDay":"900"}' data-select2-id="select2-data-1198-gx2q">Circular Saw - 7-1/4"</option>
+            <option value='{"name":"Circular Saw 8-1/4\"","quantity":"1","watts":"1400","hoursOnPerDay":"1","wattHoursPerDay":"1400"}' data-select2-id="select2-data-1199-c7te">Circular Saw 8-1/4"</option>
+            <option value='{"name":"Disc Sander - 9\"","quantity":"1","watts":"1200","hoursOnPerDay":"1","wattHoursPerDay":"1200"}' data-select2-id="select2-data-1200-nlvg">Disc Sander - 9"</option>
+            <option value='{"name":"Drill - 1/4\"","quantity":"1","watts":"250","hoursOnPerDay":"1","wattHoursPerDay":"250"}' data-select2-id="select2-data-1201-syse">Drill - 1/4"</option>
+            <option value='{"name":"Drill - 1/2\"","quantity":"1","watts":"750","hoursOnPerDay":"1","wattHoursPerDay":"750"}' data-select2-id="select2-data-1202-plwm">Drill - 1/2"</option>
+            <option value='{"name":"Drill - 1\"","quantity":"1","watts":"100","hoursOnPerDay":"1","wattHoursPerDay":"100"}' data-select2-id="select2-data-1203-gme2">Drill - 1"</option>
+            <option value='{"name":"Hedge Trimmer","quantity":"1","watts":"450","hoursOnPerDay":"1","wattHoursPerDay":"450"}' data-select2-id="select2-data-1204-kdc2">Hedge Trimmer</option>
+            <option value='{"name":"Weed Eater","quantity":"1","watts":"500","hoursOnPerDay":"1","wattHoursPerDay":"500"}' data-select2-id="select2-data-1205-mm23">Weed Eater</option>
+            <option value='{"name":"Clock Radio","quantity":"1","watts":"7","hoursOnPerDay":"1","wattHoursPerDay":"7"}' data-select2-id="select2-data-1206-xdy5">Clock Radio</option>
+            <option value='{"name":"Curling Iron","quantity":"1","watts":"150","hoursOnPerDay":"1","wattHoursPerDay":"150"}' data-select2-id="select2-data-1207-91k9">Curling Iron</option>
+            <option value='{"name":"Dehumidifier","quantity":"1","watts":"280","hoursOnPerDay":"1","wattHoursPerDay":"280"}' data-select2-id="select2-data-1208-j2pm">Dehumidifier</option>
+            <option value='{"name":"Electric Shaver","quantity":"1","watts":"15","hoursOnPerDay":"1","wattHoursPerDay":"15"}' data-select2-id="select2-data-1209-0lvj">Electric Shaver</option>
+            <option value='{"name":"Electric Blanket","quantity":"1","watts":"200","hoursOnPerDay":"1","wattHoursPerDay":"200"}' data-select2-id="select2-data-1210-7jnv">Electric Blanket</option>
+            <option value='{"name":"Hair Dryer","quantity":"1","watts":"1500","hoursOnPerDay":"1","wattHoursPerDay":"1500"}' data-select2-id="select2-data-1211-jmfx">Hair Dryer</option>
+            <option value='{"name":"Humidifier","quantity":"1","watts":"200","hoursOnPerDay":"1","wattHoursPerDay":"200"}' data-select2-id="select2-data-1212-yph3">Humidifier</option>
+            <option value='{"name":"Radiotelephone - Receive","quantity":"1","watts":"5","hoursOnPerDay":"1","wattHoursPerDay":"5"}' data-select2-id="select2-data-1213-2cg7">Radiotelephone - Receive
+            </option>
+            <option value='{"name":"Radiotelephone - Transmit","quantity":"1","watts":"75","hoursOnPerDay":"1","wattHoursPerDay":"75"}' data-select2-id="select2-data-1214-ejc8">Radiotelephone - Transmit
+            </option>
+            <option value='{"name":"Sewing Machine","quantity":"1","watts":"100","hoursOnPerDay":"1","wattHoursPerDay":"100"}' data-select2-id="select2-data-1215-blek">Sewing Machine</option>
+            <option value='{"name":"Well Pump - 1/3 1HP","quantity":"1","watts":"1000","hoursOnPerDay":"1","wattHoursPerDay":"1000"}' data-select2-id="select2-data-1216-romm">Well Pump - 1/3 1HP</option>
+            <option value='{"name":"Well Pump - 3 HP","quantity":"1","watts":"2500","hoursOnPerDay":"1","wattHoursPerDay":"2500"}' data-select2-id="select2-data-1217-1kvz">Well Pump - 3 HP</option>
+            <option value='{"name":"Well Pump - 5 HP","quantity":"1","watts":"4500","hoursOnPerDay":"1","wattHoursPerDay":"4500"}' data-select2-id="select2-data-1218-twox">Well Pump - 5 HP</option>
+        </select>
+    <div class="calculator__input">
+        <input type="text" value="1"  name="quantity">
+    </div>
+    <div class="calculator__input">
+        <input type="text" value="500" name="watts">
+    </div>
+    <div class="calculator__input">
+        <input type="text" value="1" name="hours-on-per-day">
+    </div>
+    <div class="calculator__input calculator__input-watt-hours-per-day">
+        <input type="text" value='500' name="watt-hours-per-day">
+    </div>
+    <button id="deleteButton{{ sectionNumber }}" onclick="deleteSection(id);" class="calculator__delete-button"><i class="fa fa-close"></i></button>
+</div>
+
+<script>
+    function calculateTotal(){
+        const wattHours = Array.from(document.querySelectorAll("[name=watt-hours-per-day]"))
+        let total = 0
+        wattHours.forEach(wh => {
+            total += Number(wh.value)
+        })
+        document.getElementById('total-watt-hours-per-day').innerText = total
+        document.getElementById('kilowatt-hours-per-month').innerText = (total * 30 / 1000).toFixed(0).toString()
+    }
+
+
+    let wattsInput = document.querySelector("[name=watts]");
+    let quantityInput = document.querySelector("[name=quantity]");
+    let hoursOnPerDayInput = document.querySelector("[name=hours-on-per-day]");
+    let wattHoursPerDayInput = document.querySelector("[name=watt-hours-per-day]");
+
+
+
+    function changeSelection(event, newSelection){
+        const section = event.path[1].id
+        const div = document.getElementById(section)
+        let wattsInput = div.querySelector("[name=watts]");
+        let quantityInput = div.querySelector("[name=quantity]");
+        let hoursOnPerDayInput = div.querySelector("[name=hours-on-per-day]");
+        let wattHoursPerDayInput = div.querySelector("[name=watt-hours-per-day]");
+        const appliance = JSON.parse(`${newSelection}`)
+
+        wattsInput.value = appliance.watts
+        quantityInput.value = appliance.quantity
+        hoursOnPerDayInput.value = appliance.hoursOnPerDay
+        wattHoursPerDayInput.value = appliance.wattHoursPerDay
+        calculateTotal()
+    }
+
+
+
+    function calculateWattHoursPerDay() {
+        const watts = Number(wattsInput.value)
+        const quantity = Number(quantityInput.value);
+        const hoursOnPerDay = Number(hoursOnPerDayInput.value)
+        const total = watts * quantity * hoursOnPerDay
+        if(isNaN(total)){
+            wattHoursPerDayInput.value = 'Invalid Input'
+        } else {
+            wattHoursPerDayInput.value = total.toString()
+        }
+        calculateTotal()
+    }
+
+
+    wattsInput.addEventListener("input", calculateWattHoursPerDay);
+    quantityInput.addEventListener("input", calculateWattHoursPerDay);
+    hoursOnPerDayInput.addEventListener("input", calculateWattHoursPerDay);
+    wattHoursPerDayInput.addEventListener("input", calculateTotal)
+    calculateWattHoursPerDay()
+    calculateTotal()
+
+    function deleteSection(id) {
+        const sectionNumber = id.replace( /^\D+/g, '')
+        const div = document.getElementById('calculatorSection' + sectionNumber)
+        if(!div){
+            return
+        }
+        const sections = div.parentNode.querySelectorAll('[id^=calculatorSection]')
+        if(sections.length <= 1){
+            return //don't delete last section.
+        }
+        div.parentNode.removeChild(div);
+        calculateTotal()
+    }
+    let currentSectionNumber = {{ sectionNumber }}
+    document.getElementById(`deleteButton${currentSectionNumber}`).addEventListener("click", deleteSection);
+
+</script>

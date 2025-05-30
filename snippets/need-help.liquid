@@ -1,0 +1,68 @@
+<style>
+    .section-need-help {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .section-need-help .section-need-help-image {
+        margin-right: 20px;
+    }
+    .section-need-help .section-need-help-image img {
+        border-radius: 50%;
+        width: 100px;
+    }
+    .section-need-help .section-need-help-content p {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .section-need-help .section-need-help-content h4 {
+        margin: 0;
+    }
+    .section-need-help .section-need-help-content a {
+        cursor: pointer;
+        color: {{ settings.color_button_background }};
+        text-decoration: underline;
+    }
+</style>
+<div class="section-need-help">
+    <div class="section-need-help-image">
+        <img alt="Support Agent" class="hs-id-65a78597 hs-lazyload" height="100" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/alex-headshot.jpg?v=1699559185" width="100"/>
+    </div>
+    <div class="section-need-help-content">
+        <h4>Have a question? We're here to help.</h4>
+        <p><span>Friendly Phone Support:&nbsp;</span> <a href="tel:877-242-2792">877-242-2792</a></p>
+        {% unless block.settings.live_chat %}
+            <p><span>Instant Live Chat:&nbsp;</span> <a onclick="document.querySelector('.zsiq_floatmain')?.click();return false;">Chat Now</a></p>
+        {% endunless %}
+        Mon-Fri 10am-6pm EST
+    </div>
+</div>
+<div id="roi_calculator_widget_mobile"></div>
+{% liquid
+    assign is_available = false
+    assign roi_calc_visible_available = settings.roi_calc_visible_available
+    assign roi_calc_visible_for_collection_list = settings.roi_calc_visible_for_collection_list
+    if roi_calc_visible_available
+        assign is_available = true
+    elsif roi_calc_visible_for_collection_list
+        for roi_calc_visible_for_collection in roi_calc_visible_for_collection_list
+            for pdt_collection in product.collections
+                if roi_calc_visible_for_collection == pdt_collection
+                    assign is_available = true
+                    break
+                endif
+            endfor
+        endfor
+    endif
+    if template contains 'product'
+        if product.metafields.template.hide_roi_calc
+            assign is_available = false
+        endif
+    endif
+    if is_available
+        render 'roi-calc', product: product
+        render 'roi-calc-html', product: product
+    endif
+%}

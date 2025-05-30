@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.template-collection .productitem--image img {
+    @apply !w-full
+}
+
+.flickity-slider .metafield-atts {
+    @apply hidden
+}

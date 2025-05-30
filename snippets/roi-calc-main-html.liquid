@@ -1,0 +1,270 @@
+<div id="roi-calc">
+    <style>
+        #roi-calc .range-input-wrap {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #roi-calc .range-helper-number-input-wrap {
+            position: relative;
+            padding: 4px 5px;
+            background-color: #222f3e;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+        #roi-calc .range-helper-number-input-wrap .range-helper-num-value {
+            position: absolute;
+            color: #FFFFFF;
+            top: 4px;
+            right: 22px;
+            pointer-events: none;
+        }
+        #roi-calc .range-helper-number-input {
+            width: 75px;
+            padding: 0 !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            color: #222f3e;
+            caret-color: #FFF;
+            background-color: #222f3e;
+            text-align: right;
+            font-weight: bold;
+        }
+        #roi-calc .range-helper-number-input:focus {
+            color: #FFF;
+        }
+        #roi-calc .range-helper-number-input:focus ~ .range-helper-num-value {
+            opacity: 0;
+        }
+
+        #roi-calc .range-input {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            padding: 5px 0;
+            border: 1px solid #ff991c;
+        }
+        #roi-calc .range-helper-number-input-wrap,
+        #roi-calc .roi_calc_product_price_helper label {
+            font-size: 16px;
+        }
+
+        #roi-calc .range-input {
+            -webkit-appearance: none;
+            margin-right: auto;
+            width: calc(100% - 115px);
+            height: 7px;
+            background: #fff;
+            border-radius: 5px;
+            background-image: linear-gradient(#ff991c, #ff991c);
+            background-size: 0 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* Input Thumb */
+        #roi-calc .range-input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ff991c;
+            cursor: ew-resize;
+            box-shadow: 0 0 2px 0 #555;
+            transition: background .3s ease-in-out;
+        }
+
+        #roi-calc .range-input::-moz-range-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ff991c;
+            cursor: ew-resize;
+            box-shadow: 0 0 2px 0 #555;
+            transition: background .3s ease-in-out;
+        }
+
+        #roi-calc .range-input::-ms-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ff991c;
+            cursor: ew-resize;
+            box-shadow: 0 0 2px 0 #555;
+            transition: background .3s ease-in-out;
+        }
+
+        #roi-calc .range-input::-webkit-slider-thumb:hover {
+            background: #ff991c;
+        }
+
+        #roi-calc .range-input::-moz-range-thumb:hover {
+            background: #ff991c;
+        }
+
+        #roi-calc .range-input::-ms-thumb:hover {
+            background: #ff991c;
+        }
+
+        /* Input Track */
+        #roi-calc .range-input::-webkit-slider-runnable-track  {
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+
+        #roi-calc .range-input::-moz-range-track {
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+
+        #roi-calc .range-input::-ms-track {
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+        /*
+    black #222f3e
+    orange #ff991c
+    */
+        #roi_calculator_widget #roi-calc {
+            position: absolute;
+            top: var(--product_gallery_height);
+            max-width: var(--product_gallery_width);
+            width: 100%;
+        }
+        #roi-calc {
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 450px;
+            border: 2px solid #222f3e;
+            border-radius: 15px;
+        }
+        .product--section.section--canonical #roi-calc .roi-calc-inputs {
+            display: none;
+        }
+        #roi-calc .roi-calc-control {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #roi-calc .roi-calc-heading h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        #roi-calc .roi-calc-label {
+            font-size: 16px;
+            color: #222f3e;
+        }
+        #roi-calc .roi-calc-label strong {
+            font-weight: bold;
+        }
+        #roi-calc .roi-calc-label + .range-input-wrap {
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+        #roi-calc table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        #roi-calc table td {
+            padding: 5px;
+            border: 1px solid #222f3e;
+            font-size: 16px;
+            color: #222f3e;
+        }
+        #roi-calc .roi-calc-message {
+            position: relative;
+            font-size: 14px;
+            font-weight: 400;
+            color: #222f3e;
+        }
+        #roi-calc .roi-calc-message p {
+            margin: 0;
+        }
+        #roi-calc .roi-calc-message:before {
+            content: "*";
+            position: absolute;
+            left: -8px;
+            top: 2px;
+        }
+        #roi-calc .range-helper-number-input-wrap,
+        #roi-calc .roi-calc-result {
+            width: 100px;
+        }
+        #roi-calc .roi-calc-result {
+            font-weight: bold;
+        }
+        #roi-calc .roi-calc-result:before {
+            content: "{{ cart.currency.symbol }}";
+        }
+        #roi-calc .roi-calc-result span {
+            text-align: right;
+            display: inline-block;
+            width: calc(100% - 25px);
+        }
+    </style>
+
+    {% assign selected_variant_prepared_price = product.selected_or_first_available_variant.price | money_without_trailing_zeros | remove: ',' | remove: cart.currency.symbol | default: settings.roi_calc_default_price %}
+
+    <input type="hidden" id="roi_calc_data"
+           data-roi_result_federal_tax_credit="{{ settings.roi_result_federal_tax_credit_calculations }}"
+           data-roi_result_estimated_annual_electricity_savings="{{ settings.roi_result_estimated_annual_electricity_savings_calculations }}"
+           data-roi_result_cost_after_incentives_and_savings="{{ settings.roi_result_cost_after_incentives_and_savings_calculations }}"
+           data-roi_result_estimated_home_value_increase="{{ settings.roi_result_estimated_home_value_increase_calculations }}"
+    >
+    {% if product and product.variants.size > 0 %}
+        <div class="roi-calc-variants">
+            {% for variant in product.variants %}
+                {% assign variant_prepared_price = variant.price | money_without_trailing_zeros | remove: ',' | remove: cart.currency.symbol %}
+                <input type="hidden" id="variant_{{ variant.id }}" data-price="{{ variant_prepared_price }}">
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="roi-calc-heading">
+        <h3>{{ settings.roi_calc_heading }}</h3>
+    </div>
+    <div class="roi-calc-control">
+        <div class="roi-calc-inputs">
+            <label for="roi_calc_product_price_helper" class="roi-calc-label">{{ settings.roi_calc_price_label }}</label>
+            <div class="range-input-wrap">
+                <input class="range-input" type="range" id="roi_calc_product_price" name="roi_calc_product_price" min="10" max="200000" value="{{ selected_variant_prepared_price }}" oninput="handleInputChange(this, roi_calc_product_price_helper)" />
+                <div class="range-helper-number-input-wrap">
+                    <span>{{ cart.currency.symbol }}</span>
+                    <input class="range-helper-number-input" type="number" id="roi_calc_product_price_helper" name="roi_calc_product_price_helper" min="10" max="200000" value="{{ selected_variant_prepared_price }}" oninput="handleInputChange(this, roi_calc_product_price)" />
+                    <div class="range-helper-num-value">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros | remove: cart.currency.symbol }}</div>
+                </div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td>{{ settings.roi_result_federal_tax_credit_label }}</td>
+                <td class="roi-calc-result roi_result_federal_tax_credit"></td>
+            </tr>
+            <tr>
+                <td>{{ settings.roi_result_estimated_annual_electricity_savings_label }}</td>
+                <td class="roi-calc-result roi_result_estimated_annual_electricity_savings"></td>
+            </tr>
+            <tr>
+                <td>{{ settings.roi_result_cost_after_incentives_and_savings_label }}</td>
+                <td class="roi-calc-result roi_result_cost_after_incentives_and_savings"></td>
+            </tr>
+            <tr>
+                <td>{{ settings.roi_result_estimated_home_value_increase_label }}</td>
+                <td class="roi-calc-result roi_result_estimated_home_value_increase"></td>
+            </tr>
+        </table>
+        <div class="roi-calc-message">{{ settings.roi_calc_additional_text }}</div>
+    </div>
+</div>

@@ -1,0 +1,526 @@
+{% assign check_section = section.settings.check_section %}
+{% if check_section %}
+    {% assign shipping_messaging_pdp_types = section.settings.product_types | newline_to_br | replace: '<br />', ',' | strip_newlines | strip | rstrip | lstrip | split: ',' %}
+    {% assign is_allowed = false %}
+    {% for pdt_type in shipping_messaging_pdp_types %}
+        {% if product.type == pdt_type %}
+            {% assign is_allowed = true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+    {% if is_allowed %}
+        {% liquid
+            assign type = section.settings.type
+            include 'product-collapsable-controller'
+            if is_metafield_section
+                echo "<script>(function (){ addMetafieldClass('" | append: section.id | append: "') })()</script>"
+            endif
+        %}
+        {% if is_available %}
+            {% assign title = section.settings.title | default: 'Collapsable Title' %}
+            <section class="product-section--container" data-navigator="{{ title }}">
+                <input type="checkbox" class="product-collapsable-checkbox" id="collapsable_{{ section.id | replace: '-', '_' }}"{% if section.settings.pre_opened %} checked{% endif %}>
+                <label for="collapsable_{{ section.id | replace: '-', '_' }}" class="product-collapsable-toggle product-section--title">
+                    <span>{{ title }}</span>
+                    <div class="collection-filters__filter-icon-wrapper" tabindex="-1">
+                  <span class="collection-filters__filter-icon">
+                    <svg class="product-collapsable-arrow" aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
+                        <path class="icon-chevron-down-left" d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                        <path class="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                    </svg>
+                  </span>
+                    </div>
+                </label>
+                <div class="product-collapsable-content">
+                    <div class="product-collapsable-wizard">{{ collapsable_content }}</div>
+                </div>
+            </section>
+            <script>
+                (function () {
+                    const section = document.querySelector('#shopify-section-{{ section.id }}');
+                    {% comment %} Acordion Dynamic Height {% endcomment %}
+                    applyMaxheightCollapsable(section);
+                    {% comment %} Assign to navigator {% endcomment %}
+                    assignToNavigation(section);
+                    {% comment %} Apply Animation for collapsable {% endcomment %}
+                    if(typeof applyAnimation === 'function'){
+                        applyAnimation(section);
+                    }
+                })()
+            </script>
+        {% endif %}
+    {% endif %}
+    {% else %}
+    {% liquid
+        assign type = section.settings.type
+        include 'product-collapsable-controller'
+        if is_metafield_section
+            echo "<script>(function (){ addMetafieldClass('" | append: section.id | append: "') })()</script>"
+        endif
+    %}
+    {% if is_available %}
+        {% assign title = section.settings.title | default: 'Collapsable Title' %}
+        <section class="product-section--container" data-navigator="{{ title }}">
+            <input type="checkbox" class="product-collapsable-checkbox" id="collapsable_{{ section.id | replace: '-', '_' }}"{% if section.settings.pre_opened %} checked{% endif %}>
+            <label for="collapsable_{{ section.id | replace: '-', '_' }}" class="product-collapsable-toggle product-section--title">
+                <span>{{ title }}</span>
+                <div class="collection-filters__filter-icon-wrapper" tabindex="-1">
+                  <span class="collection-filters__filter-icon">
+                    <svg class="product-collapsable-arrow" aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
+                        <path class="icon-chevron-down-left" d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                        <path class="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                    </svg>
+                  </span>
+                </div>
+            </label>
+            <div class="product-collapsable-content">
+                <div class="product-collapsable-wizard">{{ collapsable_content }}</div>
+            </div>
+        </section>
+        <script>
+            (function () {
+                const section = document.querySelector('#shopify-section-{{ section.id }}');
+                {% comment %} Acordion Dynamic Height {% endcomment %}
+                applyMaxheightCollapsable(section);
+                {% comment %} Assign to navigator {% endcomment %}
+                assignToNavigation(section);
+                {% comment %} Apply Animation for collapsable {% endcomment %}
+                if(typeof applyAnimation === 'function'){
+                    applyAnimation(section);
+                }
+            })()
+        </script>
+    {% endif %}
+{% endif %}
+{% schema %}
+{
+    "name": "Product Collapsable",
+    "class": "product-collapsable",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+        },
+        {
+            "type": "checkbox",
+            "id": "pre_opened",
+            "label": "Opened",
+            "default": false
+        },
+        {
+            "type": "select",
+            "id": "type",
+            "label": "Collapsable Type",
+            "options": [
+                {
+                    "value": "",
+                    "label": "Select Type"
+                },
+                {
+                    "value": "roi_calc",
+                    "label": "ROI Calculator"
+                },
+                {
+                    "value": "details",
+                    "label": "Details"
+                },
+                {
+                    "value": "specifications",
+                    "label": "Specifications"
+                },
+                {
+                    "value": "faqs",
+                    "label": "FAQs"
+                },
+                {
+                    "value": "image_with_text",
+                    "label": "Image with text"
+                },
+                {
+                    "value": "video_with_text",
+                    "label": "Video with text"
+                },
+                {
+                    "value": "reviews",
+                    "label": "Reviews"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "additional_headline",
+            "label": "Additional Headline"
+        },
+        {
+            "type": "text",
+            "id": "additional_text",
+            "label": "Additional text"
+        },
+        {
+            "type": "checkbox",
+            "id": "check_section",
+            "label": "Check To Show Only On Custom Product Types",
+            "default": false
+        },
+        {
+            "type": "textarea",
+            "id": "product_types",
+            "label": "Show Section Only For Next Product Types",
+            "info": "Enter types one under one"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_with_text",
+            "name": "Product Image with text",
+            "settings": [
+                {
+                    "id": "section_heading",
+                    "type": "text",
+                    "label": "Section Heading",
+                    "default": "Image with text"
+                },
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "desktop_height",
+                    "label": "Desktop height",
+                    "options": [
+                        {
+                            "value": "natural",
+                            "label": "Natural"
+                        },
+                        {
+                            "value": "400px",
+                            "label": "400px"
+                        },
+                        {
+                            "value": "500px",
+                            "label": "500px"
+                        },
+                        {
+                            "value": "600px",
+                            "label": "600px"
+                        },
+                        {
+                            "value": "700px",
+                            "label": "700px"
+                        },
+                        {
+                            "value": "800px",
+                            "label": "800px"
+                        }
+                    ],
+                    "default": "natural"
+                },
+                {
+                    "type": "select",
+                    "id": "mobile_height",
+                    "label": "Mobile height",
+                    "options": [
+                        {
+                            "value": "natural",
+                            "label": "Natural"
+                        },
+                        {
+                            "value": "300px",
+                            "label": "300px"
+                        },
+                        {
+                            "value": "400px",
+                            "label": "400px"
+                        },
+                        {
+                            "value": "500px",
+                            "label": "400px"
+                        }
+                    ],
+                    "default": "natural"
+                },
+                {
+                    "id": "desktop_image_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop image alignment"
+                },
+                {
+                    "id": "mobile_image_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "top",
+                            "label": "Top"
+                        },
+                        {
+                            "value": "bottom",
+                            "label": "Bottom"
+                        }
+                    ],
+                    "default": "top",
+                    "label": "Mobile image alignment"
+                },
+                {
+                    "type": "header",
+                    "content": "Text"
+                },
+                {
+                    "id": "heading",
+                    "type": "text",
+                    "label": "Heading",
+                    "default": "Image with text"
+                },
+                {
+                    "id": "subheading",
+                    "type": "richtext",
+                    "label": "Subheading",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "text_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Text alignment"
+                },
+                {
+                    "id": "button_label",
+                    "type": "text",
+                    "label": "Button label",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link",
+                    "type": "url",
+                    "label": "Button link"
+                }
+            ]
+        },
+        {
+        "type": "video_with_text",
+        "name": "Product Video with text",
+        "settings": [
+                {
+                    "id": "section_heading",
+                    "type": "text",
+                    "label": "Section Heading",
+                    "default": "Video with text"
+                },
+                {
+                    "type": "header",
+                    "content": "Video"
+                },
+                {
+                    "type": "text",
+                    "id": "video",
+                    "label": "Video Link",
+                    "info": "Copy youtube video embedded link here"
+                },
+                {
+                    "type": "header",
+                    "content": "Video Dimensions"
+                },
+                {
+                    "type": "text",
+                    "id": "video_height",
+                    "label": "Video Height",
+                    "default": "320"
+                },
+                    {
+                    "type": "text",
+                    "id": "video_width",
+                    "label": "Video Width",
+                    "default": "100%"
+                },
+                {
+                    "type": "select",
+                    "id": "desktop_height",
+                    "label": "Desktop height",
+                    "options": [
+                        {
+                            "value": "natural",
+                            "label": "Natural"
+                        },
+                        {
+                            "value": "400px",
+                            "label": "400px"
+                        },
+                        {
+                            "value": "500px",
+                            "label": "500px"
+                        },
+                        {
+                            "value": "600px",
+                            "label": "600px"
+                        },
+                        {
+                            "value": "700px",
+                            "label": "700px"
+                        },
+                        {
+                            "value": "800px",
+                            "label": "800px"
+                        }
+                    ],
+                    "default": "natural"
+                },
+                {
+                    "type": "select",
+                    "id": "mobile_height",
+                    "label": "Mobile height",
+                    "options": [
+                        {
+                            "value": "natural",
+                            "label": "Natural"
+                        },
+                        {
+                            "value": "300px",
+                            "label": "300px"
+                        },
+                        {
+                            "value": "400px",
+                            "label": "400px"
+                        },
+                        {
+                            "value": "500px",
+                            "label": "400px"
+                        }
+                    ],
+                    "default": "natural"
+                },
+                {
+                    "id": "desktop_image_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Desktop video alignment"
+                },
+                {
+                    "id": "mobile_image_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "top",
+                            "label": "Top"
+                        },
+                        {
+                            "value": "bottom",
+                            "label": "Bottom"
+                        }
+                    ],
+                    "default": "top",
+                    "label": "Mobile video alignment"
+                },
+                {
+                    "type": "header",
+                    "content": "Text"
+                },
+                {
+                    "id": "heading",
+                    "type": "text",
+                    "label": "Heading",
+                    "default": "Video with text"
+                },
+                {
+                    "id": "subheading",
+                    "type": "richtext",
+                    "label": "Subheading",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                },
+                {
+                    "id": "text_alignment",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "left",
+                    "label": "Text alignment"
+                },
+                {
+                    "id": "button_label",
+                    "type": "text",
+                    "label": "Button label",
+                    "default": "Button"
+                },
+                {
+                    "id": "button_link",
+                    "type": "url",
+                    "label": "Button link"
+                }
+            ]
+        },
+        {
+            "type": "faqs",
+            "name": "Product Faq",
+            "settings": [
+                {
+                    "id": "question",
+                    "type": "text",
+                    "label": "Question"
+                },
+                {
+                    "id": "answer",
+                    "type": "richtext",
+                    "label": "Answer"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Collapsable"
+        }
+    ]
+}
+{% endschema %}

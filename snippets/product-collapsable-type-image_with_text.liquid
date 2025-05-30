@@ -1,0 +1,9 @@
+<div class="pdp-image_with_text-content">
+    {% if section.blocks.size %}
+        {% for block in section.blocks %}
+            {%  if block.type == 'image_with_text' %}
+                {% include 'dynamic-image-with-text' %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

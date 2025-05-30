@@ -1,0 +1,171 @@
+{% if settings.country_check %}
+    <style>
+        .body-freeze {
+            overflow: hidden;
+        }
+        #country-popup {
+            display: none;
+        }
+        #label-backdrop, .country-popup-content {
+            overflow: hidden;
+            max-height: 0;
+            max-width: 0;
+            opacity: 0;
+            z-index: -1;
+        }
+        #country-popup:checked ~ #label-backdrop, #country-popup:checked ~ .country-popup-content {
+            position: fixed;
+            max-height: 100%;
+            max-width: 100%;
+            opacity: 1;
+            z-index: 1000;
+            transition: opacity .5s;
+        }
+        #country-popup:checked ~ .country-popup-content {
+            padding: 20px;
+        }
+        #label-backdrop {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.5);
+        }
+        .country-popup-content {
+            top: calc(50% - 100px);
+            height: auto;
+            width: 670px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            {% if settings.country_background_image != blank%}
+            background-image: url("{{ settings.country_background_image | img_url: 'master' }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            {% else %}
+            background-color: {{ settings.country_color }};
+            {% endif %}
+        }
+        .country-popup-close {
+            display: block;
+            margin-left: auto;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+        .country-popup-content a img {
+            width: 100%;
+            max-width: 90px;
+            height: 50px;
+        }
+        .country-popup-content p, .country-popup-content h2 {
+            text-align: center;
+        }
+        .country-popup-content h2 {
+            margin-top: 0;
+            color: {{ settings.country_color_text }} !important;
+        }
+        .country-popup-content a p {
+            flex: 1;
+            color: {{ settings.country_color_text }} !important;
+            font-weight: bold;
+        }
+        .country-popup-flags-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        .country-popup-content a {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            width: 46%;
+            border: 2px solid {{ settings.country_color_border }};
+            padding: 4px;
+            transition: 200ms all;
+        }
+        .country-popup-content a:hover {
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        }
+        @media only screen and (max-width: 480px) {
+            .country-popup-flags-container {
+                flex-wrap: wrap;
+            }
+            .country-popup-content a {
+                width: 100%;
+            }
+            #country-popup:checked ~ .country-popup-content {
+                max-width: 90%;
+            }
+            .country-popup-flags-container > a {
+                margin-bottom: 20px;
+            }
+            .country-popup-flags-container > a ~ a {
+                margin-bottom: 0;
+            }
+            .country-popup-content a p {
+                position: relative;
+                top: 3px;
+            }
+        }
+    </style>
+
+    <div class="country-popup">
+        <input type="checkbox" id="country-popup" name="country-popup">
+        <label for="country-popup" id="label-backdrop"></label>
+        <div class="country-popup-content">
+            <label for="country-popup" class="country-popup-close">
+                {% render 'logo-escape' %}
+            </label>
+            <h2>{{ settings.country_text }}</h2>
+            <div class="country-popup-flags-container">
+                <a href="https://www.shopsolarkits.ca/">
+                    <img alt="Canadian flag" class="hs-id-21021fa5 hs-lazyload" loading="lazy" src="{{ 'canada-flag.jpg' | asset_url }}"/>
+                    <p>Canada</p>
+                </a>
+                <a href="https://shopsolarkits.com/">
+                    <img alt="USA flag" class="hs-id-fc446c64 hs-lazyload" loading="lazy" src="{{ 'usa-flag.jpg' | asset_url }}"/>
+                    <p>United States</p>
+                </a>
+            </div>
+        </div>
+    </div>
+   {% comment %}
+   Credentials for ipinfo: shopsolarforms@gmail.com - ShopSolarForms@777
+   {% endcomment %}
+    <script>
+        // Check if the flag is not set in localStorage
+        if (!sessionStorage.getItem("visitedBefore")) {
+            // If it's the first visit, set the checkbox as checked
+            setTimeout(() => {
+                // Make a request to the IPinfo API
+                fetch("https://ipinfo.io/json?token=3972a96490b4a9")
+                    .then(response => response.json())
+                    .then(data => {
+                        // Check if the country is Canada
+                        console.log(data)
+                        if (data.country === 'CA') {
+                            console.log('The IP address is from Canada.');
+                            document.getElementById("country-popup").checked = true;
+                            const bodyContainer = document.querySelector('body')
+                            bodyContainer.classList.add('body-freeze')
+                            document.querySelector('.country-popup-close').addEventListener('click', ()=> {
+                                bodyContainer.classList.remove('body-freeze')
+                            })
+                            document.querySelector('#label-backdrop').addEventListener('click', ()=> {
+                                bodyContainer.classList.remove('body-freeze')
+                            })
+                        } else {
+                            console.log('The IP address is not from Canada.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }, 2000);
+            // Set a flag in localStorage to indicate that the user has visited before
+            sessionStorage.setItem("visitedBefore", true);
+        }
+    </script>
+{% endif %}

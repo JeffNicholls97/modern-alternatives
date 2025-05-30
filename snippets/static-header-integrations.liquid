@@ -1,0 +1,120 @@
+<link rel='preconnect dns-prefetch' href='https://triplewhale-pixel.web.app/' crossorigin /> {% comment %} remove {% endcomment %}
+<link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin /> {% comment %} check {% endcomment %}
+<script>
+    /* >> TriplePixel :: start*/
+    ~function(W,H,A,L,E,_,B,N){function O(U,T,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET",U,!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes(".txt")?eval(R):N[B]=R):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=N,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),W},E.ch=W,B="configSecurityConfModel",N[B]=1,O("//conf.config-security.com/model",0),O("//triplewhale-pixel.web.app/triplefw.txt?",5)))}}("","TriplePixel",localStorage);
+    /* << TriplePixel :: end*/
+</script>{% comment %} remove {% endcomment %}
+<link rel='preconnect dns-prefetch' href='https://triplewhale-pixel.web.app/' crossorigin/>{% comment %} remove {% endcomment %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.dataset.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5L7NW2F');</script>
+<!-- End Google Tag Manager -->
+{% include 'uetq-settings' %}
+<!-- Hotjar Tracking Code for www.shopsolarkits.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2349914,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.dataset.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PMHWYBM41"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4PMHWYBM41');
+</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5L7NW2F"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- google dynamic remarketing tag for theme.liquid -->
+{% if template contains 'product' %}
+
+    <script type="text/javascript">
+        var json_product = {{ product | json }};
+    </script>
+
+
+    <script>
+        var ecomm_prodid=[];
+        for(var i=0;i<json_product.variants.length;i++)
+            ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+    </script>
+
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_prodid: ecomm_prodid,
+            ecomm_pagetype: 'product',
+            ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+        };
+    </script>
+
+{% elsif template contains 'collection' %}
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'category'
+        };
+    </script>
+
+{% elsif template contains 'cart' %}
+
+    <script type="text/javascript">
+        var id = new Array();
+        {% for item in cart.items %}
+        id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+        {% endfor %}
+
+        var google_tag_params = {
+            ecomm_prodid: id,
+            ecomm_pagetype: 'cart',
+            ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+        };
+    </script>
+
+{% elsif template contains 'search' %}
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'searchresults'
+        };
+    </script>
+
+{% elsif template contains 'index' %}
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'home'
+        };
+    </script>
+
+{% else %}
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'other'
+        };
+    </script>
+
+{% endif %}
+
+<script>
+    gtag('event', 'page_view', {'send_to': 'AW-782274629',
+        'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+        'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+        'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+    });
+</script>

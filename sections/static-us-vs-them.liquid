@@ -1,0 +1,310 @@
+{% liquid
+    assign title = section.settings.title
+    assign table = section.settings.table
+    assign table_rows = table | newline_to_br | split: '<br />'
+    assign text = section.settings.text
+    assign video_button_text = section.settings.video_button_text
+    assign video_url = section.settings.video_url
+    assign button_label = section.settings.button_label
+    assign button_link = section.settings.button_link
+%}
+<style>
+    .us-vs-them--content {
+        padding: 50px 0;
+    }
+    .us-vs-them--content h2 {
+        text-align: center;
+    }
+    .us-vs-them--table {
+        margin-bottom: 50px;
+    }
+    .us-vs-them--table table .site-logo-image {
+        width: auto;
+    }
+    {% comment %}
+    .us-vs-them--table table tr th:first-child,
+    .us-vs-them--table table tr td:first-child {
+
+    }
+    {% endcomment %}
+    .us-vs-them--table table {
+        width: 100%;
+        margin: 0 auto;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .us-vs-them--table table th,
+    .us-vs-them--table table td {
+        border-left: 1px solid {{ settings.color_header_background }};
+        border-right: 1px solid {{ settings.color_header_background }};
+        border-collapse: collapse;
+    }
+    .us-vs-them--table table th,
+    .us-vs-them--table table td {
+        padding: 10px 20px;
+    }
+    .us-vs-them--table table th {
+        text-align: center;
+        background-color: {{ settings.color_header_background }};
+        color: {{ settings.color_header_text }};
+    }
+    .us-vs-them--table table td {
+        text-align: center;
+    }
+    .us-vs-them--table table tr:first-child th,
+    .us-vs-them--table table tr:first-child td {
+        text-align: center;
+        background-color: {{ settings.color_header_background }};
+        color: {{ settings.color_header_text }};
+    }
+    .us-vs-them--table table tr th.focused-td {
+        background-color: {{ settings.color_button_background }};
+        color: {{ settings.color_header_background }};
+    }
+    .us-vs-them--text {
+        text-align: center;
+    }
+    .us-vs-them--actions {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    .us-vs-them--actions > * {
+        margin: 10px;
+    }
+    /* Video Popup */
+    .us-vs-them--video-play {
+        color: {{ settings.color_header_text }};
+        background: {{ settings.color_header_background }};
+        border: 1px solid {{ settings.color_header_background }};
+    }
+    .us-vs-them--video-play:not(.disabled):hover {
+        color: {{ settings.color_button_background }};
+        background: {{ settings.color_header_background }};
+    }
+    .video_popup {
+        max-height: 0;
+        overflow: hidden;
+    }
+    /* End Video Popup*/
+    @media screen and (min-width: 720px) {
+        .us-vs-them--table table tr:first-child th,
+        .us-vs-them--table table tr:first-child td {
+            min-width: 150px;
+        }
+    }
+    @media screen and (max-width: 719px) {
+        .us-vs-them--content .site-logo-image {
+            width: 50px;
+        }
+        .us-vs-them--content .site-logo-image g:nth-of-type(3) {
+            transform: translate(-240.000000px,223.000000px) scale(0.100000,-0.100000);
+        }
+        .us-vs-them--content .site-logo-image g:nth-of-type(4) {
+            transform: translate(-540.000000px,223.000000px) scale(0.100000,-0.100000);
+        }
+        .us-vs-them--content .site-logo-image g:nth-of-type(2) path,
+        .us-vs-them--content .site-logo-image g:nth-of-type(3) path,
+        .us-vs-them--content .site-logo-image g:nth-of-type(4) path {
+            display: none;
+        }
+        .us-vs-them--content .site-logo-image g path:first-child {
+            display: inline;
+        }
+        .us-vs-them--table table tr th,
+        .us-vs-them--table table tr td,
+        .us-vs-them--table table tr th p,
+        .us-vs-them--table table tr td p {
+            font-size: 12px;
+        }
+        .us-vs-them--table table th, .us-vs-them--table table td {
+            padding: 7px 14px;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .us-vs-them--content .site-logo-image {
+            transform: scale(1.5);
+        }
+    }
+</style>
+<div class="us-vs-them--container">
+    <div class="us-vs-them--content">
+        <h2>{{ title }}</h2>
+        {% if table and table_rows.size > 0 %}
+            <div class="us-vs-them--table">
+                <table>
+                    {% for row in table_rows %}
+                        {% assign row_data = row | replace: '][', ',' | remove: '[' | remove: ']' | remove: ' ' | split: ',' %}
+                        <tr>
+                            {% if row_data.size > 0 %}
+                                {% for single_data in row_data %}
+                                    {% assign block_index = single_data | minus: 1 %}
+                                    {% assign block = section.blocks[block_index] %}
+
+                                    {% if block.settings.title contains '<strong>' %}
+                                        <th>
+                                            {% if block.settings.title contains 'SSK' %}
+                                                <div class="svg-logo-wrap">
+                                                    {% render 'svg-logo', class: 'site-logo-image', color: settings.color_header_text, primary_color: settings.color_button_background %}
+                                                    <script>
+                                                        (function (){
+                                                            const logo = document.querySelector('.us-vs-them--content .site-logo-image');
+                                                            if(logo){
+                                                                if(window.innerWidth > 719){
+                                                                    logo.setAttribute('viewBox', '0 0 1117.000000 223.000000');
+                                                                }else{
+                                                                    logo.setAttribute('viewBox', '0 0 550.000000 223.000000');
+                                                                }
+                                                                window.addEventListener('resize', () => {
+                                                                    if(window.innerWidth > 719){
+                                                                        logo.setAttribute('viewBox', '0 0 1117.000000 223.000000');
+                                                                    }else{
+                                                                        logo.setAttribute('viewBox', '0 0 550.000000 223.000000');
+                                                                    }
+                                                                })
+                                                            }
+                                                        })()
+                                                    </script>
+                                                </div>
+                                            {% else %}
+                                                {{ block.settings.title }}
+                                            {% endif %}
+                                        </th>
+                                    {% else %}
+                                        <td>
+                                            {% if block.settings.title contains 'true' %}
+                                                <svg class="pdp-specifications-checkmark-icon" width="18"  height="13" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="{{ settings.color_products_in_stock }}" fill-rule="evenodd" d="M6.23 9.1L2.078 5.2 0 7.15 6.23 13 18 1.95 15.923 0z" />
+                                                </svg>
+                                            {% elsif block.settings.title contains 'false' %}
+                                                <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+                                                    <path fill="{{ settings.color_products_low_stock }}" fill-rule="evenodd" d="M5.306 6.5L0 1.194 1.194 0 6.5 5.306 11.806 0 13 1.194 7.694 6.5 13 11.806 11.806 13 6.5 7.694 1.194 13 0 11.806 5.306 6.5z"/>
+                                                </svg>
+                                            {% else %}
+                                                {{ block.settings.title }}
+                                            {% endif %}
+                                        </td>
+                                    {% endif %}
+
+                                {% endfor %}
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+        <div class="us-vs-them--text image-with-text__text">
+            {{ text }}
+        </div>
+        {%- if
+                button_label != blank
+                and button_link != blank
+        -%}
+        <div class="us-vs-them--actions">
+            {% if video_button_text != blank and video_url != blank %}
+            <button class="us-vs-them--video-play us-vs-them-button image-with-text__button" onclick="openFullscreen()">{{ video_button_text }}</button>
+            {% endif %}
+            <a class="us-vs-them-button image-with-text__button" href="{{ button_link }}">
+                {{ button_label | escape }}
+            </a>
+        </div>
+            {% if video_button_text != blank and video_url != blank %}
+                <div class="video_popup">
+                    <video data-src="{{ video_url }}" controls></video>
+                </div>
+                <script>
+                    function openFullscreen() {
+                        const video = document.querySelector('#shopify-section-{{ section.id }} video');
+                        if(video){
+                            if(!video.hasAttribute('loaded')){
+                                video.src = video.dataset.src;
+                                video.onloadeddata = function() {
+                                    video.setAttribute('loaded', '');
+                                    video.removeAttribute('data-src');
+                                }
+                            }
+                            if (video.requestFullscreen) {
+                                video.requestFullscreen();
+                            } else if (video.webkitRequestFullscreen) { /* Safari */
+                                video.webkitRequestFullscreen();
+                            } else if (video.msRequestFullscreen) { /* IE11 */
+                                video.msRequestFullscreen();
+                            }
+                        }
+                    }
+                </script>
+            {% endif %}
+        {%- endif -%}
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "Us vs Them",
+    "class": "us-vs-them-section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Us vs Them"
+        },
+        {
+            "type": "textarea",
+            "id": "table",
+            "label": "Table",
+            "info": "This is table schema. Every cell number is related to the block index."
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "video_button_text",
+            "label": "Video Button Text",
+            "default": "SHOW VIDEO"
+        },
+        {
+            "type": "text",
+            "id": "video_url",
+            "label": "Video Url",
+            "info": "Upload video [here](https://shopsolarkits.myshopify.com/admin/content/files?selectedView=all) and paste video url in input."
+        },
+        {
+            "id": "button_label",
+            "type": "text",
+            "label": "t:sections.image_with_text.button_label.label",
+            "default": "Button"
+        },
+        {
+            "id": "button_link",
+            "type": "url",
+            "label": "t:sections.image_with_text.button_link.label"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "table_data",
+            "name": "Table Data",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Table Data Content",
+                    "default": "<p>New Table Data</p>",
+                    "info": "true = checkmark icon , false = x icon , SSK = SSK logo"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Us vs Them"
+        }
+    ]
+}
+{% endschema %}

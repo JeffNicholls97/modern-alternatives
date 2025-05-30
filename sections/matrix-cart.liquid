@@ -1,0 +1,143 @@
+{%- liquid
+  assign show_sku = settings.cart_drawer_show_sku
+-%}
+<div class="cart-drawer-wrap">
+  <div class="cart-drawer-header">
+    <label onclick="MatrixCart.freezeWindow(this)" for="matrix-cart-trigger">{% render 'icon-menu-close' %}</label>
+    <h5>Cart ({{ cart.item_count }} item{% if cart.item_count > 1 %}s{% endif %})</h5>
+  </div>
+
+  {% if cart.item_count > 0 %}
+    <div class="cart-drawer-main">
+      <ul>
+        {% for item in cart.items %}
+          {%
+            render 'cart-item'
+            , item: item
+            , show_sku: show_sku
+            , item_index: forloop.index
+            , is_allowed_cart_drawer: true
+          %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="cart-drawer-footer">
+      {% if customer.tags contains 'shopguard_free_tier' %}
+        <div class="w-full p-3 bg-[#FFEDD8] rounded-md border border-[#F0942D] mb-4">
+          <div class="w-full text-center">
+            <p class="text-[#F0942D] mb-2 font-bold">{{ section.settings.assigned_title }}</p>
+            <p class="text-xs text-[#c38a4a]">{{ section.settings.assigned_text }}</p>
+          </div>
+        </div>
+      {% else %}
+        {% render 'shopguard-tag-assign' %}
+      {% endif %}
+
+
+      <ul
+        class="discount-list"
+        data-cart-discounts
+        aria-label="{{ 'product.general.discounts' | t }}">
+        {%- render 'cart-discounts'
+          , cart: cart -%}
+      </ul>
+
+      {% for item in cart.items %}
+        {% assign tmpVariant = item.product.variants | where: "id", item.id | first %}
+        {% if tmpVariant.compare_at_price != blank %}
+          {% assign tmpPrice = tmpVariant.compare_at_price | times: item.quantity %}
+        {% else %}
+          {% assign tmpPrice = tmpVariant.price | times: item.quantity %}
+        {% endif %}
+        {% assign totalCP = totalCP | plus: tmpPrice %}
+      {% endfor %}
+      {% assign savings = totalCP | minus: cart.total_price %}
+      <div class="money money-totals">
+        <div>
+          <span class="block mb-4">*Final taxes and shipping/delivery will be calculated during checkout.</span>
+          <div class="price-wrapper">
+            <span>Old price: &nbsp;</span>
+            <span class="money-price total_money" data-cart-total-cp>{{ totalCP | money }}</span>
+          </div>
+          <div class="price-wrapper orange-savings">
+            <span>Savings:&nbsp;</span>
+            <span class="money-price" data-cart-total-savings>{{ savings | money }}</span>
+          </div>
+          <div class="price-wrapper">
+            <span>Subtotal:&nbsp;</span>
+            <span class="money-price final_price" data-cart-total>{{ cart.total_price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+      <a
+        class="button-primary"
+        href="/checkout"
+        aria-label="{{ 'cart.general.checkout' | t }}"
+        onclick="proceedToCheckoutFBE()">
+        {% if settings.enable_checkout_lock_icon %}
+          {% render 'icon-checkout-lock' %}
+        {% else %}
+          {% render 'icon-library'
+            , id: 'icon-cart' %}
+        {% endif %}
+        Proceed to Secure Checkout
+      </a>
+      <a
+        class="button-secondary button-cart-page"
+        href="/cart"
+        aria-label="Cart Page">
+        Go to Cart
+      </a>
+    </div>
+  {% else %}
+    <div class="cartitems-empty">
+      <div class="cartitems-empty--inner">
+        <p>{{ 'cart.general.cart_empty' | t }}</p>
+
+        {% if show_continue_link %}
+          <a class="button-primary" href="{{ continue_url }}">
+            {% render 'icon-library'
+              , id: 'icon-cart' %}
+            {{ 'cart.general.continue_shopping' | t }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Matrix Cart",
+    "class": "matrix-cart",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Assinged member title",
+        "id": "assigned_title",
+        "default": "ShopGuard Free Member"
+      }, {
+        "type": "liquid",
+        "label": "Assigned memeber text field",
+        "id": "assigned_text",
+        "default": "Hey {{ customer.name }} you are a member of our Shopguard Free Membership!"
+      }, {
+        "type": "text",
+        "label": "Unassigned member title",
+        "id": "unassigned_title",
+        "default": "ShopGuard Free Membership"
+      }, {
+        "type": "liquid",
+        "label": "Unassigned memeber text field",
+        "id": "unassigned_text",
+        "default": "Enjoy lifetime support, extended returns, exclusive rewards, and partner discounts."
+      }
+    ]
+  }
+{% endschema %}
+
+
+<!-- Add this script at the bottom of your snippet -->

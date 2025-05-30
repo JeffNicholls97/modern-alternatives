@@ -1,0 +1,52 @@
+<div class="w-full border-t border-gray-300">
+  <div class="max-w-[1440px] px-5 md:px-0 py-24 mx-auto grid grid-cols-12 gap-5">
+    <div class="col-span-full md:col-span-6">
+      <h2 class="text-4xl">{{ section.settings.hero-title }}</h2>
+      <p class="leading-10 mt-5">{{ section.settings.hero-paragraph }}</p>
+      <a class="bg-[#ff991c] mt-10 text-white px-10 py-5 inline-block rounded-md font-bold" href="{{ section.settings.button-url }}">{{ section.settings.button-text }}</a>
+    </div>
+    <div class="col-span-full md:col-span-6">
+      <img
+        class="w-full object-contain object-right h-96"
+        width="1000"
+        height="600"
+        src="{{ 'solarguard-cards.png' | asset_url }}"
+        alt="solarguard background">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "SolarGuard Card",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero-title",
+        "label": "Enter title",
+        "default": "Your Exclusive SolarGuard <br>Membership Card"
+      }, {
+        "type": "textarea",
+        "id": "hero-paragraph",
+        "label": "Enter paragraph",
+        "default": "As a valued SolarGuard+ member, you'll receive a personalized physical membership card. This card includes your unique account number and unlocks rewards, points, and exclusive benefits. Carry your SolarGuard identity with pride and enjoy seamless access to partner discounts, promotions, and more."
+      }, {
+        "type": "text",
+        "id": "button-text",
+        "label": "enter button title",
+        "default": "Start Your Free Membership"
+      }, {
+        "type": "url",
+        "id": "button-url",
+        "label": "Choose button link"
+
+      }
+    ],
+    "presets": [
+      {
+        "name": "Solarguard Card",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

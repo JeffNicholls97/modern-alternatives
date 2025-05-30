@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "solar-finance-page",
+      "settings": {
+        "hero-image": "shopify:\/\/shop_images\/finance-hero.jpg",
+        "hero-image-mobile": "shopify:\/\/shop_images\/mobile-hero.jpg",
+        "hero-title": "Unlock Your Energy Independence Today",
+        "upsell-title": "How to Purchase a Solar Kit or Components With a Payment Plan",
+        "image-upsell-1": "shopify:\/\/shop_images\/step-1.jpg",
+        "box-title-upsell-1": "Shop Online",
+        "box-body-upsell-1": "Add items to your cart, choose PayTomorrow or Affirm at checkout, and get a real-time decision without affecting\nyour credit score.",
+        "image-upsell-2": "shopify:\/\/shop_images\/step-3.jpg",
+        "box-title-upsell-2": "Select Your Customized Offer",
+        "box-body-upsell-2": "PayTomorrow and Affirm instantly evaluates your specific credit profile and customizes an offer just for you.",
+        "image-upsell-3": "shopify:\/\/shop_images\/step-4.jpg",
+        "box-title-upsell-3": "Go Solar!",
+        "box-body-upsell-3": "Get your solar kit or components today and make payments over time",
+        "box-title-upsell-4": "Go Solar",
+        "box-body-upsell-4": "Install your solar kit with our assistance and enjoy the benefits of going solar!",
+        "compare-title": "Flexible Ways to Buy Now & Pay Later"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

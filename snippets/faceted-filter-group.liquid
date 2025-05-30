@@ -1,0 +1,88 @@
+{% comment %}
+  @param filter
+  @param filter_group_classes
+{% endcomment %}
+
+<div
+  class="
+    collection-filters__filter-group
+    {{ filter_group_classes }}
+  "
+  aria-label="{{ 'product_grid.filters.title_count.zero' | t }}"
+  data-filter-group
+>
+  <button
+    class="
+      collection-filters__filter-group-heading
+      productgrid--sidebar-button
+    "
+    data-filter-group-trigger
+    aria-expanded="false"
+  >
+    <div class="collection-filters__filter-title">
+      {{ filter.label }}
+    </div>
+
+    <div class="collection-filters__filter-icon-wrapper" tabindex="-1">
+      <span class="collection-filters__filter-icon">
+        {% render 'icon-chevron-down-small' %}
+      </span>
+    </div>
+  </button>
+
+  {% case filter.type %}
+    {% when 'boolean' or 'list' %}
+      <ul
+        class="
+          collection-filters__filter
+          collection-filters__filter-list
+        "
+        data-filter-group-list
+        data-accordion-content
+        >
+        {%- for value in filter.values -%}
+          <li
+            class="
+              collection-filters__filter-list-item
+                collection-filters__filter-list-item--active
+            "
+              data-filter-open="true"
+          >
+            <a
+              class="collection-filters__filter-link"
+              data-name="{{ value.param_name }}"
+              data-value="{{ value.value }}"
+              data-handle="filter-{{ filter.label | escape | replace: ' ', '-'}}-{{ forloop.index0 }}"
+
+              {% if value.active -%}
+                {% assign animation_state = 'checked' %}
+                data-filter-active
+                data-url="{{ value.url_to_remove | url_encode }}"
+                href="{{ value.url_to_remove }}"
+              {% else %}
+                {% assign animation_state = 'unchecked' %}
+                data-url="{{ value.url_to_add | url_encode }}"
+                href="{{ value.url_to_add }}"
+              {%- endif %}
+              {% if value.count == 0 and value.active == false -%}
+                data-disabled
+              {%- endif %}
+              data-filter-input
+            >
+              <span class="filter-icon--checkbox" data-handle="filter-{{ filter.label | escape | replace: ' ', '-'}}-{{ forloop.index0 }}">
+                {%- render 'icon-checkmark-animated', animation_state: animation_state -%}
+              </span>
+              <span class="collection-filters__filter-list-item-text">
+                {{ value.label | escape }}
+                {% if show_product_count %}
+                  ({{ value.count }})
+                {% endif %}
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% when 'price_range' %}
+      {% render 'price-range', filter: filter  %}
+  {% endcase %}
+</div>

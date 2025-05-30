@@ -1,0 +1,230 @@
+<style>
+    .product-navigator {
+        width: 100%;
+        margin-bottom: 80px;
+    }
+    .product-navigator .product-navigator-section .product-section--container {
+        margin-top: 0;
+    }
+    .product-navigator .product-navigator-section {
+        width: 100%;
+    }
+    .product-navigator-titles {
+        margin-top: 6px;
+        justify-content: space-evenly;
+        background-color: {{ settings.color_header_background }};
+        padding: 0 20px;
+    }
+    .product-navigator-titles span {
+        position: relative;
+        color: {{ settings.color_header_text }};
+        {% comment %}color: {{ settings.color_links }};{% endcomment %}
+        padding: 20px;
+        opacity: 0;
+        transition: all .3s;
+    }
+    .product-navigator-titles.loaded span {
+        opacity: 1;
+    }
+    .product-navigator-titles span.hidden_tab {
+        display: none;
+    }
+    .product-navigator-titles span.active {
+        color: {{ settings.color_button_background }};
+    }
+    {% comment %}
+    .product-navigator-titles span.active:before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        height: 3px;
+        width: calc(100% - 40px);
+        background-color: {{ settings.color_button_background }};
+    }
+    {% endcomment %}
+    .product-navigator__sticky {
+        position: fixed;
+        top: var(--header-height);
+        z-index: 700;
+    }
+    {% comment %}
+    @media screen and (min-width: 720px) {
+        .product-navigator-titles span:hover {
+            text-shadow: 0 0 2px {{ settings.color_button_background }};
+        }
+    }
+    {% endcomment %}
+    @media screen and (max-width: 719px) {
+        .product-navigator-titles {
+            flex-wrap: wrap;
+        }
+        .product-navigator-titles span {
+            padding: 10px;
+        }
+        .product-navigator-titles span.active:before {
+            left: 10px;
+            width: calc(100% - 20px);
+        }
+    }
+</style>
+
+<section class="product-navigator-section">
+    <div class="product-section--container">
+        <label for="collapsable_{{ section.id | replace: '-', '_' }}" class="product-navigator-titles product-section--title">
+            {% if section.blocks.size > 0 %}
+                {% for block in section.blocks %}
+                    {% assign title = block.settings.title %}
+                    {% assign rename = block.settings.rename %}
+                    <span data-find-navigation="{{ title }}">{% if rename != blank %}{{ rename }}{% else %}{{ title }}{% endif %}</span>
+                {% endfor %}
+            {% endif %}
+        </label>
+    </div>
+</section>
+
+<script>
+    (function (){
+        function getSectionOffsets(productCollapsable, section){
+            const collapsable = productCollapsable.querySelector('.product-collapsable-toggle');
+            if(collapsable){
+                let top_value = (productCollapsable.offsetTop - (collapsable.offsetHeight / 2));
+                let top_with_height = productCollapsable.offsetTop + productCollapsable.offsetHeight;
+                const navigator = section.querySelector('section.product-navigator-section');
+                if(navigator && !navigator.classList.contains('product-navigator__sticky')){
+                    top_value -= 10;
+                }
+                if(window.innerWidth < 719){
+                    top_value -= 20;
+                }
+                return {
+                    top_value: top_value,
+                    top_with_height: top_with_height
+                };
+            }else{
+                return false;
+            }
+        }
+        function stickyNavigator(section, navigator){
+            const header = document.querySelector('header.site-header');
+            if(header){
+                let headerHeight = header.offsetHeight;
+                if(headerHeight){
+                    navigator.setAttribute('style', `--header-height: ${headerHeight}px`);
+                    const headerMain = header.querySelector('.site-header-main');
+                    if(headerMain){
+                        const section_offsetTop = section.offsetTop + headerMain.offsetHeight;
+                        //console.log(section_offsetTop, window.pageYOffset)
+                        if(section_offsetTop <= window.pageYOffset){
+                            if(!navigator.classList.contains('product-navigator__sticky')){
+                                navigator.classList.add('product-navigator__sticky')
+                            }
+                        }else{
+                            if(navigator.classList.contains('product-navigator__sticky')){
+                                navigator.classList.remove('product-navigator__sticky')
+                            }
+                        }
+                        const productCollapsables = document.querySelectorAll('.product-collapsable');
+                        if(productCollapsables.length){
+                            let selectedSection;
+                            productCollapsables.forEach(productCollapsable => {
+                                const productCollapsableOffsets = getSectionOffsets(productCollapsable, section);
+                                const top_value = productCollapsableOffsets.top_value;
+                                const top_with_height = productCollapsableOffsets.top_with_height;
+                                if(top_value <= window.pageYOffset && top_with_height > window.pageYOffset){
+                                    selectedSection = productCollapsable;
+                                }
+                            })
+                            if(selectedSection){
+                                const sectionNavigator = selectedSection.querySelector('[data-navigator]');
+                                if(sectionNavigator){
+                                    const currentNavLink = section.querySelector('.product-navigator-titles span.active');
+                                    if(currentNavLink){
+                                        currentNavLink.classList.remove('active');
+                                    }
+                                    const navLink = section.querySelector(`[data-find-navigation="${sectionNavigator.dataset.navigator}"]`);
+                                    if(navLink){
+                                        navLink.classList.add('active');
+                                    }
+                                }
+                            }else{
+                                const currentNavLink = section.querySelector('.product-navigator-titles span.active');
+                                if(currentNavLink){
+                                    currentNavLink.classList.remove('active');
+                                }
+                            }
+
+                            /*if(section){
+                                const collapsable = section.querySelector('.product-collapsable-toggle');
+                                if(collapsable){
+                                    let top_value = (section.offsetTop - (collapsable.offsetHeight / 2));
+                                    const navigator = element.closest('section.product-navigator-section');
+                                    if(navigator && !navigator.classList.contains('product-navigator__sticky')){
+                                        top_value -= 10;
+                                    }
+                                    if(window.innerWidth < 719){
+                                        top_value -= 20;
+                                    }
+                                    window.scrollTo({top: top_value, behavior: 'smooth'});
+                                }
+                                const checkbox = section.querySelector('.product-collapsable-checkbox');
+                                if(checkbox && !checkbox.checked){
+                                    checkbox.checked = true;
+                                }
+                            }*/
+                        }
+                    }
+                }
+            }
+        }
+        const section = document.querySelector('#shopify-section-{{ section.id }}');
+        if(section){
+            {% comment %} Sticky Functionality {% endcomment %}
+            const navigator = section.querySelector('section.product-navigator-section');
+            if(navigator){
+                section.style.height = navigator.offsetHeight+'px';
+                stickyNavigator(section, navigator);
+                window.addEventListener('scroll', () => {
+                    stickyNavigator(section, navigator);
+                })
+            }
+        }
+        window.addEventListener('load', () => {
+            const titles = document.querySelector('#shopify-section-{{ section.id }} .product-navigator-titles');
+            if(titles && !titles.classList.contains('loaded')){
+                titles.classList.add('loaded');
+            }
+            checkNavigation();
+        })
+    })()
+</script>
+{% schema %}
+{
+    "name": "Product Navigator",
+    "class": "product-navigator",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "assign_collapsable",
+            "name": "Assign Collapsable",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Assign Collapsable Section Title"
+                },
+                {
+                    "type": "text",
+                    "id": "rename",
+                    "label": "Rename Navigation Title"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Navigator"
+        }
+    ]
+}
+{% endschema %}

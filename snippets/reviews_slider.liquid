@@ -1,0 +1,115 @@
+{% if template contains 'product' %}
+<div class="w-full mt-20 mb-10  text-center">
+  <h2 class="text-3xl text-black font-bold">{{ section.settings['review-title'] }}</h2>
+</div>
+
+<div class="Marquee">
+  <div class="Marquee-content gap-5">
+    {% for block in section.blocks %}
+      <div class="text-block relative h-[40rem] p-10 flex flex-col items-center bg-[#F7F7F7] w-96">
+        <span class="bg-white mt-10 min-w-[3.5rem] min-h-[3.5rem] flex items-center font-bold justify-center rounded-full w-14 h-14">
+          {{- block.settings['review-name-tag'] -}}
+        </span>
+        <p class="font-bold mt-5">{{ block.settings['review-name'] }}</p>
+        <div class="flex mt-3 gap-1 items-center justify-center">
+          <img alt="star" class="w-5 object-contain hs-id-a905ec34" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-d358ca9f" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-1a788658" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-33d598c4" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-82a60c4d" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+        </div>
+        <div class="text-center mt-10">
+          <h2 class="font-bold">{{ block.settings['review-title'] }}</h2>
+          <p class="font-normal line-clamp-5 mt-3">{{ block.settings['review-body'] }}</p>
+        </div>
+
+        <img alt="{{ block.settings.review-image.alt | escape }}" class="absolute w-[90%] h-64 object-cover border-solid z-10 -mb-20 border-8 border-white rounded-md bottom-0 hs-id-40637cf5" height="250" loading="lazy" src="{{ block.settings.review-image | img_url: 'large' }}" style="box-shadow: 0px 0px 26.9px 0px rgba(0, 0, 0, 0.09);" width="350"/>
+      </div>
+    {% endfor %}
+    {% for block in section.blocks %}
+      <div class="text-block relative h-[40rem] p-10 rounded-md flex flex-col items-center bg-[#F7F7F7] w-96">
+        <span class="bg-white min-w-[3.5rem] min-h-[3.5rem] mt-10 flex items-center font-bold justify-center rounded-full w-14 h-14">
+          {{- block.settings['review-name-tag'] -}}
+        </span>
+        <p class="font-bold mt-5">{{ block.settings['review-name'] }}</p>
+        <div class="flex mt-3 gap-1 items-center justify-center">
+          <img alt="star" class="w-5 object-contain hs-id-aeca793a" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-9f86e30b" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-cc6c77cc" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-35ad65ad" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-98315568" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+        </div>
+        <div class="text-center mt-10">
+          <h2 class="font-bold">{{ block.settings['review-title'] }}</h2>
+          <p class="font-normal line-clamp-5 mt-3">{{ block.settings['review-body'] }}</p>
+        </div>
+
+        <img alt="{{ block.settings.review-image.alt | escape }}" class="absolute w-[90%] h-64 object-cover border-solid z-10 -mb-20 border-8 border-white rounded-md bottom-0 hs-id-ce900155" height="250" loading="lazy" src="{{ block.settings.review-image | img_url: 'large' }}" style="box-shadow: 0px 0px 26.9px 0px rgba(0, 0, 0, 0.09);" width="350"/>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+  <div class="mb-[180px] block"></div>
+
+  {% else %}
+<div class="w-full mt-20 mb-10  text-center">
+  <h2 class="text-3xl text-black font-bold">{{ section.settings['review-title'] }}</h2>
+</div>
+
+<div class="Marquee">
+  <div class="Marquee-content gap-5">
+    {% for block in section.blocks %}
+      <div class="text-block relative h-[40rem] p-10 flex flex-col items-center bg-[#F7F7F7] w-96">
+        <span class="bg-white mt-10 min-w-[3.5rem] min-h-[3.5rem] flex items-center font-bold justify-center rounded-full w-14 h-14">
+          {{- block.settings['review-name-tag'] -}}
+        </span>
+        <p class="font-bold mt-5">{{ block.settings['review-name'] }}</p>
+        <div class="flex mt-3 gap-1 items-center justify-center">
+          <img alt="star" class="w-5 object-contain hs-id-b5b2c07a" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-9558849b" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-8ba56daf" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-87be32c9" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-dcd736b4" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+        </div>
+        <div class="text-center mt-10">
+          <h2 class="font-bold">{{ block.settings['review-title'] }}</h2>
+          <p class="font-normal line-clamp-5 mt-3">{{ block.settings['review-body'] }}</p>
+        </div>
+
+        <img alt="{{ block.settings.review-image.alt | escape }}" class="absolute w-[90%] h-64 object-cover border-solid z-10 -mb-20 border-8 border-white rounded-md bottom-0 hs-id-30acd1f7" height="250" loading="lazy" src="{{ block.settings.review-image | img_url: 'large' }}" style="box-shadow: 0px 0px 26.9px 0px rgba(0, 0, 0, 0.09);" width="350"/>
+      </div>
+    {% endfor %}
+    {% for block in section.blocks %}
+      <div class="text-block relative h-[40rem] p-10 rounded-md flex flex-col items-center bg-[#F7F7F7] w-96">
+        <span class="bg-white min-w-[3.5rem] min-h-[3.5rem] mt-10 flex items-center font-bold justify-center rounded-full w-14 h-14">
+          {{- block.settings['review-name-tag'] -}}
+        </span>
+        <p class="font-bold mt-5">{{ block.settings['review-name'] }}</p>
+        <div class="flex mt-3 gap-1 items-center justify-center">
+          <img alt="star" class="w-5 object-contain hs-id-f18107f9" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-9b899def" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-3e9cd139" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-08eb98ea" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+          <img alt="star" class="w-5 object-contain hs-id-6b0ac149" height="20" loading="lazy" src="{{ 'review-star.png' | asset_img_url: 'small' }}" width="20"/>
+        </div>
+        <div class="text-center mt-10">
+          <h2 class="font-bold">{{ block.settings['review-title'] }}</h2>
+          <p class="font-normal line-clamp-5 mt-3">{{ block.settings['review-body'] }}</p>
+        </div>
+
+        <img alt="{{ block.settings.review-image.alt | escape }}" class="absolute w-[90%] h-64 object-cover border-solid z-10 -mb-20 border-8 border-white rounded-md bottom-0 hs-id-d809e87c" height="250" loading="lazy" src="{{ block.settings.review-image | img_url: 'large' }}" style="box-shadow: 0px 0px 26.9px 0px rgba(0, 0, 0, 0.09);" width="350"/>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="flex items-center mt-32 w-full justify-center">
+  <a
+    class="text-white hover:scale-105 mx-auto text-center duration-200 mt-8 font-bold inline-block px-10 py-3 text-center bg-[#F0942D] rounded-md"
+    href="https://024wwq6ojms.typeform.com/to/F24PjymZ"
+    >Start Your Free Proposal</a
+  >
+</div>
+  {% endif %}
+

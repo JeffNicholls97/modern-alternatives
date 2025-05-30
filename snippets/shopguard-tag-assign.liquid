@@ -1,0 +1,215 @@
+<style>
+  input:checked ~ .dot .active {
+    display: block;
+  }
+  input:checked ~ .dot .inactive {
+    display: none;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+</style>
+
+{% assign shopguard_enabled = 'true' %}
+
+<div
+  x-cloak
+  x-data="{ modalEnable: false }"
+  class="w-full p-3 flex gap-5 items-center justify-between bg-[#FFEDD8] rounded-md border border-[#F0942D] mb-4">
+  <div
+    class="md:max-w-3xl w-[90%] z-40 fixed top-1/2 left-1/2 overflow-hidden transform -translate-x-1/2 -translate-y-1/2 mx-auto text-left bg-white rounded-lg shadow-[0px_4px_9.5px_3px_rgba(0,0,0,0.25)]"
+    @click.away="modalEnable = false"
+    x-show="modalEnable == true"
+    x-transition:enter="motion-safe:ease-out duration-300"
+    x-transition:enter-start="opacity-0 scale-90"
+    x-transition:enter-end="opacity-100 scale-100">
+
+    <div class="w-full h-3/4 bg-[#212836] relateive p-10 rounded-lg">
+      <span x-on:click="modalEnable = false" class="absolute top-0 w-5 h-5 rounded-full flex items-center justify-center cursor-pointer bg-[#36435D] right-0 m-5"><img
+          class="w-3 h-3  object-center object-contain"
+          width="50"
+          height="50"
+          src="{{ 'Close.png' | asset_url }}"
+          alt="close"></span>
+      <h3 class="text-white mb-4">Do more with
+        <span class="text-[#F0942D]">ShopGuard Free Membership</span>
+      </h3>
+      <p class="text-[#A6B0C5]">Power your lifestyle with ShopGuard Membership. Enjoy lifetime support, extended returns, exclusive rewards, and partner discounts. Join now for unmatched benefits in sustainable living.</p>
+      <div class="grid mt-10 grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="col-span-1 flex flex-col gap-5">
+          <span class="flex items-center text-white gap-3">
+            <img
+              class="w-6 h-6  object-center object-contain"
+              width="50"
+              height="50"
+              src="{{ 'solarguard-tick.png' | asset_url }}"
+              alt="solarguard cross">
+            30-day extended return period.
+          </span>
+          <span class="flex items-center text-white gap-3">
+            <img
+              class="w-6 h-6  object-center object-contain"
+              width="50"
+              height="50"
+              src="{{ 'solarguard-tick.png' | asset_url }}"
+              alt="solarguard cross">
+            Receive notifications about new product launches.
+          </span>
+          <span class="flex items-center text-white gap-3">
+            <img
+              class="w-6 h-6  object-center object-contain"
+              width="50"
+              height="50"
+              src="{{ 'solarguard-tick.png' | asset_url }}"
+              alt="solarguard cross">
+            14-day price match guarantee after purchase
+          </span>
+        </div>
+        <div class="col-span-1 flex flex-col gap-5">
+          <span class="flex items-center text-white gap-3">
+            <img
+              class="w-6 h-6  object-center object-contain"
+              width="50"
+              height="50"
+              src="{{ 'solarguard-tick.png' | asset_url }}"
+              alt="solarguard cross">
+            Exclusive deals, discounts, promotions, and early sale access.
+          </span>
+          <span class="flex items-center text-white gap-3">
+            <img
+              class="w-6 h-6  object-center object-contain"
+              width="50"
+              height="50"
+              src="{{ 'solarguard-tick.png' | asset_url }}"
+              alt="solarguard cross">
+            15% restocking fee AFTER 30 days
+          </span>
+          <span class="flex items-center text-white gap-3">
+            <img
+              class="w-6 h-6  object-center object-contain"
+              width="50"
+              height="50"
+              src="{{ 'solarguard-tick.png' | asset_url }}"
+              alt="solarguard cross">
+            Lifetime access to support for any and all issues
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="w-full p-5 flex items-center justify-center bg-white">
+      <a href="/pages/shopguard" class="bg-[#F0942D] flex items-center justify-between font-medium w-96 text-white px-5 py-3 rounded-[10px]">Find Out More
+        <svg
+          class="w-5 h-5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 25 25"><path
+            style="fill:#ffffff"
+            d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+            data-name="Right" /></svg>
+      </a>
+    </div>
+  </div>
+  <div class="w-3/4">
+    <p class="text-[#F0942D] mb-2 font-bold">{{ section.settings.unassigned_title }}</p>
+    <p class="text-xs text-[#c38a4a]">{{ section.settings.unassigned_text }}
+      <button x-on:click="modalEnable = true" class="font-bold">Learn more</button>
+    </p>
+  </div>
+  <div>
+    <label for="toggleThree" class="flex items-center cursor-pointer select-none text-white">
+      <div class="relative">
+        <input
+          type="checkbox"
+          id="toggleThree"
+          class="peer sr-only"
+          {% if shopguard_enabled == 'true' %}
+          checked
+          {% endif %} />
+        <div class="block h-8 rounded-full border border-[#F0942D] bg-white w-14"></div>
+        <div class="absolute flex items-center justify-center w-6 h-6 transition bg-[#F0942D] rounded-full dot left-1 top-1 peer-checked:translate-x-full peer-checked:bg-[#F0942D]">
+          <span class="hidden active">
+            <svg
+              width="11"
+              height="8"
+              viewBox="0 0 11 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
+                fill="white"
+                stroke="white"
+                stroke-width="0.4" />
+            </svg>
+          </span>
+          <span class="text-body-color inactive">
+            <svg
+              class="w-4 h-4 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('toggleThree');
+
+  // Check if we have the attribute from Liquid
+  const shopguardEnabled = "{{ shopguard_enabled }}"; // This will be "true" or blank if not set
+
+  console.log("Shopguard" + shopguardEnabled)
+
+  // If the attribute isn't defined in the cart, set it to "true" immediately
+    // Attribute not set, set it now
+    fetch('/cart/update.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        attributes: {
+          shopguard_toggle: "true"
+        }
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Set default shopguard_toggle to true:', data);
+    })
+    .catch(error => console.error('Error setting default attribute:', error));
+
+
+  // Now handle future changes to the toggle
+  if (toggle) {
+    toggle.addEventListener('change', function() {
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          attributes: {
+            shopguard_toggle: this.checked ? "true" : "false"
+          }
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log('Cart attribute updated on toggle change:', data))
+      .catch(error => console.error('Error updating attribute on toggle change:', error));
+    });
+  }
+  });
+
+
+</script>

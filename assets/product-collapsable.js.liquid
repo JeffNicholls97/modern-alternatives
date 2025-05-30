@@ -1,0 +1,184 @@
+{% comment %} Add metafield class to section element {% endcomment %}
+function addMetafieldClass(sectionId){
+    const section = document.querySelector(`#shopify-section-${sectionId}`);
+    if(section){
+        if(!section.classList.contains('metafield-section')){
+            section.classList.add('metafield-section');
+        }
+    }
+}
+{% comment %} Acordion Dynamic Height {% endcomment %}
+function applyMaxheightCollapsable(section){
+    function apply_max_height (content) {
+        if (content) {
+            const wizard = content.querySelector('.product-collapsable-wizard');
+            if (wizard) {
+                content.setAttribute('style', `--max-height: ${wizard.offsetHeight+100}px`);
+            }
+        }
+    }
+    const content = document.querySelector(`#${section.getAttribute('id')} .product-collapsable-content`);
+    if(content){
+        const reviews = content.querySelector('[data-oke-reviews-widget]');
+        if(reviews){
+            reviews.addEventListener('DOMSubtreeModified', () => {
+                setTimeout(() => {
+                    apply_max_height(content);
+                }, 1)
+            });
+        }else{
+            const image = content.querySelector('.pdp-details-image img');
+            if(image){
+                const isLoaded = image.complete && image.naturalHeight !== 0;
+                if(isLoaded){
+                    apply_max_height(content);
+                }else{
+                    content.style.opacity = '0';
+                    image.addEventListener('load', () => {
+                        apply_max_height(content);
+                        content.style.opacity = '';
+                    })
+                }
+            }else {
+                apply_max_height(content);
+            }
+        }
+    }
+}
+{% comment %} Assign to navigator {% endcomment %}
+function assignToNavigation(section){
+    const navigatorElement = section.querySelector('[data-navigator]');
+    if(navigatorElement){
+        const navigator = document.querySelector('.product-navigator [data-find-navigation="'+navigatorElement.dataset.navigator+'"]');
+        if(navigator){
+            navigator.dataset.section = section.getAttribute('id');
+            navigator.setAttribute('onclick', 'navigate_to_section(this)');
+        }
+    }
+}
+{% comment %} Navigate To Section {% endcomment %}
+function navigate_to_section(element){
+    if(element.dataset.section){
+        const section = document.querySelector(`#${element.dataset.section}`);
+        if(section){
+            const collapsable = section.querySelector('.product-collapsable-toggle');
+            if(collapsable){
+                let top_value = (section.offsetTop - (collapsable.offsetHeight / 2));
+                const navigator = element.closest('section.product-navigator-section');
+                if(navigator && !navigator.classList.contains('product-navigator__sticky')){
+                    top_value -= 10;
+                }
+                if(window.innerWidth < 719){
+                    top_value -= 20;
+                }
+                window.scrollTo({top: top_value, behavior: 'smooth'});
+            }
+            const checkbox = section.querySelector('.product-collapsable-checkbox');
+            if(checkbox && !checkbox.checked){
+                checkbox.checked = true;
+            }
+        }
+    }
+}
+{% comment %} Check Navigation {% endcomment %}
+function checkNavigation(){
+    const navigation = document.querySelector('.product-navigator-section');
+    if(navigation){
+        const navigationLinks = navigation.querySelectorAll('.product-navigator-titles span');
+        if(navigationLinks.length){
+            navigationLinks.forEach(navigationLink => {
+                if(navigationLink.dataset.section){
+                    const section = document.querySelector(`#${navigationLink.dataset.section}`);
+                    if(section){
+                        const navigator = section.querySelector('[data-navigator]');
+                        if(navigator){
+                            if(navigationLink.classList.contains('hidden_tab')){
+                                navigationLink.classList.remove('hidden_tab')
+                            }
+                        }else{
+                            if(!navigationLink.classList.contains('hidden_tab')){
+                                navigationLink.classList.add('hidden_tab')
+                            }
+                        }
+                    }
+                }else{
+                    if(!navigationLink.classList.contains('hidden_tab')){
+                        navigationLink.classList.add('hidden_tab')
+                    }
+                }
+            })
+        }
+    }
+}
+{% comment %} Lazyload images {% endcomment %}
+function applyStephenImages (){
+    const stephenImages = document.querySelectorAll('[data-stephen-src]');
+    if(stephenImages.length){
+        stephenImages.forEach(stephenImage => {
+            stephenImage.src = stephenImage.dataset.stephenSrc;
+            stephenImage.removeAttribute('data-stephen-src');
+        })
+    }
+}
+window.addEventListener('load', () => {
+    applyStephenImages();
+    {% comment %} On change variant update content {% endcomment %}
+    const productForms = document.querySelectorAll('form[action="/cart/add"] select[data-variant-option]');
+    if(productForms.length){
+        for(const productForm of productForms){
+            productForm.addEventListener('change', () => {
+                const url = new URL(window.location.href);
+                if(url){
+                    const variantId = url.searchParams.get('variant');
+                    //console.log('-----------'+variantId)
+                    if(variantId){
+                        const collapsableSections = document.querySelectorAll('.product-collapsable.metafield-section');
+                        if(collapsableSections.length){
+                            const ids = [];
+                            collapsableSections.forEach(metafieldCollapsable => {
+                                ids.push(metafieldCollapsable.getAttribute('id').replace('shopify-section-', ''));
+                            })
+                            const request = new XMLHttpRequest();
+                            request.addEventListener('load', function (event) {
+                                //console.log('imamo response')
+                                const response = JSON.parse(this.responseText);
+                                //console.log(response)
+                                for (const [key, value] of Object.entries(response)) {
+                                    let resSection = document.createElement('div');
+                                    resSection.innerHTML = value;
+                                    resSection = resSection.querySelector(`#shopify-section-${key}`);
+                                    const section = document.querySelector(`#shopify-section-${key}`);
+                                    //console.log(resSection, section, key)
+                                    if(section && resSection){
+                                        const resSectionContent = resSection.querySelector('.product-collapsable-content');
+                                        const sectionContent = section.querySelector('.product-collapsable-content');
+                                        //console.log(response)
+                                        if(sectionContent && resSectionContent){
+                                            sectionContent.innerHTML = resSectionContent.innerHTML;
+                                        }else{
+                                            section.innerHTML = resSection.innerHTML;
+                                        }
+                                        addMetafieldClass(section.getAttribute('id'));
+                                        {% comment %} Lazyload images {% endcomment %}
+                                        applyStephenImages();
+                                        {% comment %} Acordion Dynamic Height {% endcomment %}
+                                        applyMaxheightCollapsable(section)
+                                        {% comment %} Assign to navigator {% endcomment %}
+                                        assignToNavigation(section);
+                                        {% comment %} Check Navigation {% endcomment %}
+                                        checkNavigation();
+                                    }
+                                }
+                            });
+                            request.open('GET', `${url.pathname}/?variant=${variantId}&sections=${ids.join()}`, true);
+                            request.send();
+                        }
+                    }
+                }
+                // section fetch and replace
+                // run javascript for collapse
+            })
+        }
+
+    }
+})

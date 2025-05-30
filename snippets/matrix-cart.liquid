@@ -1,0 +1,25 @@
+{%- liquid
+    if settings.cart_drawer_enabled
+        assign is_allowed_cart_drawer = false
+        if settings.cart_drawer_all_pages
+            assign is_allowed_cart_drawer = true
+        elsif settings.cart_drawer_all_collections and template contains 'collection'
+            assign is_allowed_cart_drawer = true
+        elsif cart_drawer_allowed_urls != blank
+            assign cart_drawer_allowed_urls = settings.cart_drawer_allowed_urls | newline_to_br | replace: '<br />', ',' | strip_newlines | strip | rstrip | lstrip | split: ','
+            for cart_drawer_allowed_url in cart_drawer_allowed_urls
+                if request.path contains cart_drawer_allowed_url
+                    assign is_allowed_cart_drawer = true
+                    break
+                endif
+            endfor
+        endif
+    endif
+-%}
+{% if is_allowed_cart_drawer %}
+    {% render 'hs-defer-css' with filename: 'matrix-cart.css', pages: 'collection,index' | split: ',', local: true %}
+    {% include 'matrix-cart-scripts' %}
+    <input type="checkbox" id="matrix-cart-trigger" onchange="MatrixCart.handleToggle(this)">
+    {% section 'matrix-cart' %}
+    <label id="matrix-cart-backdrop" onclick="MatrixCart.freezeWindow(this)" for="matrix-cart-trigger"></label>
+{% endif %}

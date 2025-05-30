@@ -1,0 +1,969 @@
+{% comment %}
+ LayoutHub (https://layouthub.com)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from LayoutHub
+ {% endcomment %} 
+ 
+ <div class="lh-sections-wrapper" data-id="63dd8de5a141245bce730882" data-type="product">
+<section id="" data-section-id="5yobzaatscp" data-section="product-detail-14" data-dev="huynh-duc" data-lh-page-id="487" data-lh-page-name="Landing Yogmat" data-layouthub="section">  
+ <!--  Product single Swatch images -->
+{%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+		 	 
+		 		{%- comment -%} Assign product when not in product page {%- endcomment -%}
+		 		{%- assign p  = all_products['ssk-plus']  -%}
+		 		{%- if  p.id != ""  and tpl != 'product' -%}
+		 			{% assign product  = p  %}
+		 		{%- endif -%}{%- assign color_names = '' | split: ',' -%}
+		{%- assign color_names_downcase = '' | split: ',' -%}
+		{%- assign color_values = '' | split: ','  -%}
+		{%- if shop.metafields.layouthub and shop.metafields.layouthub.colors and shop.metafields.layouthub.colors contains '|' -%}
+			{% assign colors = shop.metafields.layouthub.colors | split: '|' %}
+			{%- assign color_names = colors | first | strip | split: ',' -%}
+			{%- assign color_names_downcase = colors | first | strip | downcase | split: ',' -%}
+			{%- assign color_values = colors | last | strip | split: ',' -%}
+		 {%- endif -%}<div  class="lh-wrapper lh-product-single" data-pid="{{- product.id -}}" data-money-format='{{shop.money_format | url_encode }}' data-vid_url="{%- if tpl != 'product' -%}
+				{%- assign vid_url = false -%}
+			{%- else -%}
+				{%- assign vid_url = true -%}
+			{%- endif -%}
+			{{- vid_url -}}">
+		<div class="lh-container">
+			<div class="lh-details-product">
+			<div class="lh-row lh-align-start">
+				<div class="lh-product-sync-images lh-col-md-6">
+					<div class="lh-details-images lh-row use-zoom-no lh-promote-no" data-hub-attr-state="class%3D%22lh-details-images%20lh-row%20use-zoom-%257B%253A%257Bsection.settings.use_zoom%257D%253A%257D%20lh-promote-%257B%253A%257Bsection.settings.show_badge%257D%253A%257D%22"  data-hub-attr-use_zoom  data-hub-attr-show_badge >
+						<div class="lh-small-slide lh-col-md-2">
+							<div class="block-slide-sm lh-slick-nav swiper-container">
+								<div class="swiper-wrapper">
+									{%- for image in product.images -%}
+				   <div class="items-img swiper-slide" data-variant_id="{{image.variants | map:'id' | join: ','}}">
+		                <img alt="{{ image.alt}}" class="hs-id-2efd05dc hs-lazyload" loading="lazy" src="{{ image | img_url: 'medium'}}"/>
+		            </div>
+				{%- endfor -%}</div>
+
+							</div>
+							<div class="lh-slide-small-nav">
+								<div class="swiper-button-prev">
+									<svg version="1.1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<path fill="currentColor" d="M70.4,2.4L26.2,46.8c-0.9,0.9-1.3,2.1-1.3,3.3c0,1.2,0.5,2.4,1.3,3.3l44.2,44.2c1.1,1.1,2.8,1.1,3.9,0
+													c0.5-0.5,0.8-1.2,0.8-1.9c0-0.7-0.3-1.4-0.8-1.9L30.7,50.1L74.3,6.3c1.1-1.1,1.1-2.8,0-3.9C73.2,1.3,71.5,1.3,70.4,2.4z" ></path>
+									</svg>
+
+								</div>
+								<div class="swiper-button-next">
+									<svg version="1.1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<path fill="currentColor" d="M29.6,97.6l44.2-44.4c0.9-0.9,1.3-2.1,1.3-3.3c0-1.2-0.5-2.4-1.3-3.3L29.6,2.4c-1.1-1.1-2.8-1.1-3.9,0
+													c-0.5,0.5-0.8,1.2-0.8,1.9c0,0.7,0.3,1.4,0.8,1.9l43.6,43.6L25.7,93.7c-1.1,1.1-1.1,2.8,0,3.9C26.8,98.7,28.5,98.7,29.6,97.6z" ></path>
+									</svg>
+
+								</div>
+							</div>
+						</div>
+						<div class="lh-big-slide lh-col-md-10">
+							<div class="lh-big_slide-lg">
+								<div class="lh-label lh-absolute">
+				{% assign first_variant = product.selected_or_first_available_variant %}
+				{%- assign compare_at_price = product.compare_at_price -%}
+				{%- assign price = product.price -%}
+				{%- assign price_varies = product.price_varies -%}
+				{%- assign available = product.available -%}
+				{%-assign on_new = false-%}
+				{%-unless product.tags contains 'notnew'%}
+						{%-assign now_date_int = "now" | date: "%j" | plus: 0-%}
+						{%-assign now_year_int = "now" | date: '%Y' | plus: 0-%}
+						{%-assign pub_date_int = product.published_at | date: "%j" | plus: 0-%}
+						{%-assign pub_year_int = product.published_at | date: '%Y' | plus: 0-%}
+						{%-if now_year_int == pub_year_int-%}
+							{%-assign new_day_int = 30 -%}
+							{%-assign check_new = now_date_int | minus: pub_date_int-%}
+							{%-if check_new >= 0 and check_new <= new_day_int-%}
+								<span class="lh-new_label"  data-lhi="trans_new" data-lh-lang>{{'5yobzaatscp.lh_up5omg_new' | t }}</span>
+							{%-endif-%}
+						{%-else-%}
+							{%-assign new_day_int = 30 | plus: 366-%}
+							{%-assign check_new = now_date_int | plus: 366-%}
+							{%-if check_new <= new_day_int-%}
+											<span class="lh-new_label"  data-lhi="trans_new" data-lh-lang>{{'5yobzaatscp.lh_up5omg_new' | t }}</span>
+							{%-endif-%}
+						{%-endif-%}
+				{%-endunless-%}
+				{%-assign on_sale = false-%}
+				{%-if first_variant.price < first_variant.compare_at_price and first_variant.available -%}
+					{%-unless product.tags contains 'notsale'-%}
+					{%-assign on_sale = true-%}
+					{%-endunless-%}
+				{%-endif-%}
+				{%-assign sold_out = true-%}
+
+				{%-unless available == false-%}
+					{%-assign sold_out = false-%}
+				{%-endunless-%}
+				<span class="lh-sale_label" style="display: {%- if on_sale -%}block{%- else -%}none{%- endif -%}"  data-lhi="trans_sale" data-lh-lang>{{'5yobzaatscp.lh_up5omg_sale' | t }}</span>
+				{%- if sold_out -%}
+					<span class="lh-soldout_label"  data-lhi="trans_sold_out" data-lh-lang>{{'5yobzaatscp.lh_k4hsr9_out' | t }}</span>
+				{%- endif -%}
+			</div><div class=" block-slide-lg lh-slick-big swiper-container">
+									<div class="swiper-wrapper">
+										{%- for image in product.images -%}
+		          <div class="items-img swiper-slide zoom__image" data-variant_id="{{image.variants.first.id}}">
+		                      <img alt="{{ image.alt}}" class="hs-id-5a05a51f hs-lazyload" data-bigimg="{{ image | img_url: 'master'}}" data-height="{{image.height}}" data-width="{{image.width}}" loading="lazy" src="{{ image | img_url: 'master'}}"/>
+		                  </div>
+		        {%- endfor -%}</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="lh-summary lh-col-md-6 lh-pl0">
+					<div class="lh-content-summary" data-hidden="{% assign variant_slected = product.selected_or_first_available_variant %}
+				{% assign isHidden = true %}
+				{%- if variant_slected.available and variant_slected.price < variant_slected.compare_at_price -%}
+						{% assign isHidden = false %}
+				{%- endif -%}
+				{{isHidden}}">
+						<h1 class="product-name lh-product-title">
+							{%- if tpl != 'product' -%}
+				{{product.title}}
+			{%- else -%}
+				{{product.title}}
+			{%- endif -%}</h1>
+						<div class="clearfix"></div>
+						{%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+		 	 
+		 		{%- comment -%} Assign product when not in product page {%- endcomment -%}
+		 		{%- assign p  = all_products['ssk-plus']  -%}
+		 		{%- if  p.id != ""  and tpl != 'product' -%}
+		 			{% assign product  = p  %}
+		 		{%- endif -%}<div data-oke-reviews-product-listing-rating data-oke-reviews-product-id="shopify-{{- product.id -}}" class="okeReviews-lhStarRating"></div>
+
+                                
+						
+						<p class="yourprice">Your Price:</p>
+						<span class="lh-price-block price ">
+						    
+							<ins class="lh-price">
+		         <span class="money">{{ product.price | money }}</span>
+		    </ins>
+        
+            <del class="lh-compare-at-price">
+					<span class="money">{%- if product.compare_at_price  > product.price  -%}{{ product.compare_at_price  | money }}{%- endif -%}</span>
+				</del>
+			
+		    <p class="lh-sold-out-title" style="display: none"><span  data-lhi="trans_outstock" data-lh-lang>{{'5yobzaatscp.lh_up5omg_outstock' | t }}</span></p></span>
+						<p>{% if template == 'product' %}
+                      {{ 'products.product.on_sale' | t }}
+                    {% else %}
+                      {% assign amount = 0 %}
+                      {% for variant in product.variants %}
+                      {% assign saving = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price %}
+                      {% assign amount = saving | at_least: amount %}
+                      {% endfor %} 
+                      {% capture saved_amount %}{{ amount | money_without_trailing_zeros }}{% endcapture %}
+                      <div class="saved"><span>You Saved:</span> {{ saved_amount }}</div>
+                    {% endif %}</p>
+                               
+                       
+						<div class="clearfix"></div>
+						
+						 
+						<include data-live-product_introcude data-live-short_desc_content data-name="product-introduce" data-id="1">  
+  
+  <text  data-lhi="short_desc_content" data-lh-lang  data-lhi="short_desc_content" data-lh-lang>{{'5yobzaatscp.lh_5l0kk4_content_html' | t }}</text>
+   </include><div class="clearfix"></div>
+						<include data-live-trans_quantity data-live-enable_buynow data-live-trans_buynow data-live-add_to_cart data-live-trans_unavai data-live-trans_outstock data-name="product-form" data-id="2">  
+ <form class="lh-product-form {% if product.variants.size > 1%} lh-form-product-variants{% else %} lh-form-product-variant {% endif%}" method="POST" accept-charset="utf-8" enctype="multipart/form-data"  action="/cart/add" data-pid="{{- product.id -}}">
+	<div class="lh-wrap-variant" data-variants-size="">
+		{% assign variant_slected = product.selected_or_first_available_variant %}
+				{% assign arr_swatch = 'Color' | split: ',' %}
+				{%- if  arr_swatch.size > 0 %}
+					{%- if product.variants.size >= 1%}
+						{%- for option in product.options -%}
+							{%- assign option_index = forloop.index0 -%}
+							{%- assign o = option | downcase -%}
+								{%- if arr_swatch contains option -%}
+									{%- assign index = 'option' | append: forloop.index -%}
+									 	<div class="lh-swatch-images  swatch-index lh-swatch-variations"  data-option-index="{{ option_index }}">
+											<div class="meta">
+												<label title="">{{ option }}
+												</label>
+											</div>
+											<div class="list-swatch-images">
+														{%- assign values = ""  -%}
+														{%- for variant in product.variants -%}
+															{%- assign option_value = variant[index] -%}
+															{%- assign option_value_downcase = variant[index] | downcase -%}
+															{%- if values != ""%}
+																{%- assign tmp = values | split: '|' -%}
+																{%- if tmp contains option_value_downcase  -%} {%- continue-%}{%- endif -%}
+																{%- assign values = values  | append:   '|' | append: option_value_downcase -%}
+															{%- else -%}
+																{%- assign values =   option_value_downcase -%}
+															{%- endif -%}
+														<li data-option-index="{{ option_index }}" data-lh-tooltip="{{option_value | escape}}" class="lh-swatch-select lh-tooltip_top lh-swatch-image {% if option_value == variant_slected[index] %} active{% endif %}" data-value="{{option_value | escape}}" onclick="if (typeof affirmApplyVariantAndRefresh === "function") { affirmApplyVariantAndRefresh('{{ variant.price }}'); }">
+
+																 
+																	<span><img alt="{{option_value}}" class="hs-id-29e8fa95 hs-lazyload" loading="lazy" src="{{ variant | img_url: '120x120', crop: 'center' }}"/>
+																	</span>
+																 
+															</li>
+														{%- endfor -%}
+													</div>
+									  </div>
+								{%- endif -%}
+						{%- endfor -%}
+					{%- endif -%}
+				{%- endif%}{%- if product.variants.size >= 1%}
+                    {% capture data_variants %}[{%- for variant in product.variants -%}{ "id": "{{ variant.id }}", "price": "{{ variant.price }}", "format_price": "{{ variant.price | money }}", "compare_at_price": "{{ variant.compare_at_price }}", "format_compare_at_price": "{{ variant.compare_at_price | money }}", "image": "{{ variant.image | img_url: '1280x' }}", "available": {% if variant.available %}true{% else %}false{% endif %}, "options": "{% for option in variant.options %}{{ option }}{% unless forloop.last %},{% endunless %}{% endfor %}" }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{% endcapture %}
+                    <div id="pdt-swatches-{{ product.id }}" data-variants="{{ data_variants | escape }}">
+
+					{%- for option in product.options_with_values -%}
+							{%- assign option_index = forloop.index0 -%}
+							{%- assign o = option.name | downcase -%}
+							{%- if arr_swatch contains option.name or option.name == "Title" and product.options_with_values.size == 1 and option.values contains "Default Title" -%}
+								{%- continue -%}
+							{%- endif -%}
+							{%- assign index = 'option' | append: forloop.index -%}
+							<div class="lh-swatch-simple select-{{option.name | handleize }} swatch-index lh-swatch-variations"  data-option-index="{{ option_index }}">
+						      <div class="meta">
+						         <label title="">{{ option.name }}
+						         </label>
+						      </div>
+									<div class="lh-wrap-combobox">
+								      <ul class="list-swatch-items" >
+												{%- for value in option.values -%}
+													<li class="lh-swatch-select {% if value == variant_slected[index] %} active{% endif %}" data-option-index="{{ option_index }}" data-value="{{value | escape}}" data-swatch-object-id="pdt-swatches-{{ product.id }}" data-options-size="{{ product.options_with_values.size }}" data-product-id="{{ product.id }}" onclick="getVariantObject(this)"><span  title="{{value | escape}}" >{{ value}}</span></li>
+												{%- endfor -%}
+								      </ul>
+									</div>
+	   					</div>
+				{%- endfor -%}
+					<script>
+    					const getVariantObject = (element) => {
+                            const rootObject = document.getElementById(element.dataset.swatchObjectId)
+                            const product_id = element.dataset.productId;
+                            const variants = JSON.parse(rootObject.dataset.variants);
+                            const optionsSize = parseInt(element.dataset.optionsSize);
+                            let selectedOptions = '';
+                            selectedOptions += element.dataset.value;
+                            let variantObject = {};
+                            for(let j=0; j<variants.length; j++){
+                                const variant = variants[j];
+                                if(variant.options === selectedOptions){
+                                    variantObject = variant;
+                                    break;
+                                }
+                            }
+                            //console.log(variantObject)
+                            if (typeof affirmApplyVariantAndRefresh === "function") { affirmApplyVariantAndRefresh(variantObject.price); }
+                            return variantObject;
+                        }
+					</script>
+				{%- endif -%}<div class="lh-quantity">
+			<div class="meta">
+				<label title=""  data-lhi="trans_quantity" data-lh-lang>{{'5yobzaatscp.lh_up5omg_quantity' | t }}</label>
+			</div>
+			<div class="lh-quantity-form quantity-form lh-flex lh-flex-wrap">
+							 <div class="lh-quantity_form">
+									<div class="lh-control">
+										<input type="number" class="lh-input-qty lh-input-number lh-qty number "  name="quantity" value="1" min="1" max="{%- if current_variant.inventory_management != null -%}{{current_variant.inventory_quantity}}{%- else -%}999{%- endif -%}"><a href="javascript:;" class="lh-btn-number lh-qtyminus lh-quantity-minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown();this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'));return false"  title=""> </a>
+										 <a href="javascript:;" class="lh-btn-number lh-qtyplus lh-quantity-plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp();this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'));return false" title=""></a>
+									</div>
+							 </div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+   <div class="lh-option-wrappers show-swatch-no" >
+       <select name="id"  id="product-select-{{- product.id -}}" style="display: none">
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+					{%- for variant in product.variants -%}
+		                {%- if variant.available -%}
+		                  <option {%  if variant == product.selected_or_first_available_variant   %} selected="selected" {%  endif  %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+		                {%- else -%}
+		                  <option disabled="disabled">
+		                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+		                  </option>
+		                {%- endif -%}
+		              {%- endfor -%}</select>
+    </div>
+
+   <div class="lh-cart-button-group" data-available='{{product.selected_or_first_available_variant.available}}'>
+	  
+		<div class="lh-d-flex lh-flex-wrap lh-wrap-buynow">
+			    <button class="lh-buy-now bt lh-bt-primary lh-bt-type_01"  data-lhi="trans_buynow" data-lh-lang>{{'5yobzaatscp.lh_up5omg_buynow' | t }}</button>
+<button class="lh-add-to-cart" type="submit"  data-lhi="add_to_cart" data-lh-lang>{{'5yobzaatscp.lh_f635tz_cart' | t }}</button>
+		</div>
+		 
+		<div class="clearfix"></div>
+   </div>
+</form>
+{%- unless product == empty -%}
+				        <script type="application/json" id="lh-product-json-{{product.id}}">
+								{
+								"id": {{product.id}},
+								"title": {{product.title | json}},
+								"handle": {{product.handle | json}},
+								"price": {{product.price| json}},
+								"price_min": {{product.price_min| json}},
+								"price_max": {{product.price_max| json}},
+								"available": {{product.available | json}},
+								"price_varies": {{product.price_varies| json}},
+								"compare_at_price": {{product.compare_at_price| json}},
+								"compare_at_price_min": {{product.compare_at_price_min| json}},
+								"compare_at_price_max": {{product.compare_at_price_max| json}},
+								"compare_at_price_varies": {{product.compare_at_price_varies| json}},
+								"variants": [
+								{%- for variant in product.variants -%}
+								{
+								"id": {{variant.id}},
+								"title": "{{variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%}{{variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%}{{variant.option3 | handleize }}",
+								"option1": {{variant.option1  | json}},
+								"option2": {%- if product.options.size == 1 -%}null{%-else-%}{{variant.option2  | json}}{%-endif-%},
+								"option3": {%- if product.options.size == 1 or product.options.size == 2 -%}null{%-else-%}{{variant.option3  | json}}{%-endif-%},
+								"sku": {{variant.sku | json}},
+								"requires_shipping": {{variant.requires_shipping}},
+								"taxable": {{variant.taxable |json}},
+								"featured_image": {%- if variant.image.id != blank -%}{
+										"id": {{variant.image.id | json}},
+										"product_id": {{product.id | json}},
+										"width": {{variant.image.width | json}},
+										"height": {{variant.image.height | json}},
+										"src": {{variant.image.src | json}},
+										"position":{{variant.image.position}}
+									}{%- else-%}null{%-endif-%},
+								"available": {{variant.available}},
+								"public_title": "{{variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%}{{variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%}{{variant.option3 | handleize }}",
+								"options":  {{variant.options | json}},
+								"price": {{variant.price| json}},
+								"weight": {{variant.weight| json}},
+								"compare_at_price": {{variant.compare_at_price | json}},
+								"inventory_quantity": {{variant.inventory_quantity | json}},
+								"inventory_management": {{variant.inventory_management | json}},
+								"inventory_policy": {{variant.inventory_policy | json}},
+								"barcode": {{variant.barcode | json}}
+								}{%- if forloop.last == false -%},{%- endif -%}
+								{%- endfor -%}
+								],
+								"featured_image": {{product.featured_image | json}},
+								"options": [
+								{%- for option in product.options -%}
+								{{ option | json}}{%- if forloop.last == false -%},{%- endif -%}
+								{%-endfor -%}
+								]
+								}
+				        </script>
+				      {%- endunless -%}   </include></div>
+					<div id="extend">{% render 'extend-product-integration' %}</div>
+<table class="help">
+<tbody><tr><td>
+<img class="support-img hs-id-9611d1ae hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/Image_from_iOS_256x256_crop_center.jpg?v=1644461592650" width="70"/>
+</td>
+<td class="">
+<h4>Have a question? We're here to help.</h4>
+Friendly Phone Support: <a href="tel:877-242-2792">877-242-2792</a> <br> | <a href="https://024wwq6ojms.typeform.com/solar-kit-reco">Quick Quote</a> | Mon-Fri 10am-6pm EST</td>
+</tr></tbody></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+  </section><section id="" data-section-id="nmt5vuy7zsf" data-section="incentives-5" data-dev="hongyen" data-lh-page-id="1135" data-lh-page-name="Uno" data-layouthub="section">  
+ <div class="lh-incentives" >
+	<div class="lh-container " >
+		<div class="lh-row">
+             <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-star" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_0_font_icon="list_item[0]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[0]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'nmt5vuy7zsf.lh_9wid92_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-money-location" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_1_font_icon="list_item[1]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[1]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'nmt5vuy7zsf.lh_a5w0bb_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-package" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_2_font_icon="list_item[2]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[2]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'nmt5vuy7zsf.lh_af9ndk_item_html' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-cup" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_3_font_icon="list_item[3]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[3]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'nmt5vuy7zsf.lh_aonaft_item_html' | t }}</p></div>
+                    
+               
+			</div>
+              
+		</div>
+        </div>
+	</div>
+  </section><section id="" data-section-id="eqkakxmeir" data-section="banner-41" data-dev="trong-dai" data-lh-page-id="1316" data-lh-page-name="Pupa - Landing" data-layouthub="section">  
+ <div class="lh-wrapper">
+  <div class="lh-container">
+    <div class="">
+        
+        
+        
+      <div class="">
+        <div class="lh-txt">
+          <h3 class="lh-heading"  data-lhi="lh_9j7xan" data-lh-lang>{{'eqkakxmeir.lh_5bw_9j7xan' | t }}</h3>
+          <div class="lh-des"  data-lhi="description" data-lh-lang>{{'eqkakxmeir.description_html' | t }}</div>
+          <div class="lh-bot">
+            <div class="lh-btn"  data-lhi="btn" data-lh-lang data-lhi-child="a"><a target="_blank" href="https://shopsolarkits.com/pages/solar-kit-sizing-tool" data-ga-action="btn" data-ga-label="Button" data-lhlink>{{'eqkakxmeir.btn' | t }}</a></div>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  </section><section id="why_button" data-section-id="ahaa0ft7qr4" data-section="contents7856478" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'ahaa0ft7qr4.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'ahaa0ft7qr4.lh_2rtbyt_desc_html' | t }}</p>
+                
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lh-lang data-lhis="content_items-img"><img class="hs-id-9ab7421e hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/ssk-home-3_VEpm.jpg?v=167572459590"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       <div class="lh-content">
+
+          <div class="lh-row lh-text-or2" data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_1_style="content_items[1]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[1]title" data-lh-lang data-lhis="content_items-title">{{'ahaa0ft7qr4.lh_2rtbys_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[1]desc" data-lh-lang data-lhis="content_items-desc">{{'ahaa0ft7qr4.lh_2rtbys_desc_html' | t }}</p>
+                
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[1]img" data-lh-lang data-lhis="content_items-img"><img class="hs-id-ac386bd5 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/ssk-homepage-cottage-1_QRy9.jpg?v=1675724708104"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_2_style="content_items[2]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[2]title" data-lh-lang data-lhis="content_items-title">{{'ahaa0ft7qr4.lh_2rtbyr_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[2]desc" data-lh-lang data-lhis="content_items-desc">{{'ahaa0ft7qr4.lh_2rtbyr_desc_html' | t }}</p>
+                
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[2]img" data-lh-lang data-lhis="content_items-img"><img class="hs-id-96dbfb3f hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/103/assets/customermap-moredots1_XhmL.png?v=1675467020736"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="hh71zd25rrl" data-section="call-to-action-28" data-dev="hongyen" data-lh-page-id="1372" data-lh-page-name="Bases - Landing" data-layouthub="section">  
+ <div class="lh-call">
+  <div class="lh-container"> 
+    <div class="lh-row ">
+      <div class="lh-col-md-12">
+        <div class="lh-content">
+
+          <h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'hh71zd25rrl.lh_a168_title' | t }}</h3>
+          <p class="lh-btn"  data-lhi="btn_link" data-lh-lang data-lhi-child="a"><a target="_blank" href="https://shopsolarkits.com/pages/solar-kit-sizing-tool" data-ga-action="btn_link" data-ga-label="Button" data-lhlink>{{'hh71zd25rrl.lh_8huk_link' | t }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section><section id="" data-section-id="g9y5yzmib4" data-section="contents" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'g9y5yzmib4.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'g9y5yzmib4.lh_2rtbyt_desc_html' | t }}</p>
+
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+                <text  data-lhi="content_items[0]img" data-lhis="content_items-img"></text>
+             <div class="iactiveImg" data-ii="47551"></div><script src="https://interactive-img.com/js/include.js"></script>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="fo8ylu1xtuj" data-section="why-do-you-need6462" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'fo8ylu1xtuj.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang data-lh-live-editor></div>
+<ul>			
+<li>Ships from USA!</li>
+<li>1 x 2,400 Watt Pure Sine All-In-One Inverter Charger - 24VDC / 120V Output - 1-Year Warranty</li>
+<li>4 x 200 Watt Monocrystalline Solar Panels 12V - 25-Year Power Output Warranty</li>
+<li>Choice of 1 x 24V HAWK Powerwall or 100AH/200AH Lithium Batteries - Both 10-Year Warranty</li>
+<li>1 x 10AWG Solar Extension Cables PV, 50ft Set</li>
+<li>1 x 4AWG Inverter Cable, approx. 3ft, Set</li>
+<li>Inverter cabling below depending on the battery choice:</li>
+<li> 1 x 1/0AWG SB175, approx. 3ft, Assembly</li>
+<li> 2 x 1/0AWG Inverter Cable, approx. 1ft, Red</li>
+<li>Fuse and Fuse Holders</li>
+<li>1 x 15A Inline Fuse Kit, PV Connector</li>
+<li>4 x Solar Panel Z-Brackets</li>
+<li>Free System Schematic / 3-Page Setup Guide</li>
+<li>Lifetime Customer Support (via Phone, Live Chat, Email)</li>
+</ul>
+<br>
+
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="sahkohahfcd" data-section="why-do-you-need6460" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'sahkohahfcd.lh_a168_title_html' | t }}</h3>
+			
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="why_button" data-section-id="npareq5b8ic" data-section="contents785624" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+                
+                
+
+              <div class="lh-text">
+                  
+                  
+               <table>
+                    <tbody><tr>
+                    <th>MPP LV2424 Inverter</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <td>Continuous Output</td>
+                    <td>2400W</td>
+                    </tr>
+                    <tr>
+                    <td>System DC Volt</td>
+                    <td>24VDC</td>
+                    </tr>
+                    <tr>
+                    <td>Split Phase Capable</td>
+                    <td>Yes (2 units)</td>
+                    </tr>
+                    <tr>
+                    <td>Max PV Input Power</td>
+                    <td>2000W</td>
+                    </tr>
+                    <tr>
+                    <td>Max PV Input Volt</td>
+                    <td>145VDC</td>
+                    </tr>
+                    <tr>
+                    <td>MPPT Range</td>
+                    <td>30-115VDC</td>
+                    </tr>
+                    <tr>
+                    <td>Max Charging Current</td>
+                    <td>80A</td>
+                    </tr>
+                    <tr>
+                    <td>Max Utility Solar Charging</td>
+                    <td>140A</td>
+                    </tr>
+                    <tr>
+                    <td>Dimension</td>
+                    <td>468 x 295 x 120</td>
+                    </tr>
+                    <tr>
+                        <td>Net Weight</td>
+                        <td>11kg</td>
+                    </tr>
+                </tbody></table>
+                
+                
+
+
+                
+                  
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+
+
+               <table>
+                    <tbody><tr>
+                        <th></th>
+                        <th>12V 100Ah LiFePO4 Lithium Battery</th>
+                        <th>BigBattery 24V HAWK</th>
+                    </tr>
+                    <tr>
+                    <td>Nominal Voltage</td>
+                    <td>12.8V</td>
+                    <td>24V</td>
+                    </tr>
+                    
+                    
+                    <tr>
+                    <td>Operating Voltage</td>
+                    <td>12.8 V</td>
+                    <td>24V</td>
+                    </tr>
+                    <tr>
+                    <td>Capacity</td>
+                    <td>100AH</td>
+                    <td>228AH</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Energy</td>
+                        <td>1280 Watt Hours</td>
+                        <td>5800 Watt Hours</td>
+                    </tr>
+                    <tr>
+                        <td>Battery Dimensions</td>
+                        <td>12.8″L x 6.6″W x 8.5″H</td>
+                        <td>10.2"L x 7.2"W x 21.6" in"H</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>21.8 lbs</td>
+                        <td>88 lbs</td>
+                    </tr>
+                    <tr>
+                        <td>Warranty</td>
+                        <td>10 Years</td>
+                        <td>10 Years</td>
+                    </tr>
+                </tbody></table>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="why_button" data-section-id="wvrczwfpeif" data-section="contents78562" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+                
+                
+
+              <div class="lh-text">
+                  
+                  
+                <table>
+                    <tbody><tr>
+                    <th>200 Watt Solar Panels</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <td>Maximum Power(Pmax)</td>
+                    <td>200W</td>
+                    </tr>
+                    <tr>
+                    <td>Maximum Power Voltage(Vmp)</td>
+                    <td>20.4V</td>
+                    </tr>
+                    <tr>
+                    <td>Maximum Power Current(Imp)</td>
+                    <td>9.80A</td>
+                    </tr>
+                    <tr>
+                    <td>Open Circuit Voltage(Voc)</td>
+                    <td>24.3V</td>
+                    </tr>
+                    <tr>
+                    <td>Short Circuit Current(Isc)</td>
+                    <td>10.2A</td>
+                    </tr>
+                    <tr>
+                    <td>Maximum System Voltage(Vmax)</td>
+                    <td>1000VDC</td>
+                    </tr>
+                    <tr>
+                    <td>Temperature Range</td>
+                    <td>-40°C ~ 90°C</td>
+                    </tr>
+                    <tr>
+                    <td>Dimensions</td>
+                    <td>58.7 x 26.8 x 1.4 in</td>
+                    </tr>
+                    <tr>
+                    <td>Weight</td>
+                    <td>26.5 lbs</td>
+                    </tr>
+                    <tr>
+                        <td>Warranty</td>
+                        <td>25 Years</td>
+                    </tr>
+                </tbody></table>
+                
+                
+
+
+                
+                  
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+
+
+               <table>
+                    <tbody><tr>
+                        <th>Solar Kit Specs</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                    <td>Max Continuous Output</td>
+                    <td>2,400W</td>
+                    </tr>
+                    <tr>
+                    <td>Max Solar Input</td>
+                    <td>1,920W</td>
+                    </tr>
+                    <tr>
+                    <td>Total Wattage of Panels</td>
+                    <td>800W</td>
+                    </tr>
+                    <tr>
+                    <td>Total KWH of Batteries</td>
+                    <td>4.8kWh</td>
+                    </tr>
+                    <tr>
+                    <td>Wattage Per Panel</td>
+                    <td>200W</td>
+                    </tr>
+                    <tr>
+                    <td># of Panels</td>
+                    <td>4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>System Voltage</td>
+                        <td>24V</td>
+                    </tr>
+                    <tr>
+                        <td>Chemistry</td>
+                        <td>Lithium</td>
+                    </tr>
+                    <tr>
+                        <td># of Batteries</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Battery Weight</td>
+                        <td>21.8 lb</td>
+                    </tr>
+                </tbody></table>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="x2gw4ay7zy" data-section="call-to-action-283" data-dev="hongyen" data-lh-page-id="1372" data-lh-page-name="Bases - Landing" data-layouthub="section">  
+  
+ 
+<div class="lh-call">
+  <div class="lh-container"> 
+    <div class="lh-row ">
+      <div class="lh-col-md-12">
+        <div class="lh-content">
+
+          <h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'x2gw4ay7zy.lh_a168_title' | t }}</h3>
+          <p class="lh-btn"  data-lhi="btn_link" data-lh-lang data-lhi-child="a"><a target="_blank" href="https://shopsolarkits.com/pages/solar-kit-sizing-tool?custom=Get%20Started" data-ga-action="btn_link" data-ga-label="Button" data-lhlink>{{'x2gw4ay7zy.lh_8huk_link' | t }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  </section><section id="" data-section-id="83pk9jldl2i" data-section="review-3" data-dev="huynh-duc" data-lh-page-id="764" data-lh-page-name="Product Group" data-layouthub="section">  
+ {%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+ 
+{%- assign layout_hub_product = all_products['ssk-plus'] -%}
+{%- if tpl != 'product' and layout_hub_product != blank -%}
+	{% assign product  = layout_hub_product  %}
+{%- endif -%}<div data-oke-reviews-widget data-oke-reviews-product-id="shopify-{{- product.id -}}" class="okeReviews-lhWidgetHolder"></div>
+  </section>
+</div>
+ {%schema%} 
+{"locales":{"en":{"5yobzaatscp":{"lh_up5omg_outstock":"Out of stock","lh_up5omg_new":"New","lh_up5omg_sale":"Sale","lh_k4hsr9_out":"Sold out","lh_up5omg_sku":"SKU:","lh_5l0kk4_content_html":"Not sure if this solar panel kit is for you?<br> <a href=\"https:\/\/shopsolarkits.com\/pages\/solar-kit-sizing-tool?custom=Get%20Started\">Click Here To Find Your Perfect Solar Kit<\/a><!--lh-live-editor-->","lh_up5omg_quantity":"Quantity:","lh_up5omg_buynow":"Add To Cart","lh_f635tz_cart":"Add To Cart"},"nmt5vuy7zsf":{"lh_9wid92_item":"Industry Leading Warranties & Support","lh_a5w0bb_item":"Instant Financing Available at Checkout","lh_af9ndk_item_html":"Guaranteed Safe &amp; Reliable Shipping","lh_aonaft_item_html":"2,000+ Reviews &amp; 30,000+ Customers"},"eqkakxmeir":{"lh_5bw_9j7xan":"Want to go solar but not sure where to start? Find your perfect solar panel kit","description_html":"A solar panel kit is a solution that combines solar panels with other components (such as solar generators, batteries and inverters) that allows you to capture and convert the sun's energy into electricity, allowing you to power devices and appliances.&nbsp;<div><br><\/div><div><br>Solar panel kits create a reliable and clean solution for off-grid living, emergency back-up power, portable power, or offsetting your electricity bills.<\/div>","btn":"Click Here To Find Your Perfect Solar Kit"},"ahaa0ft7qr4":{"lh_2rtbyt_title_html":"We\u2019re with you every step of the way<!--lh-live-editor-->","lh_2rtbyt_desc_html":"When you invest in a complete solar panel kit, you want to have peace of mind knowing that you have all the support you need to ensure that it\u2019s always working properly.<br><br>\n\nWhen you buy from Shop Solar Kits, you\u2019ll receive everything you need to get your system up and running. This includes all of the necessary components, setup instructions and our legendary lifetime customer support.<br><br>\n\nThis means that anytime you have a question, concern or find yourself troubleshooting - you\u2019ll have timely access to friendly solar experts that can help.<!--lh-live-editor-->","lh_2rtbys_title_html":"We have the best online prices, guaranteed.<!--lh-live-editor-->","lh_2rtbys_desc_html":"At Shop Solar Kits, we cut out the middlemen and pre-bundle all the components you need, which means that we can pass significant savings on to you.<br><br>\n\nCompare that with the traditional solar model, which involves high-commissions salespeople, project managers, technical designers, and more, which results in you paying inflated prices and for unnecessary, custom designs. These companies also try to use your monthly electric bill and long-term financing options to make you think the math makes sense. But it doesn\u2019t.<br><br>\n\nWith us, you get the best possible equipment for your specific needs, at the best possible prices year round, with no hidden fees. All backed by our price-match guarantee.<!--lh-live-editor-->","lh_2rtbyr_title_html":"We\u2019ve Made Solar Simple for 30,000+ Happy Customers<!--lh-live-editor-->","lh_2rtbyr_desc_html":"Since launching in 2018, we\u2019ve worked hard to become the number one solar kit retailer in the USA, proudly serving over 30,000 satisfied customers. With decades of combined experience, we make going solar easy, simplifying the solar process and offering legendary customer service that goes above and beyond expectations, which has set us apart from the competition and drives our success as a company. Whether it's through our expert customer support, top-notch product offerings, or seamless online distribution, you can trust that we are committed to providing you with a positive experience at every stage of your solar journey.<!--lh-live-editor-->"},"hh71zd25rrl":{"lh_a168_title":"Not sure which solar panel kit you need?","lh_8huk_link":"Click Here To Find Your Perfect Solar Kit"},"g9y5yzmib4":{"lh_2rtbyt_title_html":"We've Thought of Everything, So You Don't Have To.<!--lh-live-editor-->","lh_2rtbyt_desc_html":"Looking for a complete off-grid solar kit that's simple to setup & install, comes with lithium batteries and has the ability to hook up to solar, wind, fuel\/backup generator and\/or utility power? Look no further! Our SSK PLUS all-in-one, off-grid solar kit was designed with all of this in mind - Simplicity. Value. Reliability. <br><br>\n\nWhether you're looking for emergency backup power, remote power for a small weekend property, or casual power needs, the SSK PLUS solar kit comes with everything you need to get off the grid in just hours!<!--lh-live-editor-->"},"fo8ylu1xtuj":{"lh_a168_title":"What's Included With Your Complete Solar Panel Kit [SSK-PLUS]?"},"sahkohahfcd":{"lh_a168_title_html":"Product &amp; Kit Specifications"},"x2gw4ay7zy":{"lh_a168_title":"Not sure this solar panel kit is for you?","lh_8huk_link":"Click Here To Find Your Perfect Solar Kit"}}},"name":"SSK PLUS"}
+ {%endschema%}

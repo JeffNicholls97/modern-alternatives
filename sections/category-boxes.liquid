@@ -1,0 +1,63 @@
+{% render 'category-boxes' %}
+{% schema %}
+  {
+    "name": "Category Boxes",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "video_url",
+        "id": "video",
+        "label": "Add Video Link",
+        "accept": [
+          "youtube"
+        ],
+      },
+      {
+        "type": "text",
+        "id": "left_title",
+        "label": "Add title for left box",
+        "default": "Solar Can Make Changes"
+      },
+      {
+        "type": "textarea",
+        "id": "left_text",
+        "label": "Add paragraph text for left box",
+        "default": "At ShopSolar.com, we are on a mission to make solar simple, transparent & affordable. For years now, traditional solar companies and local installers have been over-charging customers for extremely basic solar panel systems (without batteries)"
+      },
+      {
+        "type": "image_picker",
+        "id": "left_image",
+        "label": "Add background image to left box"
+      }
+    ],
+  	"blocks": [
+     {
+       "name": "Box",
+       "type": "box",
+       "settings": [
+         {
+           "type": "text",
+           "id": "box_title",
+           "label": "Add box title",
+           "default": "New Arrivals"
+         },
+         {
+           "type": "url",
+           "id": "box_url",
+           "label": "Add link to collection or URL"
+         },
+         {
+           "type": "image_picker",
+           "id": "box_image",
+           "label": "Add box background image"
+         }
+       ]
+     }
+  ],
+    "presets": [
+    {
+      "name": "Category Boxes"
+    }
+  ]
+  }
+{% endschema %}

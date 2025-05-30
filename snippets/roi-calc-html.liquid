@@ -1,0 +1,37 @@
+<style>
+    .roi-calc-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .roi-calc-additional-text {
+        width: 50%;
+        margin-right: 40px;
+    }
+    @media only screen and (min-width: 770px) {
+        .roi-calc-additional-text {
+            display: flex;
+            align-items: center;
+        }
+        .roi-calc-additional-text h4 {
+            margin-top: 0;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        .roi-calc-wrapper {
+            flex-direction: column;
+        }
+        .roi-calc-additional-text {
+            width: 100%;
+            margin-right: 0;
+            text-align: center;
+        }
+    }
+</style>
+<div class="roi-calc-wrapper">
+    <div class="roi-calc-additional-text">
+        <div>
+            <h4>{{ section.settings.additional_headline }}</h4>
+            <p>{{ section.settings.additional_text }}</p>
+        </div>
+    </div>
+</div>

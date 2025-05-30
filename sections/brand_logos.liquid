@@ -1,0 +1,25 @@
+{% render 'brand_logos' %}
+{% schema %}
+  {
+    "name": "Brands Logos",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Brand Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Brand URL"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

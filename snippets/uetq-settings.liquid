@@ -1,0 +1,71 @@
+{% comment %} UET tag {% endcomment %}
+<script async src="//bat.bing.com/bat.js"></script>
+<script>
+  window.uetq = window.uetq || [];
+  window.addEventListener('load', function() {
+    (function(w,d,t,r,u){
+      var f,n,i;w[u]=w[u]||[],f=function(){
+        var o={ti:"355001973"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")
+      };
+      n=d.createElement(t),n.async=1,n.src=r;
+      i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)
+    })(window,document,"script","//bat.bing.com/bat.js","uetq");
+  });
+</script>
+{% comment %} End UET tag {% endcomment %}
+<script>
+    window.uetq = window.uetq || [];
+    window.uetq.push("event", "", {"revenue_value":1,"currency":"{{ shop.currency }}"});
+    (function (){
+        window.uetq = window.uetq || [];
+        window.uetq.push("event", "page_view", {
+            page_title: "{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}",
+            page_location: window.location.href,
+            page_path: "{{ request.path }}"
+        });
+        {%- if template contains 'product' -%}
+        const variants = {
+            {% for variant in product.variants %}
+            "{{ variant.id }}":{ "title": "{{ variant.sku }} {{ variant.title }}", "id":"{{ variant.id }}", "price":"{{ variant.price | divided_by: 100 }}", "currency": "{{ shop.currency }}" }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        };
+        window.addEventListener('load', () => {
+            const productForm = document.querySelector('[action="/cart/add"]');
+            const addToCartButton = productForm.querySelector('button[type="submit"]');
+            if(addToCartButton){
+                addToCartButton.addEventListener('click', (e) => {
+                    const selectedVariant = productForm.querySelector('[name="id"]');
+                    const quantity = productForm.querySelector('[name="quantity"]');
+                    if(selectedVariant && quantity && quantity.value){
+                        if(variants[selectedVariant.value]){
+                            const revenue_value = String(variants[selectedVariant.value].price * quantity.value);
+                            window.uetq.push("event", "add_to_cart", {
+                               "revenue_value": revenue_value,
+                               "currency": variants[selectedVariant.value].currency,
+                               "items": [{
+                                   list_name: variants[selectedVariant.value].title,
+                                   id: variants[selectedVariant.value].id,
+                                   quantity: quantity.value,
+                                   price: variants[selectedVariant.value].price
+                               }]
+                            });
+                        }
+                    }
+                })
+            }
+        });
+        {%- endif -%}
+        {% if checkout %}
+        const items = [
+            {% for item in checkout.line_items %}
+            { list_name: "{{ item.sku }} {{ item.title }}", price:"{{ item.price | divided_by: 100 | times: item.quantity }}", quantity: "{{ item.quantity }}"}{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ];
+        window.uetq.push("event", "begin_checkout", {
+            "revenue_value": "{{ checkout.line_items_subtotal_price | divided_by: 100 }}",
+            "currency": "{{ shop.currency }}",
+            "items": items
+        });
+        {% endif %}
+    })()
+</script>

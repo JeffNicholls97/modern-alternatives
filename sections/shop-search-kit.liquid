@@ -1,0 +1,213 @@
+{% liquid
+    assign title = section.settings.title
+    assign text = section.settings.text
+    assign collection_selector = section.settings.collection_selector
+    assign collection_list = section.settings.collection_list
+    assign selected_filters = ''
+    assign button_text = section.settings.button_text
+    assign collection_list_size = 0
+%}
+{% assign filters_html = '' %}
+{% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+        {% liquid
+            assign selected_filter = block.settings.filter_name | downcase | replace: ' ', '_' | append: "'" | prepend: "'"
+            unless forloop.first
+                assign selected_filters = selected_filters | append: ','
+            endunless
+            assign selected_filters = selected_filters | append: selected_filter
+        %}
+        {% capture filter_html %}
+        <div class="options-selection__select">
+            <label class="options-selection__select-label" for="{{ selected_filter }}">{{ block.settings.filter_name }}</label>
+            <div class="options-selection__input-select-wrapper">
+                <select id="{{ selected_filter }}" class="options-selection__input-select">
+                    <option value="" name="">Select {{ block.settings.filter_name }}</option>
+                </select>
+                <div class="options-selection__input-select-chevron">
+                    <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                        <path d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        {% endcapture %}
+        {% assign filters_html = filters_html | append: filter_html %}
+    {% endfor %}
+{% endif %}
+<style>
+    .shop-search--container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .shop-search--container .filter-form-wrap {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    .shop-search--container .filter-form-wrap .options-selection__select {
+        margin: 20px 0;
+    }
+    .shop-search--container .image-with-text__text,
+    .shop-search--container .filter-form-wrap form.filter-form {
+        text-align: center;
+    }
+</style>
+<div class="shop-search--container">
+    <div class="shop-search-content">
+        <h2 class="home-section--title">{{ title }}</h2>
+        <div class="image-with-text__text">
+            {{ text }}
+        </div>
+        <div class="filter-form-wrap">
+            {% if collection_selector %}
+                <div class="options-selection__select">
+                    <label class="options-selection__select-label" for="collection_handle">Collection Selector</label>
+                    <div class="options-selection__input-select-wrapper">
+                        <select id="collection_handle" class="options-selection__input-select" name="collection_handle" onchange="updateShopSearchForm('{{ section.id }}', [{{ selected_filters }}])">
+                            {% for selected_collection in collection_list %}
+                                {% assign collection_list_size = collection_list_size | plus: 1 %}
+                                <option value="{{ selected_collection.handle }}" selected="">{{ selected_collection.title }}</option>
+                            {% endfor %}
+                            {% unless collection_list_size > 0 %}
+                                {%- paginate collections by 10000 -%}
+                                    {% for collection in collections %}
+                                        <option value="{{ collection.handle }}" selected="">{{ collection.title }}</option>
+                                    {% endfor %}
+                                {% endpaginate %}
+                            {% endunless %}
+                            <option value="all" selected>All Products</option>
+                        </select>
+                        <div class="options-selection__input-select-chevron">
+                            <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                                <path d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <input type="hidden" id="collection_handle" name="collection_handle" value="all">
+            {% endif %}
+            <form class="filter-form" action="/collections/all">
+                <div class="filter-form-content">
+                    {{ filters_html }}
+                </div>
+                <button type="submit" class="button-primary collection-list__button mdc-ripple-surface mdc-ripple-upgraded">
+                    {{ button_text }}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function updateShopSearchForm() {
+        const section_id = '{{ section.id }}';
+        const selected_filters = [{{ selected_filters }}];
+
+        const selected_collection = document.querySelector(`#shopify-section-${section_id} #collection_handle`);
+        if(!selected_collection){ return false; }
+        //console.log('ima collectiona selected_collection');
+        const handle = selected_collection.value;
+        //console.log(handle)
+        const url_string = `https://${window.location.hostname}/collections/${handle}?view=shop-filter`;
+        const url = new URL(url_string);
+        //console.log(selected_filters)
+        const formElement = document.querySelector(`#shopify-section-${section_id} .filter-form-wrap form.filter-form`);
+        if(selected_filters.length && formElement){
+            formElement.setAttribute('action', `/collections/${handle}`);
+            const form = formElement.querySelector('.filter-form-content');
+            if(form){
+                const currentFormFilters = form.querySelectorAll('.options-selection__input-select');
+                if(currentFormFilters.length){
+                    currentFormFilters.forEach(currentFormFilter => {
+                        if(currentFormFilter.value){
+                            url.searchParams.set(currentFormFilter.name, currentFormFilter.value);
+                        }
+                    })
+                }
+                console.log(url.toString())
+                fetch(url.toString()).then(request => request.text()).then(form_content => {
+                    const form_content_dom = document.createElement('div');
+                    form_content_dom.innerHTML = form_content;
+                    const filters = form_content_dom.querySelectorAll('.options-selection__select');
+                    const sorted_selected_filter_elements = []
+                    selected_filters.forEach((selected_filter => {
+                        filters.forEach(selected_filter_element => {
+                            const filter = selected_filter_element.querySelector('.options-selection__input-select');
+                            if(selected_filter === filter.getAttribute('id')){
+                                sorted_selected_filter_elements.push(selected_filter_element);
+                            }
+                        })
+                    }))
+                    if(sorted_selected_filter_elements.length){
+                        form.innerHTML = '';
+                        sorted_selected_filter_elements.forEach(filter => {
+                            form.append(filter)
+                        })
+                    }else{
+                        form.innerHTML = '<span style="color: red">There is no available filters in selected collection.</span>';
+                    }
+                })
+            }
+        }
+    }
+    updateShopSearchForm();
+</script>
+
+{% schema %}
+{
+    "name": "Shop Search Kit",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Solar Kit Search"
+        },
+        {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use the dropdowns to sort your search for a solar kit that fits your needs</p>"
+        },
+        {
+            "type": "checkbox",
+            "id": "collection_selector",
+            "label": "Enable Collection Selector",
+            "default": true
+        },
+        {
+            "type": "collection_list",
+            "id": "collection_list",
+            "label": "Collections",
+            "info": "If \"Enable Collection Selector\" checked and 0 collections are selected, script will load all collections."
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "SEARCH NOW"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "filter",
+            "name": "Filter",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "filter_name",
+                    "label": "Filter Name",
+                    "info": "[Shop Filters View/Edit/Add](https://shopsolarkits.myshopify.com/admin/apps/search-and-discovery/filters)"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Shop Search Kit"
+        }
+    ]
+}
+{% endschema %}

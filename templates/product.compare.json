@@ -1,0 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "static-product-compare",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "text": "Product information"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "3319d43a-a557-4b33-ab6e-cf4a01543e4c": {
+          "type": "specifications",
+          "settings": {
+            "title": "Specifications"
+          }
+        },
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "inventory-status": {
+          "type": "availability",
+          "disabled": true,
+          "settings": {
+            "inventory_display": "hidden",
+            "inventory_transfer_notice": true
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "heading-2": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Specifications"
+          }
+        },
+        "dynamic-comparison": {
+          "type": "dynamic_comparison",
+          "disabled": true,
+          "settings": {
+            "title": "Dimensions",
+            "text": "<p>Use this text to share additional information about your product.<\/p>"
+          }
+        },
+        "dynamic-comparison-2": {
+          "type": "dynamic_comparison",
+          "disabled": true,
+          "settings": {
+            "title": "Weight",
+            "text": "<p>Use this text to share additional information about your product.<\/p>"
+          }
+        },
+        "dynamic-comparison-3": {
+          "type": "dynamic_comparison",
+          "disabled": true,
+          "settings": {
+            "title": "General features",
+            "text": "<p>Use this text to share additional information about your product.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "description",
+        "3319d43a-a557-4b33-ab6e-cf4a01543e4c",
+        "vendor",
+        "inventory-status",
+        "rating",
+        "heading-2",
+        "dynamic-comparison",
+        "dynamic-comparison-2",
+        "dynamic-comparison-3"
+      ],
+      "settings": {
+        "filter_groups": "expand_first"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

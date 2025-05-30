@@ -1,0 +1,205 @@
+{
+  "sections": {
+    "12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-0": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Free Shipping",
+            "text": "<p>When you spend $100+<\/p>",
+            "link": ""
+          }
+        },
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-cell-phone",
+            "title": "Give Us A Call",
+            "text": "<p>+1 (201) 555-5555<\/p>",
+            "link": ""
+          }
+        },
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-chat-alternate",
+            "title": "Chat With Us",
+            "text": "<p>We offer 24-hour chat support<\/p>",
+            "link": ""
+          }
+        },
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-pin",
+            "title": "Locations",
+            "text": "<p>Find a store near you<\/p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-0",
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-1",
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-2",
+        "template--15938542698636__12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e-1681815590f1509a4e-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_spacing": false,
+        "section_width": "full-width",
+        "icon_layout": "left",
+        "color": "#4d4d4d",
+        "icon_color": "#4d4d4d",
+        "background_color": "#f8f8f8",
+        "mobile_layout": "slider"
+      }
+    },
+    "5b7660da-60c6-494e-b129-ab5495977c76": {
+      "type": "pxs-image-with-text-overlay-collection",
+      "disabled": true,
+      "settings": {
+        "section_height": "medium",
+        "collection_list": [
+          "bluetti-solar-generators",
+          "mppt-charge-controllers",
+          "all-in-one-kits",
+          "solar-generator-kits"
+        ],
+        "collections_img_border": false,
+        "title": "{{ collection.title }}",
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": ""
+      }
+    },
+    "d4791764-cb62-4f08-aeec-ff7961a7d5f4": {
+      "type": "dynamic-countdown-timer",
+      "disabled": true,
+      "settings": {
+        "section_height": "small",
+        "countdown_year": "2023",
+        "countdown_month": "12",
+        "countdown_day": "11",
+        "countdown_hour": "23",
+        "countdown_minute": "59",
+        "countdown_timer_background": true,
+        "countdown_timer_complete": true,
+        "countdown_timer_message": "",
+        "product": "",
+        "title": "December Sale on Now!",
+        "text": "<p>Short Days, Big Savings! Get up to 30% OFF Site Wide + Free Shipping on ALL Solar Kits<\/p>",
+        "button_link": "",
+        "button_label": "",
+        "button_style": "primary",
+        "text_color": "#ffffff",
+        "overlay_color": "#232f3f",
+        "overlay_opacity": 100,
+        "product_card_background_color": "#f5f3ed"
+      }
+    },
+    "main": {
+      "type": "static-collection",
+      "blocks": {
+        "filter-1": {
+          "type": "filter",
+          "settings": {
+            "filter_option": "faceted",
+            "filter_groups": "expand_first",
+            "show_filter_product_count": true,
+            "filter_style": "tags",
+            "filter_limit": "999",
+            "grid_categories": "",
+            "custom_ordered_categories": "",
+            "custom_ordered_tags": "",
+            "excluded_tags": "",
+            "excluded_groups": ""
+          }
+        }
+      },
+      "block_order": [
+        "filter-1"
+      ],
+      "settings": {
+        "show_collection_image": false,
+        "products_per_page_range": 36,
+        "products_per_row": "3",
+        "sort_by": true,
+        "grid_list": true,
+        "default_view": "list-view",
+        "enable_subcollection": false,
+        "show_product_count": false,
+        "thumbnail_image": "product-image",
+        "image_crop": "original"
+      }
+    },
+    "e0d53c5d-654f-409f-94f8-652f8a12da5d": {
+      "type": "dynamic-rich-text",
+      "disabled": true,
+      "settings": {
+        "width": "full-width",
+        "title": "Solar Kits",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi<\/p>",
+        "heading_size": "large",
+        "text_alignment": "center",
+        "button_text": "Button",
+        "button_link": "",
+        "background_color": "",
+        "text_color": "",
+        "padding_top_and_bottom": 0,
+        "margin_top_and_bottom": 0
+      }
+    },
+    "e7a46a35-c868-4dfe-966f-7064c2d5d965": {
+      "type": "pxs-image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "section_height": "medium",
+        "image_url": "",
+        "title": "Image with text overlay",
+        "text": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "#000000",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": "Button"
+      }
+    },
+    "static-recently-viewed": {
+      "type": "static-recently-viewed",
+      "settings": {
+        "enable_recently_viewed_products": true
+      }
+    },
+    "dynamic_custom_liquid_j4NB6j": {
+      "type": "dynamic-custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-SKvpNn\"><\/div>"
+      }
+    },
+    "dynamic_custom_liquid_Gmhxtg": {
+      "type": "dynamic-custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-RKB5vc\"><\/div>"
+      }
+    }
+  },
+  "order": [
+    "12cdc1dc-9689-46f1-8d10-eb7ad10e0b5e",
+    "5b7660da-60c6-494e-b129-ab5495977c76",
+    "d4791764-cb62-4f08-aeec-ff7961a7d5f4",
+    "main",
+    "e0d53c5d-654f-409f-94f8-652f8a12da5d",
+    "e7a46a35-c868-4dfe-966f-7064c2d5d965",
+    "static-recently-viewed",
+    "dynamic_custom_liquid_j4NB6j",
+    "dynamic_custom_liquid_Gmhxtg"
+  ]
+}

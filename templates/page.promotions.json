@@ -1,0 +1,214 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "fb392ba2-37bd-4ab3-b16a-c4b3b8db1e78": {
+      "type": "image-with-text-v2",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/5.02-1080x1080-Shop_Solar-LCZ-174072_70222da6-9e5c-4b8a-b6ac-f3406c6d685e.png",
+        "layout": "right",
+        "title": "Summer Savings Sale on Now!",
+        "description": "Get up to 35% Off Select Products <br><br>  Free Shipping on ALL Solar Kits <br><br> Promotions End on 08\/03\/23",
+        "button_label": "SHOP PROMOTIONS",
+        "button_link": "https:\/\/shopsolarkits.com\/collections\/holiday-promotions",
+        "shop_button_text": "GET A FREE QUOTE",
+        "shop_button_url": "https:\/\/shopsolarkits.com\/pages\/solar-kit-recommender",
+        "text": ""
+      }
+    },
+    "b4c4df91-9532-4a12-8e63-73057d823660": {
+      "type": "dynamic-countdown-timer",
+      "settings": {
+        "section_height": "small",
+        "countdown_year": "2023",
+        "countdown_month": "08",
+        "countdown_day": "04",
+        "countdown_hour": "08",
+        "countdown_minute": "30",
+        "countdown_timer_background": true,
+        "countdown_timer_complete": false,
+        "countdown_timer_message": "",
+        "product": "",
+        "title": "Summer Savings Sale on Now!",
+        "text": "<p>Celebrate the Sun with Incredible Savings. Limited supply.<\/p>",
+        "button_link": "https:\/\/shopsolarkits.com\/collections\/holiday-promotions",
+        "button_label": "SHOP NOW",
+        "button_style": "primary",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 6,
+        "product_card_background_color": "#f5f3ed"
+      }
+    },
+    "7bb0d943-c4e3-46db-8fb7-2770e6cdfea8": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "off-grid-solar-kits",
+            "image": "shopify:\/\/shop_images\/1_c6a390da-3230-4ac5-9c7d-bfa2cf4d37fc.jpg",
+            "title": "Off-Grid Solar Kits"
+          }
+        },
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "hybrid-solar-system-kits",
+            "image": "shopify:\/\/shop_images\/2_88c523b1-1109-4acc-99bf-bcafebbf4df9.jpg",
+            "title": "Hybrid Solar Kits"
+          }
+        },
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "emergency-solar-power-kits",
+            "image": "shopify:\/\/shop_images\/3_29237917-b165-4a18-a0d6-99d0c7e8396e.jpg",
+            "title": "Emergency Backup Solar Kits"
+          }
+        },
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "portable-solar-kits",
+            "image": "shopify:\/\/shop_images\/4_7683af8d-fda4-495a-868c-09faeba152ab.jpg",
+            "title": "Mobile\/Portable Solar Kits"
+          }
+        }
+      },
+      "block_order": [
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-1",
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-0",
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-2",
+        "template--15967067734156__7bb0d943-c4e3-46db-8fb7-2770e6cdfea8-168667141737710add-3"
+      ],
+      "settings": {
+        "title": "",
+        "thumbnail_columns_desktop": 4,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "",
+        "cta_link": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "48ece804-a137-48e7-a9d0-8a689028792a": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-power-systems",
+            "image": "shopify:\/\/shop_images\/2_9dc1b15f-cf1d-4c56-b07e-3e94059f32ab.png",
+            "title": "Complete Solar Kits"
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-generator-kits",
+            "image": "shopify:\/\/shop_images\/1_2e176986-2af5-4bd6-8987-5c27d76cd871.png",
+            "title": "Solar Generator Kits"
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "lithium-solar-batteries",
+            "image": "shopify:\/\/shop_images\/3_d25fc070-85d3-434e-ae95-58bbcbc61424.png",
+            "title": "Solar Generators"
+          }
+        },
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "48-volt-solar-batteries",
+            "image": "shopify:\/\/shop_images\/5_6296983e-f3ea-460f-aac9-095c52227a2a.png",
+            "title": "Solar Batteries"
+          }
+        },
+        "85da7145-ece9-46e0-93d4-5109e44f05d8": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-panels",
+            "image": "shopify:\/\/shop_images\/4_f4f86567-0365-474d-9003-a8f329c03b0f.png",
+            "title": "Solar Panels"
+          }
+        },
+        "63b30ce7-20ac-4c76-8499-4037425fccc8": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-power-inverters",
+            "image": "shopify:\/\/shop_images\/6_9eb6f9c7-42a5-44c0-902a-b0ff9a8bd6dc.png",
+            "title": "Solar Inverters"
+          }
+        },
+        "e144def3-def4-4f6c-a735-78f9e49fa9ef": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-panel-mounts",
+            "image": "shopify:\/\/shop_images\/7_add841aa-2695-4e94-b885-5954cbab6f58.png",
+            "title": "Racking & Mounts"
+          }
+        },
+        "bf674244-811f-499e-b27c-8e49822c6865": {
+          "type": "collection",
+          "settings": {
+            "collection": "solar-cabling",
+            "image": "shopify:\/\/shop_images\/8_054cc6a9-0827-41cf-8aeb-0247d79cd61b.png",
+            "title": "Cabling & Wire"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-0",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-1",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-2",
+        "template--15919912091788__48ece804-a137-48e7-a9d0-8a689028792a-16796761869ec282f0-3",
+        "85da7145-ece9-46e0-93d4-5109e44f05d8",
+        "63b30ce7-20ac-4c76-8499-4037425fccc8",
+        "e144def3-def4-4f6c-a735-78f9e49fa9ef",
+        "bf674244-811f-499e-b27c-8e49822c6865"
+      ],
+      "settings": {
+        "title": "Shop by Department",
+        "thumbnail_columns_desktop": 4,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "",
+        "cta_link": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "a4d446c1-50e3-4864-97e5-adc52c99d25e": {
+      "type": "dynamic-image-with-text",
+      "settings": {
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/We_make_solar_simple_square.jpg",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "Not sure where to start?",
+        "subheading": "<p>Save yourself days (if not weeks) of research by requesting a quick quote. Answer a few simple questions and receive a solar kit recommendation from one of our (human) solar power specialists.<\/p>",
+        "text_alignment": "left",
+        "button_label": "GET A FREE QUOTE",
+        "button_link": "https:\/\/shopsolarkits.com\/pages\/solar-kit-recommender"
+      }
+    }
+  },
+  "order": [
+    "fb392ba2-37bd-4ab3-b16a-c4b3b8db1e78",
+    "b4c4df91-9532-4a12-8e63-73057d823660",
+    "7bb0d943-c4e3-46db-8fb7-2770e6cdfea8",
+    "48ece804-a137-48e7-a9d0-8a689028792a",
+    "a4d446c1-50e3-4864-97e5-adc52c99d25e"
+  ]
+}

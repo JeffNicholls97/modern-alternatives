@@ -1,0 +1,95 @@
+<style>
+  .prose {
+    color: #4a5568;
+    max-width: 100%!important;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+</style>
+{% liquid
+    assign text = product.selected_or_first_available_variant.metafields.details.text.value
+    assign image = product.selected_or_first_available_variant.metafields.details.image.value
+    if image != blank
+        assign image_url = image
+        if image_url contains 'cdn.shopify.com'
+            assign set_image_size = '400x400'
+            assign image_extension = image_url | split: '.' | last | split: '?' | first
+            assign image_name = image_url | split: '/' | last | split: '.'
+            if image_name.size > 2
+                assign prepared_image_name = ''
+                assign checker_helper = image_name.size | minus: 1
+                for image_name_part in image_name
+                    unless forloop.last
+                        assign prepared_image_name = prepared_image_name | append: image_name_part
+                        unless forloop.index == checker_helper
+                            assign prepared_image_name = prepared_image_name | append: '.'
+                        endunless
+                    endunless
+                endfor
+                assign image_name = prepared_image_name
+            else
+                assign image_name = image_name | first
+            endif
+            for i in (0..9)
+                assign image_checker_size = i | append: 'x'
+                if image_name contains image_checker_size
+                    assign image_size = image_name | split: '_' | last
+                    assign image_size = image_size | prepend: '_'
+                    assign image_name = image_name | remove: image_size
+                    break
+                endif
+            endfor
+            assign image_name_with_extension = image_name | append: '.' | append: image_extension
+            assign image_object = images[image_name_with_extension]
+            assign image_url = image_object | img_url: set_image_size
+            if image_url contains 'no-image'
+                assign image_url = product.featured_image | img_url: set_image_size
+                comment
+                if image_size
+                    assign image_string_replace = set_image_size | prepend: '_'
+                    assign image_url = image | replace: image_size, image_string_replace
+                    echo image_url
+                else
+                    assign image_string_replace = set_image_size | prepend: '_'
+                    assign image_string_replace = image_name | append: image_string_replace
+                    assign image_url = image | replace: image_name, image_string_replace
+                endif
+                endcomment
+            endif
+        endif
+    endif
+%}
+{% assign video_height = block.settings.video_height %}
+{% assign video_width = block.settings.video_width %}
+<div class="pdp-details-content prose p-10">
+    {% if text == blank and image == blank %}
+        {{ product.description }}
+    {% else %}
+        {% if image != blank %}
+            <div class="pdp-details-with-image {% if image contains 'youtube' %} pdp-details-video-new {% endif %}">
+                <div class="pdp-details-part pdp-details-text image-with-text__text">
+                    {% if section.settings.additional_headline %}
+                        <h3>{{ section.settings.additional_headline }}</h3>
+                    {% endif %}
+                    <p>{{ text | newline_to_br }}</p>
+                </div>
+                <div class="pdp-details-part pdp-details-image">
+                    {% if image contains 'youtube' %}
+                        <div class="pdp-video-accordion">
+                            <iframe style="height: 400px;" width="100%" height="300" src="{{ image }}"></iframe>
+                        </div>
+                    {% else %}
+                        <img data-stephen-src="{{ image_url }}" height="300" width="500" alt="details-image">
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="pdp-details-part pdp-details-text image-with-text__text">
+                {% if section.settings.additional_headline %}
+                    <h3>{{ section.settings.additional_headline }}</h3>
+                {% endif %}
+                <p class="pdp-details-only-text">{{ text | newline_to_br }}</p>
+            </div>
+        {% endif %}
+    {% endif %}
+</div>

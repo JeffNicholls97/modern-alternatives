@@ -1,0 +1,42 @@
+{% render 'faqs-dynamic' %}
+{% schema %}
+  {
+    "name": "FAQ's",
+    "settings": [
+      {
+        "type": "text",
+        "id": "review-title",
+        "label": "Review Title",
+        "default": "Customer Success Stories"
+      }, {
+        "type": "image_picker",
+        "id": "faq-image",
+        "label": "FAQ Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "faq-question",
+            "label": "Question",
+            "default": "What is your return policy?"
+          }, {
+            "type": "textarea",
+            "id": "faq-answer",
+            "label": "Answer",
+            "default": "You can return any item within 30 days."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ Section"
+      }
+    ]
+  }
+{% endschema %}

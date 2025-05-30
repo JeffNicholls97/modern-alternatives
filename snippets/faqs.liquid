@@ -1,0 +1,151 @@
+<span class="bg-[#E2E2E2] block w-full h-px mt-20"></span>
+<div class="grid md:grid-cols-2 grid-cols-1 h-auto">
+  <div class="col-span-1 mx-auto max-w-3xl mt-10 px-10 md:mt-0 md:px-0 w-full flex flex-col justify-center">
+    <h2 class="text-3xl mb-10 text-black font-bold">Frequently Asked Questions</h2>
+
+    <div x-data="{ active: 1 }" class=" min-h-[16rem] space-y-4">
+      <div
+        x-data="
+          {
+              id: 1,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]"
+      >
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold"
+          >
+            <span>How much money will I save by going solar with ShopSolar.com?</span>
+            <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+            <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            We’re able to help you save up to 50% on your solar solution, offering true energy independence. With our
+            online model, we’re able offer high quality solutions while cutting out the high commission sales reps and
+            expensive overhead of traditional solar companies, passing those savings on to you.
+          </div>
+        </div>
+      </div>
+
+      <div
+        x-data="
+          {
+              id: 2,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]"
+      >
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold"
+          >
+            <span>What happens after I submit my quote?</span>
+            <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+            <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            You will receive a confirmation email and a custom proposal within 48 hours. Our team will work with you to
+            ensure our recommendations meet your needs.
+          </div>
+        </div>
+      </div>
+
+      <div
+        x-data="
+          {
+              id: 3,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]"
+      >
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex w-full text-left items-center justify-between px-6 py-4 text-xl font-bold"
+          >
+            <span>Do you offer financing?</span>
+            <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+            <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            Yes. We provide quick and accessible financing solutions through Affirm & Lightstream, which can be found at
+            checkout. We also provide you with the ability to split payments via multiple credit cards.
+          </div>
+        </div>
+      </div>
+      <div
+        x-data="
+          {
+              id: 4,
+              get expanded() {
+                  return this.active === this.id
+              },
+              set expanded(value) {
+                  this.active = value ? this.id : null
+              },
+          }
+        "
+        role="region"
+        class="rounded-md bg-[#F7F7F7]"
+      >
+        <h2>
+          <button
+            x-on:click="expanded = !expanded"
+            :aria-expanded="expanded"
+            class="flex text-left w-full items-center justify-between px-6 py-4 text-xl font-bold"
+          >
+            <span>How long will it take to receive my solar kit after I order?</span>
+            <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+            <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+          </button>
+        </h2>
+
+        <div x-show="expanded" x-collapse>
+          <div class="px-6 pb-4 text-[#9B9B9B]">
+            All orders are processed within 72 hours and you can expect delivery within 5 to 10 business days. You will
+            receive access to our customer portal after ordering, where it is easy to track all your shipments.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-span-1 mt-10 md:mt-0">
+    <img class="w-full h-[43rem] object-cover hs-id-ae8988d6 hs-lazyload" loading="lazy" src="{{ section.settings.faq-image | img_url: 'master' }}"/>
+  </div>
+</div>

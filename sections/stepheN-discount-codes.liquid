@@ -1,0 +1,252 @@
+{% include 'stepheN_discount_codes' %}
+
+{% schema %}
+{
+    "name": "Discount Codes",
+    "settings": [],
+    "blocks": [
+        {
+            "name": "Discount Code",
+            "type": "discount_code",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Code"
+                },
+                {
+                    "type": "radio",
+                    "id": "rule",
+                    "label": "Rule Type",
+                    "options": [
+                        {
+                            "value": "amount",
+                            "label": "Amount"
+                        },
+                        {
+                            "value": "collection",
+                            "label": "Collection"
+                        }
+                    ],
+                    "default": "amount"
+                },
+                {
+                    "type": "text",
+                    "id": "value",
+                    "label": "Rule Value",
+                    "info": "Examples: 2000-4000 or 4000+ or ecoflow-delta-pro-solar-kits"
+                },
+                {
+                    "type": "range",
+                    "id": "priority",
+                    "min": 1,
+                    "max": 100,
+                    "step": 1,
+                    "label": "Priority",
+                    "default": 1
+                },
+                {
+                    "type": "header",
+                    "content": "Start Date & Time"
+                },
+                {
+                    "type": "select",
+                    "id": "start_dit_month",
+                    "label": "Month",
+                    "options": [
+                        {
+                            "value": "January",
+                            "label": "January"
+                        },
+                        {
+                            "value": "February",
+                            "label": "February"
+                        },
+                        {
+                            "value": "March",
+                            "label": "March"
+                        },
+                        {
+                            "value": "April",
+                            "label": "April"
+                        },
+                        {
+                            "value": "May",
+                            "label": "May"
+                        },
+                        {
+                            "value": "June",
+                            "label": "June"
+                        },
+                        {
+                            "value": "July",
+                            "label": "July"
+                        },
+                        {
+                            "value": "August",
+                            "label": "August"
+                        },
+                        {
+                            "value": "September",
+                            "label": "September"
+                        },
+                        {
+                            "value": "October",
+                            "label": "October"
+                        },
+                        {
+                            "value": "November",
+                            "label": "November"
+                        },
+                        {
+                            "value": "December",
+                            "label": "December"
+                        }
+                    ],
+                    "default": "January"
+                },
+                {
+                    "type": "range",
+                    "id": "start_dit_day",
+                    "min": 1,
+                    "max": 31,
+                    "step": 1,
+                    "unit": "d",
+                    "label": "Day",
+                    "default": 1
+                },
+                {
+                    "type": "range",
+                    "id": "start_dit_year",
+                    "min": 2023,
+                    "max": 2122,
+                    "step": 1,
+                    "unit": "y",
+                    "label": "Year",
+                    "default": 2023
+                },
+                {
+                    "type": "range",
+                    "id": "start_dit_hour",
+                    "min": 0,
+                    "max": 23,
+                    "step": 1,
+                    "unit": "h",
+                    "label": "Hours",
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "start_dit_mins",
+                    "min": 0,
+                    "max": 59,
+                    "step": 1,
+                    "unit": "m",
+                    "label": "Minutes",
+                    "default": 0
+                },
+                {
+                    "type": "header",
+                    "content": "End Date & Time"
+                },
+                {
+                    "type": "select",
+                    "id": "end_dit_month",
+                    "label": "Month",
+                    "options": [
+                        {
+                            "value": "January",
+                            "label": "January"
+                        },
+                        {
+                            "value": "February",
+                            "label": "February"
+                        },
+                        {
+                            "value": "March",
+                            "label": "March"
+                        },
+                        {
+                            "value": "April",
+                            "label": "April"
+                        },
+                        {
+                            "value": "May",
+                            "label": "May"
+                        },
+                        {
+                            "value": "June",
+                            "label": "June"
+                        },
+                        {
+                            "value": "July",
+                            "label": "July"
+                        },
+                        {
+                            "value": "August",
+                            "label": "August"
+                        },
+                        {
+                            "value": "September",
+                            "label": "September"
+                        },
+                        {
+                            "value": "October",
+                            "label": "October"
+                        },
+                        {
+                            "value": "November",
+                            "label": "November"
+                        },
+                        {
+                            "value": "December",
+                            "label": "December"
+                        }
+                    ],
+                    "default": "January"
+                },
+                {
+                    "type": "range",
+                    "id": "end_dit_day",
+                    "min": 1,
+                    "max": 31,
+                    "step": 1,
+                    "unit": "d",
+                    "label": "Day",
+                    "default": 1
+                },
+                {
+                    "type": "range",
+                    "id": "end_dit_year",
+                    "min": 2023,
+                    "max": 2122,
+                    "step": 1,
+                    "unit": "y",
+                    "label": "Year",
+                    "default": 2023
+                },
+                {
+                    "type": "range",
+                    "id": "end_dit_hour",
+                    "min": 0,
+                    "max": 23,
+                    "step": 1,
+                    "unit": "h",
+                    "label": "Hours",
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "end_dit_mins",
+                    "min": 0,
+                    "max": 59,
+                    "step": 1,
+                    "unit": "m",
+                    "label": "Minutes",
+                    "default": 0
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

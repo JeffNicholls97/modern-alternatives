@@ -1,0 +1,379 @@
+<script>
+    window.stephen_settings = {};
+    /* Scroll to Next Section */
+    function scrollToSection(sectionNumber) {
+        const main_sections = document.querySelectorAll('main .shopify-section');
+        if(!main_sections.length) return false;
+        const header = document.querySelector('header.site-header');
+        if(!header) return false;
+        const element = main_sections[sectionNumber-1];
+        console.log(element)
+        if(element){
+            window.scroll({
+                top: element.offsetTop + header.offsetHeight,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }
+    /* Count Down Timer Code */
+    function product_badges_counter_pad(num, size){
+        num = num.toString();
+        while (num.length < size) num = "0" + num;
+        return num;
+    }
+    function product_badges_counter(data){
+        //EST
+        const countDownDate = new Date(data.value+' GMT-0400').getTime();
+        const counterInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const timeleft = countDownDate - now;
+
+            const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+            // Result is output to the specific element
+            const root = document.querySelector(data.counter_selector);
+            if(root){
+                const daysHtml = root.querySelector('.counter-d');
+                const hoursHtml = root.querySelector('.counter-h');
+                const minsHtml = root.querySelector('.counter-m');
+                const secsHtml = root.querySelector('.counter-s');
+                if(timeleft >= 0){
+                    daysHtml.innerHTML = product_badges_counter_pad(days, 2) + "d";
+                    hoursHtml.innerHTML = product_badges_counter_pad(hours, 2) + "h";
+                    minsHtml.innerHTML = product_badges_counter_pad(minutes, 2) + "m";
+                    secsHtml.innerHTML = product_badges_counter_pad(seconds, 2) + "s";
+                }else {
+                    clearInterval(counterInterval);
+                    daysHtml.innerHTML = "00d";
+                    hoursHtml.innerHTML = "00h";
+                    minsHtml.innerHTML = "00m";
+                    secsHtml.innerHTML = "00s";
+                }
+            }
+        }, 1000)
+    }
+    /* End Count Down Timer Code */
+    /* DooFinder + Okendo Reviews */
+    function doFinderMobileHandler(element, event){
+        const input = document.querySelector('[name="q"]');
+        if(input){
+            input.focus();
+        }
+    }
+    function doFinderHandler(element, event){
+        const form = element.closest('.live-search-form');
+        if(form){
+            form.submit();
+        }
+    }
+    (function (){
+        function add_reviews_to_df(df){
+            if(!in_progress){
+                in_progress = true;
+                setTimeout(() => {
+                    const interval = setInterval(() => {
+                        const productCards = df.querySelectorAll('.dfd-card');
+                        //console.log(productCards)
+                        if(productCards && productCards.length){
+                            let asyncCounter = 0;
+                            productCards.forEach(productCard => {
+                                const productUrl = productCard.getAttribute('dfd-value-link');
+                                if(productUrl){
+                                    let productPath = productUrl.split(window.location.host)[1];
+                                    if(productPath.includes('?')){
+                                        productPath = productPath.split('?')[0];
+                                    }
+                                    productPath = productPath + '?view=metafields';
+                                    fetch(productPath).then((response) => response.text()).then((data) => {
+                                        const metafields = JSON.parse(data);
+                                        if(metafields && metafields.okendo_summaryData.reviewAverageValue){
+                                            const reviewsValue = parseFloat(metafields.okendo_summaryData.reviewAverageValue);
+                                            const dfd_card_content_parent = productCard.querySelector('.dfd-card-content');
+                                            if(dfd_card_content_parent){
+                                                const dfd_card_content = dfd_card_content_parent.querySelector('.dfd-card-flex');
+                                                if(dfd_card_content && !dfd_card_content_parent.querySelector('.okendo-reviews-stars')){
+                                                    const reviewsHtml = document.createElement('div');
+                                                    reviewsHtml.classList.add('okendo-reviews-stars');
+                                                    reviewsHtml.innerHTML = `
+                                                <div class="okendo-reviews-stars-control">
+                                                    <span class="okeReviews-starRating-indicator" role="presentation">
+                                                        <span class="okeReviews-starRating-indicator-layer"></span>
+                                                        <span class="okeReviews-starRating-indicator-layer okeReviews-starRating-indicator-layer--foreground" style="width: ${(reviewsValue * 2 * 10)}%"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="okendo-reviews-stars-count">${metafields.okendo_summaryData.reviewCount} reviews</div>
+                                               `;
+                                                    dfd_card_content.prepend(reviewsHtml);
+                                                }
+                                                //console.log(metafields, dfd_card_content, asyncCounter, (productCards.length-1));
+                                            }
+                                        }
+                                        if(asyncCounter === (productCards.length-1)){
+                                            setTimeout(() => {
+                                                in_progress = false;
+                                                asyncCounter = 0;
+                                            }, 500);
+                                        }
+                                        asyncCounter++;
+                                    });
+                                }
+                            })
+                            clearInterval(interval)
+                        } else {
+                            undefined_times++;
+                        }
+                        if(undefined_times > 100){
+                            clearInterval(interval)
+                            in_progress = false;
+                        }
+                    }, 100);
+                }, 1000)
+            }
+        }
+
+        let in_progress = false;
+        let undefined_times = 0;
+        window.addEventListener('load', () => {
+            let header = document.querySelector('form[action="/search"] input[name="q"]');
+            if(header){
+                header.addEventListener('keydown', () => {
+                    in_progress = false;
+                })
+            }
+            let df = document.querySelector('.dfd-root');
+            if(df){
+                add_reviews_to_df(df);
+                df.addEventListener('DOMSubtreeModified', () => {
+                    add_reviews_to_df(df);
+                });
+            }
+
+
+            //move section
+            const first_collapsable = document.querySelector('.product-collapsable');
+            const product_info_tabs_target = document.querySelector('.product-info-tabs-target');
+            const cbb = document.querySelector('.cbb-frequently-bought-container');
+            if(cbb){
+                if(first_collapsable){
+                    first_collapsable.parentNode.insertBefore(cbb, first_collapsable);
+                }else if(product_info_tabs_target){
+                    product_info_tabs_target.parentNode.insertBefore(cbb, product_info_tabs_target);
+                }
+            }
+        })
+    })()
+    /* End DooFinder + Okendo Reviews */
+    function scrollToReviews(){
+        const reviewsAccordion = document.querySelector(".product-tabs");
+        const offset = reviewsAccordion.offsetTop + 200;
+        window.scrollTo({
+            top: offset,
+            behavior: "smooth"
+        });
+        const reviewTab = document.querySelector('.input-tabs-Reviews')
+        reviewTab.checked = true
+
+
+        const swiperTabs = document.querySelectorAll('.product-tabs input')
+        for(let i = 0;i<swiperTabs.length;i++){
+            if(swiperTabs[i].classList.contains('input-tabs-Reviews')){
+                if(window.product_info_tabs.swiper){
+                    window.product_info_tabs.swiper.slideTo(i)
+                }
+            }
+        }
+    }
+    function collectionScrollToReviews(link_to){
+        window.localStorage.setItem('scroll_to_reviews', link_to);
+        window.location.href = link_to;
+    }
+    window.addEventListener('load', () => {
+        if(window.localStorage.getItem('scroll_to_reviews')){
+            window.localStorage.removeItem('scroll_to_reviews');
+            setTimeout(() => {
+                scrollToReviews();
+            }, 1000);
+        }
+    })
+    window.fixingVideo = false;
+    function fixVideoSlide(element, event){
+        if(!window.fixingVideo){
+            event.preventDefault();
+            event.stopPropagation();
+            window.fixingVideo = true;
+            const viewer = document.querySelector('.product--section .product-gallery--viewer');
+            if(viewer){
+                viewer.classList.add('hidden');
+            }
+            element.nextElementSibling.click();
+            setTimeout(() => {
+                element.click();
+                setTimeout(() => {
+                    if(viewer){
+                        viewer.classList.remove('hidden');
+                    }
+                }, 500)
+            }, 500);
+        }else{
+            window.fixingVideo = false;
+        }
+    }
+    function instantAddToCart(element, event){
+        if(!element.disabled){
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Select the elements
+            const atcTitle = document.querySelector('.atc-title');
+            const atcSpin = document.querySelector('.atc-spin');
+
+            // Show the spinner and hide the title
+            if (atcTitle) atcTitle.style.display = 'none';
+            if (atcSpin) atcSpin.classList.remove('hidden');
+
+            element.classList.add('processing');
+            let formData = {
+                'items': [{
+                    'id': element.dataset.variantId,
+                    'quantity': 1
+                }]
+            };
+
+            fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(response_json => {
+                const item = response_json['items'][0];
+                if (item && item['key']) {
+                    fetch('/cart.js').then(response => response.json()).then(cart => {
+                        xyOnItemRemove(cart, (cart) => {
+                            window.location.href = '/cart';
+                        });
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Hide the spinner and show the title after the request completes
+                if (atcTitle) atcTitle.style.display = '';
+                if (atcSpin) atcSpin.classList.add('hidden');
+            });
+        }
+    }
+    const cpVariantDropdown = (e, element) => {
+        try{
+            const rootItem = element.closest('[data-product-item-content]');
+            const cp_product_dropdown = rootItem.querySelector('.cp-product-dropdown');
+            const variants = JSON.parse(cp_product_dropdown.querySelector('script[type="application/json"]').textContent);
+            let min_variant_index = 0;
+            let min_variant_price = variants[0].price;
+            console.log(variants)
+
+            const options = cp_product_dropdown.querySelectorAll(`.${element.className}`);
+            let selectedOptions = '';
+            options.forEach(option => {
+                selectedOptions += option.value;
+            })
+
+            let variantObject = false;
+            for(let j=0; j<variants.length; j++){
+                const variant = variants[j];
+                if(min_variant_price > variant.price){
+                    min_variant_price = variant.price;
+                    min_variant_index = j;
+                }
+                if(variant.options.join('') === selectedOptions){
+                    variantObject = variant;
+                }
+            }
+
+            let currentSelectedImage = rootItem.querySelector('.ss_variant_image.active');
+            currentSelectedImage.classList.remove('active');
+            let selectedImage = rootItem.querySelector(`#variant_image_${variantObject.id}`);
+            selectedImage.classList.add('active');
+
+            const additional_texts = rootItem.querySelectorAll('.price--label');
+            //console.log(additional_texts)
+            additional_texts.length && additional_texts.forEach(additional_text => {
+                if(variants.length > 1 && variants[min_variant_index].id === variantObject.id){
+                    additional_text.textContent = 'from';
+                }else{
+                    additional_text.textContent = '';
+                }
+            })
+            const add_to_cart_btn = rootItem.querySelector('[data-variant-id]');
+            const add_to_cart_btn_txt = add_to_cart_btn.querySelector('.atc-button--text');
+            const prices = rootItem.querySelectorAll('[data-price]');
+            const compare_at_prices = rootItem.querySelectorAll('[data-price-compare-container],[data-price-compare]');
+
+            if(variantObject && variantObject.available){
+                add_to_cart_btn.dataset.variantId = variantObject.id;
+                add_to_cart_btn_txt.removeAttribute('disabled');
+                add_to_cart_btn_txt.textContent = 'Add to cart';
+
+                prices.forEach(price => {
+                    price.textContent = Shopify.formatMoney(variantObject.price);
+                })
+
+                compare_at_prices.forEach(compare_at_price => {
+                    compare_at_price.textContent = Shopify.formatMoney(variantObject.compare_at_price);
+                })
+
+                const links = rootItem.querySelectorAll('[href]');
+                links.forEach(link => {
+                    if(link.href.includes('/products/')){
+                        if(link.href.includes('?')){
+                            link.href = link.href.split('?')[0] + `?variant=${variantObject.id}`;
+                        } else {
+                            link.href += `?variant=${variantObject.id}`;
+                        }
+                    }
+                })
+                console.log(variantObject);
+            }else{
+                add_to_cart_btn.dataset.variantId = '';
+                add_to_cart_btn_txt.setAttribute('disabled', '');
+                add_to_cart_btn_txt.textContent = variantObject.id ? 'Sold out' : 'Unavailable';
+
+                prices.forEach(price => {
+                    price.textContent = '';
+                })
+
+                compare_at_prices.forEach(compare_at_price => {
+                    compare_at_price.textContent = '';
+                })
+            }
+            try {
+                const activeCode = getActiveCode();
+                if(activeCode){
+                    window.Abra.activate(activeCode);
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }catch (e){
+            console.log(e)
+        }
+
+    }
+    function getActiveCode(){
+        const t = window.localStorage.getItem("abra:active-promotion");
+        if (t) {
+            const activePromotion = JSON.parse(t);
+            if(activePromotion && activePromotion.promotion && activePromotion.promotion.code){
+                return activePromotion.promotion.code
+            }
+        }
+        return false;
+    }
+</script>

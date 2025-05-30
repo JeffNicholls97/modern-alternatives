@@ -1,0 +1,27 @@
+[
+    { "name": "Choose an option", "watts": "0", "quantity": "0", "totalWatts": "0", "hoursOfUse": "0", "wattHours": "0" },
+    { "name": "Custom", "watts": "", "quantity": "1", "totalWatts": "0", "hoursOfUse": "1", "wattHours": "0" },
+{%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks -%}
+        {% if block.type == 'appliance' %}
+        { "name": "{{ block.settings.title }}", "watts": "{{ block.settings.watts }}", "quantity": "1", "totalWatts": "{{ block.settings.watts }}", "hoursOfUse": "1", "wattHours": "{{ block.settings.watts }}" }{% unless forloop.last %},{% endunless %}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+]
+{% comment %}
+    {% capture watt_appliances %}{% render 'watt-appliances' %}{% endcapture %}
+    {% assign watt_appliances = watt_appliances | remove: '[' | remove: ']' | split: ' },' %}
+    {% for watt_appliance in watt_appliances %}
+        {% assign watt_appliance_object = watt_appliance | remove: '{ ' | split: ',' %}
+        {% for watt_appliance_param in watt_appliance_object %}
+            {% assign watt_appliance_param_array = watt_appliance_param | split: ': ' %}
+            {% assign key = watt_appliance_param_array | first | remove: '"' %}
+            {% assign value = watt_appliance_param_array | last | remove: '"' %}
+            {{ key }} - {{ value }},
+        {% endfor %}<br>
+        {% if forloop.index > 5 %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endcomment %}

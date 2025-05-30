@@ -1,0 +1,534 @@
+
+{% assign show_icons = section.settings.show_icons %}
+{% assign icons_color = section.settings.icons_color %}
+{% assign bellow_layer = section.settings.bellow_layer | divided_by: 100.0 %}
+{% assign bellow_layer_color = section.settings.bellow_layer_color %}
+{% assign layer_opacity = section.settings.layer_opacity %}
+{% assign background_color = section.settings.background_color %}
+{% assign is_loop = section.settings.is_loop %}
+
+<style>
+    #shopify-section-{{ section.id }} {
+        position: relative;
+    }
+    #shopify-section-{{ section.id }} .swiper-button-disabled {
+        display: none;
+    }
+    #shopify-section-{{ section.id }} .hero_background_icons {
+        padding-bottom: 120px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: calc(100vh - 120px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #shopify-section-{{ section.id }} .hero_links_phone {
+        display: flex;
+        align-items: center;
+    }
+    #shopify-section-{{ section.id }} .hero_links_phone > *, #shopify-section-{{ section.id }} .hero_links_phone > * > * {
+        white-space: nowrap;
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0;
+    }
+    #shopify-section-{{ section.id }} .hero_links_phone a {
+        margin-left: 5px;
+    }
+    #shopify-section-{{ section.id }} .hero_bottom_icons {
+        display: flex;
+        padding: 20px;
+        position: absolute;
+        bottom: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    #shopify-section-{{ section.id }} .hero_bottom_icons_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+    #shopify-section-{{ section.id }} .hero_bottom_icons_wrapper svg {
+        width: 100%;
+        max-height: 80px;
+    }
+    #shopify-section-{{ section.id }} .hero_main_wrapper > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 565px;
+        margin: 0 auto;
+    }
+    #shopify-section-{{ section.id }} .hero_main_wrapper > div > a {
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+    #shopify-section-{{ section.id }} .hero_color_button {
+        background-color: #ff991c;
+        border: 1px solid #ff991c;
+        border-radius: 50px;
+        color: white;
+        font-size: 28px;
+        padding: 20px 40px;
+        font-weight: bold;
+        display: inline-block;
+        transition: 125ms all;
+    }
+    #shopify-section-{{ section.id }} .hero_color_button:hover {
+        background-color: rgb(255, 163, 51);
+        border: 1px solid rgb(255, 163, 51);
+        transform: translateY(-2px);
+    }
+    #shopify-section-{{ section.id }} .hero_simple_button:hover {
+        transform: translateY(-2px);
+    }
+    #shopify-section-{{ section.id }} .hero_simple_button {
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 50px;
+        color: #222f3e;
+        font-size: 28px;
+        padding: 20px 40px;
+        font-weight: bold;
+        display: inline-block;
+        transition: 125ms all;
+    }
+    #shopify-section-{{ section.id }} .hero_main_wrapper {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    #shopify-section-{{ section.id }} .hero_main_wrapper a {
+        text-decoration: none;
+    }
+    #shopify-section-{{ section.id }} .hero_main_wrapper h2 {
+        color: white;
+        margin-bottom: 30px;
+        font-size: 42px;
+    }
+    {% unless show_icons %}
+    #shopify-section-{{ section.id }} .hero_bottom_icons:before {
+        content: '';
+        display: block;
+        background-color: {{ bellow_layer_color | color_modify: 'alpha', bellow_layer }};
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        {% if layer_opacity %}
+        z-index: -2;
+        {% endif %}
+    }
+    {% endunless %}
+    #shopify-section-{{ section.id }} .mobile-nav-panel {
+        /*transform: translate(0) !important;*/
+        visibility: visible;
+    }
+    #shopify-section-{{ section.id }} .mobile-nav-panel>* {
+        opacity: 1;
+    }
+    #shopify-section-{{ section.id }} .site-mobile-nav {
+        left: 0;
+    }
+    #shopify-section-{{ section.id }} .site-header-right {
+        width: 46px;
+        height: 46px;
+        position: relative;
+        margin-left: 15px;
+    }
+    #shopify-section-{{ section.id }} .site-header-cart {
+        top: 0;
+        right: 0;
+        margin-top: 0;
+    }
+    #shopify-section-{{ section.id }} .swiper-button-next {
+        right: 20px;
+        display: flex;
+        align-items: center;
+    }
+    #shopify-section-{{ section.id }} .swiper-button-prev {
+        left: 20px;
+        display: flex;
+        align-items: center;
+    }
+    #shopify-section-{{ section.id }} .swiper-button-prev:after, #shopify-section-{{ section.id }} .swiper-button-next:after {
+        color: #ffffff;
+        font-size: 20px;
+        background: #000;
+        padding: 25px 20px;
+        line-height: 0;
+        border-radius: 50%;
+    }
+    @media only screen and (max-width: 860px) {
+        #shopify-section-{{ section.id }} .hero_main_wrapper > div {
+            max-width: 355px;
+        }
+        #shopify-section-{{ section.id }} .hero_links_phone > *, #shopify-section-{{ section.id }} .hero_links_phone > * > * {
+            font-size: 12px;
+        }
+        #shopify-section-{{ section.id }} .hero_main_wrapper h2 {
+            font-size: 30px;
+        }
+        #shopify-section-{{ section.id }} .hero_main_wrapper {
+            padding: 0 20px;
+        }
+        #shopify-section-{{ section.id }} .hero_color_button, #shopify-section-{{ section.id }} .hero_simple_button {
+            font-size: 16px;
+            padding: 14px 30px;
+        }
+        #shopify-section-{{ section.id }} .hero_bottom_icons {
+            margin-top: 30px;
+        }
+    }
+    @media only screen and (max-width: 640px) {
+        #shopify-section-{{ section.id }} .swiper-button-next, #shopify-section-{{ section.id }} .swiper-button-prev {
+            top: unset;
+            bottom: 150px;
+        }
+        #shopify-section-{{ section.id }} .site-logo-image {
+            order: 2;
+            transform: translateX(32px);
+        }
+        #shopify-section-{{ section.id }} .hero_links_phone {
+            margin-left: 0;
+            margin-right: auto;
+            order: 3;
+        }
+        #shopify-section-{{ section.id }} .site-header-right {
+            order: 1;
+        }
+        #shopify-section-{{ section.id }} .hero_bottom_icons {
+            padding: 20px 0;
+        }
+        #shopify-section-{{ section.id }} .hero_bottom_icons_wrapper {
+            max-width: 100%;
+            height: 70px;
+        }
+        #shopify-section-{{ section.id }} .hero_bottom_icons .flickity-button {
+            display: none;
+        }
+        #shopify-section-{{ section.id }} .hero_bottom_icons .flickity-page-dots {
+            bottom: 10px;
+            display: none;
+        }
+        #shopify-section-{{ section.id }} .hero_bottom_icons {
+            max-height: 110px;
+        }
+        #shopify-section-{{ section.id }} .hero_desktop_nav {
+            display: none;
+        }
+        #shopify-section-{{ section.id }} .site-header-menu-toggle {
+            display: block;
+            position: relative;
+            top: 0;
+        }
+        #shopify-section-{{ section.id }} .hero_links_phone > *, #shopify-section-{{ section.id }} .hero_links_phone > * > * {
+            color: black;
+        }
+        #shopify-section-{{ section.id }} .disable_body_scroll {
+            overflow: hidden;
+        }
+        #shopify-section-{{ section.id }} .close_sliding_mobile_menu {
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 325px;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #shopify-section-{{ section.id }} .hide_side_close_menu {
+            max-height: 100%;
+            opacity: 1;
+            overflow: visible;
+        }
+    }
+</style>
+{% assign blocks_css = '' %}
+{% assign blocks_html = '' %}
+{% for block in section.blocks %}
+    {% assign bckg_image = block.settings.bckg_image %}
+    {% assign bckg_image_mob = block.settings.bckg_image_mob %}
+    {% assign text_alignment = block.settings.text_alignment %}
+    {% assign hero_main_header = block.settings.hero_main_header %}
+    {% assign hero_quote_btn = block.settings.hero_quote_btn %}
+    {% assign first_button_link = block.settings.first_button_link %}
+    {% assign hero_shop_btn = block.settings.hero_shop_btn %}
+    {% assign second_button_link = block.settings.second_button_link %}
+    {% capture block_css %}
+        #shopify-block-{{ block.id }} .hero_main_wrapper {
+        {% if text_alignment == 'Left' %}
+            padding: 100px 20px;
+            max-width: 750px;
+        {% else %}
+            max-width: 100%;
+            text-align: center;
+        {% endif %}
+        }
+        #shopify-block-{{ block.id }} .hero_background_icons {
+            background-image: url('{{ bckg_image | img_url: "master" }}');
+        }
+        @media only screen and (max-width: 640px) {
+        {% if bckg_image_mob %}
+            #shopify-block-{{ block.id }} .hero_background_icons {
+                background-image: url('{{ bckg_image_mob | img_url: "master" }}');
+            }
+        {% endif %}
+        }
+    {% endcapture %}
+    {% assign blocks_css = blocks_css | append: block_css %}
+    {% capture block_html %}
+    <div class="swiper-slide" id="shopify-block-{{ block.id }}">
+        <div class="hero_background_icons">
+            <div class="hero_main_wrapper">
+                <h2>{{ hero_main_header }}</h2>
+                <div>
+                    <a{% if first_button_link != blank %} href="{{ first_button_link }}"{% else %} onclick="event.preventDefault();scrollToSection(2)"{% endif %} class="hero_color_button">{{ hero_quote_btn }}</a>
+                    <a href="{{ second_button_link }}" class="hero_simple_button">{{ hero_shop_btn }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endcapture %}
+    {% assign blocks_html = blocks_html | append: block_html %}
+{% endfor %}
+
+<style>
+    {{ blocks_css }}
+</style>
+<div class="swiper nh-slider">
+    <div class="swiper-wrapper">
+        {{ blocks_html }}
+    </div>
+    {% if section.blocks.size > 1 %}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    {% endif %}
+</div>
+<div class="hero_bottom_icons swiper">
+        <div class="swiper-wrapper">
+            {% unless show_icons %}
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'cnn-money', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'fox-news', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'market-watch', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'new-york-times', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'time-logo', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'usa-today', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'us-news', icons_color: icons_color %}
+                </div>
+                <div class="hero_bottom_icons_wrapper swiper-slide">
+                    {% render 'wsj-logo', icons_color: icons_color %}
+                </div>
+            {% endunless %}
+        </div>
+    </div>
+
+
+<script>
+    (function (){
+        function initButtons(){
+            const slides = document.querySelectorAll('#shopify-section-{{ section.id }} .nh-slider .swiper-slide');
+            slides.length && slides.forEach(slide => {
+                const button_one = slide.querySelector('.hero_color_button');
+                const button_two = slide.querySelector('.hero_simple_button');
+                if(button_one && button_two){
+                    const max_height = button_one.offsetWidth + button_two.offsetWidth + 30;
+                    button_one.parentNode.style.maxWidth = max_height + 'px';
+                }
+            })
+        }
+        {% if section.blocks.size > 1 %}
+        window.addEventListener('load', () => {
+            new Swiper(".nh-slider", {
+                {% if is_loop %}
+                loop: true,
+                {% endif %}
+                navigation: {
+                    nextEl: ".nh-slider .swiper-button-next",
+                    prevEl: ".nh-slider .swiper-button-prev",
+                },
+                on: {
+                    init: function () {
+                        initButtons();
+                    }
+                }
+            });
+        })
+        {% else %}
+        initButtons();
+        {% endif %}
+
+        new Swiper(".hero_bottom_icons", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".hero_bottom_icons .swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                960: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 40
+                }
+            }
+        });
+    })()
+</script>
+
+{% schema %}
+{
+    "name": "New Hero With Icons NH",
+    "class": "New-Hero-With-Icons-No-Header",
+    "settings": [
+            {
+                "type": "checkbox",
+                "id": "is_loop",
+                "label": "Slides loop",
+                "default": true
+            },
+            {
+                "type": "color",
+                "id": "icons_color",
+                "label": "Icons Color",
+                "default": "#000000"
+            },
+            {
+                "type": "color",
+                "id": "bellow_layer_color",
+                "label": "Color Bellow Layer",
+                "default": "#ffffff"
+            },
+            {
+                "type": "range",
+                "id": "bellow_layer",
+                "min": 0,
+                "max": 100,
+                "step": 10,
+                "label": "Opacity Bellow Layer",
+                "default": 20
+            },
+            {
+                "type": "checkbox",
+                "id": "layer_opacity",
+                "label": "Show Transparent Layer Bellow Icons",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "show_icons",
+                "label": "Don't Show Icons",
+                "default": false
+            }
+    ],
+    "blocks": [
+        {
+            "name": "Hero Slide",
+            "type": "slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "bckg_image",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "bckg_image_mob",
+                    "label": "Image Mobile"
+                },
+                {
+                    "type": "color",
+                    "id": "background_color",
+                    "label": "Background Color",
+                    "default": "#222F3F"
+                },
+                {
+                    "type": "text",
+                    "id": "hero_main_header",
+                    "label": "Heading",
+                    "default": "Going Solar Has Never Been So Simple, Transparent & Affordable."
+                },
+                {
+                    "type": "select",
+                    "id": "text_alignment",
+                    "label": "Hero Text Alignment",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "middle",
+                            "label": "Middle"
+                        }
+                    ],
+                    "default": "middle"
+                },
+                {
+                    "type": "text",
+                    "id": "hero_quote_btn",
+                    "label": "First Button Text",
+                    "default": "Get Quote"
+                },
+                {
+                    "type": "url",
+                    "id": "first_button_link",
+                    "label": "First Button Link"
+                },
+                {
+                    "type": "text",
+                    "id": "hero_shop_btn",
+                    "label": "Second Button Text",
+                    "default": "Shop Store"
+                },
+                {
+                    "type": "url",
+                    "id": "second_button_link",
+                    "label": "Second Button Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "New Hero With Icons NH"
+        }
+    ]
+}
+{% endschema %}

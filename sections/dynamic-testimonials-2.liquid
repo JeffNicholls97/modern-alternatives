@@ -1,0 +1,363 @@
+<script
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-section-type="dynamic-testimonials">
+</script>
+
+<script type="application/pxs-animation-mapping+json">
+  {
+    "blocks": [".testimonial"],
+    "elements": [
+      ".testimonial__image-container"
+    ]
+  }
+</script>
+
+<style>
+  @media screen and (min-width: 1080px) {
+    #shopify-section-{{ section.id }} .testimonials.flickity-enabled .testimonial {
+      width: calc((100% - 40px) / 4);
+    }
+  }
+  #shopify-section-{{ section.id }} .testimonials .flickity-slider .testimonial .testimonial__content {
+    min-height: {{ section.settings.min-height | append: 'px' }};
+  }
+  .testimonial-v2 .image-with-text__text p {
+    text-align: center;
+  }
+  .testimonial-v2 > .testimonial__star-ratings {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .testimonial-v2 > .testimonial__star-ratings svg {
+    height: 25px;
+    width: auto;
+  }
+  #shopify-section-{{ section.id }} .testimonials .testimonial {
+    border: none;
+    box-shadow: none;
+  }
+  #shopify-section-{{ section.id }} .testimonials {
+    min-height: {{ section.settings.min-height | append: 'px' }};
+  }
+  #shopify-section-{{ section.id }} .testimonial a,
+  #shopify-section-{{ section.id }} .testimonial .testimonial__content {
+    height: 100%;
+  }
+</style>
+
+{% if section.settings.all_same_height %}
+  <style id="shopify-section-styles-{{ section.id }}">
+      {% capture styles_for_same_height %}
+       #shopify-section-{{ section.id }} .testimonials .flickity-slider,
+       #shopify-section-{{ section.id }} .testimonials .flickity-slider .testimonial,
+       #shopify-section-{{ section.id }} .testimonials .flickity-slider .testimonial .testimonial__content {
+         height: 100%;
+       }
+      #shopify-section-{{ section.id }} .testimonials .flickity-slider .testimonial .testimonial__content {
+        align-items: center;
+        justify-content: center;
+      }
+      {% endcapture %}
+  </style>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('shopify-section-styles-{{ section.id }}').innerHTML += `{{ styles_for_same_height }}`;
+    })
+  </script>
+{% endif %}
+
+
+<section class="testimonials-section testimonial-v2">
+  {% if section.settings.title != blank %}
+    <h2 class="home-section--title">
+      {{ section.settings.title | escape }}
+    </h2>
+  {% endif %}
+  {% if section.settings.text != blank %}
+    <div class="image-with-text__text">
+      <p>{{ section.settings.text | escape }}</p>
+    </div>
+    {% if section.settings.star_rating != '0' %}
+    <div class="testimonial__star-ratings">
+      {% for i in (1..5) %}
+        {% if i == 5 %}
+          {% if section.settings.star_rating == '4.5' %}
+            {% render 'icon-library', id: 'icon-star-half', icon_class: 'testimonial__star-rating' %}
+          {% else %}
+            {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+          {% endif %}
+        {% elsif i == 4 %}
+          {% if section.settings.star_rating != '4' %}
+            {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+          {% endif %}
+        {% else %}
+          {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="testimonials testimonials--{{ section.settings.text_size }} home-section--content">
+      {% for block in section.blocks %}
+        <div class="testimonial" {{ block.shopify_attributes }}>
+          {% if block.settings.slide_link != blank %}
+          <a href="{{ block.settings.slide_link }}">
+          {% endif %}
+            <div class="testimonial__content"{% if block.settings.bg_image %} style="background-image: url({{ block.settings.bg_image | img_url: 'master' }});background-size: {{ block.settings.background-size }};"{% endif %}>
+              {% if block.settings.image != blank %}
+                <div class="testimonial__image-container testimonial__image-container--{{ section.settings.image_crop }}">
+                  {% if section.settings.image_crop == 'circle' or section.settings.image_crop == 'rounded' %}
+                    {% assign image_crop = 'center' %}
+                  {% else %}
+                    {% assign image_crop = false %}
+                  {% endif %}
+
+                  {%
+                    render 'rimg',
+                    img: block.settings.image,
+                    class: 'testimonial__image',
+                    size: '400x',
+                    crop: image_crop,
+                    lazy: true,
+                    canvas: true,
+                    focal_point: block.settings.image.presentation.focal_point,
+                  %}
+                </div>
+              {% endif %}
+
+              {% if block.settings.star_rating != '0' %}
+                <div class="testimonial__star-ratings">
+                  {% for i in (1..5) %}
+                    {% if i == 5 %}
+                      {% if block.settings.star_rating == '4.5' %}
+                        {% render 'icon-library', id: 'icon-star-half', icon_class: 'testimonial__star-rating' %}
+                      {% else %}
+                        {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                      {% endif %}
+                    {% elsif i == 4 %}
+                      {% if block.settings.star_rating != '4' %}
+                        {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                      {% endif %}
+                    {% else %}
+                    {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <blockquote class="testimonial__text">
+                  {{ block.settings.text }}
+                </blockquote>
+              {% endif %}
+
+              {% if block.settings.author != blank %}
+                <cite class="testimonial__author">
+                  {{ block.settings.author }}
+                </cite>
+              {% endif %}
+            </div>
+          {% if block.settings.slide_link != blank %}
+          </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials v2",
+  "class": "testimonials--section testimonials--section--v2",
+  "settings": [
+    {
+      "type": "range",
+      "id": "min-height",
+      "min": 10,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Testimonial Min Height",
+      "default": 350
+    },
+    {
+      "type": "checkbox",
+      "id": "all_same_height",
+      "label": "All Same Height",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.testimonials.title.label",
+      "default": "Testimonials"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "star_rating",
+      "label": "t:sections.testimonials.blocks.testimonial.star_rating.label",
+      "options": [
+        {
+          "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_1",
+          "value": "0"
+        },
+        {
+          "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_2",
+          "value": "4"
+        },
+        {
+          "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_3",
+          "value": "4.5"
+        },
+        {
+          "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_4",
+          "value": "5"
+        }
+      ],
+      "default": "4.5"
+    },
+    {
+      "type": "select",
+      "id": "image_crop",
+      "label": "Author's Image Crop",
+      "options": [
+        {
+          "label": "t:sections.testimonials.image_crop.option_1",
+          "value": "original"
+        },
+        {
+          "label": "t:sections.testimonials.image_crop.option_2",
+          "value": "circle"
+        },
+        {
+          "label": "t:sections.testimonials.image_crop.option_3",
+          "value": "rounded"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "t:sections.testimonials.text_size.label",
+      "options": [
+        {
+          "label": "t:sections.testimonials.text_size.option_1",
+          "value": "small"
+        },
+        {
+          "label": "t:sections.testimonials.text_size.option_2",
+          "value": "medium"
+        },
+        {
+          "label": "t:sections.testimonials.text_size.option_3",
+          "value": "large"
+        }
+      ],
+      "default": "medium"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.testimonials.blocks.testimonial.name",
+      "settings": [
+        {
+          "type": "url",
+          "id": "slide_link",
+          "label": "Slide link"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "select",
+          "id": "background-size",
+          "label": "Background Size",
+          "options": [
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "cover",
+              "label": "Cover"
+            }
+          ],
+          "default": "contain"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.testimonials.blocks.testimonial.image.label"
+        },
+        {
+          "type": "select",
+          "id": "star_rating",
+          "label": "t:sections.testimonials.blocks.testimonial.star_rating.label",
+          "options": [
+            {
+              "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_1",
+              "value": "0"
+            },
+            {
+              "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_2",
+              "value": "4"
+            },
+            {
+              "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_3",
+              "value": "4.5"
+            },
+            {
+              "label": "t:sections.testimonials.blocks.testimonial.star_rating.option_4",
+              "value": "5"
+            }
+          ],
+          "default": "4.5"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.testimonials.blocks.testimonial.text.label",
+          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "author",
+          "label": "t:sections.testimonials.blocks.testimonial.author.label",
+          "default": "<p>Author's name</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials v2",
+      "category": "t:sections.testimonials.presets.testimonials.category",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

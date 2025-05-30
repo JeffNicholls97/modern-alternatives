@@ -1,0 +1,122 @@
+<script>
+    window.stephenCodes = [
+        {% for block in section.blocks %}
+        {
+            code: '{{ block.settings.title }}',
+            rule: {
+                type: '{{ block.settings.rule }}',
+                value: '{{ block.settings.value }}'
+            },
+            priority: {{ block.settings.priority }},
+            start: {
+                value: '{{ block.settings.start_dit_month }} {{ block.settings.start_dit_day }}, {{ block.settings.start_dit_year }} {{ block.settings.start_dit_hour }}:{{ block.settings.start_dit_mins }}:00',
+                month: '{{ block.settings.start_dit_month }}',
+                day: '{{ block.settings.start_dit_day }}',
+                year: '{{ block.settings.start_dit_year }}',
+                hour: '{{ block.settings.start_dit_hour }}',
+                mins: '{{ block.settings.start_dit_mins }}'
+            },
+            end: {
+                value: '{{ block.settings.end_dit_month }} {{ block.settings.end_dit_day }}, {{ block.settings.end_dit_year }} {{ block.settings.end_dit_hour }}:{{ block.settings.end_dit_mins }}:00',
+                month: '{{ block.settings.end_dit_month }}',
+                day: '{{ block.settings.end_dit_day }}',
+                year: '{{ block.settings.end_dit_year }}',
+                hour: '{{ block.settings.end_dit_hour }}',
+                mins: '{{ block.settings.end_dit_mins }}'
+            }
+        },
+        {% endfor %}
+    ];
+    async function getPreparedCodesByRule(cart, codes){
+        const codes_to_apply = [];
+        const fetchPromises = []; // to store all fetch promises
+
+        for (const single_code of codes) {
+            const startDate = new Date(single_code.start.value+' GMT-0400').getTime();
+            const endDate = new Date(single_code.end.value+' GMT-0400').getTime();
+            const now = new Date().getTime();
+
+            const startTimeLeft = now - startDate;
+            const endTimeLeft = endDate - now;
+            if(startTimeLeft < 0 || endTimeLeft < 0){
+                continue;
+            }
+            if(single_code.rule.type === 'collection'){
+                for (const item of cart.items) {
+                    const fetchPromise = fetch('/products/'+item.handle+'?view=collections')
+                        .then((response) => response.text())
+                        .then((collections) => {
+                            item.collections = collections.split(',');
+                            if(item.collections.length){
+                                for (const collection_handle of item.collections) {
+                                    if(single_code.rule.value === collection_handle){
+                                        codes_to_apply.push(single_code);
+                                    }
+                                }
+                            }
+                        });
+                    fetchPromises.push(fetchPromise);
+                }
+            } else if(single_code.rule.type === 'amount'){
+                if(single_code.rule.value.includes('-')){
+                    const range_rule = single_code.rule.value.split('-');
+                    if(cart.total_price > (range_rule[0]*100) && cart.total_price < (range_rule[1]*100)){
+                        codes_to_apply.push(single_code);
+                    }
+                } else if(single_code.rule.value.includes('+')){
+                    const bigger_rule = single_code.rule.value.replace('+', '');
+                    if(cart.total_price > (bigger_rule*100)){
+                        codes_to_apply.push(single_code);
+                    }
+                }
+            }
+        }
+
+        // Wait for all fetches to finish
+        await Promise.all(fetchPromises);
+        return codes_to_apply;
+    }
+
+    async function onCartUpdateStephenDiscountCodes(cart){
+        const justCodes = window.stephenCodes.map(object => object.code);
+        const activeCode = getActiveCode();
+        console.log(justCodes, activeCode)
+        if(!activeCode){
+            return false;
+        }
+        if(!justCodes.includes(activeCode)){
+            return false;
+        }
+        const codes_to_apply = await getPreparedCodesByRule(cart, window.stephenCodes);
+        console.log(codes_to_apply);
+        let code_to_apply = {};
+        if(codes_to_apply.length > 1){
+            codes_to_apply.forEach(single_code => {
+                if(!code_to_apply.priority || single_code.priority > code_to_apply.priority){
+                    code_to_apply = single_code;
+                }
+            })
+        }else if(codes_to_apply.length === 1){
+            code_to_apply = codes_to_apply[0];
+        }
+        if(code_to_apply.code){
+            let response;
+            if(window.Abra){
+                response = await window.Abra.activate(code_to_apply.code);
+            }
+            /*else{
+                response = await fetch(`/discount/${code_to_apply.code}`);
+            }*/
+            const text = await response.text();
+            console.log(text);
+        }
+    }
+
+    window.addEventListener('abra:initialized', event => {
+        const justCodes = window.stephenCodes.map(object => object.code);
+        const activeCode = getActiveCode();
+        if(justCodes.includes(activeCode)){
+            fetch('/cart.js').then((data) => data.json()).then((cart) => onCartUpdateStephenDiscountCodes(cart));
+        }
+    });
+</script>

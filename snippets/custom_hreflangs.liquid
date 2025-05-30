@@ -1,0 +1,28 @@
+{% assign current_store = 'us' %}
+{% assign current_store_base_url = 'https://shopsolarkits.com' %}
+{% assign second_store = 'ca' %}
+{% assign second_store_metafield_key = second_store | prepend: 'en_' %}
+{% assign second_store_base_url = 'https://www.shopsolarkits.ca' %}
+
+{% assign second_store_request_path = false %}
+
+{% if template contains 'index' %}
+    {% assign second_store_request_path = request.path %}
+{% elsif template contains 'page' %}
+    {% assign second_store_request_path = page.metafields.hreflang[second_store_metafield_key].value %}
+{% elsif template contains 'product' %}
+    {% assign second_store_request_path = product.metafields.hreflang[second_store_metafield_key].value %}
+{% elsif template contains 'collection' %}
+    {% assign second_store_request_path = collection.metafields.hreflang[second_store_metafield_key].value %}
+{% elsif template contains 'blog' %}
+    {% assign second_store_request_path = blog.metafields.hreflang[second_store_metafield_key].value %}
+{% elsif template contains 'article' %}
+    {% assign second_store_request_path = article.metafields.hreflang[second_store_metafield_key].value %}
+{% endif %}
+
+<link rel="alternate" hreflang="x-default" href="{{ current_store_base_url }}{{ request.path }}" />
+<link rel="alternate" hreflang="en-{{ current_store }}" href="{{ current_store_base_url }}{{ request.path }}" />
+{% if second_store_request_path %}
+<link rel="alternate" hreflang="en-{{ second_store }}" href="{{ second_store_base_url }}{{ second_store_request_path }}" />
+{% endif %}
+

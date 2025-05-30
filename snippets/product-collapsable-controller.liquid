@@ -1,0 +1,77 @@
+{% liquid
+    assign is_available = false
+    assign is_metafield_section = false
+    if type and product
+        capture collapsable_content
+            if type == 'details'
+                assign is_metafield_section = true
+                if product.selected_or_first_available_variant.metafields.details.text.value
+                    assign is_available = true
+                endif
+                unless is_available
+                    if product.selected_or_first_available_variant.metafields.details.text.value == blank and product.selected_or_first_available_variant.metafields.details.image.value == blank
+                        assign is_available = true
+                    endif
+                endunless
+                if is_available
+                    include 'product-collapsable-type-details'
+                endif
+            elsif type == 'specifications'
+                assign is_metafield_section = true
+                if product.selected_or_first_available_variant.metafields.specifications.checkmarks.value or product.selected_or_first_available_variant.metafields.specifications.table_1.value or product.selected_or_first_available_variant.metafields.specifications.table_2.value or product.selected_or_first_available_variant.metafields.specifications.table_3.value or product.selected_or_first_available_variant.metafields.specifications.table_4.value or product.selected_or_first_available_variant.metafields.specifications.table_5.value or product.selected_or_first_available_variant.metafields.specifications.table_6.value or product.selected_or_first_available_variant.metafields.specifications.table_7.value or product.selected_or_first_available_variant.metafields.specifications.table_8.value or product.selected_or_first_available_variant.metafields.specifications.text.value
+                    assign is_available = true
+                    include 'product-collapsable-type-specifications'
+                endif
+            elsif type == 'faqs'
+                assign is_metafield_section = true
+                if product.selected_or_first_available_variant.metafields.faqs.data.value
+                    assign is_available = true
+                endif
+                unless is_available
+                    assign global_faqs = 0
+                    if section.blocks.size > 0
+                        for block in section.blocks
+                            if block.type == 'faqs'
+                                assign global_faqs = global_faqs | plus: 1
+                            endif
+                        endfor
+                    endif
+                    if global_faqs > 0
+                        assign is_available = true
+                    endif
+                endunless
+                if is_available
+                    include 'product-collapsable-type-faqs'
+                endif
+            elsif type == 'image_with_text'
+                assign is_available = true
+                include 'product-collapsable-type-image_with_text'
+            elsif type == 'video_with_text'
+                assign is_available = true
+                include 'product-collapsable-type-video_with_text'
+            elsif type == 'reviews'
+                assign is_available = true
+                include 'product-collapsable-type-reviews'
+            elsif type == 'roi_calc'
+                assign is_available = true
+                assign roi_calc_visible_available = settings.roi_calc_visible_available
+                assign roi_calc_visible_for_collection_list = settings.roi_calc_visible_for_collection_list
+                if roi_calc_visible_available
+                    assign is_available = true
+                elsif roi_calc_visible_for_collection_list.size > 0
+                    for roi_calc_visible_for_collection in roi_calc_visible_for_collection_list
+                        for pdt_collection in product.collections
+                            if roi_calc_visible_for_collection == pdt_collection
+                                assign is_available = true
+                                break
+                            endif
+                        endfor
+                    endfor
+                endif
+                if is_available
+                    include 'product-collapsable-type-roi-calc'
+                endif
+            endif
+        endcapture
+    endif
+%}

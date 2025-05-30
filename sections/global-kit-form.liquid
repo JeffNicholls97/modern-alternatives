@@ -1,0 +1,77 @@
+<style>
+  .solar-kit-refer-container {
+    background-color: #222f3e;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+  .solar-kit-refer-container a {
+    font-size: var(--font-size-button-medium);
+    padding: .75rem 1.125rem;
+    letter-spacing: 0em;
+    color: #222f3e;
+    background-color: #ff991c;
+    border: 1px solid #ff991c;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+  .global-kit-form-title {
+  font-size: var(--font-size-heading-1);
+  text-transform: none;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin: .67em 0;
+}
+</style>
+
+<section class="
+    rich-text--container
+    rich-text-full-width
+    solar-kit-refer-container
+  ">
+  <p class="global-kit-form-title">{{ section.settings.solar-heading }}</p>
+  <p>{{ section.settings.solar-body }}</p>
+  <a href="{{ section.settings.button-link }}">{{ section.settings.button-text }}</a>
+</section>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+      {
+      "type": "text",
+      "id": "solar-heading",
+      "label": "H1 Tag Text",
+      "default": "Get a Free Complimentary Solar Proposal Today!"
+    },
+    {
+      "type": "textarea",
+      "id": "solar-body",
+      "label": "Body Text",
+      "default": "Based on your location, electric needs, system preferences"
+    },
+    {
+      "type": "url",
+      "id": "button-link",
+      "label": "Button Link"
+    },
+      {
+        "type": "text",
+      "id": "button-text",
+      "label": "Button Text",
+      "default": "Start Now"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Solar Kit Proposal"
+    }
+  ]
+  }
+{% endschema %}

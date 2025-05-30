@@ -1,0 +1,1413 @@
+{% comment %}
+ LayoutHub (https://layouthub.com)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from LayoutHub
+ {% endcomment %} 
+ 
+ <div class="lh-sections-wrapper" data-id="62b63745d506ae05ee0798e2" data-type="product">
+<section id="" data-section-id="lqx764tuyvj" data-section="product-detail-145" data-dev="huynh-duc" data-lh-page-id="487" data-lh-page-name="Landing Yogmat" data-layouthub="section">  
+ <!--  Product single Swatch images -->
+{%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+		 	 
+		 		{%- comment -%} Assign product when not in product page {%- endcomment -%}
+		 		{%- assign p  = all_products['lion-safari-me-gold-kit']  -%}
+		 		{%- if  p.id != ""  and tpl != 'product' -%}
+		 			{% assign product  = p  %}
+		 		{%- endif -%}{%- assign color_names = '' | split: ',' -%}
+		{%- assign color_names_downcase = '' | split: ',' -%}
+		{%- assign color_values = '' | split: ','  -%}
+		{%- if shop.metafields.layouthub and shop.metafields.layouthub.colors and shop.metafields.layouthub.colors contains '|' -%}
+			{% assign colors = shop.metafields.layouthub.colors | split: '|' %}
+			{%- assign color_names = colors | first | strip | split: ',' -%}
+			{%- assign color_names_downcase = colors | first | strip | downcase | split: ',' -%}
+			{%- assign color_values = colors | last | strip | split: ',' -%}
+		 {%- endif -%}<div  class="lh-wrapper lh-product-single" data-pid="{{- product.id -}}" data-money-format='{{shop.money_format | url_encode }}' data-vid_url="{%- if tpl != 'product' -%}
+				{%- assign vid_url = false -%}
+			{%- else -%}
+				{%- assign vid_url = true -%}
+			{%- endif -%}
+			{{- vid_url -}}">
+		<div class="lh-container">
+			<div class="lh-details-product">
+			<div class="lh-row lh-align-start">
+				<div class="lh-product-sync-images lh-col-md-6">
+					<div class="lh-details-images lh-row use-zoom-no lh-promote-no" data-hub-attr-state="class%3D%22lh-details-images%20lh-row%20use-zoom-%257B%253A%257Bsection.settings.use_zoom%257D%253A%257D%20lh-promote-%257B%253A%257Bsection.settings.show_badge%257D%253A%257D%22"  data-hub-attr-use_zoom  data-hub-attr-show_badge >
+						<div class="lh-small-slide lh-col-md-2">
+							<div class="block-slide-sm lh-slick-nav swiper-container">
+								<div class="swiper-wrapper">
+									{%- for image in product.images -%}
+				   <div class="items-img swiper-slide" data-variant_id="{{image.variants | map:'id' | join: ','}}">
+		                <img alt="{{ image.alt}}" class="hs-id-9b1d33da hs-lazyload" loading="lazy" src="{{ image | img_url: 'medium'}}"/>
+		            </div>
+				{%- endfor -%}</div>
+
+							</div>
+							<div class="lh-slide-small-nav">
+								<div class="swiper-button-prev">
+									<svg version="1.1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<path fill="currentColor" d="M70.4,2.4L26.2,46.8c-0.9,0.9-1.3,2.1-1.3,3.3c0,1.2,0.5,2.4,1.3,3.3l44.2,44.2c1.1,1.1,2.8,1.1,3.9,0
+													c0.5-0.5,0.8-1.2,0.8-1.9c0-0.7-0.3-1.4-0.8-1.9L30.7,50.1L74.3,6.3c1.1-1.1,1.1-2.8,0-3.9C73.2,1.3,71.5,1.3,70.4,2.4z" ></path>
+									</svg>
+
+								</div>
+								<div class="swiper-button-next">
+									<svg version="1.1" width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<path fill="currentColor" d="M29.6,97.6l44.2-44.4c0.9-0.9,1.3-2.1,1.3-3.3c0-1.2-0.5-2.4-1.3-3.3L29.6,2.4c-1.1-1.1-2.8-1.1-3.9,0
+													c-0.5,0.5-0.8,1.2-0.8,1.9c0,0.7,0.3,1.4,0.8,1.9l43.6,43.6L25.7,93.7c-1.1,1.1-1.1,2.8,0,3.9C26.8,98.7,28.5,98.7,29.6,97.6z" ></path>
+									</svg>
+
+								</div>
+							</div>
+						</div>
+						<div class="lh-big-slide lh-col-md-10">
+							<div class="lh-big_slide-lg">
+								<div class="lh-label lh-absolute">
+				{% assign first_variant = product.selected_or_first_available_variant %}
+				{%- assign compare_at_price = product.compare_at_price -%}
+				{%- assign price = product.price -%}
+				{%- assign price_varies = product.price_varies -%}
+				{%- assign available = product.available -%}
+				{%-assign on_new = false-%}
+				{%-unless product.tags contains 'notnew'%}
+						{%-assign now_date_int = "now" | date: "%j" | plus: 0-%}
+						{%-assign now_year_int = "now" | date: '%Y' | plus: 0-%}
+						{%-assign pub_date_int = product.published_at | date: "%j" | plus: 0-%}
+						{%-assign pub_year_int = product.published_at | date: '%Y' | plus: 0-%}
+						{%-if now_year_int == pub_year_int-%}
+							{%-assign new_day_int = 30 -%}
+							{%-assign check_new = now_date_int | minus: pub_date_int-%}
+							{%-if check_new >= 0 and check_new <= new_day_int-%}
+								<span class="lh-new_label"  data-lhi="trans_new" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_new' | t }}</span>
+							{%-endif-%}
+						{%-else-%}
+							{%-assign new_day_int = 30 | plus: 366-%}
+							{%-assign check_new = now_date_int | plus: 366-%}
+							{%-if check_new <= new_day_int-%}
+											<span class="lh-new_label"  data-lhi="trans_new" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_new' | t }}</span>
+							{%-endif-%}
+						{%-endif-%}
+				{%-endunless-%}
+				{%-assign on_sale = false-%}
+				{%-if first_variant.price < first_variant.compare_at_price and first_variant.available -%}
+					{%-unless product.tags contains 'notsale'-%}
+					{%-assign on_sale = true-%}
+					{%-endunless-%}
+				{%-endif-%}
+				{%-assign sold_out = true-%}
+
+				{%-unless available == false-%}
+					{%-assign sold_out = false-%}
+				{%-endunless-%}
+				<span class="lh-sale_label" style="display: {%- if on_sale -%}block{%- else -%}none{%- endif -%}"  data-lhi="trans_sale" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_sale' | t }}</span>
+				{%- if sold_out -%}
+					<span class="lh-soldout_label"  data-lhi="trans_sold_out" data-lh-lang>{{'lqx764tuyvj.lh_k4hsr9_out' | t }}</span>
+				{%- endif -%}
+			</div><div class=" block-slide-lg lh-slick-big swiper-container">
+									<div class="swiper-wrapper">
+										{%- for image in product.images -%}
+		          <div class="items-img swiper-slide zoom__image" data-variant_id="{{image.variants.first.id}}">
+		                      <img alt="{{ image.alt}}" class="hs-id-cbea272f hs-lazyload" data-bigimg="{{ image | img_url: 'master'}}" data-height="{{image.height}}" data-width="{{image.width}}" loading="lazy" src="{{ image | img_url: 'master'}}"/>
+		                  </div>
+		        {%- endfor -%}</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="lh-summary lh-col-md-6 lh-pl0">
+					<div class="lh-content-summary" data-hidden="{% assign variant_slected = product.selected_or_first_available_variant %}
+				{% assign isHidden = true %}
+				{%- if variant_slected.available and variant_slected.price < variant_slected.compare_at_price -%}
+						{% assign isHidden = false %}
+				{%- endif -%}
+				{{isHidden}}">
+						<h1 class="product-name lh-product-title">
+							{%- if tpl != 'product' -%}
+				{{product.title}}
+			{%- else -%}
+				{{product.title}}
+			{%- endif -%}</h1>
+						<div class="clearfix"></div>
+						{%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+		 	 
+		 		{%- comment -%} Assign product when not in product page {%- endcomment -%}
+		 		{%- assign p  = all_products['lion-safari-me-gold-kit']  -%}
+		 		{%- if  p.id != ""  and tpl != 'product' -%}
+		 			{% assign product  = p  %}
+		 		{%- endif -%}<div data-oke-reviews-product-listing-rating data-oke-reviews-product-id="shopify-{{- product.id -}}" class="okeReviews-lhStarRating"></div>
+
+                                <div id="klarna"><klarna-placement
+            data-id="30b97450-6f51-48fc-bd83-2f713bf6f376"
+            data-purchase_amount="{{product.price}}"
+            ></klarna-placement></div>
+						
+						<p class="yourprice">Your Price:</p>
+						<span class="lh-price-block price ">
+						    
+							<ins class="lh-price">
+		         <span class="money">{{ product.price | money }}</span>
+		    </ins>
+        
+            <del class="lh-compare-at-price">
+					<span class="money">{%- if product.compare_at_price  > product.price  -%}{{ product.compare_at_price  | money }}{%- endif -%}</span>
+				</del>
+			
+		    <p class="lh-sold-out-title" style="display: none"><span  data-lhi="trans_outstock" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_outstock' | t }}</span></p></span>
+						<p>{% if template == 'product' %}
+                      {{ 'products.product.on_sale' | t }}
+                    {% else %}
+                      {% assign amount = 0 %}
+                      {% for variant in product.variants %}
+                      {% assign saving = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price %}
+                      {% assign amount = saving | at_least: amount %}
+                      {% endfor %} 
+                      {% capture saved_amount %}{{ amount | money_without_trailing_zeros }}{% endcapture %}
+                      <div class="saved"><span>You Saved:</span> {{ saved_amount }}</div>
+                    {% endif %}</p>
+                               
+                        <div class="lh-product-sku">
+					<p class="lh-product-sku-title"><text  data-lhi="trans_sku" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_sku' | t }}</text> <span></span></p>
+				</div><div class="clearfix"></div>
+						
+						 
+							<div class="lh-wrap-product-rating">
+				        
+				      </div>
+							<div class="clearfix"></div>
+						 
+						
+						
+						<div class="clearfix"></div>
+						<include data-live-trans_quantity data-live-enable_buynow data-live-trans_buynow data-live-add_to_cart data-live-trans_unavai data-live-trans_outstock data-name="product-form" data-id="1">  
+ <form class="lh-product-form {% if product.variants.size > 1%} lh-form-product-variants{% else %} lh-form-product-variant {% endif%}" method="POST" accept-charset="utf-8" enctype="multipart/form-data"  action="/cart/add" data-pid="{{- product.id -}}">
+	<div class="lh-wrap-variant" data-variants-size="">
+		{% assign variant_slected = product.selected_or_first_available_variant %}
+				{% assign arr_swatch = 'Color' | split: ',' %}
+				{%- if  arr_swatch.size > 0 %}
+					{%- if product.variants.size >= 1%}
+						{%- for option in product.options -%}
+							{%- assign option_index = forloop.index0 -%}
+							{%- assign o = option | downcase -%}
+								{%- if arr_swatch contains option -%}
+									{%- assign index = 'option' | append: forloop.index -%}
+									 	<div class="lh-swatch-images  swatch-index lh-swatch-variations"  data-option-index="{{ option_index }}">
+											<div class="meta">
+												<label title="">{{ option }}:
+												</label>
+											</div>
+											<div class="list-swatch-images">
+														{%- assign values = ""  -%}
+														{%- for variant in product.variants -%}
+															{%- assign option_value = variant[index] -%}
+															{%- assign option_value_downcase = variant[index] | downcase -%}
+															{%- if values != ""%}
+																{%- assign tmp = values | split: '|' -%}
+																{%- if tmp contains option_value_downcase  -%} {%- continue-%}{%- endif -%}
+																{%- assign values = values  | append:   '|' | append: option_value_downcase -%}
+															{%- else -%}
+																{%- assign values =   option_value_downcase -%}
+															{%- endif -%}
+															<li data-option-index="{{ option_index }}" data-lh-tooltip="{{option_value | escape}}" class="lh-swatch-select lh-tooltip_top lh-swatch-image {% if option_value == variant_slected[index] %} active{% endif %}" data-value="{{option_value | escape}}">
+																 
+																	<span><img alt="{{option_value}}" class="hs-id-a82587e1 hs-lazyload" loading="lazy" src="{{ variant | img_url: '120x120', crop: 'center' }}"/>
+																	</span>
+																 
+															</li>
+														{%- endfor -%}
+													</div>
+									  </div>
+								{%- endif -%}
+						{%- endfor -%}
+					{%- endif -%}
+				{%- endif%}{%- if product.variants.size >= 1%}
+					{%- for option in product.options_with_values -%}
+							{%- assign option_index = forloop.index0 -%}
+							{%- assign o = option.name | downcase -%}
+							{%- if arr_swatch contains option.name or option.name == "Title" and product.options_with_values.size == 1 and option.values contains "Default Title" -%}
+								{%- continue -%}
+							{%- endif -%}
+							{%- assign index = 'option' | append: forloop.index -%}
+							<div class="lh-swatch-simple select-{{option.name | handleize }} swatch-index lh-swatch-variations"  data-option-index="{{ option_index }}">
+						      <div class="meta">
+						         <label title="">{{ option.name }}:
+						         </label>
+						      </div>
+									<div class="lh-wrap-combobox">
+								      <ul class="list-swatch-items" >
+												{%- for value in option.values -%}
+													<li class="lh-swatch-select {% if value == variant_slected[index] %} active{% endif %}" data-option-index="{{ option_index }}" data-value="{{value | escape}}"><span  title="{{value | escape}}" >{{ value}}</span></li>
+												{%- endfor -%}
+								      </ul>
+									</div>
+	   					</div>
+					{%- endfor -%}
+				{%- endif -%}<div class="lh-quantity">
+			<div class="meta">
+				<label title=""  data-lhi="trans_quantity" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_quantity' | t }}</label>
+			</div>
+			<div class="lh-quantity-form quantity-form lh-flex lh-flex-wrap">
+							 <div class="lh-quantity_form">
+									<div class="lh-control">
+										<input type="number" class="lh-input-qty lh-input-number lh-qty number "  name="quantity" value="1" min="1" max="{%- if current_variant.inventory_management != null -%}{{current_variant.inventory_quantity}}{%- else -%}999{%- endif -%}"><a href="javascript:;" class="lh-btn-number lh-qtyminus lh-quantity-minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown();this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'));return false"  title=""> </a>
+										 <a href="javascript:;" class="lh-btn-number lh-qtyplus lh-quantity-plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp();this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'));return false" title=""></a>
+									</div>
+							 </div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+   <div class="lh-option-wrappers show-swatch-no" >
+       <select name="id"  id="product-select-{{- product.id -}}" style="display: none">
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+					{%- for variant in product.variants -%}
+		                {%- if variant.available -%}
+		                  <option {%  if variant == product.selected_or_first_available_variant   %} selected="selected" {%  endif  %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+		                {%- else -%}
+		                  <option disabled="disabled">
+		                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+		                  </option>
+		                {%- endif -%}
+		              {%- endfor -%}</select>
+    </div>
+
+   <div class="lh-cart-button-group" data-available='{{product.selected_or_first_available_variant.available}}'>
+	  
+		<div class="lh-d-flex lh-flex-wrap lh-wrap-buynow">
+			    <button class="lh-buy-now bt lh-bt-primary lh-bt-type_01"  data-lhi="trans_buynow" data-lh-lang>{{'lqx764tuyvj.lh_up5omg_buynow' | t }}</button>
+<button class="lh-add-to-cart" type="submit"  data-lhi="add_to_cart" data-lh-lang>{{'lqx764tuyvj.lh_f635tz_cart' | t }}</button>
+		</div>
+		 
+		<div class="clearfix"></div>
+   </div>
+</form>
+{%- unless product == empty -%}
+				        <script type="application/json" id="lh-product-json-{{product.id}}">
+								{
+								"id": {{product.id}},
+								"title": {{product.title | json}},
+								"handle": {{product.handle | json}},
+								"price": {{product.price| json}},
+								"price_min": {{product.price_min| json}},
+								"price_max": {{product.price_max| json}},
+								"available": {{product.available | json}},
+								"price_varies": {{product.price_varies| json}},
+								"compare_at_price": {{product.compare_at_price| json}},
+								"compare_at_price_min": {{product.compare_at_price_min| json}},
+								"compare_at_price_max": {{product.compare_at_price_max| json}},
+								"compare_at_price_varies": {{product.compare_at_price_varies| json}},
+								"variants": [
+								{%- for variant in product.variants -%}
+								{
+								"id": {{variant.id}},
+								"title": "{{variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%}{{variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%}{{variant.option3 | handleize }}",
+								"option1": {{variant.option1  | json}},
+								"option2": {%- if product.options.size == 1 -%}null{%-else-%}{{variant.option2  | json}}{%-endif-%},
+								"option3": {%- if product.options.size == 1 or product.options.size == 2 -%}null{%-else-%}{{variant.option3  | json}}{%-endif-%},
+								"sku": {{variant.sku | json}},
+								"requires_shipping": {{variant.requires_shipping}},
+								"taxable": {{variant.taxable |json}},
+								"featured_image": {%- if variant.image.id != blank -%}{
+										"id": {{variant.image.id | json}},
+										"product_id": {{product.id | json}},
+										"width": {{variant.image.width | json}},
+										"height": {{variant.image.height | json}},
+										"src": {{variant.image.src | json}},
+										"position":{{variant.image.position}}
+									}{%- else-%}null{%-endif-%},
+								"available": {{variant.available}},
+								"public_title": "{{variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%}{{variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%}{{variant.option3 | handleize }}",
+								"options":  {{variant.options | json}},
+								"price": {{variant.price| json}},
+								"weight": {{variant.weight| json}},
+								"compare_at_price": {{variant.compare_at_price | json}},
+								"inventory_quantity": {{variant.inventory_quantity | json}},
+								"inventory_management": {{variant.inventory_management | json}},
+								"inventory_policy": {{variant.inventory_policy | json}},
+								"barcode": {{variant.barcode | json}}
+								}{%- if forloop.last == false -%},{%- endif -%}
+								{%- endfor -%}
+								],
+								"featured_image": {{product.featured_image | json}},
+								"options": [
+								{%- for option in product.options -%}
+								{{ option | json}}{%- if forloop.last == false -%},{%- endif -%}
+								{%-endfor -%}
+								]
+								}
+				        </script>
+				      {%- endunless -%}   </include></div>
+					<div id="extend">{% render 'extend-product-integration' %}</div>
+					<table class="help">
+<tbody><tr><td>
+<img class="support-img hs-id-2bf7a430 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/files/Image_from_iOS_256x256_crop_center.jpg?v=1644461592127" width="70"/>
+</td>
+<td class="questions">
+<p class="maxtitle">Have a question? We're here to help.</p>
+Friendly Phone Support: <a href="tel:877-242-2792">877-242-2792</a> <br> & <a href="https://chat.chatra.io/?hostId=yWQhGDuWBfNFR5JMM&ref=23#hostId=yWQhGDuWBfNFR5JMM">Live Chat</a> | 
+Mon-Fri 10am-6pm EST</td>
+</tr></tbody></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+  </section><section id="" data-section-id="qqo2dklg03" data-section="incentives-5" data-dev="hongyen" data-lh-page-id="1135" data-lh-page-name="Uno" data-layouthub="section">  
+ <div class="lh-incentives" >
+	<div class="lh-container " >
+		<div class="lh-row">
+             <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-rocket" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_0_font_icon="list_item[0]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[0]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'qqo2dklg03.lh_9wid92_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-money-location" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_1_font_icon="list_item[1]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[1]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'qqo2dklg03.lh_a5w0bb_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-package" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_2_font_icon="list_item[2]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[2]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'qqo2dklg03.lh_af9ndk_item' | t }}</p></div>
+                    
+               
+			</div>
+              <div class="lh-col-md-3">
+                
+                <div class="lh-item">
+                    <p class="lh-icon">
+                        <i class="lni lni-cup" data-hub-attr-state="class%3D%22%22"   data-hub-attr-list_item_3_font_icon="list_item[3]font_icon" data-lhis="list_item-font_icon" ></i>
+                    </p>
+                    <p class="lh-text"  data-lhi="list_item[3]txt_item" data-lh-lang data-lhis="list_item-txt_item">{{'qqo2dklg03.lh_aonaft_item' | t }}</p></div>
+                    
+               
+			</div>
+              
+		</div>
+        </div>
+	</div>
+  </section><section id="" data-section-id="t54sxzwme0o" data-section="contents" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'t54sxzwme0o.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lh-live-editor data-lhis="content_items-desc">The Lion Safari ME GOLD Kit is one of the most anticipated solar generator kits of ever made. With it's 2,970wH lithium battery and 2,000W pure sine inverter, the Safari ME can run just about anything you throw at it. Launched over a year ago, the Safari ME is one of our best-selling solar generators and acts as your lifeline whether you're off the grid or during blackouts, power failures or if the electric grid crumbles.<br><br>
+
+ You can use your Lion Safari ME inside your home — to power a fridge, freezer, medical devices & more. It's fume-free & SAFE for indoor use. Comes charged and ready to use, and never needs gas, ever. We also include a simple to understand, free solar generator user and setup guide so that you know exactly how everything works.<br><br>
+
+The Safari ME's 4,000 watt surge on the inverter also means it can handle high wattage appliances such as an A/C unit, coffee maker, and many large power tools. Great for camping, off grid living or any emergency back-up situation.</p>
+
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+                <text  data-lhi="content_items[0]img" data-lhis="content_items-img"></text>
+<div class="iactiveImg" data-ii="41538"></div><script src="https://interactive-img.com/js/include.js"></script>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="den6khqpqhs" data-section="why-do-you-need6462" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'den6khqpqhs.lh_a168_title' | t }}</h3>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang data-lh-live-editor></div>
+<ul>			
+<li> Ships From USA</li>
+<li> 1 x Lion Safari ME Solar Generator / 2,900wH Portable Power Station</li>
+<li> 1 x Safari ME Expansion Battery (2,048wh)</li>
+<li> 4 x 100 Watt 24V Solar Panel Suitcases</li>
+<li> 2 x 25 ft. Solar Panel Extension Cables (Total 50 ft.)</li>
+<li> 1 x AC Wall Charger</li>
+<li> 1 x FREE Set of 3 LED String Lights</li>
+<li> 1 x Setup & User Manual</li>
+<li> 1 x 1-Year Warranty</li>
+<li> Free Shipping</li>
+<li> Free Lifetime Customer Support</li>
+</ul>
+			
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="j2jqb5a6r6j" data-section="why-do-you-need6460" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'j2jqb5a6r6j.lh_a168_title' | t }}</h3>
+			
+            
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="why_button" data-section-id="ihq6ymh7dv" data-section="contents7" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'ihq6ymh7dv.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lh-live-editor data-lhis="content_items-desc">Long lasting blackouts could happen at any time now... They already are in some parts of the country. And they are not simply “annoying.” The reality is that without power everything grinds to a halt...<br><br>
+
+Home appliances become totally useless. Food in the fridge begins to go bad, QUICK. No cellphones, laptops, internet, lights. Life threatening medical devices stop working. Gas stations can't pump. The list goes on...<br><br>
+
+Those who haven’t prepared could be helpless, sitting in the dark or cold for days, potentially even weeks. When this happens, a gas generator is far from ideal. Loud, dirty and unreliable - they are also far from stealthy. On top of the need to store a bunch of fuel, the fumes are extremely dangerous.<br><br>
+
+In a blackout situation, your power supply needs to be completely silent, fume free and safe for indoor use. You also need the ability to charge it over and over without relying on anyone OR anything else, for FREE. <br><br>
+
+The Safari ME has a built-in 922 watt hour lithium battery and the lithium expansion battery (included with your order) adds 2,048wH of battery storage giving you a total of 2,970 watt hours of lithium battery storage. <b>That's 4.5x bigger than the Patriot Power Generator!</b></p>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-562d1e39 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime4_FOcK.png?v=1658207054825"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="38ycgdxbwqq" data-section="popup-3-2" data-dev="huynh-duc" data-lh-page-id="502" data-lh-page-name="Popup 3" data-layouthub="section">  
+ <div class="popup_smart_demo popup_smart_hide no">
+	
+	<form method="POST" action="" class="lh-subcriber-form">
+		<div class="popup_smart_content_demo popup_smart_height popup_smart_bg">
+		    <div class="lh-bg">
+		     
+            </div>
+			<input type="hidden" class="setting_smart_popup" value="">
+			<input type="hidden" class="preview_smart_popup_setting" value="3">
+			<input type="hidden" class="lh-profiles" name="profiles" value="">
+			<div class="popup_close"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve"><g><g id="close"><polygon points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 214.2,178.5 "></polygon></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></div>
+			<div class="text-center lh-popup-innner">
+			    <div class="popup-section1">
+			        <div class="popup_smart_heading"  data-lhi="heading_popup">What SSK Measures</div>
+                    <div class="popup_smart_subheading"  data-lhi="subheading_popup"></div>
+				</div>
+				<div class="popup-section2">
+                    <div class="popup_smart_error_text"></div>
+                    <div class="lh-row lh-m-15">
+                         
+                    </div>
+                    <div class="popup_smart_error_text_submit"></div>
+                    <div class="popup_smart_des"  data-lhi="more_info_popup">Sample 1<br>Sample 1<br>Sample 1<br>Sample 1<br>Sample 1<br>Sample 1<br></div>
+				</div>
+			</div>
+		
+		</div>
+    </form>
+</div>
+
+
+ 
+  </section><section id="why_button" data-section-id="h2bblxro42" data-section="contents78" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row lh-text-or2" data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'h2bblxro42.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'h2bblxro42.lh_2rtbyt_desc_html' | t }}</p>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-66a06892 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime5_BDeK.png?v=1658207055511"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="31cifv7ogr7" data-section="why-do-you-need64604" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'31cifv7ogr7.lh_a168_title' | t }}</h3>
+			
+            
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="cne3dbakac4" data-section="faqs-335" data-dev="hongyen" data-lh-page-id="1445" data-lh-page-name="Etee - Landing" data-layouthub="section">  
+ <div class="lh-faqs">        
+    <div class="lh-container">
+        <div class="lh-row">
+            <div class="lh-col-md-2"></div>
+            <div class="lh-col-md-8">
+                
+              
+                <div class="lh-content">
+                    
+                    <div class="lh-list-faq">
+                    
+                      <include data-live-accordion_items data-live-faq_style data-name="style_2" data-id="1">  
+ <ol class="lh-accordion-wrapper">
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[0]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_ezc4q5_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[0]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_ezc4q5_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[1]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_ezhhnw_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[1]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_ezhhnw_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[2]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_ezmuln_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[2]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_ezmuln_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[3]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_ezs7je_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[3]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_ezs7je_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[4]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_ezxkh5_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[4]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_ezxkh5_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[5]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_f02xew_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[5]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_f02xew_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[6]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_f08acn_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[6]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_f08acn_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[7]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_f0dnae_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[7]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_f0dnae_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[8]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_f0j085_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[8]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_f0j085_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[9]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_f0od5w_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[9]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_f0od5w_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[10]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_ki54mq_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[10]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_ki54mq_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[11]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kiahkh_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[11]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kiahkh_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[12]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kifui8_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[12]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kifui8_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[13]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kil7fz_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[13]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kil7fz_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[14]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kiqkdq_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[14]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kiqkdq_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[15]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kivxbh_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[15]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kivxbh_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[16]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kj1a98_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[16]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kj1a98_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[17]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kj6n6z_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[17]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kj6n6z_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[18]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kjc04q_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[18]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kjc04q_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[19]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kjhd2h_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[19]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kjhd2h_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[20]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kriroz_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[20]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kriroz_content_html' | t }}</div>
+    </li>
+   <li class="lh-accordion-item lh-accordion-item-style_2 " data-hub-attr-state="class%3D%22lh-accordion-item%20lh-accordion-item-%257B%253A%257Bsection.settings.faq_style%257D%253A%257D%20%7Battr%7Bitem.toggle%20%3D%3D%20'yes'%20%3F%20'active'%20%3A%20''%20%7Dattr%7D%22"  data-hub-attr-faq_style >
+          <div class="lh-header">
+              <h5 class="title"  data-lhi="accordion_items[21]ai_name" data-lh-lang data-lhis="accordion_items-ai_name">{{'cne3dbakac4.lh_kro4mq_name' | t }}</h5>
+              <span class="arrow plus"><i class="lni lni-plus"></i></span>
+              <span class="arrow minus"><i class="lni lni-minus"></i></span>
+          </div>
+          <div class="content"  data-lhi="accordion_items[21]ai_content" data-lh-lang data-lhis="accordion_items-ai_content">{{'cne3dbakac4.lh_kro4mq_content_html' | t }}</div>
+    </li>
+   
+</ol>
+     </include></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+  </section><section id="why_button" data-section-id="9szwvqawyvl" data-section="contents75" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'9szwvqawyvl.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'9szwvqawyvl.lh_2rtbyt_desc_html' | t }}</p>
+               
+
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-0c7f3c2e hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime2_FYy8.png?v=1658207053867"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="why_button" data-section-id="00257kv4e3xn7" data-section="contents785" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row lh-text-or2" data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'00257kv4e3xn7.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'00257kv4e3xn7.lh_2rtbyt_desc_html' | t }}</p>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-a99a24ba hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime3_lwUm.png?v=1658207054332"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="6fkwam8cs5x" data-section="feature-9" data-dev="hongyen" data-lh-page-id="1372" data-lh-page-name="Bases - Landing" data-layouthub="section">  
+ <div class="lh-features">
+		<div class="lh-container">
+        <div class="lh-row">
+            <div class="lh-col-md-12">
+                <h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'6fkwam8cs5x.lh_a168_title' | t }}</h3>
+            </div>
+             <div class="lh-col-md-4">
+                <div class="lh-item">
+                  <div class="lh-img"  data-lhi="group_item[0]img" data-lhis="group_item-img"><img class="hs-id-631978d5 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime_oEaY.png?v=1658207056249"/></div>
+                  <h4 class="lh-txt1"  data-lhi="group_item[0]txt1" data-lhis="group_item-txt1">Lion Safari ME</h4>  
+                  <div class="lh-txt2"  data-lhi="group_item[0]txt2" data-lh-live-editor data-lhis="group_item-txt2">Solar Generator / 2,900wH Portable Power Station</div>                 
+                </div>
+            </div>
+             <div class="lh-col-md-4">
+                <div class="lh-item">
+                  <div class="lh-img"  data-lhi="group_item[1]img" data-lhis="group_item-img"><img class="hs-id-84805aa4 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarimepanels_RpDv.png?v=1658207055852"/></div>
+                  <h4 class="lh-txt1"  data-lhi="group_item[1]txt1" data-lhis="group_item-txt1">Solar Panels</h4>  
+                  <div class="lh-txt2"  data-lhi="group_item[1]txt2" data-lh-live-editor data-lhis="group_item-txt2">100W Rigid Solar Panels - 5 Year Warranty</div>                 
+                </div>
+            </div>
+             <div class="lh-col-md-4">
+                <div class="lh-item">
+                  <div class="lh-img"  data-lhi="group_item[2]img" data-lhis="group_item-img"><img class="hs-id-af9e6944 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarigoldkitaccessories_iiSX.png?v=1658207053257"/></div>
+                  <h4 class="lh-txt1"  data-lhi="group_item[2]txt1" data-lhis="group_item-txt1">Accessories</h4>  
+                  <div class="lh-txt2"  data-lhi="group_item[2]txt2" data-lh-live-editor data-lhis="group_item-txt2">All the required cables, connectors and more!</div>                 
+                </div>
+            </div>
+             <div class="lh-col-md-4">
+                <div class="lh-item">
+                  <div class="lh-img"  data-lhi="group_item[3]img" data-lhis="group_item-img"><img class="hs-id-6b586e07 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/untitleddesign2_q8Eb.png?v=1658207170215"/></div>
+                  <h4 class="lh-txt1"  data-lhi="group_item[3]txt1" data-lhis="group_item-txt1">Maintenance Guide</h4>  
+                  <div class="lh-txt2"  data-lhi="group_item[3]txt2" data-lh-live-editor data-lhis="group_item-txt2">Free 10,000 Word Solar Generator Setup</div>                 
+                </div>
+            </div>
+             
+            </div>
+        </div>
+    </div>
+  </section><section id="" data-section-id="01rplsvx38l9" data-section="why-do-you-need646043" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'01rplsvx38l9.lh_a168_title_html' | t }}</h3>
+			
+            
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="why_button" data-section-id="trjplc2fl1d" data-section="contents78561" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                
+                
+                <table>
+                    <tr>
+                    <th>Lion Safari ME</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <td>Battery Capacity</td>
+                    <td>922 Wh</td>
+                    </tr>
+                    <tr>
+                    <td>Battery output</td>
+                    <td>2000 W Cont / 4000 W Peak</td>
+                    </tr>
+                    <tr>
+                    <td>Life Cycles</td>
+                    <td>2500+</td>
+                    </tr>
+                    <tr>
+                    <td>Charge Retention</td>
+                    <td>1+ year</td>
+                    </tr>
+                    <tr>
+                    <td>Battery Chemistry</td>
+                    <td>Cylindrical Cell LiFePO4/td>
+                    </tr>
+                    <tr>
+                    <td>Output USB</td>
+                    <td>2 x USB-A - 5V 2.4 Amps Each
+2 x USB-C - 20V 3 Amps (60 Watt Max)/td>
+                    </tr>
+                    <tr>
+                    <td>Output AC</td>
+                    <td>2</td>
+                    </tr>
+                    <tr>
+                    <td>Dimension</td>
+                    <td>18.7 x 12.8 x 12.8</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>45.5lbs</td>
+                    </tr>
+                </table>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img">
+
+               <table>
+                    <tr>
+                    <th>Solar Panel</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <td>Rated Power</td>
+                    <td>100 Watts</td>
+                    </tr>
+                    <tr>
+                    <td>Cell Type</td>
+                    <td>Monocrystalline</td>
+                    </tr>
+                    <tr>
+                    <td>Max Volt Output</td>
+                    <td>24 Volts</td>
+                    </tr>
+                    <tr>
+                    <td>Expandable</td>
+                    <td>Link up to 8</td>
+                    </tr>
+                    <tr>
+                    <td>Dimensions Folded</td>
+                    <td>26.5 x 20 x 2</td>
+                    </tr>
+                    <tr>
+                    <td>Dimensions Open</td>
+                    <td>26.5 x 40 x 1</td>
+                    </tr>
+                    <tr>
+                    <td>Weight</td>
+                    <td>20 Pounds</td>
+                    </tr>
+                    <tr>
+                    <td>Warranty</td>
+                    <td>1 Year</td>
+                    </tr>
+                
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="li65nxlfyx" data-section="static-banner-2" data-dev="huynh-duc" data-lh-page-id="701" data-lh-page-name="About us - Tera" data-layouthub="section">  
+ <div class="lh-wrapper lh-static-banner-section">
+  <div class="lh-container lh-ab-center">
+    <div class="lh-block-main">
+      <include data-live-subtitle data-name="subtitle" data-id="1">  
+ <div class="lh-subtitle">
+ <p ></p>
+</div>
+   </include><div class="lh-title">
+        <h3  data-lhi="title" data-lh-lang>{{'li65nxlfyx.title' | t }}</h3>
+      </div>
+      <div class="lh-des">
+        <p  data-lhi="des" data-lh-lang>{{'li65nxlfyx.des_html' | t }}</p>
+      </div>
+  
+  <!-- Trigger/Open The Modal -->
+<button class="lh-button" id="myBtn">See the Comparison</button>
+
+
+</div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">×</span>
+    <p style="text-align: center;"><img class="hs-id-00719b0a hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/68/assets/deltaprocomparisonchart_ky3B.jpg?v=1651268819275"/></p>
+  </div>
+
+</div>
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+
+ 
+  </section><section id="" data-section-id="2y5lgzmffio" data-section="features-5" data-dev="trong-dai" data-lh-page-id="659" data-lh-page-name="Thinh / Snek / Shoes (Landing)" data-layouthub="section">  
+ <div class="lh-feature">
+	<div class="lh-container">
+		<div class="lh-heading">
+			<h3  data-lhi="heading" data-lh-lang>{{'2y5lgzmffio.heading' | t }}</h3>
+			<p  data-lhi="desc" data-lh-lang>{{'2y5lgzmffio.desc' | t }}</p>
+		</div>
+		<div class="lh-feature-item">
+			<div class="lh-row lh-jcc">
+				 <div class="lh-col-md-4">
+						<div class="lh-item">
+							<div class="lh-overlay" style="background-color: rgba(0, 0, 0, 0);" data-hub-attr-state="class%3D%22lh-overlay%22%20style%3D%22background-color%3A%20%3B%22"   data-hub-attr-feature_items_0_overlay="feature_items[0]overlay" data-lhis="feature_items-overlay" data-lh-image-helper="section.settings.feature_items[0]overlay"overlay"></div>
+							<div class="lh-img"  data-lhi="feature_items[0]img" data-lhis="feature_items-img"><img class="hs-id-e9eb8838 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime4_FOcK.png?v=1658207054171"/></div>
+							<div class="lh-text">
+								<h4  data-lhi="feature_items[0]title" data-lh-lang data-lhis="feature_items-title"></h4>
+								<p  data-lhi="feature_items[0]desc" data-lh-lang data-lhis="feature_items-desc"></p>
+							</div>
+						</div>
+					</div>
+				 <div class="lh-col-md-4">
+						<div class="lh-item">
+							<div class="lh-overlay" style="background-color: rgba(0, 0, 0, 0);" data-hub-attr-state="class%3D%22lh-overlay%22%20style%3D%22background-color%3A%20%3B%22"   data-hub-attr-feature_items_1_overlay="feature_items[1]overlay" data-lhis="feature_items-overlay" data-lh-image-helper="section.settings.feature_items[1]overlay"overlay"></div>
+							<div class="lh-img"  data-lhi="feature_items[1]img" data-lhis="feature_items-img"><img class="hs-id-a7b87cbf hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime2_FYy8.png?v=1658207053322"/></div>
+							<div class="lh-text">
+								<h4  data-lhi="feature_items[1]title" data-lh-lang data-lhis="feature_items-title"></h4>
+								<p  data-lhi="feature_items[1]desc" data-lh-lang data-lhis="feature_items-desc"></p>
+							</div>
+						</div>
+					</div>
+				 <div class="lh-col-md-4">
+						<div class="lh-item">
+							<div class="lh-overlay" style="background-color: rgba(0, 0, 0, 0);" data-hub-attr-state="class%3D%22lh-overlay%22%20style%3D%22background-color%3A%20%3B%22"   data-hub-attr-feature_items_2_overlay="feature_items[2]overlay" data-lhis="feature_items-overlay" data-lh-image-helper="section.settings.feature_items[2]overlay"overlay"></div>
+							<div class="lh-img"  data-lhi="feature_items[2]img" data-lhis="feature_items-img"><img class="hs-id-94ae0a13 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime5_BDeK.png?v=1658207055456"/></div>
+							<div class="lh-text">
+								<h4  data-lhi="feature_items[2]title" data-lh-lang data-lhis="feature_items-title"></h4>
+								<p  data-lhi="feature_items[2]desc" data-lh-lang data-lhis="feature_items-desc"></p>
+							</div>
+						</div>
+					</div>
+				 
+			</div>
+		</div>
+	</div>
+</div>
+  </section><section id="why_button" data-section-id="j43xgg9jw0c" data-section="contents7856" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row " data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'j43xgg9jw0c.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'j43xgg9jw0c.lh_2rtbyt_desc_html' | t }}</p>
+                
+                <p style="width: 90%; margin: 0 auto;">
+  <span style="padding-right: 12px; color: #000; font-weight: 17px;">
+    <i class="fas fa-phone"></i> <b>Call us:</b> <a href="tel:1-877-242-2792">1-877-242-2792 </a></span> <br> 
+  <span style="padding-right: 12px;color: #000;">
+    <i class="fas fa-envelope"></i> <b>Email us:</b> <a href="mailto:info@shopsolarkits.com">info@shopsolarkits.com</a></span></p>
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-5d9b51d8 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/screenshot-4-ksla_vyOV.jpg?v=1660619414213"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="lefcuymd62e" data-section="banner-41" data-dev="trong-dai" data-lh-page-id="1316" data-lh-page-name="Pupa - Landing" data-layouthub="section">  
+ <div class="lh-wrapper">
+  <div class="lh-container">
+    <div class="lh-row lh-flex-aic">
+        
+        <div class="lh-col-md-7">
+        <div class="lh-img"  data-lhi="img"><img class="hs-id-2cd78f1f hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/thesolarhub4_3Mq1.png?v=1658335398550"/></div>
+      </div>
+        
+      <div class="lh-col-md-5">
+        <div class="lh-txt">
+          <h3 class="lh-heading"  data-lhi="lh_9j7xan" data-lh-lang></h3>
+          <div class="lh-des"  data-lhi="description" data-lh-lang>{{'lefcuymd62e.description_html' | t }}</div>
+          <div class="lh-bot">
+            <div class="lh-btn"  data-lhi="btn" data-lh-lang data-lhi-child="a"><a target="_blank" href="https://solarhub.thinkific.com/users/sign_up" data-ga-action="btn" data-ga-label="Button" data-lhlink>{{'lefcuymd62e.btn' | t }}</a></div>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  </section><section id="why_button" data-section-id="3yxhykdiagg" data-section="contents78564" data-dev="trong-dai" data-lh-page-id="597" data-lh-page-name="Sale Page - Face Mask" data-layouthub="section">  
+ <div class="lh-wrapper">
+
+  <div class="lh-container">
+
+    <div class="lh-heading">
+
+     
+
+    </div>
+
+    <div class="lh-contents">
+
+       <div class="lh-content">
+
+          <div class="lh-row lh-text-or2" data-hub-attr-state="class%3D%22lh-row%20%22"   data-hub-attr-content_items_0_style="content_items[0]style" data-lhis="content_items-style" >
+
+            <div class="lh-col-md-6 lh-col-text">
+
+              <div class="lh-text">
+
+                <h5  data-lhi="content_items[0]title" data-lh-lang data-lhis="content_items-title">{{'3yxhykdiagg.lh_2rtbyt_title_html' | t }}</h5>
+
+                <p  data-lhi="content_items[0]desc" data-lh-lang data-lhis="content_items-desc">{{'3yxhykdiagg.lh_2rtbyt_desc_html' | t }}</p>
+                
+            
+              </div>
+
+            </div>
+
+            <div class="lh-col-md-6 lh-col-img">
+
+              <div class="lh-img"  data-lhi="content_items[0]img" data-lhis="content_items-img"><img class="hs-id-78738fd5 hs-lazyload" loading="lazy" src="https://cdn.shopify.com/s/files/1/0034/8913/6751/t/75/assets/lionsafarime4_FOcK.png?v=1658207054391"/></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+  </section><section id="" data-section-id="pyo0bwnrs5j" data-section="makeup" data-dev="hongyen" data-lh-page-id="1047" data-lh-page-name="Landing - Nail Lamp" data-layouthub="section">  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div class="lh-makeup" >
+	<div class="lh-container">
+		<div class="lh-row">
+			
+			<div class="lh-col-md-6">
+				<div class="lh-makeup-infor">
+					<h3 class="lh-title"  data-lhi="text1" data-lh-lang>{{'pyo0bwnrs5j.text1' | t }}</h3>
+					<p class="lh-text-detail"  data-lhi="text2" data-lh-lang>{{'pyo0bwnrs5j.text2' | t }}</p>
+					
+				</div>
+			</div>
+			<div class="lh-col-md-6">
+				<p class="lh-btn-main"  data-lhi="btn_link" data-lh-lang data-lhi-child="a"><a target="_blank" href="https://shopsolarkits.com/pages/solar-financing?custom=Help" data-ga-action="tracking" data-ga-label="Button" data-lhlink>{{'pyo0bwnrs5j.lh_8huk_link_html' | t }}</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+  </section><section id="" data-section-id="793tra6brj6" data-section="why-do-you-need6463" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<div id="cbb-frequently-bought-box"></div>
+			<div class="lh-desc"  data-lhi="desc" data-lh-lang data-lh-live-editor></div>
+            <p class="lh-center"  data-lhi="image"></p>
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="xhc8o0oy0j" data-section="why-do-you-need646" data-dev="hongyen" data-lh-page-id="1005" data-lh-page-name="Landing - Asi" data-layouthub="section">  
+ <div class="lh-reason" >
+<div class="lh-container">
+	<div class="lh-row">
+		<div class="lh-col-md-12">
+			<h3 class="lh-title"  data-lhi="txt_title" data-lh-lang>{{'xhc8o0oy0j.lh_a168_title' | t }}</h3>
+			
+		</div>
+	</div>
+</div>
+</div>
+  </section><section id="" data-section-id="tbf2av1ys5b" data-section="review-3" data-dev="huynh-duc" data-lh-page-id="764" data-lh-page-name="Product Group" data-layouthub="section">  
+ {%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+ 
+{%- assign layout_hub_product = all_products['lion-safari-me-gold-kit'] -%}
+{%- if tpl != 'product' and layout_hub_product != blank -%}
+	{% assign product  = layout_hub_product  %}
+{%- endif -%}<div data-oke-reviews-widget data-oke-reviews-product-id="shopify-{{- product.id -}}" class="okeReviews-lhWidgetHolder"></div>
+  </section>
+</div>
+ {%schema%} 
+{"locales":{"en":{"lqx764tuyvj":{"lh_up5omg_outstock":"Out of stock","lh_up5omg_new":"New","lh_up5omg_sale":"Sale","lh_k4hsr9_out":"Sold out","lh_up5omg_sku":"SKU:","lh_up5omg_quantity":"Quantity:","lh_up5omg_buynow":"Add To Cart","lh_f635tz_cart":"Add To Cart"},"qqo2dklg03":{"lh_9wid92_item":"All Orders Processed in 72 hours or less!","lh_a5w0bb_item":"Instant Financing Available at Checkout","lh_af9ndk_item":"3 Nationwide Distribution Centers","lh_aonaft_item":"1,900+ Reviews & 20,000+ Customers"},"t54sxzwme0o":{"lh_2rtbyt_title_html":"*GET $101 OFF Today! Limited Time Only. Use Code LIONME at Checkout...(Enter After Adding To Cart)*<!--lh-live-editor-->"},"den6khqpqhs":{"lh_a168_title":"What's included with your Lion Safari ME [Gold] Kit Order??"},"j2jqb5a6r6j":{"lh_a168_title":"THE #1 ALL-INCLUSIVE SOLAR GENERATOR KIT PACKAGE ON THE MARKET"},"ihq6ymh7dv":{"lh_2rtbyt_title_html":"Are You Ready to Protect Yourself & Your Family in a Long-Term Blackout?<!--lh-live-editor-->"},"h2bblxro42":{"lh_2rtbyt_title_html":"What Can The Lion Safari ME Gold Power On A Single Charge?<!--lh-live-editor-->","lh_2rtbyt_desc_html":"- Full Size Fridge (120W) - 25+ Hours<br>\n- Phone Charging (5W) - Charge up to 200+ times<br>\n- Laptop Charging (56W) - Charge up to 50+ times<br>\n- 55\" LCD T.V (75W) - 38+ Hours<br>\n- LED Reading Lamp (4W) - 720+ Hours<br>\n- Hot Plate (500W) - 5.8+ Hours<br>\n- Air Conditioner (500W) - 5.8+ - Hours<br>\n- House Fan - (50W) - 60+ Hours<br>\n- Microwave - (1k) - 3+ Hours<br>\n- Electric Blanket (50W) - 60+ Hours<br>\n- CPAP Machine (90W) - 28+ Hours<!--lh-live-editor-->"},"31cifv7ogr7":{"lh_a168_title":"BUY WITH CONFIDENCE..."},"cne3dbakac4":{"lh_ezc4q5_name":"Does this kit come with a warranty?","lh_ezc4q5_content_html":"Of course. You're covered by all of the manufacturer warranties on each product plus our free, lifetime customer support!<!--lh-live-editor-->","lh_ezhhnw_name":"Can I expand this system in the future?","lh_ezhhnw_content_html":"Yes, you can easily add more solar panels (up to 13kw so basically double) as well as up to 8 x powerwalls. You can even stack another inverter if you need more output. Every area of this kit is expandable.<!--lh-live-editor-->","lh_ezmuln_name":"What solar panels are included with this kit?","lh_ezmuln_content_html":"You'll receive 365W+ monocrystalline solar panels from one of the leading brands in the solar industry. Backed by a minimum 25-Year power output warranty. We do our best to source all of our solar panels from North America, Mexico or Vietnam. Most popular brands we carry are Aptos, Phono, Mission and SolarEver.<!--lh-live-editor-->","lh_ezs7je_name":"How long will my battery bank last?","lh_ezs7je_content_html":"You'll be covered by a 10-year warranty. The battery is Lithium LFP meaning it's rated for up to 6,000 lifecycles (15+ years of daily use). To calculate daily run times, divide the total battery bank watt hours by your average load in watts to get rough hours of run time.&nbsp;<!--lh-live-editor-->","lh_ezxkh5_name":"Can I install this system myself?","lh_ezxkh5_content_html":"We've created the kits for absolute simplicity. That said, we highly recommend getting the help of a professional installer \/ certified electrician. You should plan on potential costs associated with this as well.<!--lh-live-editor-->","lh_f02xew_name":"Can this kit handle a well-pump and\/or other 240V appliances?","lh_f02xew_content_html":"Yes. This kit is capable of running 120V, 208V and 240V appliances. This includes well pumps, dryers and 240V air conditioning units.&nbsp;<!--lh-live-editor-->","lh_f08acn_name":"What sort of solar panel racking is included?","lh_f08acn_content_html":"We include pre-drilled frames on the solar panels along with standard z-brackets to make mounting the panels to the structure of your choosing as easy as possible. Most of our customers make their own racking systems using locally sourced UniStrut or add one of our ground racks to your order.<!--lh-live-editor-->","lh_f0dnae_name":"Can I use a generator or the grid to charge my battery bank if needed?","lh_f0dnae_content_html":"Absolutely. The Sol Ark comes ready to go with an AC input where you can hook up a stand by generator for charging the batteries on cloudy days or at night if needed. You can also use the grid as the AC input source if it's available.<!--lh-live-editor-->","lh_f0j085_name":"Can I sell power back to the grid with this system?","lh_f0j085_content_html":"Technically the Sol Ark inverter allows you to sell power back to the grid. However, most people who buy this kit are looking to gain power and grid independence and opt for storing or using any excess power they may have!<!--lh-live-editor-->","lh_f0od5w_name":"How big is all of this? How much space do I need?","lh_f0od5w_content_html":"The solar panels will come on a pallet and can be left inside or outside. The batteries are the biggest and heaviest deliveries at around 4 ft tall and 2 ft wide. The inverter is about 3 ft by 1.5 ft and weighs 75 lbs. All together you'll need a good corner of a garage or a spare bedroom worth of space for storing all of the equipment before installing it.&nbsp;<!--lh-live-editor-->","lh_ki54mq_name":"Where is this equipment made?","lh_ki54mq_content_html":"We do our best to source as much product from North America as possible. Our solar panels are USA, Mexico or Vietnam and most of our batteries and inverters are designed and assembled in the USA.\u00a0<!--lh-live-editor-->","lh_kiahkh_name":"Do the batteries need to be inside or outside? Does it matter?","lh_kiahkh_content_html":"Lithium batteries like to be around the same temperature as humans. They also like a temperature controlled environment. So putting them in a garage that is 40F' in the morning and 110F' in the afternoon is NOT ideal. They'd prefer to be in a basement that sits somewhere around 60F-90F on a consistent basis. That said, lithium batteries can be used when below 32F' but not charged unless they are above 32F'. For specs see below:<div><b>Charge Temp Range <\/b>(\u00b0C): 0\u00b0C (32\u00b0F) \/ 55\u00b0C (131\u00b0F) <b>Discharge Temp Range<\/b> (\u00b0C): -30\u00b0C (-22\u00b0F) \/ 55\u00b0C (131\u00b0F) <b>Optimal Discharge Temp Range:<\/b> 15\u00b0C (59\u00b0F) \/ 35\u00b0C (95\u00b0F)<br><\/div><!--lh-live-editor-->","lh_kifui8_name":"Do I need to buy anything else?","lh_kifui8_content_html":"You'll have everything you need to get up and running with our kits. That said, you will want to plan on a trip to the hardware store to buy any necessary installation tools, ground rods and wire as well as UniStrut if needed for mounting the solar panels. Outside of this, you'll be getting all of the most important components in your kit!<!--lh-live-editor-->","lh_kil7fz_name":"How long will it take for me to get my kit after ordering?","lh_kil7fz_content_html":"If you're in the lower 48 states we do our best to get you your order within 5-15 business days.  Recently with the incredible demand for products, our delivery times to customer's door are averaging around 9-12 business days. You will receive your tracking numbers as soon as they are available.<!--lh-live-editor-->","lh_kiqkdq_name":"How much does shipping cost?","lh_kiqkdq_content_html":"Shipping is calculated at checkout. You'll get lowest possible shipping rates when you buy from ShopSolarKits.com. You can also reach out to us here and inquire about shipping, or just give us a call 877-242-2792.<!--lh-live-editor-->","lh_kivxbh_name":"Will I be able to track my order and deliveries?","lh_kivxbh_content_html":"You will receive your tracking numbers via email and\/or text message as soon as they are available. So please make sure you use a good Email address when ordering or a phone number that can receive text messages for your your tracking information. Also, please expect to receive multiple deliveries and packages as we ship from multiple warehouses to keep costs down.<!--lh-live-editor-->","lh_kj1a98_name":"What's Your Return Policy?","lh_kj1a98_content_html":"We try and keep returns simple and easy. We do not charge restocking or return fees. That said, if you decide to return it because you no longer want it, you'll just pay return shipping. If something arrives damaged, we'll cover all of the costs to get you a properly working product.<!--lh-live-editor-->","lh_kj6n6z_name":"What happens if stuff arrives damaged?","lh_kj6n6z_content_html":"We stand behind what we sell and we'll take care of the costs of getting you a new working product. Just reach out to us if this happens and we will get you all taken care of.&nbsp;<!--lh-live-editor-->","lh_kjc04q_name":"Does the kit come with a wiring diagram\/setup guide?","lh_kjc04q_content_html":"Yes, you'll get our 3-page setup diagram and instruction manual along with all of the manufactuer guides and user manuals. We've also created the SolarHub which you get lifetime access to when you order from us.&nbsp;<!--lh-live-editor-->","lh_kjhd2h_name":"Where do you ship from?","lh_kjhd2h_content_html":"We have 3 main distribution centers (CA, TX, NY) along with suppliers across the US. We ship from multiple different warehouses in order to try and keep costs as low as possible for our customers.&nbsp;<!--lh-live-editor-->","lh_kriroz_name":"Do you offer financing?","lh_kriroz_content_html":"Yes we do! We have 2 financing options which you can learn more about if you keep scrolling down this page.<!--lh-live-editor-->","lh_kro4mq_name":"What sort of after-sale customer support do you offer?","lh_kro4mq_content_html":"You can reach us Monday to Friday via phone, live chat or email. You'll also get free, lifetime access to the industry leading \"Solar Hub\" - Where you'll find all of our diagrams, installation manuals, troubleshooting guides and more!<!--lh-live-editor-->"},"9szwvqawyvl":{"lh_2rtbyt_title_html":"Lion Safari ME Gold Kit Benefits:<!--lh-live-editor-->","lh_2rtbyt_desc_html":"- Professional Grade Portable Power [2 x 40lbs pieces]<br>\n\n- Ability to use all day without running out of power (via solar panel recharging + MASSIVE battery bank)<br>\n\n- Faster solar charging than most other solar generators<br>\n\n- Power for emergencies, work or play. Thive off-grid.<!--lh-live-editor-->"},"00257kv4e3xn7":{"lh_2rtbyt_title_html":"Lion Safari ME Power Outlet Options:<!--lh-live-editor-->","lh_2rtbyt_desc_html":"- Output - AC [Standard Wall Plugs]: 2 (Easily split these with surge protector or extension cable)<br>\n- Output - USB: 2 USB-A  & 2 USB-C<br>\n- Rated Battery Capacity: 922wH + 2,048wH = 2,970 total watt hours<br>\n- Battery Type: Lithium<br>\n- Inverter: 2000 Watt Continuous \/ 4000 Watt Surge - Pure Sine<br>\n- Fastest Solar Recharge Time: Under 2 hours<!--lh-live-editor-->"},"6fkwam8cs5x":{"lh_a168_title":"We've Thought of Everything So You Don't Have To"},"01rplsvx38l9":{"lh_a168_title_html":"Product &amp; Kit Specifications"},"li65nxlfyx":{"title":"OUR PACKAGES VS THE COMPETITION","des_html":"See how our packages compare to leading competitors<!--lh-live-editor-->"},"2y5lgzmffio":{"heading":"WHAT YOUR SETUP WILL LOOK LIKE","desc":"Photos from our 20,000+ Customers"},"j43xgg9jw0c":{"lh_2rtbyt_title_html":"We're Here to Help!<!--lh-live-editor-->","lh_2rtbyt_desc_html":"Solar kits questions? We get that things can be confusing. Our SSK Squad is here to help with any questions you have.<br><br><!--lh-live-editor-->"},"lefcuymd62e":{"description_html":"ALL ShopSolarKit's customers enjoy free access to our SolarHub.\r<br><br>Just use the same email address you used when placing your order to get signed in &amp; everything you need to complete your installation will be ready and waiting for you.\r<br><br>If you have not placed an order yet, you can get free access to our exclusive solar kit basics training by creating a free account, just click below.","btn":"Get Instant Access (It's Free!)"},"3yxhykdiagg":{"lh_2rtbyt_title_html":"THE LION SAFARI ME IS READY TO WORK<!--lh-live-editor-->","lh_2rtbyt_desc_html":"- [Fast Charge Time] - Can fully charge from the wall in as little as 83 minutes<br>\n- [Unlimited, Free Power] - Use the power of the sun to fully recharge the ME in as little as 95 mins so you can use power with out running out of power<br>\n- [Long Charge Retention] - Can hold charge for over 1 year<br>\n- [Extended Use] - Long lasting daily use at 2500+ cycles using full Depth of Discharge (DOD)<!--lh-live-editor-->"},"pyo0bwnrs5j":{"text1":"BUY NOW, PAY LATER","text2":"Pay Over time with our easy accessible financing options","lh_8huk_link_html":"See How Financing Works <i class=\"lni lni-arrow-right\"><\/i>"},"xhc8o0oy0j":{"lh_a168_title":"Customer Reviews"}}},"name":"Lion Safari ME Gold Ki"}
+ {%endschema%}

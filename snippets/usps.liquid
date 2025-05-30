@@ -1,0 +1,145 @@
+{% if section.settings.usps_enable %}
+    {% assign usps_bg_color = section.settings.usps_bg_color %}
+    {% assign usps_text_color = section.settings.usps_text_color %}
+    {% assign usps_texts = section.settings.usps_texts | replace: '<p></p>', '' | replace: '<p>', '' | split: '</p>' %}
+    {% assign usps_delay = section.settings.usps_delay %}
+
+    <style>
+        {%- assign fonts_type_menu_family = settings.type_menu.family | append: ',' | append: settings.type_menu.fallback_families -%}
+        {%- assign fonts_type_menu_style = settings.type_menu.style -%}
+        {%- assign fonts_type_menu_weight = settings.type_menu.weight | times: 1 -%}
+
+        .usps-slide-content span {
+            font-family: {{ fonts_type_menu_family }};
+            font-style: {{ fonts_type_menu_style }};
+            font-weight: {{ fonts_type_menu_weight }};
+            font-size: calc(var(--font-size-menu) * 0.8);
+            letter-spacing: {{ settings.type_menu_spacing | divided_by: 100.0 | append: 'em' }};
+        }
+        .usps-wrap {
+            background-color: {{ usps_bg_color }};
+            padding: 5px;
+        }
+        .usps-wrap,
+        .usps-wrap a {
+            color: {{ usps_text_color }};
+            font-size: var(--header-sticky-font-size);
+            font-weight: var(--header-sticky-font-style);
+        }
+        .usps-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .usps-icon svg {
+            height: 30px;
+            width: 30px;
+            margin-right: 5px;
+        }
+        .usps-slide-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          height: 100%;
+        }
+
+        @media only screen and (min-width: 769px) {
+            .usps-swiper .swiper-wrapper{
+                justify-content: space-evenly;
+            }
+            .usps-swiper .swiper-wrapper .swiper-slide {
+                width: unset;
+            }
+            .usps-swiper .swiper-wrapper {
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+        @media only screen and (max-width: 950px) and (min-width: 769px) {
+            .usps-swiper .swiper-wrapper{
+                justify-content: space-between;
+            }
+        }
+    </style>
+    <div class="usps-wrap">
+        <div class="swiper usps-swiper">
+            <div class="swiper-wrapper">
+              {% if usps_texts[4] %}
+                <div class="swiper-slide">
+                    <div class="usps-slide-content">
+                        <div class="usps-icon">
+                            {% include 'icon-form' %}
+                        </div>
+                        <span>{{ usps_texts[4] }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if usps_texts[0] %}
+                <div class="swiper-slide">
+                    <div class="usps-slide-content">
+                        <div class="usps-icon">
+                            {% include 'icon-usps-delivery-track' %}
+                        </div>
+                        <span>{{ usps_texts[0] }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if usps_texts[1] %}
+                <div class="swiper-slide">
+                    <div class="usps-slide-content">
+                        <div class="usps-icon">
+                            {% include 'icon-usps-hand-usd' %}
+                        </div>
+                        <span>{{ usps_texts[1] }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if usps_texts[2] %}
+                <div class="swiper-slide">
+                    <div class="usps-slide-content">
+                        <div class="usps-icon">
+                            {% include 'icon-usps-headset' %}
+                        </div>
+                        <span>{{ usps_texts[2] }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if usps_texts[3] %}
+                <div class="swiper-slide">
+                    <div class="usps-slide-content">
+                        <div class="usps-icon">
+                            {% include 'icon-usps-sun' %}
+                        </div>
+                        <span>{{ usps_texts[3] }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class Usps {
+            constructor() {
+                this.autoSwiper();
+                window.addEventListener('resize', () => this.autoSwiper());
+            }
+            autoSwiper(){
+                if(window.innerWidth < 768){
+                    if (!this.swiper){
+                        this.swiper = new Swiper(".usps-swiper", {
+                            loop: false,
+                            preventInteractionOnTransition: true
+                        });
+                    }
+                }else{
+                    if (this.swiper !== undefined) {
+                        this.swiper.destroy(true, true);
+                        delete this.swiper;
+                    }
+                }
+            }
+        }
+        new Usps();
+    </script>
+{% endif %}

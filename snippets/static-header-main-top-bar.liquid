@@ -1,0 +1,145 @@
+{% assign text = section.settings.main_top_bar_text %}
+{% assign text_mob = section.settings.main_top_bar_text_mob %}
+{% assign font_size = section.settings.main_top_bar_font_size %}
+{% assign background_color = section.settings.main_top_bar_background_color %}
+{% assign text_color = section.settings.main_top_bar_text_color %}
+<style>
+  #shopify-section-{{ section.id }} .site-header-main-top-bar {
+    background-color: {{ background_color }};
+    position: relative;
+    z-index: 51;
+    display: flex;
+    padding: 10px 25px;
+  }
+  #shopify-section-{{ section.id }}
+  .site-header-main-top-bar a
+  , #shopify-section-{{ section.id }}
+  .site-header-main-top-bar span {
+    color: {{ text_color }};
+    font-size: {{ font_size | append: 'px' }};
+  }
+  #shopify-section-{{ section.id }}
+  .site-header-main-top-bar .site-header-main-top-bar-right-container.site-header-actions
+  , #shopify-section-{{ section.id }}
+  .site-header-main-top-bar .site-header-main-top-bar-left-container.site-header-actions {
+    max-width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: none;
+  }
+  #shopify-section-{{ section.id }}
+  .site-header-main-top-bar .site-header-main-top-bar-right-container.site-header-actions {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+  }
+  #shopify-section-{{ section.id }}
+  .site-header-main-top-bar .site-header-main-top-bar-left-container.site-header-actions {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  #shopify-section-{{ section.id }}
+  .site-header-main-top-bar .site-header-actions__account-link {
+    margin-right: 5px;
+  }
+  #shopify-section-{{ section.id }}.site-header-main-top-bar .site-header-actions__account-link:last-child {
+    margin-right: 0;
+  }
+  #shopify-section-{{ section.id }}
+  .site-header-main-top-bar .site-header-actions__account-link a {
+    text-decoration: none;
+  }
+  #shopify-section-{{ section.id }}.site-header-main-top-bar .site-header-main-top-bar-right-container.site-header-actions .site-header_account-link-text:last-child {
+    padding-right: 0;
+  }
+
+
+  /*
+   #shopify-section-{{ section.id }} .site-header-main-top-bar span.show_on_mobile {
+   font-size: {{ font_size | minus: 2 | append: 'px' }};
+   }
+*/
+
+  @media screen and (max-width: 1023px) {
+    #shopify-section-{{ section.id }} .site-header-main-top-bar {
+      padding: 10px;
+    }
+  }
+  @media only screen and (min-width: 720px) {
+    .show_on_mobile {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 719px) {
+    .show_on_desktop {
+      display: none;
+    }
+    #shopify-section-{{ section.id }}
+    .site-header-main-top-bar .site-header-main-top-bar-right-container.site-header-actions {
+      display: none;
+    }
+    #shopify-section-{{ section.id }}
+    .site-header-main-top-bar .site-header-main-top-bar-left-container.site-header-actions {
+      margin-left: auto;
+      max-width: 100%;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+</style>
+<div class="site-header-main-top-bar">
+  <div class="site-header-main-top-bar-left-container site-header-actions">
+    <span class="site-header-actions__account-link">
+      <span class="show_on_desktop">{{ text }}</span>
+      <span class="show_on_mobile">{{ text_mob }}</span>
+    </span>
+  </div>
+
+  <div class="site-header-main-top-bar-right-container site-header-actions">
+    <li class="site-header-actions__account-link">
+      <a class="site-header_account-link-anchor" href="/pages/contact-us">
+        <span class="site-header_account-link-text">
+          Contact Us
+        </span>
+      </a>
+    </li>
+    <li class="site-header-actions__account-link">
+      <a class="site-header_account-link-anchor" href="/pages/shopguard">
+        <span class="site-header_account-link-text">
+          ShopGuard
+        </span>
+      </a>
+    </li>
+    {% if shop.customer_accounts_enabled %}
+      {% unless customer %}
+        <li class="site-header-actions__account-link">
+          <a class="site-header_account-link-anchor" href="https://shopify.com/3489136751/account/">
+            <span class="site-header_account-link-text">
+              {{ 'header.account.title' | t }}
+            {% comment %}{{ 'header.account.login' | t }}{% endcomment %}
+            </span>
+          </a>
+        </li>
+      {% else %}
+        <li class="site-header-actions__account-link">
+          <span class="site-header__account-links">
+            <a class="site-header__account-link--account" href="https://shopify.com/3489136751/account/">
+              {{ 'header.account.title' | t }}
+            </a>
+          {% comment %}
+            <a
+            class="site-header__account-link--logout"
+            href="{{ routes.account_logout_url }}"
+            data-no-instant
+            >
+            {{ 'header.account.logout' | t }}
+            </a>
+          {% endcomment %}
+          </span>
+        </li>
+      {% endunless %}
+    {% endif %}
+  </div>
+</div>
