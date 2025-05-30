@@ -1832,7 +1832,7 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(238 238 238 / var(--tw-border-opacity, 1));
 }
-.border-\[\#F0942D\] {
+.border-\[\#93936b\] {
   --tw-border-opacity: 1;
   border-color: rgb(240 148 45 / var(--tw-border-opacity, 1));
 }
@@ -1900,7 +1900,7 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(239 148 45 / var(--tw-bg-opacity, 1));
 }
-.bg-\[\#F0942D\] {
+.bg-\[\#93936b\] {
   --tw-bg-opacity: 1;
   background-color: rgb(240 148 45 / var(--tw-bg-opacity, 1));
 }
@@ -2298,7 +2298,7 @@ video {
   --tw-text-opacity: 1;
   color: rgb(209 209 209 / var(--tw-text-opacity, 1));
 }
-.text-\[\#F0942D\] {
+.text-\[\#93936b\] {
   --tw-text-opacity: 1;
   color: rgb(240 148 45 / var(--tw-text-opacity, 1));
 }
@@ -2476,7 +2476,7 @@ video {
   --tw-translate-x: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.peer:checked ~ .peer-checked\:bg-\[\#F0942D\] {
+.peer:checked ~ .peer-checked\:bg-\[\#93936b\] {
   --tw-bg-opacity: 1;
   background-color: rgb(240 148 45 / var(--tw-bg-opacity, 1));
 }

@@ -1,7 +1,7 @@
 {
-    "name": "shop-solar-kits-theme",
+    "name": "modern-alternatives-theme",
     "version": "1.0.0",
-    "description": "Shopify theme for Shop Solar Kits",
+    "description": "Shopify theme for MA",
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,8 +14,8 @@
     "keywords": [
         "shopify",
         "theme",
-        "solar",
-        "kits"
+        "modern",
+        "alternatives"
     ],
     "author": "Your Name",
     "license": "ISC",
