@@ -41,7 +41,7 @@
             </div>
         {% endfor %}
         <div x-data="{'showModalFirst': false}" class="flex gap-5 flex-col lg:flex-row items-center mt-10 justify-center lg:justify-between">
-            <a href="{{ section.settings.diy_cta_link }}" class="bg-[#F0942D] flex items-center justify-between font-medium w-full text-white px-5 py-3 rounded-[10px]">{{ section.settings.diy_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
+            <a href="{{ section.settings.diy_cta_link }}" class="bg-[#93936b] flex items-center justify-between font-medium w-full text-white px-5 py-3 rounded-[10px]">{{ section.settings.diy_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
             <button @click="showModalFirst = true" class="font-medium text-center block underline w-40 text-[#606060] py-3">{{ section.settings.diy_learn_more_text }}</button>
             <span class="bg-black/30 fixed top-0 left-0 w-full h-full z-30" x-cloak x-show="showModalFirst" @click="showModalFirst = false"></span>
             <div class="md:max-w-3xl w-[90%] z-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-10 py-10 mx-auto text-left bg-white rounded-lg shadow-lg"
@@ -55,7 +55,7 @@
                     <h3 class="text-2xl font-medium">{{ section.settings.diy_modal_heading }}</h3>
                     <p class="text-[#404040] text-base">{{ section.settings.diy_modal_description }}</p>
                     <div class="flex items-center gap-5 mt-5">
-                        <a href="{{ section.settings.diy_cta_link }}" class="bg-[#F0942D] flex items-center justify-between font-medium w-40 text-white px-5 py-3 rounded-[10px]">{{ section.settings.diy_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
+                        <a href="{{ section.settings.diy_cta_link }}" class="bg-[#93936b] flex items-center justify-between font-medium w-40 text-white px-5 py-3 rounded-[10px]">{{ section.settings.diy_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
                         <button @click="showModalFirst = false" class="font-medium text-center block underline text-[#606060] py-3">Close</button>
                     </div>
                    
@@ -88,7 +88,7 @@
             </div>
         {% endfor %}
         <div x-data="{'showModalSecond': false}" class="flex gap-5 flex-col lg:flex-row items-center mt-10 justify-center lg:justify-between">
-            <a href="{{ section.settings.full_service_cta_link }}" class="bg-[#F0942D] flex items-center justify-between font-medium w-full text-white px-5 py-3 rounded-[10px]">{{ section.settings.full_service_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
+            <a href="{{ section.settings.full_service_cta_link }}" class="bg-[#93936b] flex items-center justify-between font-medium w-full text-white px-5 py-3 rounded-[10px]">{{ section.settings.full_service_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
             <button @click="showModalSecond = true" class="font-medium text-center block underline w-40 text-[#606060] py-3">{{ section.settings.full_service_learn_more_text }}</button>
             <span class="bg-black/30 fixed top-0 left-0 w-full h-full z-30" x-cloak x-show="showModalSecond" @click="showModalSecond = false"></span>
             <div class="md:max-w-3xl w-[90%] z-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-10 py-10 mx-auto text-left bg-white rounded-lg shadow-lg"
@@ -102,7 +102,7 @@
                     <h3 class="text-2xl font-medium">{{ section.settings.full_service_modal_heading }}</h3>
                     <p class="text-[#404040] text-base">{{ section.settings.full_service_modal_description }}</p>
                     <div class="flex items-center gap-5 mt-5">
-                        <a href="{{ section.settings.full_service_cta_link }}" class="bg-[#F0942D] flex items-center justify-between font-medium w-40 text-white px-5 py-3 rounded-[10px]">{{ section.settings.full_service_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
+                        <a href="{{ section.settings.full_service_cta_link }}" class="bg-[#93936b] flex items-center justify-between font-medium w-40 text-white px-5 py-3 rounded-[10px]">{{ section.settings.full_service_cta_text }} <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path style="fill:#ffffff" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg></a>
                         <button @click="showModalSecond = false" class="font-medium text-center block underline text-[#606060] py-3">Close</button>
                     </div>
                    
