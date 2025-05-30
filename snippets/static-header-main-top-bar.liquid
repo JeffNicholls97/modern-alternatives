@@ -108,12 +108,11 @@
     {% if shop.customer_accounts_enabled %}
       {% unless customer %}
         <li class="site-header-actions__account-link">
-          <a class="site-header_account-link-anchor" href="https://shopify.com/3489136751/account/">
-            <span class="site-header_account-link-text">
-              {{ 'header.account.title' | t }}
-            {% comment %}{{ 'header.account.login' | t }}{% endcomment %}
-            </span>
-          </a>
+          {% if customer %}
+            <a href="/account" class="account-link site-header_account-link-anchor">My Account</a>
+          {% else %}
+            <a href="/account/login" class="account-link site-header_account-link-anchor">Login</a>
+          {% endif %}
         </li>
       {% else %}
         <li class="site-header-actions__account-link">
