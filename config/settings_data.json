@@ -12,6 +12,8 @@
     "color_links": "#93936b",
     "color_button_background": "#93936b",
     "color_header_background": "#93936b",
+    "product_grid_show_atc_button": false,
+    "product_grid_enable_quickshop": false,
     "sections": {
       "dynamic-hero-section": {
         "type": "dynamic-hero-section",
@@ -41,9 +43,9 @@
         "type": "dynamic-featured-collection",
         "settings": {
           "title": "Featured collection",
-          "layout": "grid",
-          "collection": "",
-          "product_count": 5,
+          "layout": "slideshow",
+          "collection": "all-products",
+          "product_count": 12,
           "cta_label": "Shop collection",
           "cta_button_style": "primary"
         }
