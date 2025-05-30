@@ -9,9 +9,10 @@
  */
 {
   "current": {
+    "color_background": "#ffffff",
     "color_links": "#93936b",
     "color_button_background": "#93936b",
-    "color_header_background": "#93936b",
+    "color_header_background": "#ffffff",
     "product_grid_show_atc_button": false,
     "product_grid_enable_quickshop": false,
     "sections": {
