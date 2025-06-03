@@ -313,8 +313,8 @@
       "static-header": {
         "type": "static-header",
         "settings": {
-          "sticky_header": true,
-          "full_width_header": false,
+          "sticky_header": false,
+          "full_width_header": true,
           "header_annoucement_enable": false,
           "header_annoucement_position": "top",
           "header_annoucement_text_align": "center",
