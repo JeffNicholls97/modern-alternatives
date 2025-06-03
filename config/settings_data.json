@@ -124,17 +124,42 @@
               "box_url": "shopify://collections/power-appliances",
               "box_image": "shopify://shop_images/AnkerSOLIXC300X.jpg"
             }
+          },
+          "box_ntnAgB": {
+            "type": "box",
+            "settings": {
+              "box_title": "New Arrivals",
+              "box_url": ""
+            }
+          },
+          "box_At8EUk": {
+            "type": "box",
+            "settings": {
+              "box_title": "New Arrivals",
+              "box_url": ""
+            }
+          },
+          "box_G8HEqH": {
+            "type": "box",
+            "settings": {
+              "box_title": "New Arrivals",
+              "box_url": ""
+            }
           }
         },
         "block_order": [
           "box_WjLTQ9",
           "box_MX3wH8",
-          "box_rBUQDx"
+          "box_rBUQDx",
+          "box_ntnAgB",
+          "box_At8EUk",
+          "box_G8HEqH"
         ],
         "settings": {
           "video": "",
           "left_title": "Solar Can Make Changes",
-          "left_text": "At Modern Alternatives, we are on a mission to make solar simple, transparent & affordable. For years now, traditional solar companies and local installers have been over-charging customers for extremely basic solar panel systems (without batteries)"
+          "left_text": "At Modern Alternatives, we are on a mission to make solar simple, transparent & affordable. For years now, traditional solar companies and local installers have been over-charging customers for extremely basic solar panel systems (without batteries)",
+          "left_image": "shopify://shop_images/sunhouse-8x10-interior.jpg"
         }
       },
       "dynamic-featured-collection": {
