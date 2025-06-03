@@ -27,6 +27,7 @@
         },
         "rating": {
           "type": "rating",
+          "disabled": true,
           "settings": {}
         },
         "06797ae0-1687-4455-9c1c-7d6a28b29392": {
@@ -99,65 +100,32 @@
             "video_width": "100%"
           }
         },
-        "specifications_4NenUf": {
-          "type": "specifications",
-          "settings": {
-            "label_title": "Products Details"
-          }
-        },
-        "7cc684c5-275a-4df1-93f4-a788b7ef8567": {
-          "type": "Reviews",
-          "settings": {
-            "label_title": "Reviews"
-          }
-        },
-        "f73efdd6-6b72-44dc-b928-175b3b5984de": {
-          "type": "FAQ",
-          "settings": {
-            "label_title": "FAQ's",
-            "paragraph_1": "<p>What is your return policy?<\/p>",
-            "text_1": "<p>Returns are free in the first 30 days with no restocking or processing fees, although the customer may be responsible for paying return shipping. See our complete return policy on our Shipping, Delivery, and Returns page linked in the footer of this website.<\/p>",
-            "paragraph_2": "<p>What’s covered by your return policy?<\/p>",
-            "text_2": "<p>Our returns policy covers all purchases made through Shop Solar. For warranty issues, as authorized distributors, we honor the full manufacturer warranty of ALL the brands on our website. See our complete returns and warranty policies on our Shipping, Deliver, and Returns page.<\/p>",
-            "paragraph_3": "<p>How long will it take to receive my order?<\/p>",
-            "text_3": "<p>All orders are processed within 72 hours and you can expect delivery on most orders within 5-7 business days. You will receive access to our customer portal after ordering, where it is easy to track all your shipments. See our Shipping, Delivery and Returns page for more details.<\/p>",
-            "paragraph_4": "<p>What are your financing and payment options?<\/p>",
-            "text_4": "<p>We offer several ways to pay to make getting your solar kit simple:<\/p><ul><li>Credit Card: if the purchase is greater than your card’s limit, you can split the cost onto multiple cards as well as Paypal, financing through Affirm, and ACH\/bank transfer<\/li><li>You can arrange financing during the checkout process, or scroll further down this page for more details. Please note, if you'd like to finance your order, you can do so instantly, right at checkout.<\/li><\/ul>",
-            "paragraph_5": "<p>How does your Lifetime Customer Support work?<\/p>",
-            "text_5": "<p>Our legendary lifetime customer support has helped make us the #1 online solar retailer! We have a dedicated team of solar professionals standing by to help you navigate the world of solar with ease. From selecting the perfect solar kit to installation and beyond, we provide support and expertise at every step of the journey.If you need help with ordering, shipping, troubleshooting, expanding your system, warranty issues, or anything else you have questions about for as long as you own your Shop Solar Kits equipment, we’ve got you covered: we’re always only a phone call or email away.<\/p>"
-          }
-        },
         "image_with_text_7VKmxL": {
           "type": "image_with_text",
           "settings": {
             "label_title": "Why Choose Shop Solar",
-            "image_1": "shopify:\/\/shop_images\/Untitled_design_1_f4e0df0b-3633-46ed-bb4b-fa2c7e3d9327.jpg",
             "heading_1": "Top Solar Company in the USA",
-            "subheading_1": "<p>The prestigious ranking by Consumer Affairs is based on comprehensive evaluations, including ratings and reviews, equipment options, support services, pricing transparency, warranties, and various other factors. Among the top 6 nominated companies, Shop Solar stands out with the highest review rating, reaffirming its dedication to customer satisfaction and product quality.<\/p>",
+            "subheading_1": "<p>The prestigious ranking by Consumer Affairs is based on comprehensive evaluations, including ratings and reviews, equipment options, support services, pricing transparency, warranties, and various other factors. Among the top 6 nominated companies, Shop Solar stands out with the highest review rating, reaffirming its dedication to customer satisfaction and product quality.</p>",
             "button_label_1": "Button",
             "button_link_1": "",
             "desktop_image_alignment_1": "left",
-            "image_2": "shopify:\/\/shop_images\/The_right_system_for_the_best_price_1920x1080-1.jpg",
             "heading_2": "Best Components, Lowest Prices",
-            "subheading_2": "<p>We cut out the bloat of traditional solar companies and pass those savings off to you. Plus, we provide free shipping on all solar kits and lifetime customer service on everything we sell.<\/p>",
+            "subheading_2": "<p>We cut out the bloat of traditional solar companies and pass those savings off to you. Plus, we provide free shipping on all solar kits and lifetime customer service on everything we sell.</p>",
             "button_label_2": "Button",
             "button_link_2": "",
             "desktop_image_alignment_2": "right",
-            "image_3": "shopify:\/\/shop_images\/Get_er_done_1920x1080_4b5bf9f4-816f-4061-9408-1db606fd10f1.jpg",
             "heading_3": "Expert Guidance",
-            "subheading_3": "<p>Our team of solar professionals is here to help you navigate the world of solar with ease. From selecting the perfect solar kit to installation and beyond, we provide support and expertise at every step of the journey.<\/p>",
+            "subheading_3": "<p>Our team of solar professionals is here to help you navigate the world of solar with ease. From selecting the perfect solar kit to installation and beyond, we provide support and expertise at every step of the journey.</p>",
             "button_label_3": "Button",
             "button_link_3": "",
             "desktop_image_alignment_3": "left",
-            "image_4": "shopify:\/\/shop_images\/peace-of-mind-1920x1080-c874049a-fa25-466b-a469-5f56a430914e-659x371_krfw.jpg",
             "heading_4": "We’re people just like you",
-            "subheading_4": "<p>We’re not corporate and neither are our customers. We’re just a group of 50+ solar enthusiasts who are passionate about providing an honest, no-BS way for anyone, anywhere to improve their lives and the world around them with solar power.<\/p>",
+            "subheading_4": "<p>We’re not corporate and neither are our customers. We’re just a group of 50+ solar enthusiasts who are passionate about providing an honest, no-BS way for anyone, anywhere to improve their lives and the world around them with solar power.</p>",
             "button_label_4": "Button",
             "button_link_4": "",
             "desktop_image_alignment_4": "right",
-            "image_5": "shopify:\/\/shop_images\/Best_in_the_business_1920x1080_84ebe826-4012-4d5b-9a0a-0bec0212edd8.jpg",
             "heading_5": "Trusted Solar Authority",
-            "subheading_5": "<p>With over 40,000+ happy customers, 2,500+ positive reviews, and decades of experience in the industry, we’re proud to say we’re America’s #1 solar power solutions provider. You can trust us to provide you with top-notch products and legendary customer service at every step of the way.<\/p>",
+            "subheading_5": "<p>With over 40,000+ happy customers, 2,500+ positive reviews, and decades of experience in the industry, we’re proud to say we’re America’s #1 solar power solutions provider. You can trust us to provide you with top-notch products and legendary customer service at every step of the way.</p>",
             "button_label_5": "Button",
             "button_link_5": "",
             "desktop_image_alignment_5": "left",
@@ -170,9 +138,6 @@
       },
       "block_order": [
         "overview_6YmGBd",
-        "specifications_4NenUf",
-        "7cc684c5-275a-4df1-93f4-a788b7ef8567",
-        "f73efdd6-6b72-44dc-b928-175b3b5984de",
         "image_with_text_7VKmxL"
       ],
       "settings": {
@@ -181,24 +146,21 @@
     },
     "box_usp_CWkV3z": {
       "type": "box_usp",
+      "disabled": true,
       "settings": {
         "usp_one_title": "Prepare for Anything",
         "usp_one": "From hurricanes to blackouts, reliable solar power ensures you're able to keep your home & family safe no matter what comes your way.",
-        "image_usp_one": "shopify:\/\/shop_images\/Money_Box.png",
         "usp_two_title": "Solar Power Made Easy",
         "usp_two": "Making one-click solar solutions simple since 2018. Whether you’re powering a cabin, charging devices, or backing up your home.",
-        "image_usp_two": "shopify:\/\/shop_images\/Quick_Mode_On.png",
         "usp_three_title": "Secure Your Independence",
-        "usp_three": "Say goodbye to reliance on the energy companies. Enjoy the same freedom that 50,000+ customers have with their own solar power system.",
-        "image_usp_three": "shopify:\/\/shop_images\/Solar_Energy.png"
+        "usp_three": "Say goodbye to reliance on the energy companies. Enjoy the same freedom that 50,000+ customers have with their own solar power system."
       }
     },
     "banner_hero_sub_CMGQA3": {
       "type": "banner-hero-sub",
+      "disabled": true,
       "settings": {
         "marquee-pos": "bottom",
-        "background_image": "shopify:\/\/shop_images\/banner-backdrop-product.jpg",
-        "icon_image": "shopify:\/\/shop_images\/Sun_0e884b04-14d8-4322-a008-5427d66643c2.png",
         "title": "Solar That Makes Sense - DIY+",
         "long_text": "Go solar on your own terms. With our DIY+ model, you become the master of your own solar project - we call it being your own general contractor, using our seasoned technicians to help guide you at every turn. So you can skip the high-commission salespeople and source your own top-tier equipment from us, and if you need a professional installer, we can help with that too. It’s solar, but smarter and more rewarding—because who said going green couldn’t also save you some green?",
         "usp_one": "Solar Power, Your Way - Expert Guidance Included",
@@ -213,7 +175,7 @@
         "info_box_JYH4fJ": {
           "type": "info_box",
           "settings": {
-            "video_url": "https:\/\/youtu.be\/P_1Dwgk9gTQ?si=ChyAzjrQcqkwNyAB",
+            "video_url": "https://youtu.be/P_1Dwgk9gTQ?si=ChyAzjrQcqkwNyAB",
             "title": "What To Expect - Complete Kits",
             "long_text": "We've been providing America and Canada with complete solar kits since 2018. Our mission is to make solar simple, which is why our complete packages contain every part and piece that you'd ever need. Designed by our expert solar and electrical engineers, we can have the entire kit shipped to your door. All of our kits come with diagrams and videos along with a lifetime of customer support."
           }
@@ -222,7 +184,6 @@
           "type": "info_box",
           "settings": {
             "video_url": "",
-            "image": "shopify:\/\/shop_images\/Untitled_design_1_f4e0df0b-3633-46ed-bb4b-fa2c7e3d9327.jpg",
             "title": "Top Solar Company in the USA",
             "long_text": "The prestigious ranking by Consumer Affairs is based on comprehensive evaluations, including ratings and reviews, equipment options, support services, pricing transparency, warranties, and various other factors. Among the top 6 nominated companies, Shop Solar stands out with the highest review rating, reaffirming its dedication to customer satisfaction and product quality."
           }
@@ -231,7 +192,6 @@
           "type": "info_box",
           "settings": {
             "video_url": "",
-            "image": "shopify:\/\/shop_images\/The_right_system_for_the_best_price_1920x1080-1.jpg",
             "title": "Best Components, Lowest Prices",
             "long_text": "We cut out the bloat of traditional solar companies and pass those savings off to you. Plus, lifetime customer service on everything we sell."
           }
@@ -240,7 +200,6 @@
           "type": "info_box",
           "settings": {
             "video_url": "",
-            "image": "shopify:\/\/shop_images\/Get_er_done_1920x1080_4b5bf9f4-816f-4061-9408-1db606fd10f1.jpg",
             "title": "Expert Guidance",
             "long_text": "Our team of solar professionals is here to help you navigate the world of solar with ease. From selecting the perfect solar kit to installation and beyond, we provide support and expertise at every step of the journey."
           }
@@ -249,7 +208,6 @@
           "type": "info_box",
           "settings": {
             "video_url": "",
-            "image": "shopify:\/\/shop_images\/Peace_of_Mind_1920x1080_from_EcoFlow_Delta_Pro.webp",
             "title": "We’re people just like you",
             "long_text": "We’re not corporate and neither are our customers. We’re just a group of 50+ solar enthusiasts who are passionate about providing an honest, no-BS way for anyone, anywhere to improve their lives and the world around them with solar power."
           }
@@ -258,7 +216,6 @@
           "type": "info_box",
           "settings": {
             "video_url": "",
-            "image": "shopify:\/\/shop_images\/Best_in_the_business_1920x1080_84ebe826-4012-4d5b-9a0a-0bec0212edd8.jpg",
             "title": "Trusted Solar Authority",
             "long_text": "With over 40,000+ happy customers, 2,500+ positive reviews, and decades of experience in the industry, we’re proud to say we’re America’s #1 solar power solutions provider. You can trust us to provide you with top-notch products and legendary customer service at every step of the way."
           }
@@ -266,7 +223,7 @@
         "info_box_UiRRPc": {
           "type": "info_box",
           "settings": {
-            "video_url": "https:\/\/www.youtube.com\/watch?v=PVCCMxrxvGg",
+            "video_url": "https://www.youtube.com/watch?v=PVCCMxrxvGg",
             "title": "What to Expect - Solar Panels",
             "long_text": "Get to know the top-tier solar panels included in your kit. These panels are designed to deliver consistent & reliable performance, ensuring your system powers your needs with ease."
           }
@@ -274,7 +231,7 @@
         "info_box_4YkUBG": {
           "type": "info_box",
           "settings": {
-            "video_url": "https:\/\/www.youtube.com\/watch?v=SaKcHggUy0Y",
+            "video_url": "https://www.youtube.com/watch?v=SaKcHggUy0Y",
             "title": "What to Expect - Batteries",
             "long_text": "Learn about the high-quality batteries included in every solar kit, designed to provide reliable energy storage for all your needs. These batteries ensure your system delivers consistent power when you need it most."
           }
@@ -290,16 +247,19 @@
         "info_box_UiRRPc",
         "info_box_4YkUBG"
       ],
+      "disabled": true,
       "settings": {
         "title": "Why Choose Shop Solar"
       }
     },
     "finance_section_ab7MzH": {
       "type": "finance_section",
+      "disabled": true,
       "settings": {}
     },
     "compare_table_84c9eq": {
       "type": "compare_table",
+      "disabled": true,
       "settings": {
         "compare-title": "Shop Solar vs The Rest",
         "compare-body": "Looking for a simple, transparent and affordable way to go solar? At ShopSolar.com, we streamline the process with one-click solar solutions that save you upwards of 50%, and almost all of our solar kits include batteries, giving true energy independence. Join over 50,000 satisfied customers enjoying the freedom of solar energy. Start your journey today! Just add to cart, checkout and let us handle the rest!"
@@ -307,10 +267,9 @@
     },
     "banner_hero_sub_DaktGp": {
       "type": "banner-hero-sub",
+      "disabled": true,
       "settings": {
         "marquee-pos": "top",
-        "background_image": "shopify:\/\/shop_images\/Group_25.jpg",
-        "icon_image": "shopify:\/\/shop_images\/Home_Safety.png",
         "title": "Be Smart, Buy From an Authorized Dealer",
         "long_text": "When you choose us, you’re investing in real products from a trusted company with established supplier relationships. Enjoy peace of mind with 100% manufacturer warranty coverage and lifetime customer support. In an age where online shopping is fraught with risks, it’s crucial to avoid fly-by-night websites that skirt regulations. Shop with confidence, knowing you’re getting genuine quality and reliable service.",
         "usp_one": "Shop Securely, Trusted Supplier, 100% Satisfaction",
@@ -321,6 +280,7 @@
     },
     "shopguard_hero_cnnG9H": {
       "type": "shopguard_hero",
+      "disabled": true,
       "settings": {
         "title": "ShopGuard",
         "subtitle": "Free Membership Program.",
@@ -341,8 +301,7 @@
             "review-name-tag": "TP",
             "review-name": "Troy P",
             "review-title": "EG4 off-grid base kit, Happy with my purchase.",
-            "review-body": "This is the first stage of my three planned purches. I got the eg4 inverter 6000 XP base kit with six 400 watt panels and the two server rack batteries. Did a little online research and followed the instructions and it got set up without any issues. Right now I'm just running it in my garage on a single outlet and have been running dual 750 watt water distillers with it. Once I get the second inverter and a bunch more panels and batteries, I plan on attaching it to my subpanel in my house that has my lights and outlets and appliances on it. Then I'll get a soft start for my AC and blower and run it on my main panel.",
-            "review-image": "shopify:\/\/shop_images\/Large_Image_from_Cloudfront.jpg"
+            "review-body": "This is the first stage of my three planned purches. I got the eg4 inverter 6000 XP base kit with six 400 watt panels and the two server rack batteries. Did a little online research and followed the instructions and it got set up without any issues. Right now I'm just running it in my garage on a single outlet and have been running dual 750 watt water distillers with it. Once I get the second inverter and a bunch more panels and batteries, I plan on attaching it to my subpanel in my house that has my lights and outlets and appliances on it. Then I'll get a soft start for my AC and blower and run it on my main panel."
           }
         },
         "review_FXCBVk": {
@@ -351,8 +310,7 @@
             "review-name-tag": "JB",
             "review-name": "Jacob B",
             "review-title": "Easy Process, Genuine Support",
-            "review-body": "Trying to pick the correct solar system for your needs can be very technical and frustrating. I wanted to thank Yvhan and the Shop Solar team for their patience and helpful attitudes through multiple calls. I feel like we were able to narrow it down to what worked for me and my family. My system works great and I couldn't be happier to have picked Shop Solar.",
-            "review-image": "shopify:\/\/shop_images\/tesla-1.jpg"
+            "review-body": "Trying to pick the correct solar system for your needs can be very technical and frustrating. I wanted to thank Yvhan and the Shop Solar team for their patience and helpful attitudes through multiple calls. I feel like we were able to narrow it down to what worked for me and my family. My system works great and I couldn't be happier to have picked Shop Solar."
           }
         },
         "review_YTRV4y": {
@@ -361,8 +319,7 @@
             "review-name-tag": "PB",
             "review-name": "Patrick B",
             "review-title": "Off Grid Solar Purchase",
-            "review-body": "I wanted to get an offgrid solar system for years but didn’t know where to start. I found Shop Solar on Facebook and decided to submit a quote. Within 24 hours I had a custom proposal that was almost half the price of the companies I had previously got quotes from. My wife and I decided to order online and the kit came in a timely manner and it was an easy install. Great company to work with!",
-            "review-image": "shopify:\/\/shop_images\/IMG_3362.png"
+            "review-body": "I wanted to get an offgrid solar system for years but didn’t know where to start. I found Shop Solar on Facebook and decided to submit a quote. Within 24 hours I had a custom proposal that was almost half the price of the companies I had previously got quotes from. My wife and I decided to order online and the kit came in a timely manner and it was an easy install. Great company to work with!"
           }
         },
         "review_f7k4FN": {
@@ -371,8 +328,7 @@
             "review-name-tag": "JM",
             "review-name": "James Martin",
             "review-title": "Highly Recommend",
-            "review-body": "I would like to take the time to express the outstanding service that I was provided with by Shop Solar. They provided me with all the answers to my questions, and after reviewing our quote over the phone I felt comfortable proceeding to order my kit. It’s exactly what I needed and they were there to help us over the phone when we had questions installing it. I highly recommend others in need to choose Shop Solar Kits.",
-            "review-image": "shopify:\/\/shop_images\/image11.jpg"
+            "review-body": "I would like to take the time to express the outstanding service that I was provided with by Shop Solar. They provided me with all the answers to my questions, and after reviewing our quote over the phone I felt comfortable proceeding to order my kit. It’s exactly what I needed and they were there to help us over the phone when we had questions installing it. I highly recommend others in need to choose Shop Solar Kits."
           }
         },
         "review_6w9xzB": {
@@ -381,8 +337,7 @@
             "review-name-tag": "BH",
             "review-name": "Brian H",
             "review-title": "Solar Kit for Mobile Work Van",
-            "review-body": "As a professional videographer, I needed reliable power on the go. ShopSolar's Delta Pro and roof-mounted panels were the perfect solution. Setup was easy, and the kit included everything needed. The Delta Pro powers my cameras, lights, laptop, and a small fridge with impressive battery capacity.",
-            "review-image": "shopify:\/\/shop_images\/IMG_3361.png"
+            "review-body": "As a professional videographer, I needed reliable power on the go. ShopSolar's Delta Pro and roof-mounted panels were the perfect solution. Setup was easy, and the kit included everything needed. The Delta Pro powers my cameras, lights, laptop, and a small fridge with impressive battery capacity."
           }
         },
         "review_kRGBW7": {
@@ -391,8 +346,7 @@
             "review-name-tag": "KS",
             "review-name": "Keith S",
             "review-title": "Best Tech Support",
-            "review-body": "You folks have been wonderful guiding me through the ins and outs of going solar. Plus your tech guys Rod and Nelson are the absolute best. They explained all the different aspects of inverters, batteries and how to keep them in top condition. Too much more to put here… but  no other company has the 100% tech support you provide for your customers!",
-            "review-image": "shopify:\/\/shop_images\/1695058552927000_800782105_1.jpg"
+            "review-body": "You folks have been wonderful guiding me through the ins and outs of going solar. Plus your tech guys Rod and Nelson are the absolute best. They explained all the different aspects of inverters, batteries and how to keep them in top condition. Too much more to put here… but  no other company has the 100% tech support you provide for your customers!"
           }
         },
         "review_mLRHmi": {
@@ -401,8 +355,7 @@
             "review-name-tag": "CA",
             "review-name": "Coll A",
             "review-title": "Great Experience",
-            "review-body": "My experience with Shop Solar has been excellent. Before the sales, they answered all my questions to assure that I got what I needed. After the sales they continued to support me with answers and help. I had a warranty issue with a unit, and it was handled as well as possible. I would recommend them to anyone looking to go solar.",
-            "review-image": "shopify:\/\/shop_images\/IMG_6911_1.jpg"
+            "review-body": "My experience with Shop Solar has been excellent. Before the sales, they answered all my questions to assure that I got what I needed. After the sales they continued to support me with answers and help. I had a warranty issue with a unit, and it was handled as well as possible. I would recommend them to anyone looking to go solar."
           }
         }
       },
@@ -415,6 +368,7 @@
         "review_kRGBW7",
         "review_mLRHmi"
       ],
+      "disabled": true,
       "settings": {
         "review-title": "Customer Success Stories"
       }
@@ -427,10 +381,9 @@
         "feature_2": "Easy to follow videos",
         "feature_3": "Lifetime Updates",
         "heading": "SOLAR + STORAGE MINI COURSE",
-        "description": "<b>We get it—solar can be confusing, especially if you're diving in for the first time. Which is exactly why we created this short, no-fluff solar mini course. In just 60 minutes, you'll learn everything you need to know to size, install, and optimize your very own solar power system—no confusing jargon or technical overwhelm. \n<br>75% OFF TODAY | LIMITED TIME ONLY.<\/b>",
+        "description": "<b>We get it—solar can be confusing, especially if you're diving in for the first time. Which is exactly why we created this short, no-fluff solar mini course. In just 60 minutes, you'll learn everything you need to know to size, install, and optimize your very own solar power system—no confusing jargon or technical overwhelm. \n<br>75% OFF TODAY | LIMITED TIME ONLY.</b>",
         "button_text": "Get Started",
-        "button_link": "https:\/\/shopsolarkits.com\/pages\/solar-course",
-        "hero_image": "shopify:\/\/shop_images\/solar-course-cut.jpg"
+        "button_link": "https://shopsolarkits.com/pages/solar-course"
       }
     },
     "recommendations": {
@@ -449,13 +402,13 @@
     "dynamic_custom_liquid_yYxkjF": {
       "type": "dynamic-custom-liquid",
       "settings": {
-        "custom_liquid": "<div class=\"klaviyo-form-RKB5vc\"><\/div>"
+        "custom_liquid": "<div class=\"klaviyo-form-RKB5vc\"></div>"
       }
     },
     "dynamic_custom_liquid_tA3VBV": {
       "type": "dynamic-custom-liquid",
       "settings": {
-        "custom_liquid": "<div class=\"klaviyo-form-SKvpNn\"><\/div>"
+        "custom_liquid": "<div class=\"klaviyo-form-SKvpNn\"></div>"
       }
     }
   },
