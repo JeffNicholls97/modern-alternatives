@@ -128,22 +128,25 @@
           "box_ntnAgB": {
             "type": "box",
             "settings": {
-              "box_title": "New Arrivals",
-              "box_url": ""
+              "box_title": "Outbuildings",
+              "box_url": "shopify://collections/outbuildings-structures",
+              "box_image": "shopify://shop_images/12x12-SUNHOUSE-Ontario.png"
             }
           },
           "box_At8EUk": {
             "type": "box",
             "settings": {
-              "box_title": "New Arrivals",
-              "box_url": ""
+              "box_title": "Tools & Equipment",
+              "box_url": "shopify://collections/tools-equipment",
+              "box_image": "shopify://shop_images/4_5b3d3e86-5a6e-4f4b-9160-f0b18a1f529e.png"
             }
           },
           "box_G8HEqH": {
             "type": "box",
             "settings": {
-              "box_title": "New Arrivals",
-              "box_url": ""
+              "box_title": "Food & Storage",
+              "box_url": "shopify://collections/food-storage",
+              "box_image": "shopify://shop_images/3_e1b7d32d-e3fe-4892-bf12-f4fff3a28365.png"
             }
           }
         },
