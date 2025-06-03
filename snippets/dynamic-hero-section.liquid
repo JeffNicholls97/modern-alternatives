@@ -38,7 +38,12 @@
             {{ section.settings.usp-3 }}
           </span>
           <a class="text-white hover:scale-105 duration-200 text-base mt-8 font-bold inline-block px-10 py-2 text-center bg-[#93936b] rounded-full" href="{{ section.settings.button-url }}">{{ section.settings.button-text }}</a>
-          <span class="flex gap-1 mt-10 items-center">
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-span-full p-5 lg:p-0 lg:col-span-2 flex items-center justify-center rounded-md bg-white lg:col-start-4">
+      <span class="flex gap-1 mt-10 items-center">
             <img
               class="w-5 h-5 hs-id-13f8aaf0 hs-lazyload"
               height="20"
@@ -71,26 +76,6 @@
               width="20" />
             <span class="ml-3 text-black">50,000+ Happy Customers</span>
           </span>
-        </div>
-      </div>
-    </div>
-    <div class="col-span-full p-5 lg:p-0 lg:col-span-2 flex items-center justify-center rounded-md bg-white lg:col-start-4">
-      <script
-        type="text/javascript"
-        src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-        async></script>
-      <div
-        class="trustpilot-widget w-full"
-        data-locale="en-US"
-        data-template-id="5419b6ffb0d04a076446a9af"
-        data-businessunit-id="61b77f5eba78a18da3959705"
-        data-style-height="20px"
-        data-style-width="100%">
-        <a
-          href="https://uk.trustpilot.com/review/shopsolarkits.com"
-          target="_blank"
-          rel="noopener">Trustpilot</a>
-      </div>
     </div>
     <div class="col-span-full relative flex-wrap lg:flex-nowrap lg:col-span-2 gap-2 lg:gap-5 flex item-center p-5 lg:row-span-2 lg:col-start-4 lg:row-start-2 rounded-md bg-white">
       {% for block in section.blocks limit: 1 %}
