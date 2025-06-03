@@ -86,13 +86,21 @@
               "logo": "shopify://shop_images/image_54.webp",
               "link": ""
             }
+          },
+          "brand_pnjVKN": {
+            "type": "brand",
+            "settings": {
+              "logo": "shopify://shop_images/Capture-2025-06-03-190919.png",
+              "link": ""
+            }
           }
         },
         "block_order": [
           "brand_cpzfVd",
           "brand_z9LUpC",
           "brand_e3GhQ7",
-          "brand_DQhJ4q"
+          "brand_DQhJ4q",
+          "brand_pnjVKN"
         ],
         "settings": {}
       },
