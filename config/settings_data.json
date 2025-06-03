@@ -323,7 +323,7 @@
           "header_annoucement_font_size": 12,
           "header_annoucement_background_color": "#93936b",
           "header_annoucement_text_color": "#ffffff",
-          "main_top_bar_enable": true,
+          "main_top_bar_enable": false,
           "main_top_bar_text": "",
           "main_top_bar_text_mob": "",
           "main_top_bar_font_size": 12,
