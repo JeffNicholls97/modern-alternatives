@@ -1,5 +1,12 @@
     /* <---CSS FOR FAQ ACCORDIONS---> */
 
+
+  #product_single_trigger_overview_6YmGBd {
+    color: #93936b!important;
+}
+
+
+
     input:checked ~ label .arrow_carret svg {
         transform: rotate(180deg);
     }
