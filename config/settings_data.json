@@ -191,18 +191,18 @@
         "type": "four_upsell_grid",
         "settings": {
           "upsell-title": "Live Free. Live Simple. Live your own way",
-          "image-upsell-1": "shopify://shop_images/headset.png",
+          "image-upsell-1": "shopify://shop_images/customer-support-staff-ready-for-work.jpg",
           "box-title-upsell-1": "Lifetime support",
           "box-body-upsell-1": "Real people, real support—before, during, and after your purchase",
-          "image-upsell-2": "shopify://shop_images/Frame_48095522.png",
+          "image-upsell-2": "shopify://shop_images/glowing-sale-sign.jpg",
           "box-title-upsell-2": "Price Match",
           "box-body-upsell-2": "Found a better price? We’ll match it—guaranteed.",
-          "image-upsell-3": "shopify://shop_images/truck.png",
+          "image-upsell-3": "shopify://shop_images/using-a-tape-dispenser-to-close-up-a-box.jpg",
           "box-title-upsell-3": "Fast Shipping",
           "box-body-upsell-3": "Get what you need, when you need it—without delays.",
-          "image-upsell-4": "shopify://shop_images/sun.png",
-          "box-title-upsell-4": "Go Solar",
-          "box-body-upsell-4": "Install your solar kit with our assistance and enjoy the benefits of going solar!"
+          "image-upsell-4": "shopify://shop_images/old-homestead-along-the-water.jpg",
+          "box-title-upsell-4": "Live Free",
+          "box-body-upsell-4": "Embrace independence, self-reliance, and the freedom to live life on your terms."
         }
       },
       "compare_table": {
