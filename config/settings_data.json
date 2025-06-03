@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "country_check": false,
     "color_background": "#ffffff",
     "color_links": "#93936b",
     "color_button_background": "#93936b",
