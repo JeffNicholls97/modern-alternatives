@@ -62,30 +62,28 @@
           "brand_cpzfVd": {
             "type": "brand",
             "settings": {
+              "logo": "shopify://shop_images/Logo_b8465873-e5b3-4810-a90f-6cb3f58fc318.webp",
               "link": ""
             }
           },
           "brand_z9LUpC": {
             "type": "brand",
             "settings": {
+              "logo": "shopify://shop_images/image_52.webp",
               "link": ""
             }
           },
           "brand_e3GhQ7": {
             "type": "brand",
             "settings": {
+              "logo": "shopify://shop_images/image_53.webp",
               "link": ""
             }
           },
           "brand_DQhJ4q": {
             "type": "brand",
             "settings": {
-              "link": ""
-            }
-          },
-          "brand_AJDYHb": {
-            "type": "brand",
-            "settings": {
+              "logo": "shopify://shop_images/image_54.webp",
               "link": ""
             }
           }
@@ -94,8 +92,7 @@
           "brand_cpzfVd",
           "brand_z9LUpC",
           "brand_e3GhQ7",
-          "brand_DQhJ4q",
-          "brand_AJDYHb"
+          "brand_DQhJ4q"
         ],
         "settings": {}
       },
