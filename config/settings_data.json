@@ -325,7 +325,7 @@
           "header_annoucement_enable": true,
           "header_annoucement_position": "top",
           "header_annoucement_text_align": "right",
-          "header_annoucement_text": "<p><a href=\"https://modernalternatives.co/pages/contact-us\" title=\"https://modernalternatives.co/pages/contact-us\"><strong>Contact Us</strong></a><strong>   |   </strong><a href=\"https://modernalternatives.co/pages/about\" title=\"https://modernalternatives.co/pages/about\"><strong>About Us</strong></a></p>",
+          "header_annoucement_text": "<p><strong>  </strong><strong>  </strong><a href=\"https://modernalternatives.co/pages/contact-us\" title=\"https://modernalternatives.co/pages/contact-us\"><strong>Contact Us</strong></a><strong>   |   </strong><a href=\"https://modernalternatives.co/pages/about\" title=\"https://modernalternatives.co/pages/about\"><strong>About Us</strong></a></p>",
           "header_annoucement_text_mob": "<p><strong>Shop June Deals & Specials | Order Today! </strong></p>",
           "header_annoucement_font_size": 13,
           "header_annoucement_background_color": "#93936b",
