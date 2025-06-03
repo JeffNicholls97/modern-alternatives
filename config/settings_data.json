@@ -48,7 +48,7 @@
         ],
         "settings": {
           "hero-image": "shopify://shop_images/rear-view-of-dad-holding-her-little-girl-in-arms-a-2024-10-20-22-42-57-utc_1.jpg",
-          "hero-title": "for alternative Living Solutions",
+          "hero-title": "for Alternative Living Solutions",
           "hero-title-highlight": "The #1 Source",
           "usp-1": "Best Prices in America",
           "usp-2": "Price Match Guarantee",
@@ -175,11 +175,11 @@
       "dynamic-featured-collection": {
         "type": "dynamic-featured-collection",
         "settings": {
-          "title": "Off-Grid power",
+          "title": "Off-Grid Power",
           "layout": "grid",
           "collection": "solar-generators",
           "product_count": 5,
-          "cta_label": "Shop collection",
+          "cta_label": "Shop Collection",
           "cta_button_style": "primary"
         }
       },
@@ -254,7 +254,7 @@
           "layout": "grid",
           "collection": "heating-cooling",
           "product_count": 5,
-          "cta_label": "Shop collection",
+          "cta_label": "Shop Collection",
           "cta_button_style": "primary"
         }
       },
