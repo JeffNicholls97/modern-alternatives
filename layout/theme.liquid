@@ -341,9 +341,6 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     </main>
     {% section 'add_x_get_y' %}
     {% section 'stepheN-discount-codes' %}
-            {% unless request.path == '/pages/solar-kit-recommender' or  request.path == '/pages/solar-quote' or request.path == '/pages/free-solar-proposal' or request.path == '/' or request.path == '/cart' or request.path == '/pages/solar-financing' or request.path == '/pages/install' or request.path == '/pages/solarguard' %}
-      {% section 'global-kit-form' %}
-    {% endunless %}
     {% unless template contains 'cart' %}
       {% section 'static-footer' %}
     {% endunless %}
