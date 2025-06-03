@@ -104,22 +104,25 @@
           "box_WjLTQ9": {
             "type": "box",
             "settings": {
-              "box_title": "New Arrivals",
-              "box_url": ""
+              "box_title": "Today's Deals",
+              "box_url": "shopify://collections/todays-deals",
+              "box_image": "shopify://shop_images/sunhouse-kit-8x12.png"
             }
           },
           "box_MX3wH8": {
             "type": "box",
             "settings": {
-              "box_title": "New Arrivals",
-              "box_url": ""
+              "box_title": "Chicken Supplies",
+              "box_url": "shopify://collections/chicken-supplies",
+              "box_image": "shopify://shop_images/iStock-1174000116.jpg"
             }
           },
           "box_rBUQDx": {
             "type": "box",
             "settings": {
-              "box_title": "New Arrivals",
-              "box_url": ""
+              "box_title": "Power & Appliances",
+              "box_url": "shopify://collections/power-appliances",
+              "box_image": "shopify://shop_images/AnkerSOLIXC300X.jpg"
             }
           }
         },
@@ -131,7 +134,7 @@
         "settings": {
           "video": "",
           "left_title": "Solar Can Make Changes",
-          "left_text": "At ShopSolar.com, we are on a mission to make solar simple, transparent & affordable. For years now, traditional solar companies and local installers have been over-charging customers for extremely basic solar panel systems (without batteries)"
+          "left_text": "At Modern Alternatives, we are on a mission to make solar simple, transparent & affordable. For years now, traditional solar companies and local installers have been over-charging customers for extremely basic solar panel systems (without batteries)"
         }
       },
       "dynamic-featured-collection": {
